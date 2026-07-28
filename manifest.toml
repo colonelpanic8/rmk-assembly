@@ -9,7 +9,7 @@ fork = "https://github.com/colonelpanic8/rmk"
 
 [publish]
 remote = "fork"
-branch = "master"
+branch = "assembled"
 
 [base]
 remote = "upstream"
