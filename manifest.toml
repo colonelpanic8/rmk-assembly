@@ -65,6 +65,7 @@ summary = "BLE split reconnect fixes: shorter advertising grace, armed connect r
 branch = "fork:fold/lighting-rynk"
 summary = "Glove80 lighting system + Rynk extensions (scenes, readback, build info, HID transport, split latency)"
 note = "Based on upstream:feat/rynk; must follow it."
+fixup = "patches/lighting-rynk-coherence.patch"
 
 [[exclude]]
 pr = 999

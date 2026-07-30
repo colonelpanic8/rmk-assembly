@@ -1,0 +1,28 @@
+diff --git a/rmk/src/keymap.rs b/rmk/src/keymap.rs
+index 448f8d9c..e4617715 100644
+--- a/rmk/src/keymap.rs
++++ b/rmk/src/keymap.rs
+@@ -157,7 +157,6 @@ impl KeyMapInner<'_> {
+         if before != after {
+             publish_event(LayerChangeEvent::new(after));
+         }
+-        publish_event(LayerChangeEvent::new(self.get_activated_layer()));
+     }
+ 
+     fn get_action_at(&self, pos: KeyboardEventPos, layer_num: usize) -> KeyAction {
+diff --git a/rynk/tests/loopback.rs b/rynk/tests/loopback.rs
+index 2952b4cc..25a86b35 100644
+--- a/rynk/tests/loopback.rs
++++ b/rynk/tests/loopback.rs
+@@ -140,11 +140,6 @@ async fn client_against_run_session() {
+             matches!(ev, TopicEvent::LayerChange(1)),
+             "expected LayerChange(1), got {ev:?}"
+         );
+-        let ev = client.next_topic().await;
+-        assert!(
+-            matches!(ev, TopicEvent::LayerChange(1)),
+-            "default-layer changes publish LayerChange, got {ev:?}"
+-        );
+ 
+         // Round-trip representative remaining domains.
+         client.set_key(0, 1, 1, KeyAction::Morse(2)).await.unwrap();

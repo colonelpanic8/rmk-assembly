@@ -4,19 +4,19 @@
     "base": "fe211575308f8d0d1cb2062713f1bc6f5764082c",
     "entries": {
       "feat/rynk": "e7f61ab03da63ac942291fc357497b44d97fe77f",
-      "fold/lighting-rynk": "538621e9ec8a53068f3d02bd7af516bbf34e8beb",
+      "fold/lighting-rynk": "8b647fdf092d19820fa0892b6712f04c19fb3e5d",
       "fold/macro-hooks": "c3d11e394728f9f7afda3388f62c2f06c6de1b4e",
       "fold/split-reliability": "2615b204f057a7a9bbef7f4525890583ea894615"
     }
   },
   "build": {
-    "generated": "2026-07-30T08:53:20.532941348+00:00",
+    "generated": "2026-07-30T20:51:12.247034463+00:00",
     "base": "fe211575308f8d0d1cb2062713f1bc6f5764082c",
-    "commit": "0acce381e2a22fc847db1473fe5f514832924911",
-    "pre_provenance_commit": "0acce381e2a22fc847db1473fe5f514832924911",
-    "tree": "017e94b65b1dd7fcb8168f51de727287b8be2b95",
-    "built_tree": "017e94b65b1dd7fcb8168f51de727287b8be2b95",
-    "previous_tree": "ea9084d6169db8afc777c2e50556ed724f53f85c",
+    "commit": "3c8f59fe87207db00e3df1c3acaf75b3dda2c630",
+    "pre_provenance_commit": "3c8f59fe87207db00e3df1c3acaf75b3dda2c630",
+    "tree": "0af81fb07ebadc0290f21544e3d5b853bd25a546",
+    "built_tree": "0af81fb07ebadc0290f21544e3d5b853bd25a546",
+    "previous_tree": "ebd8359a2c6562da2b7683a419533260340ed7b7",
     "tree_changed": true,
     "conflicts": 0,
     "manifest_entries": [
@@ -42,7 +42,8 @@
         "name": "fold/lighting-rynk",
         "kind": "branch",
         "source": "fork:fold/lighting-rynk",
-        "pin": "538621e9ec8a53068f3d02bd7af516bbf34e8beb"
+        "pin": "8b647fdf092d19820fa0892b6712f04c19fb3e5d",
+        "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       }
     ],
     "results": [
@@ -66,9 +67,10 @@
       },
       {
         "name": "fold/lighting-rynk",
-        "oid": "538621e9ec8a53068f3d02bd7af516bbf34e8beb",
+        "oid": "8b647fdf092d19820fa0892b6712f04c19fb3e5d",
         "status": "merged",
-        "conflicted": false
+        "conflicted": false,
+        "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       }
     ]
   }
