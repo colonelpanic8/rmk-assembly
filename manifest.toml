@@ -14,44 +14,6 @@ branch = "assembled"
 [base]
 remote = "upstream"
 ref = "main"
-# submodule = "upstream"  # optional: source base objects from this submodule path
-
-# Entries merge in order onto the base. Three kinds:
-#
-# [[entry]]
-# branch = "mine:some-topic"      # a live topic branch on a named remote
-# pr = 1234                       # optional metadata: the PR this branch is
-#                                 # published as (provenance link + dedup)
-#
-# [[entry]]
-# pr = 1234                       # refs/pull/1234/head; remote = "upstream" by default
-# fixup = "patches/example.patch" # optional coherence fixup: applied inside
-#                                 # THIS entry's step, right after its merge,
-#                                 # repairing what admitting it broke across
-#                                 # the earlier entries. Keeps every entry
-#                                 # boundary a coherent tree. Attach it with
-#                                 # `fork-fold fixup ENTRY FILE --capture`.
-#
-# [[entry]]
-# patch = "patches/example.patch" # a STANDALONE patch at its own position,
-#                                 # for content belonging to no entry (e.g.
-#                                 # site-local customization). Cross-entry
-#                                 # repairs belong in a fixup instead.
-
-# Targets deliberately NOT carried. Absence records nothing: `add --prs-from`
-# re-appends every open PR it finds, so commenting an entry out is inert.
-# An exclusion is the positive refusal, and the only form of it that survives
-# a discovery sweep. Record one with `fork-fold exclude`; it never touches the
-# lock, so nothing needs rebuilding.
-#
-# [[exclude]]
-# pr = 1234                       # or branch = "mine:some-topic", or
-#                                 # patch = "patches/example.patch"
-# reason = "superseded by 1240, which already contains it"
-
-[[entry]]
-branch = "upstream:feat/rynk"
-summary = "Rynk protocol + host stack (developed upstream, unmerged)"
 
 [[entry]]
 branch = "fork:fold/macro-hooks"
@@ -64,7 +26,7 @@ summary = "BLE split reconnect fixes: shorter advertising grace, armed connect r
 [[entry]]
 branch = "fork:fold/lighting-rynk"
 summary = "Glove80 lighting system + Rynk extensions (scenes, readback, build info, HID transport, split latency)"
-note = "Based on upstream:feat/rynk; must follow it."
+note = "Was based on upstream:feat/rynk; rebased onto main after it merged in 9448f7a1."
 fixup = "patches/lighting-rynk-coherence.patch"
 
 [[exclude]]
@@ -73,4 +35,4 @@ reason = "held modifier combinations landed upstream in f91b22a0"
 
 [[exclude]]
 branch = "fork:feat/rynk"
-reason = "stale rebased copy of upstream:feat/rynk, which is carried instead"
+reason = "stale copy of the rynk stack; upstream rebased and merged its own feat/rynk into main at 9448f7a1, so the base carries it now"
