@@ -1,22 +1,22 @@
 {
   "version": 1,
   "pins": {
-    "base": "9448f7a10e489e2ec5bcde08e5d8461699851817",
+    "base": "a6d6a0c2f3051e812df589d91c6065aac0840ee1",
     "entries": {
       "feat/rynk": "d2c97ab97580aa6758b90b5ec8abcbea331f3001",
-      "fold/lighting-rynk": "499e230df1fe84c1376f4e581cc827fc4b9d5019",
+      "fold/lighting-rynk": "058d7406f4768ffa10d159bb0e3d133a0cd782b6",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/split-reliability": "51604a856ad77311d4253383cc610f93dd5f3111"
     }
   },
   "build": {
-    "generated": "2026-07-31T20:27:33.222453282+00:00",
-    "base": "9448f7a10e489e2ec5bcde08e5d8461699851817",
-    "commit": "2dc13ec98f50e59928b606fa4acf8c9f8e56a42a",
-    "pre_provenance_commit": "2dc13ec98f50e59928b606fa4acf8c9f8e56a42a",
-    "tree": "7d0a548a36b703e2df11d33903c952a7ba8a9e9e",
-    "built_tree": "7d0a548a36b703e2df11d33903c952a7ba8a9e9e",
-    "previous_tree": "de7d549a44412691a4149b22a0059b3b159ec63a",
+    "generated": "2026-08-03T10:01:30.165505759+00:00",
+    "base": "a6d6a0c2f3051e812df589d91c6065aac0840ee1",
+    "commit": "84dc07b22357d7a9fa6afdc8f4841521d2025983",
+    "pre_provenance_commit": "84dc07b22357d7a9fa6afdc8f4841521d2025983",
+    "tree": "847935ed31b5d774756a025a9df15c338aeadbb3",
+    "built_tree": "847935ed31b5d774756a025a9df15c338aeadbb3",
+    "previous_tree": "7d0a548a36b703e2df11d33903c952a7ba8a9e9e",
     "tree_changed": true,
     "conflicts": 0,
     "manifest_entries": [
@@ -36,7 +36,7 @@
         "name": "fold/lighting-rynk",
         "kind": "branch",
         "source": "fork:fold/lighting-rynk",
-        "pin": "499e230df1fe84c1376f4e581cc827fc4b9d5019",
+        "pin": "058d7406f4768ffa10d159bb0e3d133a0cd782b6",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       }
     ],
@@ -55,7 +55,7 @@
       },
       {
         "name": "fold/lighting-rynk",
-        "oid": "499e230df1fe84c1376f4e581cc827fc4b9d5019",
+        "oid": "058d7406f4768ffa10d159bb0e3d133a0cd782b6",
         "status": "merged",
         "conflicted": false,
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
