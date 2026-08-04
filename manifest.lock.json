@@ -4,19 +4,20 @@
     "base": "a6d6a0c2f3051e812df589d91c6065aac0840ee1",
     "entries": {
       "feat/rynk": "d2c97ab97580aa6758b90b5ec8abcbea331f3001",
-      "fold/lighting-rynk": "058d7406f4768ffa10d159bb0e3d133a0cd782b6",
+      "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
+      "fold/lighting-rynk": "0b525fe56fa134f169d51b816f930a41972f674b",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/split-reliability": "51604a856ad77311d4253383cc610f93dd5f3111"
     }
   },
   "build": {
-    "generated": "2026-08-03T10:01:30.165505759+00:00",
+    "generated": "2026-08-04T02:17:02.231544974+00:00",
     "base": "a6d6a0c2f3051e812df589d91c6065aac0840ee1",
-    "commit": "84dc07b22357d7a9fa6afdc8f4841521d2025983",
-    "pre_provenance_commit": "84dc07b22357d7a9fa6afdc8f4841521d2025983",
-    "tree": "847935ed31b5d774756a025a9df15c338aeadbb3",
-    "built_tree": "847935ed31b5d774756a025a9df15c338aeadbb3",
-    "previous_tree": "7d0a548a36b703e2df11d33903c952a7ba8a9e9e",
+    "commit": "850d6d453403dcaad9aa9f11c57539f5e96a9afb",
+    "pre_provenance_commit": "850d6d453403dcaad9aa9f11c57539f5e96a9afb",
+    "tree": "150a5e2440e85017eb75af169c0d487196aa1d85",
+    "built_tree": "150a5e2440e85017eb75af169c0d487196aa1d85",
+    "previous_tree": "ecd226bad04935384300b7fc6ca7b44cb6962143",
     "tree_changed": true,
     "conflicts": 0,
     "manifest_entries": [
@@ -36,8 +37,14 @@
         "name": "fold/lighting-rynk",
         "kind": "branch",
         "source": "fork:fold/lighting-rynk",
-        "pin": "058d7406f4768ffa10d159bb0e3d133a0cd782b6",
+        "pin": "0b525fe56fa134f169d51b816f930a41972f674b",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
+      },
+      {
+        "name": "fold/connection-selection",
+        "kind": "branch",
+        "source": "fork:fold/connection-selection",
+        "pin": "ce4107275d761a050b52f0fe8664ba83f49b3ffd"
       }
     ],
     "results": [
@@ -55,10 +62,16 @@
       },
       {
         "name": "fold/lighting-rynk",
-        "oid": "058d7406f4768ffa10d159bb0e3d133a0cd782b6",
+        "oid": "0b525fe56fa134f169d51b816f930a41972f674b",
         "status": "merged",
         "conflicted": false,
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
+      },
+      {
+        "name": "fold/connection-selection",
+        "oid": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }

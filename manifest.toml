@@ -29,6 +29,10 @@ summary = "Glove80 lighting system + Rynk extensions (scenes, readback, build in
 note = "Was based on upstream:feat/rynk; rebased onto main after it merged in 9448f7a1."
 fixup = "patches/lighting-rynk-coherence.patch"
 
+[[entry]]
+branch = "fork:fold/connection-selection"
+summary = "Key-selectable output transport: OutputUsb/OutputBluetooth set preferred, profile switch prefers BLE, public connection status accessor"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
