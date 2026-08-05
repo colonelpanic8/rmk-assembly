@@ -13,6 +13,7 @@
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
+      "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
@@ -22,13 +23,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-05T16:00:25.801683862+00:00",
+    "generated": "2026-08-05T23:26:29.142691178+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "e4f963f60b77a3259f5481bb5a8260c04fb6d41e",
-    "pre_provenance_commit": "e4f963f60b77a3259f5481bb5a8260c04fb6d41e",
-    "tree": "8572a446508bc7b021acb23b96ab6b17b19b404e",
-    "built_tree": "8572a446508bc7b021acb23b96ab6b17b19b404e",
-    "previous_tree": "f22bdfb52dd78fe87f987516b50326b0215e78ac",
+    "commit": "59fd18e1ba0935d55988c5c32951fd7e0b37169b",
+    "pre_provenance_commit": "59fd18e1ba0935d55988c5c32951fd7e0b37169b",
+    "tree": "74538a996639ab91118eb7c8389b0c1f5cedf62d",
+    "built_tree": "74538a996639ab91118eb7c8389b0c1f5cedf62d",
+    "previous_tree": "8572a446508bc7b021acb23b96ab6b17b19b404e",
     "tree_changed": true,
     "conflicts": 9,
     "manifest_entries": [
@@ -129,6 +130,12 @@
         "kind": "branch",
         "source": "fork:fold/unicode-input",
         "pin": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb"
+      },
+      {
+        "name": "fold/cirque-pinnacle",
+        "kind": "branch",
+        "source": "fork:fold/cirque-pinnacle",
+        "pin": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56"
       }
     ],
     "results": [
@@ -238,6 +245,12 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
+      },
+      {
+        "name": "fold/cirque-pinnacle",
+        "oid": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
