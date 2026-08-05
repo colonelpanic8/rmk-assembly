@@ -1,0 +1,8 @@
+# Informational index of tracked rerere pairs: which entry's merge
+# produced which conflict hash. Auditability only, never load-bearing;
+# replay uses the pair directories, verification uses the lock tree.
+[[resolution]]
+entry = "fold/lighting-rynk"
+hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-08-05T08:06:30.042539671+00:00"
