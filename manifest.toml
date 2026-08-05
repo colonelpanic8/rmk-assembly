@@ -58,6 +58,9 @@ branch = "fork:feat/morse-unilateral-mod-chording"
 [[entry]]
 branch = "fork:feat/consumer-keycodes"
 
+[[entry]]
+branch = "fork:fold/unicode-input"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

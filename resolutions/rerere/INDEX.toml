@@ -98,6 +98,30 @@ paths = ["rmk/src/split/peripheral.rs"]
 recorded = "2026-08-05T08:06:30.042539671+00:00"
 
 [[resolution]]
+entry = "fold/unicode-input"
+hash = "242912a446aa5391a9331fe0c2a1706d3f7a82b8"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-08-05T13:48:34.001725888+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
+hash = "6570e8805d2c1ac63b0f77502448529289f63b89"
+paths = ["rmk/src/keymap.rs"]
+recorded = "2026-08-05T13:48:34.001728022+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
+hash = "a08b1e6997bdab13f2fe72fe166ded0b173f85ab"
+paths = ["rmk/src/config/mod.rs"]
+recorded = "2026-08-05T13:48:34.001728502+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
+hash = "db21eb57e7e844882200e2168563e911bbdb532e"
+paths = ["rmk/src/keyboard.rs"]
+recorded = "2026-08-05T13:48:34.001728853+00:00"
+
+[[resolution]]
 entry = "pr-984"
 hash = "3460c699e14e3a0ff69bf22012941b920d977cd4"
 paths = ["rmk/src/split_app.rs"]

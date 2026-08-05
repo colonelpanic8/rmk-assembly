@@ -15,20 +15,21 @@
       "fold/lighting-rynk": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
+      "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
       "pr-1031": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
       "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
     }
   },
   "build": {
-    "generated": "2026-08-05T13:32:42.898580823+00:00",
+    "generated": "2026-08-05T13:48:34.012052881+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "c908de7e3a846ecc023b14e5445b709c6b0bbc76",
-    "pre_provenance_commit": "c908de7e3a846ecc023b14e5445b709c6b0bbc76",
-    "tree": "13e079c3e1be2776e992945d6e1bd77c74695b8e",
-    "built_tree": "13e079c3e1be2776e992945d6e1bd77c74695b8e",
-    "previous_tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
+    "commit": "f3f7ea29276622e2299bfccab829b76eb5494a67",
+    "pre_provenance_commit": "f3f7ea29276622e2299bfccab829b76eb5494a67",
+    "tree": "9db40cb5eda0ac2f909772950a2d9447a1d6994d",
+    "built_tree": "9db40cb5eda0ac2f909772950a2d9447a1d6994d",
+    "previous_tree": "13e079c3e1be2776e992945d6e1bd77c74695b8e",
     "tree_changed": true,
-    "conflicts": 0,
+    "conflicts": 1,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -103,6 +104,12 @@
         "kind": "branch",
         "source": "fork:feat/consumer-keycodes",
         "pin": "1373e2533443e044305328df85336ab766ab03a9"
+      },
+      {
+        "name": "fold/unicode-input",
+        "kind": "branch",
+        "source": "fork:fold/unicode-input",
+        "pin": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb"
       }
     ],
     "results": [
@@ -185,6 +192,13 @@
         "oid": "1373e2533443e044305328df85336ab766ab03a9",
         "status": "merged",
         "conflicted": false
+      },
+      {
+        "name": "fold/unicode-input",
+        "oid": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:242912a446aa5391a9331fe0c2a1706d3f7a82b8,6570e8805d2c1ac63b0f77502448529289f63b89,a08b1e6997bdab13f2fe72fe166ded0b173f85ab,db21eb57e7e844882200e2168563e911bbdb532e"
       }
     ]
   }
