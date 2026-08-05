@@ -24,9 +24,9 @@ branch = "fork:fold/split-reliability"
 summary = "BLE split reconnect fixes: shorter advertising grace, armed connect requests"
 
 [[entry]]
-branch = "fork:fold/lighting-rynk"
+pr = 1031
 summary = "Glove80 lighting system + Rynk extensions (scenes, readback, build info, HID transport, split latency)"
-note = "Was based on upstream:feat/rynk; rebased onto main after it merged in 9448f7a1."
+note = "Carried as the PR, not fork:fold/lighting-rynk -- that branch was a duplicate ref on the same commit and has been deleted. Was based on upstream:feat/rynk; rebased onto main after it merged in 9448f7a1."
 fixup = "patches/lighting-rynk-coherence.patch"
 
 [[entry]]
@@ -35,7 +35,7 @@ summary = "Key-selectable output transport: OutputUsb/OutputBluetooth set prefer
 
 [[entry]]
 pr = 984
-fixup = "patches/pr-984-lighting-coherence.patch"
+fixup = "patches/pr-984-split-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/morse-retro-tap"

@@ -13,18 +13,19 @@
       "fold/lighting-rynk": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
+      "pr-1031": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
       "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
     }
   },
   "build": {
-    "generated": "2026-08-05T09:49:23.798299590+00:00",
+    "generated": "2026-08-05T10:28:57.940116893+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "df0773c7ad0c6303e5716b79293d633f415d680c",
-    "pre_provenance_commit": "df0773c7ad0c6303e5716b79293d633f415d680c",
+    "commit": "07da9a47e04d9cd54fc358b3e765db922043b693",
+    "pre_provenance_commit": "07da9a47e04d9cd54fc358b3e765db922043b693",
     "tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
     "built_tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
-    "previous_tree": "9c53ab26afc94ce1a49ac909e6acd4d8ef50a579",
-    "tree_changed": true,
+    "previous_tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
+    "tree_changed": false,
     "conflicts": 6,
     "manifest_entries": [
       {
@@ -40,9 +41,9 @@
         "pin": "2e65faa6e9dad852154db5266b4d3a572e8f295e"
       },
       {
-        "name": "fold/lighting-rynk",
-        "kind": "branch",
-        "source": "fork:fold/lighting-rynk",
+        "name": "pr-1031",
+        "kind": "pr",
+        "source": "upstream#1031",
         "pin": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
@@ -104,7 +105,7 @@
         "conflicted": false
       },
       {
-        "name": "fold/lighting-rynk",
+        "name": "pr-1031",
         "oid": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
         "status": "merged",
         "conflicted": true,
