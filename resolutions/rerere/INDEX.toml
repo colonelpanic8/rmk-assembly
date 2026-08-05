@@ -2,7 +2,115 @@
 # produced which conflict hash. Auditability only, never load-bearing;
 # replay uses the pair directories, verification uses the lock tree.
 [[resolution]]
+entry = "feat/morse-hold-trigger-on-release"
+hash = "16a5bc11050695d24583bde2f2df6f718ba82d88"
+paths = ["rmk-macro/src/codegen/action_parser.rs"]
+recorded = "2026-08-05T09:48:21.226888993+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-on-release"
+hash = "3bd0d826d0def97ae45e95bed5624e94c62cea7d"
+paths = ["rmk/src/keyboard/morse.rs"]
+recorded = "2026-08-05T09:48:21.226891487+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-on-release"
+hash = "923466ae2cbc477e65d2362fdd790ab146fb69c2"
+paths = ["rmk-types/src/morse.rs"]
+recorded = "2026-08-05T09:48:21.226893030+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-on-release"
+hash = "9d8fc76b977762dc5334289367875026faf74445"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-05T09:48:21.226893541+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "13c7818e7f40aa5dddb1a2aeb6af0ddae31e13b3"
+paths = ["rmk-config/src/resolved/behavior.rs"]
+recorded = "2026-08-05T09:43:23.694012358+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "693cdab8169586a5fa6a8a19ea0567fd41f38109"
+paths = ["rmk-macro/src/codegen/action_parser.rs"]
+recorded = "2026-08-05T09:43:23.694014702+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "e47d870242bdb2b2e77b2e97fb9005058db29adc"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-05T09:43:23.694015103+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "e489de37e1024d3dcec35016044e6f2c8687f4f7"
+paths = ["rmk/src/keyboard/morse.rs"]
+recorded = "2026-08-05T09:43:23.694015444+00:00"
+
+[[resolution]]
+entry = "feat/morse-per-profile-prior-idle"
+hash = "027002d090766f9a9a591442b589706a52647ee1"
+paths = ["rmk/src/keyboard/morse.rs"]
+recorded = "2026-08-05T09:42:01.453104703+00:00"
+
+[[resolution]]
+entry = "feat/morse-per-profile-prior-idle"
+hash = "1ea21aa9e35d4c687230d361cae03f5d5c2ffdaf"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-05T09:42:01.453107047+00:00"
+
+[[resolution]]
+entry = "feat/morse-per-profile-prior-idle"
+hash = "34360612887ca6e76d5aea14a568573be2b68c41"
+paths = ["rmk-types/src/morse.rs"]
+recorded = "2026-08-05T09:42:01.453107458+00:00"
+
+[[resolution]]
+entry = "feat/morse-per-profile-prior-idle"
+hash = "779d5f5accf1d95c6589942235a4462e158b1b41"
+paths = ["rmk-macro/src/codegen/action_parser.rs"]
+recorded = "2026-08-05T09:42:01.453107808+00:00"
+
+[[resolution]]
+entry = "feat/morse-per-profile-prior-idle"
+hash = "cb7c26ab2c4fa0204bfb40451f88f992fe44c427"
+paths = ["rmk-config/src/resolved/behavior.rs"]
+recorded = "2026-08-05T09:42:01.453108119+00:00"
+
+[[resolution]]
+entry = "feat/morse-per-profile-prior-idle"
+hash = "fe7257aff80adcf4f05edfe847de45a9ea32b314"
+paths = ["docs/docs/main/docs/configuration/behavior.md"]
+recorded = "2026-08-05T09:42:01.453108770+00:00"
+
+[[resolution]]
+entry = "feat/morse-tap-unless-interrupted"
+hash = "bc412865570e89c6426a14a8242b8be810d4b16a"
+paths = ["rmk-types/src/morse.rs"]
+recorded = "2026-08-05T09:42:42.946420927+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]
 recorded = "2026-08-05T08:06:30.042539671+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "3460c699e14e3a0ff69bf22012941b920d977cd4"
+paths = ["rmk/src/split_app.rs"]
+recorded = "2026-08-05T09:40:09.841077492+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "4a18ca7c086681228760d3f0266a74fba3353bdf"
+paths = ["rmk/src/split/driver.rs"]
+recorded = "2026-08-05T09:40:09.841079786+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "a8333e2718122b22f86ceca97cfad64d3f98a9b8"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-08-05T09:40:09.841080267+00:00"

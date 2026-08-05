@@ -33,6 +33,25 @@ fixup = "patches/lighting-rynk-coherence.patch"
 branch = "fork:fold/connection-selection"
 summary = "Key-selectable output transport: OutputUsb/OutputBluetooth set preferred, profile switch prefers BLE, public connection status accessor"
 
+[[entry]]
+pr = 984
+fixup = "patches/pr-984-lighting-coherence.patch"
+
+[[entry]]
+branch = "fork:feat/morse-retro-tap"
+
+[[entry]]
+branch = "fork:feat/morse-per-profile-prior-idle"
+
+[[entry]]
+branch = "fork:feat/morse-tap-unless-interrupted"
+
+[[entry]]
+branch = "fork:feat/morse-hold-trigger-positions"
+
+[[entry]]
+branch = "fork:feat/morse-hold-trigger-on-release"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

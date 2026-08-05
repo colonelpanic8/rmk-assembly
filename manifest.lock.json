@@ -3,23 +3,29 @@
   "pins": {
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
     "entries": {
+      "feat/morse-hold-trigger-on-release": "bed6738f6110df6732256109cd46712b533ce228",
+      "feat/morse-hold-trigger-positions": "a6f6a5734fffd5c1c802e88eeae561013991a628",
+      "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
+      "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
+      "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
       "feat/rynk": "d2c97ab97580aa6758b90b5ec8abcbea331f3001",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/lighting-rynk": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
-      "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e"
+      "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
+      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
     }
   },
   "build": {
-    "generated": "2026-08-05T08:06:30.117868101+00:00",
+    "generated": "2026-08-05T09:49:23.798299590+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "4cbbd9a906478ebe297c7a223941ab069b5dd859",
-    "pre_provenance_commit": "4cbbd9a906478ebe297c7a223941ab069b5dd859",
-    "tree": "516b671a4cc7bf2f54d4be4c2e653bc072ad6ece",
-    "built_tree": "516b671a4cc7bf2f54d4be4c2e653bc072ad6ece",
-    "previous_tree": "a624fcb5d4aa9f6cb7677ccdb3bc8dba49d02442",
+    "commit": "df0773c7ad0c6303e5716b79293d633f415d680c",
+    "pre_provenance_commit": "df0773c7ad0c6303e5716b79293d633f415d680c",
+    "tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
+    "built_tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
+    "previous_tree": "9c53ab26afc94ce1a49ac909e6acd4d8ef50a579",
     "tree_changed": true,
-    "conflicts": 1,
+    "conflicts": 6,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -45,6 +51,43 @@
         "kind": "branch",
         "source": "fork:fold/connection-selection",
         "pin": "ce4107275d761a050b52f0fe8664ba83f49b3ffd"
+      },
+      {
+        "name": "pr-984",
+        "kind": "pr",
+        "source": "upstream#984",
+        "pin": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
+        "fixup": "1883b1dda680ceddd7c0809c631802572d91ba9f"
+      },
+      {
+        "name": "feat/morse-retro-tap",
+        "kind": "branch",
+        "source": "fork:feat/morse-retro-tap",
+        "pin": "4ada295c929a64ba62e9bffc8e97a552f82796ce"
+      },
+      {
+        "name": "feat/morse-per-profile-prior-idle",
+        "kind": "branch",
+        "source": "fork:feat/morse-per-profile-prior-idle",
+        "pin": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21"
+      },
+      {
+        "name": "feat/morse-tap-unless-interrupted",
+        "kind": "branch",
+        "source": "fork:feat/morse-tap-unless-interrupted",
+        "pin": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb"
+      },
+      {
+        "name": "feat/morse-hold-trigger-positions",
+        "kind": "branch",
+        "source": "fork:feat/morse-hold-trigger-positions",
+        "pin": "a6f6a5734fffd5c1c802e88eeae561013991a628"
+      },
+      {
+        "name": "feat/morse-hold-trigger-on-release",
+        "kind": "branch",
+        "source": "fork:feat/morse-hold-trigger-on-release",
+        "pin": "bed6738f6110df6732256109cd46712b533ce228"
       }
     ],
     "results": [
@@ -65,7 +108,7 @@
         "oid": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:3826c0850f4ce7d53799efadc16483db4bf6e039",
+        "resolution": "rerere",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -73,6 +116,48 @@
         "oid": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
         "status": "merged",
         "conflicted": false
+      },
+      {
+        "name": "pr-984",
+        "oid": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "1883b1dda680ceddd7c0809c631802572d91ba9f"
+      },
+      {
+        "name": "feat/morse-retro-tap",
+        "oid": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
+        "status": "merged",
+        "conflicted": false
+      },
+      {
+        "name": "feat/morse-per-profile-prior-idle",
+        "oid": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
+      },
+      {
+        "name": "feat/morse-tap-unless-interrupted",
+        "oid": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
+      },
+      {
+        "name": "feat/morse-hold-trigger-positions",
+        "oid": "a6f6a5734fffd5c1c802e88eeae561013991a628",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
+      },
+      {
+        "name": "feat/morse-hold-trigger-on-release",
+        "oid": "bed6738f6110df6732256109cd46712b533ce228",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
       }
     ]
   }
