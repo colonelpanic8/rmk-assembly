@@ -52,6 +52,12 @@ branch = "fork:feat/morse-hold-trigger-positions"
 [[entry]]
 branch = "fork:feat/morse-hold-trigger-on-release"
 
+[[entry]]
+branch = "fork:feat/morse-unilateral-mod-chording"
+
+[[entry]]
+branch = "fork:feat/consumer-keycodes"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

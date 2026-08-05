@@ -3,11 +3,13 @@
   "pins": {
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
     "entries": {
+      "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/morse-hold-trigger-on-release": "bed6738f6110df6732256109cd46712b533ce228",
       "feat/morse-hold-trigger-positions": "a6f6a5734fffd5c1c802e88eeae561013991a628",
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
+      "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/rynk": "d2c97ab97580aa6758b90b5ec8abcbea331f3001",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/lighting-rynk": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
@@ -18,15 +20,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-05T10:28:57.940116893+00:00",
+    "generated": "2026-08-05T13:32:42.898580823+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "07da9a47e04d9cd54fc358b3e765db922043b693",
-    "pre_provenance_commit": "07da9a47e04d9cd54fc358b3e765db922043b693",
-    "tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
-    "built_tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
+    "commit": "c908de7e3a846ecc023b14e5445b709c6b0bbc76",
+    "pre_provenance_commit": "c908de7e3a846ecc023b14e5445b709c6b0bbc76",
+    "tree": "13e079c3e1be2776e992945d6e1bd77c74695b8e",
+    "built_tree": "13e079c3e1be2776e992945d6e1bd77c74695b8e",
     "previous_tree": "ce7d3d43fb6b8093f802a5feb9bd6d3fd03c034e",
-    "tree_changed": false,
-    "conflicts": 6,
+    "tree_changed": true,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -89,6 +91,18 @@
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-on-release",
         "pin": "bed6738f6110df6732256109cd46712b533ce228"
+      },
+      {
+        "name": "feat/morse-unilateral-mod-chording",
+        "kind": "branch",
+        "source": "fork:feat/morse-unilateral-mod-chording",
+        "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
+      },
+      {
+        "name": "feat/consumer-keycodes",
+        "kind": "branch",
+        "source": "fork:feat/consumer-keycodes",
+        "pin": "1373e2533443e044305328df85336ab766ab03a9"
       }
     ],
     "results": [
@@ -159,6 +173,18 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
+      },
+      {
+        "name": "feat/morse-unilateral-mod-chording",
+        "oid": "a2df0ec69daededb21a8ecf1540fa4d015797269",
+        "status": "merged",
+        "conflicted": false
+      },
+      {
+        "name": "feat/consumer-keycodes",
+        "oid": "1373e2533443e044305328df85336ab766ab03a9",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
