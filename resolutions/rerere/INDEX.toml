@@ -2,6 +2,12 @@
 # produced which conflict hash. Auditability only, never load-bearing;
 # replay uses the pair directories, verification uses the lock tree.
 [[resolution]]
+entry = "feat/combo-hold-output"
+hash = "abe16d48b427f477e581df0b767dd49d56dc7c11"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-05T15:53:01.664787136+00:00"
+
+[[resolution]]
 entry = "feat/morse-hold-trigger-on-release"
 hash = "16a5bc11050695d24583bde2f2df6f718ba82d88"
 paths = ["rmk-macro/src/codegen/action_parser.rs"]
@@ -30,6 +36,24 @@ entry = "feat/morse-hold-trigger-positions"
 hash = "13c7818e7f40aa5dddb1a2aeb6af0ddae31e13b3"
 paths = ["rmk-config/src/resolved/behavior.rs"]
 recorded = "2026-08-05T09:43:23.694012358+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "17a384d83ac08791debfa4aa23ad302c584e5195"
+paths = ["rmk/src/config/behavior.rs"]
+recorded = "2026-08-05T15:53:36.021937119+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "2d5237a51e4c179d53542f13ff9c3f04e12f6696"
+paths = ["rmk/src/keymap.rs"]
+recorded = "2026-08-05T15:53:36.021939073+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "5c36805ac9f930e073cb73d6f2b6a6d46ad6c045"
+paths = ["rmk/src/config/mod.rs"]
+recorded = "2026-08-05T15:53:36.021939484+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
@@ -92,10 +116,28 @@ paths = ["rmk-types/src/morse.rs"]
 recorded = "2026-08-05T09:42:42.946420927+00:00"
 
 [[resolution]]
+entry = "feat/single-pass-storage-read"
+hash = "45bb064485ff1fc0ae4dd79fbf31d4471b8436c6"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-08-05T15:52:38.662089025+00:00"
+
+[[resolution]]
+entry = "feat/single-pass-storage-read"
+hash = "762ca3fd9b4b87aa96e28b1dd4435b39781f4ebd"
+paths = ["rmk/src/split/ble/central.rs"]
+recorded = "2026-08-05T15:52:38.662091129+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]
 recorded = "2026-08-05T08:06:30.042539671+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
+hash = "0232953a1f80e2b2c298ccb96d875d25d3692bcb"
+paths = ["rmk-config/src/resolved/behavior.rs"]
+recorded = "2026-08-05T15:54:07.074227330+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
@@ -105,15 +147,39 @@ recorded = "2026-08-05T13:48:34.001725888+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
+hash = "3e356e71d81632202653f3d10fdc629db554e319"
+paths = ["rmk/src/config/mod.rs"]
+recorded = "2026-08-05T15:54:07.074229354+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
 hash = "6570e8805d2c1ac63b0f77502448529289f63b89"
 paths = ["rmk/src/keymap.rs"]
 recorded = "2026-08-05T13:48:34.001728022+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
+hash = "7e5d24d0cfa5b64af1a58ba69c8df80fcce4795a"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-05T15:54:07.074229745+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
+hash = "829982a0c33dc6e5fa9ea8d3920b1b03d13f09ea"
+paths = ["rmk/src/config/behavior.rs"]
+recorded = "2026-08-05T15:54:07.074230075+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
 hash = "a08b1e6997bdab13f2fe72fe166ded0b173f85ab"
 paths = ["rmk/src/config/mod.rs"]
 recorded = "2026-08-05T13:48:34.001728502+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
+hash = "ae5c8660f3724fdcdb934b51664a298f6096428a"
+paths = ["rmk-macro/src/codegen/behavior.rs"]
+recorded = "2026-08-05T15:54:07.074230677+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"

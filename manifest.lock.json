@@ -3,6 +3,7 @@
   "pins": {
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
     "entries": {
+      "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/morse-hold-trigger-on-release": "bed6738f6110df6732256109cd46712b533ce228",
       "feat/morse-hold-trigger-positions": "a6f6a5734fffd5c1c802e88eeae561013991a628",
@@ -10,9 +11,9 @@
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
-      "feat/rynk": "d2c97ab97580aa6758b90b5ec8abcbea331f3001",
+      "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
+      "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
-      "fold/lighting-rynk": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
@@ -21,15 +22,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-05T13:48:34.012052881+00:00",
+    "generated": "2026-08-05T16:00:25.801683862+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "f3f7ea29276622e2299bfccab829b76eb5494a67",
-    "pre_provenance_commit": "f3f7ea29276622e2299bfccab829b76eb5494a67",
-    "tree": "9db40cb5eda0ac2f909772950a2d9447a1d6994d",
-    "built_tree": "9db40cb5eda0ac2f909772950a2d9447a1d6994d",
-    "previous_tree": "13e079c3e1be2776e992945d6e1bd77c74695b8e",
+    "commit": "e4f963f60b77a3259f5481bb5a8260c04fb6d41e",
+    "pre_provenance_commit": "e4f963f60b77a3259f5481bb5a8260c04fb6d41e",
+    "tree": "8572a446508bc7b021acb23b96ab6b17b19b404e",
+    "built_tree": "8572a446508bc7b021acb23b96ab6b17b19b404e",
+    "previous_tree": "f22bdfb52dd78fe87f987516b50326b0215e78ac",
     "tree_changed": true,
-    "conflicts": 1,
+    "conflicts": 9,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -62,6 +63,24 @@
         "source": "upstream#984",
         "pin": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
         "fixup": "1883b1dda680ceddd7c0809c631802572d91ba9f"
+      },
+      {
+        "name": "feat/single-pass-storage-read",
+        "kind": "branch",
+        "source": "fork:feat/single-pass-storage-read",
+        "pin": "fe61e8a28f79b4229fd1da17a8b7416450d0973b"
+      },
+      {
+        "name": "feat/pointer-layer-scaling",
+        "kind": "branch",
+        "source": "fork:feat/pointer-layer-scaling",
+        "pin": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb"
+      },
+      {
+        "name": "feat/combo-hold-output",
+        "kind": "branch",
+        "source": "fork:feat/combo-hold-output",
+        "pin": "cce7d99c94d918e02442a15ead3a359f587fbaa1"
       },
       {
         "name": "feat/morse-retro-tap",
@@ -148,6 +167,26 @@
         "fixup": "1883b1dda680ceddd7c0809c631802572d91ba9f"
       },
       {
+        "name": "feat/single-pass-storage-read",
+        "oid": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
+      },
+      {
+        "name": "feat/pointer-layer-scaling",
+        "oid": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
+        "status": "merged",
+        "conflicted": false
+      },
+      {
+        "name": "feat/combo-hold-output",
+        "oid": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
+      },
+      {
         "name": "feat/morse-retro-tap",
         "oid": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
         "status": "merged",
@@ -198,7 +237,7 @@
         "oid": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:242912a446aa5391a9331fe0c2a1706d3f7a82b8,6570e8805d2c1ac63b0f77502448529289f63b89,a08b1e6997bdab13f2fe72fe166ded0b173f85ab,db21eb57e7e844882200e2168563e911bbdb532e"
+        "resolution": "rerere"
       }
     ]
   }

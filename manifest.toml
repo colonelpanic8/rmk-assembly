@@ -38,6 +38,18 @@ pr = 984
 fixup = "patches/pr-984-split-coherence.patch"
 
 [[entry]]
+branch = "fork:feat/single-pass-storage-read"
+summary = "Restore host boot records in one storage traversal"
+
+[[entry]]
+branch = "fork:feat/pointer-layer-scaling"
+summary = "Per-layer mouse movement and scroll scaling"
+
+[[entry]]
+branch = "fork:feat/combo-hold-output"
+summary = "VIA layer-mod-tap combo hold output action"
+
+[[entry]]
 branch = "fork:feat/morse-retro-tap"
 
 [[entry]]
