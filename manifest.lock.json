@@ -12,6 +12,7 @@
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
+      "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
@@ -23,13 +24,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-05T23:26:29.142691178+00:00",
+    "generated": "2026-08-06T20:44:53.358517725+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "59fd18e1ba0935d55988c5c32951fd7e0b37169b",
-    "pre_provenance_commit": "59fd18e1ba0935d55988c5c32951fd7e0b37169b",
-    "tree": "74538a996639ab91118eb7c8389b0c1f5cedf62d",
-    "built_tree": "74538a996639ab91118eb7c8389b0c1f5cedf62d",
-    "previous_tree": "8572a446508bc7b021acb23b96ab6b17b19b404e",
+    "commit": "ca854e81e6219a4c57bed13248e049ca0312b159",
+    "pre_provenance_commit": "ca854e81e6219a4c57bed13248e049ca0312b159",
+    "tree": "350d147ee600bbff779425ded060b7b2279db627",
+    "built_tree": "350d147ee600bbff779425ded060b7b2279db627",
+    "previous_tree": "74538a996639ab91118eb7c8389b0c1f5cedf62d",
     "tree_changed": true,
     "conflicts": 9,
     "manifest_entries": [
@@ -136,6 +137,12 @@
         "kind": "branch",
         "source": "fork:fold/cirque-pinnacle",
         "pin": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56"
+      },
+      {
+        "name": "feat/pointing-drag-mode",
+        "kind": "branch",
+        "source": "fork:feat/pointing-drag-mode",
+        "pin": "211af5703d7e398951159cd5598dd691d2e7035f"
       }
     ],
     "results": [
@@ -249,6 +256,12 @@
       {
         "name": "fold/cirque-pinnacle",
         "oid": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
+        "status": "merged",
+        "conflicted": false
+      },
+      {
+        "name": "feat/pointing-drag-mode",
+        "oid": "211af5703d7e398951159cd5598dd691d2e7035f",
         "status": "merged",
         "conflicted": false
       }
