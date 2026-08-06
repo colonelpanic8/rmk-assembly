@@ -134,6 +134,12 @@ paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-08-06T21:04:08.652707119+00:00"
 
 [[resolution]]
+entry = "feat/pointing-runtime-config"
+hash = "ea6afea7daacc97bdac75fceb333411aea4918df"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-06T21:11:17.766407982+00:00"
+
+[[resolution]]
 entry = "feat/single-pass-storage-read"
 hash = "45bb064485ff1fc0ae4dd79fbf31d4471b8436c6"
 paths = ["rmk/src/storage/mod.rs"]
