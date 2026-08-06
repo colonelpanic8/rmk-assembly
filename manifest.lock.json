@@ -13,7 +13,7 @@
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
-      "feat/pointing-runtime-config": "ff99d0a66bfde06cea65387e8ce96803cb4885dd",
+      "feat/pointing-runtime-config": "45bfd0f17b61830b61174747554568da33f5e278",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
@@ -25,15 +25,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-06T21:04:08.663996117+00:00",
+    "generated": "2026-08-06T21:06:40.540552338+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "afadbc52a5b1a9e977bc8751da265ecbb1f3eded",
-    "pre_provenance_commit": "afadbc52a5b1a9e977bc8751da265ecbb1f3eded",
-    "tree": "68d89feafccb69d0496ff348c355a8501c9c5137",
-    "built_tree": "68d89feafccb69d0496ff348c355a8501c9c5137",
-    "previous_tree": "350d147ee600bbff779425ded060b7b2279db627",
+    "commit": "7af779d6645d55e60ed0cd137860cf80a1ed705e",
+    "pre_provenance_commit": "7af779d6645d55e60ed0cd137860cf80a1ed705e",
+    "tree": "f76b9d97bac573bc3d3b86503a02f0c4f0d710f0",
+    "built_tree": "f76b9d97bac573bc3d3b86503a02f0c4f0d710f0",
+    "previous_tree": "68d89feafccb69d0496ff348c355a8501c9c5137",
     "tree_changed": true,
-    "conflicts": 1,
+    "conflicts": 10,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -149,7 +149,7 @@
         "name": "feat/pointing-runtime-config",
         "kind": "branch",
         "source": "fork:feat/pointing-runtime-config",
-        "pin": "ff99d0a66bfde06cea65387e8ce96803cb4885dd"
+        "pin": "45bfd0f17b61830b61174747554568da33f5e278"
       }
     ],
     "results": [
@@ -274,10 +274,10 @@
       },
       {
         "name": "feat/pointing-runtime-config",
-        "oid": "ff99d0a66bfde06cea65387e8ce96803cb4885dd",
+        "oid": "45bfd0f17b61830b61174747554568da33f5e278",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:1019e6769ece248332673068d752dda8bc55e1f7,36d6b8f8ecb8a48a76d910064981b8ed371dec66,b4fc6fb1ab5f6f1be72d47420e97eac5388be1e7"
+        "resolution": "rerere"
       }
     ]
   }
