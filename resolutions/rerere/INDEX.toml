@@ -129,6 +129,12 @@ recorded = "2026-08-06T21:04:08.652706588+00:00"
 
 [[resolution]]
 entry = "feat/pointing-runtime-config"
+hash = "a2c5d46269fe5877ec60b4b90022b5aeed98f987"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-08-06T21:18:21.738512855+00:00"
+
+[[resolution]]
+entry = "feat/pointing-runtime-config"
 hash = "b4fc6fb1ab5f6f1be72d47420e97eac5388be1e7"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-08-06T21:04:08.652707119+00:00"

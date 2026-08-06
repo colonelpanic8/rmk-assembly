@@ -13,7 +13,7 @@
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
-      "feat/pointing-runtime-config": "f899685252b65835d997d16ffbc0ccfe542bb52b",
+      "feat/pointing-runtime-config": "967298e1a255348d988ed4fd1588bfb50cb3e08e",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
@@ -25,13 +25,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-06T21:11:17.776102985+00:00",
+    "generated": "2026-08-06T21:18:21.748631476+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "3e4ae8b391c33760e1ab88dca3fb05e49a847b55",
-    "pre_provenance_commit": "3e4ae8b391c33760e1ab88dca3fb05e49a847b55",
-    "tree": "d56b8f39b05f47f5e7af3d01a3b52e2f970f70d3",
-    "built_tree": "d56b8f39b05f47f5e7af3d01a3b52e2f970f70d3",
-    "previous_tree": "f76b9d97bac573bc3d3b86503a02f0c4f0d710f0",
+    "commit": "1932c41d9f1c9fceeb7fc9983f40070026754810",
+    "pre_provenance_commit": "1932c41d9f1c9fceeb7fc9983f40070026754810",
+    "tree": "852cc57ef95a851bdf98594a42bcdea5cb1a67f2",
+    "built_tree": "852cc57ef95a851bdf98594a42bcdea5cb1a67f2",
+    "previous_tree": "d56b8f39b05f47f5e7af3d01a3b52e2f970f70d3",
     "tree_changed": true,
     "conflicts": 10,
     "manifest_entries": [
@@ -149,7 +149,7 @@
         "name": "feat/pointing-runtime-config",
         "kind": "branch",
         "source": "fork:feat/pointing-runtime-config",
-        "pin": "f899685252b65835d997d16ffbc0ccfe542bb52b"
+        "pin": "967298e1a255348d988ed4fd1588bfb50cb3e08e"
       }
     ],
     "results": [
@@ -274,10 +274,10 @@
       },
       {
         "name": "feat/pointing-runtime-config",
-        "oid": "f899685252b65835d997d16ffbc0ccfe542bb52b",
+        "oid": "967298e1a255348d988ed4fd1588bfb50cb3e08e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:ea6afea7daacc97bdac75fceb333411aea4918df"
+        "resolution": "rerere:a2c5d46269fe5877ec60b4b90022b5aeed98f987"
       }
     ]
   }
