@@ -116,6 +116,24 @@ paths = ["rmk-types/src/morse.rs"]
 recorded = "2026-08-05T09:42:42.946420927+00:00"
 
 [[resolution]]
+entry = "feat/pointing-runtime-config"
+hash = "1019e6769ece248332673068d752dda8bc55e1f7"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-06T21:04:08.652704684+00:00"
+
+[[resolution]]
+entry = "feat/pointing-runtime-config"
+hash = "36d6b8f8ecb8a48a76d910064981b8ed371dec66"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-08-06T21:04:08.652706588+00:00"
+
+[[resolution]]
+entry = "feat/pointing-runtime-config"
+hash = "b4fc6fb1ab5f6f1be72d47420e97eac5388be1e7"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-06T21:04:08.652707119+00:00"
+
+[[resolution]]
 entry = "feat/single-pass-storage-read"
 hash = "45bb064485ff1fc0ae4dd79fbf31d4471b8436c6"
 paths = ["rmk/src/storage/mod.rs"]

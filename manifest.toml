@@ -79,6 +79,9 @@ branch = "fork:fold/cirque-pinnacle"
 [[entry]]
 branch = "fork:feat/pointing-drag-mode"
 
+[[entry]]
+branch = "fork:feat/pointing-runtime-config"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
