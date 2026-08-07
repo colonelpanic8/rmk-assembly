@@ -95,6 +95,10 @@ branch = "fork:fix/battery-power-transitions"
 summary = "Preserve measured battery levels across power changes and clear disconnected peripheral state"
 fixup = "patches/battery-power-transitions-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/ble-name-template"
+summary = "Persistent runtime BLE advertising-name templates with per-profile slot expansion"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

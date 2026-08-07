@@ -2,6 +2,48 @@
 # produced which conflict hash. Auditability only, never load-bearing;
 # replay uses the pair directories, verification uses the lock tree.
 [[resolution]]
+entry = "feat/ble-name-template"
+hash = "049e327ebd487538e91000a6bf08e550e9763845"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-08-07T22:21:43.855605861+00:00"
+
+[[resolution]]
+entry = "feat/ble-name-template"
+hash = "12985f72e481abdfd74d9bcd9e1caff46b2c8ada"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-07T22:21:43.855608235+00:00"
+
+[[resolution]]
+entry = "feat/ble-name-template"
+hash = "5fa01d41717729e48fceeaba0279a5a3a6630e48"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-07T22:21:43.855608636+00:00"
+
+[[resolution]]
+entry = "feat/ble-name-template"
+hash = "6dc3c37891dba90234d061cbdf4ec3031352d5ed"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-07T22:21:43.855609187+00:00"
+
+[[resolution]]
+entry = "feat/ble-name-template"
+hash = "72cee2aa48e4069319a51fae6859767b786c927c"
+paths = ["rmk-types/src/protocol/rynk/tests.rs"]
+recorded = "2026-08-07T22:21:43.855609658+00:00"
+
+[[resolution]]
+entry = "feat/ble-name-template"
+hash = "76941204b9b996125a4e4d260a58c65b4b590f60"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-08-07T22:21:43.855610069+00:00"
+
+[[resolution]]
+entry = "feat/ble-name-template"
+hash = "9117040c6fb896739878edf70be5c49f0f40f82d"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-07T22:21:43.855610359+00:00"
+
+[[resolution]]
 entry = "feat/combo-hold-output"
 hash = "abe16d48b427f477e581df0b767dd49d56dc7c11"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
