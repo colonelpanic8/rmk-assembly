@@ -82,6 +82,10 @@ branch = "fork:feat/pointing-drag-mode"
 [[entry]]
 branch = "fork:feat/pointing-runtime-config"
 
+[[entry]]
+branch = "fork:feat/maintenance-mode"
+summary = "Keyboard-controlled maintenance gate for unattended Rynk operations"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

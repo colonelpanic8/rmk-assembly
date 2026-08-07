@@ -8,6 +8,120 @@ paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-08-05T15:53:01.664787136+00:00"
 
 [[resolution]]
+entry = "feat/maintenance-mode"
+hash = "1e2700e10cc23f7fc9e197b1255ca8a0bde2e291"
+paths = ["rmk/src/host/rynk/handlers/system.rs"]
+recorded = "2026-08-07T01:06:45.896127913+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "25fbc126ba05c564697d76681a9666cdd855fd72"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-08-07T01:06:45.896130157+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "2f8420dacfed5ccf8ad303f17deca6f5bcdf06df"
+paths = ["rmk-config/src/resolved/host.rs"]
+recorded = "2026-08-07T01:06:45.896130528+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "34acb28a4b31f755443fefe5db68c2bd5f629fb8"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-07T01:06:45.896130839+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "373c8c6021b27dc0f060f047fd7998b1d1effa69"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-07T01:06:45.896131239+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "3e46c2451544a049d406777a2c719854cbb6f970"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-07T01:06:45.896131600+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "598c425079cf97b3068798cd65f6f4f9b4f940f7"
+paths = ["rmk/src/event/state.rs"]
+recorded = "2026-08-07T01:06:45.896131941+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "64324ad9bbed3188eba29d71925a9f723e6857b8"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-07T01:06:45.896132251+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "65dd92e4766b3251088df6a9155be0f477d212ad"
+paths = ["rmk-types/src/protocol/rynk/tests.rs"]
+recorded = "2026-08-07T01:06:45.896132532+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "96254faffd7e69dbb440035d8d6eafb30e39594f"
+paths = ["rmk-config/src/resolved/build_constants.rs"]
+recorded = "2026-08-07T01:06:45.896132853+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "9c93d6831bb6ad6cb662f256135070b05fd482f1"
+paths = ["rmk/src/config/lock.rs"]
+recorded = "2026-08-07T01:06:45.896133143+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "9d30beb2bdeb98d058a9e34b95a166ab0e957b7b"
+paths = ["examples/use_rust/nrf54lm20_ble/src/main.rs"]
+recorded = "2026-08-07T01:06:45.896133584+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "c0001faf90e5276f20e4949a716f5f1979e96e82"
+paths = ["rmk/src/state.rs"]
+recorded = "2026-08-07T01:06:45.896133864+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "d686d7144b35d480305cc1e5eb3337290da50c91"
+paths = ["rmk-config/src/default_config/event_default.toml"]
+recorded = "2026-08-07T01:06:45.896134155+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "d77f23abb5b2ea0e32e78d7e26f4d1754fd9bfa5"
+paths = ["rmk-types/src/action/keyboard.rs"]
+recorded = "2026-08-07T01:06:45.896134415+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "deb1fd53fc0898e4c3b16ce8f8b81f6ab3c4dde8"
+paths = ["rmk-macro/src/codegen/simulator.rs"]
+recorded = "2026-08-07T01:06:45.896134656+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "df18c33dfbeee495a6a0542193aa7e5d7ae06fa5"
+paths = ["rmk/src/event/mod.rs"]
+recorded = "2026-08-07T01:06:45.896134936+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "df77f70803d54ed03b665a6d1fc3d6bf2aeb895f"
+paths = ["rmk-macro/src/codegen/keyboard_config.rs"]
+recorded = "2026-08-07T01:06:45.896135317+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "ff816c961ec991d11756828c5bde6b24b9564ff0"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-07T01:06:45.896135568+00:00"
+
+[[resolution]]
 entry = "feat/morse-hold-trigger-on-release"
 hash = "16a5bc11050695d24583bde2f2df6f718ba82d88"
 paths = ["rmk-macro/src/codegen/action_parser.rs"]

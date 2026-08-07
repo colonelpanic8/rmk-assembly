@@ -5,6 +5,7 @@
     "entries": {
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
+      "feat/maintenance-mode": "8218ab860d98be11607550cd7d2cda7b3e98869a",
       "feat/morse-hold-trigger-on-release": "bed6738f6110df6732256109cd46712b533ce228",
       "feat/morse-hold-trigger-positions": "a6f6a5734fffd5c1c802e88eeae561013991a628",
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
@@ -25,15 +26,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-06T21:22:01.085315674+00:00",
+    "generated": "2026-08-07T01:06:45.907793860+00:00",
     "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "a0928ab6a34b6c4d53f1f3758e1879624821f592",
-    "pre_provenance_commit": "a0928ab6a34b6c4d53f1f3758e1879624821f592",
-    "tree": "a5877d9902fb174ab966befef820fb7022a0319a",
-    "built_tree": "a5877d9902fb174ab966befef820fb7022a0319a",
-    "previous_tree": "852cc57ef95a851bdf98594a42bcdea5cb1a67f2",
+    "commit": "e8827aa5f428ef4915f44bbc1719d26824d28ff1",
+    "pre_provenance_commit": "e8827aa5f428ef4915f44bbc1719d26824d28ff1",
+    "tree": "1fdd4182e8b6a8e68873ea9163ec8d5e3c23ccd4",
+    "built_tree": "1fdd4182e8b6a8e68873ea9163ec8d5e3c23ccd4",
+    "previous_tree": "a5877d9902fb174ab966befef820fb7022a0319a",
     "tree_changed": true,
-    "conflicts": 10,
+    "conflicts": 11,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -150,6 +151,12 @@
         "kind": "branch",
         "source": "fork:feat/pointing-runtime-config",
         "pin": "feadbcae82a05ada110841353a1afbb523401769"
+      },
+      {
+        "name": "feat/maintenance-mode",
+        "kind": "branch",
+        "source": "fork:feat/maintenance-mode",
+        "pin": "8218ab860d98be11607550cd7d2cda7b3e98869a"
       }
     ],
     "results": [
@@ -278,6 +285,13 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
+      },
+      {
+        "name": "feat/maintenance-mode",
+        "oid": "8218ab860d98be11607550cd7d2cda7b3e98869a",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:1e2700e10cc23f7fc9e197b1255ca8a0bde2e291,25fbc126ba05c564697d76681a9666cdd855fd72,2f8420dacfed5ccf8ad303f17deca6f5bcdf06df,34acb28a4b31f755443fefe5db68c2bd5f629fb8,373c8c6021b27dc0f060f047fd7998b1d1effa69,3e46c2451544a049d406777a2c719854cbb6f970,598c425079cf97b3068798cd65f6f4f9b4f940f7,64324ad9bbed3188eba29d71925a9f723e6857b8,65dd92e4766b3251088df6a9155be0f477d212ad,96254faffd7e69dbb440035d8d6eafb30e39594f,9c93d6831bb6ad6cb662f256135070b05fd482f1,9d30beb2bdeb98d058a9e34b95a166ab0e957b7b,c0001faf90e5276f20e4949a716f5f1979e96e82,d686d7144b35d480305cc1e5eb3337290da50c91,d77f23abb5b2ea0e32e78d7e26f4d1754fd9bfa5,deb1fd53fc0898e4c3b16ce8f8b81f6ab3c4dde8,df18c33dfbeee495a6a0542193aa7e5d7ae06fa5,df77f70803d54ed03b665a6d1fc3d6bf2aeb895f,ff816c961ec991d11756828c5bde6b24b9564ff0"
       }
     ]
   }
