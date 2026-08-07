@@ -423,6 +423,12 @@ recorded = "2026-08-07T20:10:21.386308235+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
+hash = "6944b3e2be1e5957d9c8ed2abc7cef546623d0b2"
+paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
+recorded = "2026-08-07T20:34:05.611787585+00:00"
+
+[[resolution]]
+entry = "fold/runtime-behavior-parity"
 hash = "972b115a3d2d026eee69d7f13d2246f02cd7b64e"
 paths = ["rmk/src/config/behavior.rs"]
 recorded = "2026-08-07T07:53:05.299396874+00:00"
