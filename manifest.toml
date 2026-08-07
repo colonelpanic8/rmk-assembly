@@ -30,10 +30,6 @@ note = "Carried as the PR, not fork:fold/lighting-rynk -- that branch was a dupl
 fixup = "patches/lighting-rynk-coherence.patch"
 
 [[entry]]
-branch = "fork:glove80-rmk/lighting-v2"
-summary = "Split lighting frame readback and replica attestation status"
-
-[[entry]]
 branch = "fork:fold/connection-selection"
 summary = "Key-selectable output transport: OutputUsb/OutputBluetooth set preferred, profile switch prefers BLE, public connection status accessor"
 
@@ -93,6 +89,10 @@ fixup = "patches/runtime-behavior-parity-coherence.patch"
 branch = "fork:feat/maintenance-mode"
 summary = "Keyboard-controlled maintenance gate for unattended Rynk operations"
 fixup = "patches/maintenance-mode-coherence.patch"
+
+[[entry]]
+branch = "fork:fix/battery-power-transitions"
+summary = "Preserve measured battery levels across power changes and clear disconnected peripheral state"
 
 [[exclude]]
 pr = 999
