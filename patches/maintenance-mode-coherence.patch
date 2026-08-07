@@ -1,3 +1,247 @@
+diff --git a/docs/docs/main/docs/configuration/appendix.md b/docs/docs/main/docs/configuration/appendix.md
+index 01b09c1b..a524ca11 100644
+--- a/docs/docs/main/docs/configuration/appendix.md
++++ b/docs/docs/main/docs/configuration/appendix.md
+@@ -484,14 +484,12 @@ vial_enabled = true
+ # Rynk and Vial are mutually exclusive and must match Cargo features.
+ rynk_enabled = false
+ # The unlock keys are the combo of the row 0, col 0 key and
+-# the row 0, col 1 key. Shared by the Vial lock and the Rynk lock gate.
++# the row 0, col 1 key. Used by Vial's lock.
+ unlock_keys = [[0, 0], [0, 1]]
+ # Start (and stay) unlocked. Renamed from `vial_insecure` (still parses).
+ insecure = false
+-# Rynk only: move config writes into the locked tier (default: false).
+-write_requires_unlock = false
+-# Require physical unlock before central or split-peripheral bootloader entry.
+-bootloader_requires_unlock = true
++# Rynk only: start with the keyboard-controlled maintenance lock engaged.
++maintenance_lock_default = false
+ 
+ # Chip-specific configuration
+ # To use the default configuration, ignore this section completely
+diff --git a/docs/docs/main/docs/configuration/host_config.md b/docs/docs/main/docs/configuration/host_config.md
+index 3f26ac62..021e3ba8 100644
+--- a/docs/docs/main/docs/configuration/host_config.md
++++ b/docs/docs/main/docs/configuration/host_config.md
+@@ -20,9 +20,7 @@ rynk_enabled = true
+ # Disable Vial when using Rynk. Rynk and Vial are mutually exclusive.
+ vial_enabled = false
+ 
+-# Physical keys (row, col) held simultaneously to unlock dangerous operations
+-# (optional, up to 4). Shared by the Vial lock and the Rynk lock gate. See the
+-# "Locking dangerous operations" section of the Rynk feature page.
++# Physical keys (row, col) held simultaneously to unlock Vial (optional, up to 4).
+ unlock_keys = [[0, 0], [0, 1]]  # Keys at (row=0,col=0) and (row=0,col=1)
+ 
+ # Start (and stay) unlocked, bypassing the unlock-key combo (default: false).
+@@ -30,14 +28,9 @@ unlock_keys = [[0, 0], [0, 1]]  # Keys at (row=0,col=0) and (row=0,col=1)
+ # which still parses.
+ insecure = false
+ 
+-# Rynk only: move config writes (SetKeyAction, SetMacro, …) into the locked
+-# tier so they also require unlock (default: false).
+-write_requires_unlock = false
+-
+-# Rynk only: require physical unlock before central or split-peripheral
+-# bootloader entry (default: true). Set false for host-managed deployment;
+-# other dangerous operations remain gated.
+-bootloader_requires_unlock = true
++# Rynk only: start with the keyboard-controlled maintenance lock engaged.
++# When engaged, every mutation and sensitive operation is denied.
++maintenance_lock_default = false
+ ```
+ 
+ ## Common Setups
+diff --git a/docs/docs/main/docs/features/rynk.md b/docs/docs/main/docs/features/rynk.md
+index 7e128943..74d18a94 100644
+--- a/docs/docs/main/docs/features/rynk.md
++++ b/docs/docs/main/docs/features/rynk.md
+@@ -88,76 +88,39 @@ Rynk tooling is still young. Today you have two options:
+ 
+ A ready-made desktop app is not available yet.
+ 
+-## Locking dangerous operations
++## Maintenance lock
+ 
+-By default Rynk locks the operations that could plant a persistent implant or
+-leak what you type, so a background process — or a web page you granted access
+-to once — can't quietly reflash your keyboard or read your keystrokes. To use a
+-locked operation you prove you're physically present by holding a key combo.
++Rynk has one keyboard-controlled maintenance lock. When it is engaged, the
++firmware denies every host mutation, remote reboot, central or split-peripheral
++bootloader entry, storage reset, raw matrix-state read, BLE bond deletion, and
++split-latency change. Ordinary reads and typing remain available.
+ 
+-There are three tiers:
+-
+-- **Open** — everything you normally reach for: read the keymap, change keys,
+-  layers, combos, macros, switch BLE profiles, reboot. These stay available so
+-  on-the-fly configuration is friction-free.
+-- **Locked** — the dangerous ones: entering the bootloader, resetting stored
+-  settings and bonds, reading the live key matrix (a keylogger if left open),
+-  and clearing a BLE bond. A host tool gets a "locked" error until you unlock.
+-  Bootloader entry may be opted out separately for managed deployment setups.
+-- **Config writes** — open by default, because on-the-fly configuration is the
+-  point. Set `write_requires_unlock = true` to move every write (keymap, macros,
+-  …) into the locked tier as well.
+-
+-### Unlocking
+-
+-Set the keys the owner holds to unlock in `[host].unlock_keys` (up to four):
++Bind `MaintenanceModeToggle` to a key so the keyboard owner can engage or
++release the lock without a host-side challenge:
+ 
+ ```toml title="keyboard.toml"
+-[host]
+-rynk_enabled = true
+-unlock_keys = [[0, 0], [3, 12]]  # hold (row 0, col 0) and (row 3, col 12)
+-```
+-
+-When you trigger a locked action, the host tool reads the challenge and shows
+-"hold these keys". Hold them together; the tool polls briefly until the device
+-unlocks, and the session stays unlocked until it ends. Unplugging, a Bluetooth
+-disconnect, or an explicit lock re-locks the device.
+-
+-If you leave `unlock_keys` unset, the locked operations can never be unlocked —
+-a safe default, but it means a fresh config can't enter the bootloader over Rynk
+-or use the matrix tester until you add the keys.
+-
+-For a keyboard whose host is trusted to manage firmware deployment, allow only
+-central and split-peripheral bootloader entry without the physical challenge:
++[[keymap.layer]]
++keys = "MaintenanceModeToggle ..."
+ 
+-```toml title="keyboard.toml"
+ [host]
+-bootloader_requires_unlock = false
++rynk_enabled = true
++maintenance_lock_default = false # start unlocked for unattended automation
+ ```
+ 
+-Storage reset, matrix-state reads, and BLE bond clearing remain gated. This is
+-more narrowly scoped than `insecure = true`.
+-
+-For local development you can bypass the gate entirely:
+-
+-```toml title="keyboard.toml"
+-[host]
+-insecure = true  # start and stay unlocked — don't ship this
+-```
++The live state lasts until reboot, when it returns to
++`maintenance_lock_default`. Boards that should require a deliberate physical
++action after every boot can set the default to `true`; managed boards can leave
++it `false` so configuration and firmware pushes run unattended. A board may
++also render the live state on an LED, for example green while unlocked and red
++while locked.
+ 
+ ::: warning Macros and combos are readable
+ Config _reads_ stay open, so anything that can reach the protocol can read your
+ stored macros. Don't put passwords or other secrets in a macro.
+ :::
+ 
+-::: tip Two different `unlock_keys`
+-`[host].unlock_keys` guards this Rynk lock gate. A separate `[dfu].unlock_keys`
+-guards the firmware _download_ once the device is already in the bootloader (the
+-`dfu_lock` feature). They're independent — set either, both, or neither. A setup
+-that cares most about firmware replacement wants both: the Rynk gate blocks the
+-remote route into the bootloader, and `dfu_lock` covers a physically-present
+-attacker who reaches it another way.
+-:::
++`[host].unlock_keys` and `insecure` still configure Vial's separate lock when
++Vial is enabled; they do not participate in Rynk authorization.
+ 
+ ## Advanced tuning
+ 
+diff --git a/rmk-config/src/lib.rs b/rmk-config/src/lib.rs
+index ce54144c..b5e90e6f 100644
+--- a/rmk-config/src/lib.rs
++++ b/rmk-config/src/lib.rs
+@@ -1415,8 +1415,7 @@ pub(crate) struct HostConfig {
+     /// with `vial_enabled` (the underlying Cargo features conflict).
+     #[serde_inline_default(false)]
+     pub rynk_enabled: bool,
+-    /// Physical keys (row, col) held simultaneously to unlock (optional).
+-    /// Shared by the Vial lock and the Rynk lock gate.
++    /// Physical keys (row, col) held simultaneously to unlock Vial (optional).
+     pub unlock_keys: Option<Vec<[u8; 2]>>,
+     /// Start (and stay) unlocked, bypassing the unlock-key combo (default:
+     /// false). Renamed from `vial_insecure`; the old name still parses.
+diff --git a/rmk-macro/src/codegen/keyboard_config.rs b/rmk-macro/src/codegen/keyboard_config.rs
+index 1d54ddf0..1bbe627f 100644
+--- a/rmk-macro/src/codegen/keyboard_config.rs
++++ b/rmk-macro/src/codegen/keyboard_config.rs
+@@ -79,14 +79,12 @@ pub(crate) fn expand_lock_config(host: &Host) -> proc_macro2::TokenStream {
+     let unlock_keys = unlock_keys_tokens(host);
+     let insecure = host.insecure;
+     let write_requires_unlock = host.write_requires_unlock;
+-    let bootloader_requires_unlock = host.bootloader_requires_unlock;
+     let maintenance_mode_default = host.maintenance_mode_default;
+     quote! {
+         const LOCK_CONFIG: ::rmk::config::LockConfig = ::rmk::config::LockConfig {
+             unlock_keys: #unlock_keys,
+             insecure: #insecure,
+             write_requires_unlock: #write_requires_unlock,
+-            bootloader_requires_unlock: #bootloader_requires_unlock,
+             maintenance_mode_default: #maintenance_mode_default,
+         };
+     }
+diff --git a/rmk-macro/src/codegen/simulator.rs b/rmk-macro/src/codegen/simulator.rs
+index 7c9f1144..0355c08d 100644
+--- a/rmk-macro/src/codegen/simulator.rs
++++ b/rmk-macro/src/codegen/simulator.rs
+@@ -316,7 +316,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
+         quote! { (#row, #col) }
+     });
+     let (insecure, write_requires_unlock) = (host.insecure, host.write_requires_unlock);
+-    let bootloader_requires_unlock = host.bootloader_requires_unlock;
+     let maintenance_mode_default = host.maintenance_mode_default;
+     let blob = proc_macro2::Literal::byte_string(layout_blob);
+     quote! {
+@@ -325,7 +324,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
+                 unlock_keys: &[#(#keys),*],
+                 insecure: #insecure,
+                 write_requires_unlock: #write_requires_unlock,
+-                bootloader_requires_unlock: #bootloader_requires_unlock,
+                 maintenance_mode_default: #maintenance_mode_default,
+             },
+             layout_blob: #blob,
+diff --git a/rmk/CHANGELOG.md b/rmk/CHANGELOG.md
+index 97c0de71..7de8d681 100644
+--- a/rmk/CHANGELOG.md
++++ b/rmk/CHANGELOG.md
+@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
+ ## [Unreleased]
+ 
+ - Add runtime-authored conditional lighting without changing the immutable board-compiled source: hosts discover `RUNTIME_CONDITIONAL_SCENES`, read revision-pinned ordered pages, and atomically replace the persistent table with `0x0925..=0x092A`. Add revision-checked `SetLightingOutputMode = 0x0924` alongside the existing three-state readback. Both additions use capability/command probing and leave `ProtocolVersion` unchanged.
+-- Add [Rynk](https://rmk.rs/docs/features/rynk), RMK's native host protocol for on-the-fly configuration over USB and BLE — an opt-in alternative to Vial that covers every RMK feature (keymap, layers, encoders, combos, forks, tap-dance/morse, macros, and behavior config), plus live status (current layer, matrix tester, WPM, HID indicators, battery, connection/BLE profile) and device management (reboot, bootloader, storage reset). Enable with the `rynk` Cargo feature and `[host] rynk_enabled = true`; it is mutually exclusive with Vial. Dangerous operations (bootloader, storage reset, matrix tester, clearing a BLE bond) are gated behind a physical-presence unlock (`[host].unlock_keys`). Host client crates live in the new `rynk/` workspace ([#962](https://github.com/rmk-rs/rmk/pull/962))
++- Add [Rynk](https://rmk.rs/docs/features/rynk), RMK's native host protocol for on-the-fly configuration over USB and BLE — an opt-in alternative to Vial that covers every RMK feature (keymap, layers, encoders, combos, forks, tap-dance/morse, macros, and behavior config), plus live status (current layer, matrix tester, WPM, HID indicators, battery, connection/BLE profile) and device management (reboot, bootloader, storage reset). Enable with the `rynk` Cargo feature and `[host] rynk_enabled = true`; it is mutually exclusive with Vial. A keyboard-controlled maintenance lock gates every mutation and sensitive operation, with its reboot state selected by `[host].maintenance_lock_default`. Host client crates live in the new `rynk/` workspace ([#962](https://github.com/rmk-rs/rmk/pull/962))
+ - Add runtime-configurable per-layer lighting scenes over Rynk: hosts can store per-layer, per-LED effects on the keyboard (`GetLightingSceneStatus`/`GetLightingScenes`, `SetLightingSceneCell`/`UnsetLightingSceneCell`, an atomic `BeginLightingSceneReplace`/`PutLightingSceneChunk`/`CommitLightingSceneReplace`/`AbortLightingSceneReplace` transaction, and `SetLightingLayerPolicy`). Scene cells compose in the layer band — above the board's static layer scenes, below the transient TTL overlay — and persist via RMK storage, loading on boot and clearing with a storage reset. Boards opt in by choosing a scene capacity on the standard lighting engine and advertising it with `RynkLightingController::with_scene_capacity`. Scenes are a capability-gated extension, not a protocol-version entry: hosts discover them via `LightingFeatureFlags::LAYER_SCENES` and `GetLightingSceneStatus` (older firmware answers `UnknownCmd`); `ProtocolVersion` is unchanged — version numbers are minted upstream only, and downstream extensions (scenes, `GetBuildInfo`, `PeripheralBootloaderJump`, the lighting endpoints) are detected through capability surfaces and per-command probing. Firmware already in the field that reports a higher minor (v0.2–v0.5) remains compatible: hosts gate on capabilities, and the handshake only rejects `major` mismatches
+ - Add Azoteq IQS5xx (IQS550 / IQS572 / IQS525) trackpad driver, used by Azoteq's TPS43/TPS65 modules. Supports operation with or without an `RDY` pin and is configurable via `keyboard.toml` on nRF52 / RP2040; currently publishes single-finger relative cursor movement only ([#29](https://github.com/rmk-rs/rmk/issues/29))
+ - Add PMW3360 / PMW3389 optical mouse sensor support
+diff --git a/rmk/src/config/lock.rs b/rmk/src/config/lock.rs
+index 94946ad1..50f5a439 100644
+--- a/rmk/src/config/lock.rs
++++ b/rmk/src/config/lock.rs
+@@ -10,10 +10,6 @@ pub struct LockConfig {
+     /// Legacy physical-lock write policy, retained for configuration
+     /// compatibility. It does not authorize Rynk commands.
+     pub write_requires_unlock: bool,
+-    /// Gate central and split-peripheral bootloader entry behind the physical
+-    /// unlock challenge. Defaults to true; boards with a trusted host can opt
+-    /// out without disabling the gate for storage reset or matrix reads.
+-    pub bootloader_requires_unlock: bool,
+     /// Initial state of the maintenance-operation gate. A key action may
+     /// change the live state until reboot.
+     pub maintenance_mode_default: bool,
+@@ -25,7 +21,6 @@ impl Default for LockConfig {
+             unlock_keys: &[],
+             insecure: false,
+             write_requires_unlock: false,
+-            bootloader_requires_unlock: true,
+             maintenance_mode_default: true,
+         }
+     }
 diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
 index 18e49906..30eb50d0 100644
 --- a/rmk/src/host/rynk/handlers/lighting.rs
