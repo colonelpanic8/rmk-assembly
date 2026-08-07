@@ -22,20 +22,20 @@
       "fold/runtime-behavior-parity": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
+      "glove80-rmk/lighting-v2": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
       "pr-1031": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
-      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
-      "work/lighting-observability": "da04121b119131ea6ee6ed7716f395dcce076bf8"
+      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
     }
   },
   "build": {
-    "generated": "2026-08-07T20:34:05.773573492+00:00",
+    "generated": "2026-08-07T20:40:41.503411409+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "2ad9d40e2e02d2a0e7032202f1f55dd610cc20c4",
-    "pre_provenance_commit": "2ad9d40e2e02d2a0e7032202f1f55dd610cc20c4",
+    "commit": "f270fbc39d768360858270cf7170ca51dc8e241b",
+    "pre_provenance_commit": "f270fbc39d768360858270cf7170ca51dc8e241b",
     "tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
     "built_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
-    "previous_tree": "9fd55aa7cc967ebda27f965b35709c00a13f6a69",
-    "tree_changed": true,
+    "previous_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
+    "tree_changed": false,
     "conflicts": 12,
     "manifest_entries": [
       {
@@ -58,10 +58,10 @@
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
-        "name": "work/lighting-observability",
+        "name": "glove80-rmk/lighting-v2",
         "kind": "branch",
-        "source": "fork:work/lighting-observability",
-        "pin": "da04121b119131ea6ee6ed7716f395dcce076bf8"
+        "source": "fork:glove80-rmk/lighting-v2",
+        "pin": "4fe4754864ad3bbf8f630cf392b878e505eb16d7"
       },
       {
         "name": "fold/connection-selection",
@@ -196,8 +196,8 @@
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
-        "name": "work/lighting-observability",
-        "oid": "da04121b119131ea6ee6ed7716f395dcce076bf8",
+        "name": "glove80-rmk/lighting-v2",
+        "oid": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
         "status": "merged",
         "conflicted": false
       },
@@ -311,7 +311,7 @@
         "oid": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:6944b3e2be1e5957d9c8ed2abc7cef546623d0b2",
+        "resolution": "rerere",
         "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
       },
       {

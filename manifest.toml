@@ -30,7 +30,7 @@ note = "Carried as the PR, not fork:fold/lighting-rynk -- that branch was a dupl
 fixup = "patches/lighting-rynk-coherence.patch"
 
 [[entry]]
-branch = "fork:work/lighting-observability"
+branch = "fork:glove80-rmk/lighting-v2"
 summary = "Split lighting frame readback and replica attestation status"
 
 [[entry]]
