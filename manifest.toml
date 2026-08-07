@@ -30,12 +30,15 @@ note = "Carried as the PR, not fork:fold/lighting-rynk -- that branch was a dupl
 fixup = "patches/lighting-rynk-coherence.patch"
 
 [[entry]]
+branch = "fork:glove80-rmk/lighting-v2"
+summary = "Split lighting frame readback and replica attestation status"
+
+[[entry]]
 branch = "fork:fold/connection-selection"
 summary = "Key-selectable output transport: OutputUsb/OutputBluetooth set preferred, profile switch prefers BLE, public connection status accessor"
 
 [[entry]]
 pr = 984
-fixup = "patches/pr-984-split-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/single-pass-storage-read"

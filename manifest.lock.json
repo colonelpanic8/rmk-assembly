@@ -1,7 +1,7 @@
 {
   "version": 1,
   "pins": {
-    "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
+    "base": "65df15775026bad1189139613ee3d338139bec3d",
     "entries": {
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
@@ -18,23 +18,24 @@
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
-      "fold/pointing-runtime-config-pinned": "feadbcae82a05ada110841353a1afbb523401769",
-      "fold/runtime-behavior-parity": "4b465fec8378dded6e3d3db31ed4344457893136",
-      "fold/split-reliability": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
+      "fold/pointing-runtime-config-pinned": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
+      "fold/runtime-behavior-parity": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
+      "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
-      "pr-1031": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
+      "glove80-rmk/lighting-v2": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
+      "pr-1031": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
       "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
     }
   },
   "build": {
-    "generated": "2026-08-07T10:37:20.810015395+00:00",
-    "base": "b7997d37e272f5f90eac9c672729f43322f9ea98",
-    "commit": "c751b8155679a1a9d923a59b6ff89e5aca09d05d",
-    "pre_provenance_commit": "c751b8155679a1a9d923a59b6ff89e5aca09d05d",
-    "tree": "8f59e7cea9db457697d89e2be253580292d79bce",
-    "built_tree": "8f59e7cea9db457697d89e2be253580292d79bce",
-    "previous_tree": "d90f78e2df1f639e937e58affe934e0b379d5bc2",
-    "tree_changed": true,
+    "generated": "2026-08-07T20:40:41.503411409+00:00",
+    "base": "65df15775026bad1189139613ee3d338139bec3d",
+    "commit": "f270fbc39d768360858270cf7170ca51dc8e241b",
+    "pre_provenance_commit": "f270fbc39d768360858270cf7170ca51dc8e241b",
+    "tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
+    "built_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
+    "previous_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
+    "tree_changed": false,
     "conflicts": 12,
     "manifest_entries": [
       {
@@ -47,14 +48,20 @@
         "name": "fold/split-reliability",
         "kind": "branch",
         "source": "fork:fold/split-reliability",
-        "pin": "2e65faa6e9dad852154db5266b4d3a572e8f295e"
+        "pin": "c2b265837f678c6f4455fa91c99a14cd9451b356"
       },
       {
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
+        "pin": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
+      },
+      {
+        "name": "glove80-rmk/lighting-v2",
+        "kind": "branch",
+        "source": "fork:glove80-rmk/lighting-v2",
+        "pin": "4fe4754864ad3bbf8f630cf392b878e505eb16d7"
       },
       {
         "name": "fold/connection-selection",
@@ -66,8 +73,7 @@
         "name": "pr-984",
         "kind": "pr",
         "source": "upstream#984",
-        "pin": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
-        "fixup": "1883b1dda680ceddd7c0809c631802572d91ba9f"
+        "pin": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
       },
       {
         "name": "feat/single-pass-storage-read",
@@ -151,13 +157,13 @@
         "name": "fold/pointing-runtime-config-pinned",
         "kind": "branch",
         "source": "fork:fold/pointing-runtime-config-pinned",
-        "pin": "feadbcae82a05ada110841353a1afbb523401769"
+        "pin": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446"
       },
       {
         "name": "fold/runtime-behavior-parity",
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
-        "pin": "4b465fec8378dded6e3d3db31ed4344457893136",
+        "pin": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
         "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
       },
       {
@@ -165,7 +171,7 @@
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
         "pin": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-        "fixup": "df3d4041e393ffcfbef0367af58de84e509383dc"
+        "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
       }
     ],
     "results": [
@@ -177,17 +183,23 @@
       },
       {
         "name": "fold/split-reliability",
-        "oid": "2e65faa6e9dad852154db5266b4d3a572e8f295e",
+        "oid": "c2b265837f678c6f4455fa91c99a14cd9451b356",
         "status": "merged",
         "conflicted": false
       },
       {
         "name": "pr-1031",
-        "oid": "dfdafb1780819e3a0be6f5f4ce8b4717ce779154",
+        "oid": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
+      },
+      {
+        "name": "glove80-rmk/lighting-v2",
+        "oid": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
+        "status": "merged",
+        "conflicted": false
       },
       {
         "name": "fold/connection-selection",
@@ -200,8 +212,7 @@
         "oid": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere",
-        "fixup": "1883b1dda680ceddd7c0809c631802572d91ba9f"
+        "resolution": "rerere"
       },
       {
         "name": "feat/single-pass-storage-read",
@@ -290,17 +301,17 @@
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
-        "oid": "feadbcae82a05ada110841353a1afbb523401769",
+        "oid": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
       },
       {
         "name": "fold/runtime-behavior-parity",
-        "oid": "4b465fec8378dded6e3d3db31ed4344457893136",
+        "oid": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:a6d32743107395e7087a037a6a0f56d4cc411011",
+        "resolution": "rerere",
         "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
       },
       {
@@ -309,7 +320,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "df3d4041e393ffcfbef0367af58de84e509383dc"
+        "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
       }
     ]
   }
