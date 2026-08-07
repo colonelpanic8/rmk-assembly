@@ -9,6 +9,12 @@ recorded = "2026-08-05T15:53:01.664787136+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
+hash = "03db6fecebc57eecba8c562ea7d973e80b958e35"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-08-07T20:14:44.100426358+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
 hash = "1e2700e10cc23f7fc9e197b1255ca8a0bde2e291"
 paths = ["rmk/src/host/rynk/handlers/system.rs"]
 recorded = "2026-08-07T01:06:45.896127913+00:00"
@@ -72,6 +78,18 @@ entry = "feat/maintenance-mode"
 hash = "6d28f296a47d87af9e1916fb18adbc0a4eec2026"
 paths = ["rmk-config/src/lib.rs"]
 recorded = "2026-08-07T02:01:38.174049870+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "85440d25fbbde25144919e544010e80c98735cbb"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-07T20:14:44.100428131+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "8a2bef087e71af1ad4b4b77abc3b3e80a097a0c3"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-07T20:14:44.100428622+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
@@ -302,6 +320,48 @@ paths = ["rmk/src/split/peripheral.rs"]
 recorded = "2026-08-05T08:06:30.042539671+00:00"
 
 [[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "0ae52f4a522bb6342d65472b9edbb9c9786c8b89"
+paths = ["rmk/src/keyboard/auto_mouse_layer.rs"]
+recorded = "2026-08-07T20:07:26.192849504+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "3b7be1c9d67b94719d666fe7ec85073e9f8c12a8"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-07T20:07:26.192851758+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "6b8eecfaa447479c1b0de47f547f910282dff10e"
+paths = ["rmk/src/input_device/adc/nrf.rs"]
+recorded = "2026-08-07T20:07:26.192852350+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "aacad688017ca50da63cf7f8cc5ff6e438059bc5"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-07T20:07:26.192852750+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "b29f5c736d526f63c5e2a734958d259c82e6d945"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-07T20:07:26.192853061+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "d6962b1d333b54f212f7f79aa9ce6c6e57c7dadb"
+paths = ["rmk/src/input_device/pointing.rs"]
+recorded = "2026-08-07T20:07:26.192853402+00:00"
+
+[[resolution]]
+entry = "fold/runtime-behavior-parity"
+hash = "087c6607e1d39672e048a7cc11324df36230acdf"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-07T20:10:21.386306021+00:00"
+
+[[resolution]]
 entry = "fold/runtime-behavior-parity"
 hash = "0b00e7a57da4acd8a5ae7455eb7719222b13908e"
 paths = ["rynk/rynk-wasm/src/client.rs"]
@@ -357,6 +417,12 @@ recorded = "2026-08-07T07:53:05.299396613+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
+hash = "5156d7b88ed539be925cc7bddd88f1906c894985"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-07T20:10:21.386308235+00:00"
+
+[[resolution]]
+entry = "fold/runtime-behavior-parity"
 hash = "972b115a3d2d026eee69d7f13d2246f02cd7b64e"
 paths = ["rmk/src/config/behavior.rs"]
 recorded = "2026-08-07T07:53:05.299396874+00:00"
@@ -384,6 +450,12 @@ entry = "fold/runtime-behavior-parity"
 hash = "cc377943d83d6f43b7d2c031106787ca8ea84644"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
 recorded = "2026-08-07T07:53:05.299397585+00:00"
+
+[[resolution]]
+entry = "fold/runtime-behavior-parity"
+hash = "d31d90282ca9a9534c7a33dd8a4b1f69b593a7e2"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-07T20:10:21.386308555+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -458,10 +530,22 @@ paths = ["rmk/src/keyboard.rs"]
 recorded = "2026-08-05T13:48:34.001728853+00:00"
 
 [[resolution]]
+entry = "pr-1031"
+hash = "14cee3eff788219a0428fc355ce8a88934fe22f8"
+paths = ["rmk/src/split/ble/central.rs"]
+recorded = "2026-08-07T20:01:55.782731201+00:00"
+
+[[resolution]]
 entry = "pr-984"
 hash = "3460c699e14e3a0ff69bf22012941b920d977cd4"
 paths = ["rmk/src/split_app.rs"]
 recorded = "2026-08-05T09:40:09.841077492+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "362cec65e8842a24db8b2c2fb70057fef64b4835"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-08-07T20:04:19.533551879+00:00"
 
 [[resolution]]
 entry = "pr-984"
@@ -471,6 +555,30 @@ recorded = "2026-08-05T09:40:09.841079786+00:00"
 
 [[resolution]]
 entry = "pr-984"
+hash = "5b60e90a31b0692066f28e0fa9bc7f11aca356a6"
+paths = ["rmk/src/split/driver.rs"]
+recorded = "2026-08-07T20:04:19.533554715+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "6dc90a015f557d440e01975b1a677435f688078d"
+paths = ["rmk/src/split_app.rs"]
+recorded = "2026-08-07T20:04:19.533555105+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "9ac39b7160674ec075935b89db9becbffd072cd3"
+paths = ["rmk/src/split/mod.rs"]
+recorded = "2026-08-07T20:04:19.533555546+00:00"
+
+[[resolution]]
+entry = "pr-984"
 hash = "a8333e2718122b22f86ceca97cfad64d3f98a9b8"
 paths = ["rmk/src/split/peripheral.rs"]
 recorded = "2026-08-05T09:40:09.841080267+00:00"
+
+[[resolution]]
+entry = "pr-984"
+hash = "c504054f3dc2f80efc9c31e02df0922cc98d468a"
+paths = ["rmk/src/lib.rs"]
+recorded = "2026-08-07T20:04:19.533555967+00:00"
