@@ -93,6 +93,7 @@ fixup = "patches/maintenance-mode-coherence.patch"
 [[entry]]
 branch = "fork:fix/battery-power-transitions"
 summary = "Preserve measured battery levels across power changes and clear disconnected peripheral state"
+fixup = "patches/battery-power-transitions-coherence.patch"
 
 [[exclude]]
 pr = 999

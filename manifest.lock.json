@@ -28,13 +28,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-07T21:55:50.584115512+00:00",
+    "generated": "2026-08-07T21:59:26.797865070+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "289c3b65e6fa5b529789239a4ab6135294438180",
-    "pre_provenance_commit": "289c3b65e6fa5b529789239a4ab6135294438180",
-    "tree": "1de2a91618d5222ee168788e839b5563579c84d0",
-    "built_tree": "1de2a91618d5222ee168788e839b5563579c84d0",
-    "previous_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
+    "commit": "0491defe7d4ad167a5d528a07f64fade0cfbbc4e",
+    "pre_provenance_commit": "0491defe7d4ad167a5d528a07f64fade0cfbbc4e",
+    "tree": "f06ac9f9715a10fcf403833aebab72ca6208f1b6",
+    "built_tree": "f06ac9f9715a10fcf403833aebab72ca6208f1b6",
+    "previous_tree": "1de2a91618d5222ee168788e839b5563579c84d0",
     "tree_changed": true,
     "conflicts": 12,
     "manifest_entries": [
@@ -171,7 +171,8 @@
         "name": "fix/battery-power-transitions",
         "kind": "branch",
         "source": "fork:fix/battery-power-transitions",
-        "pin": "c3acef0a19b541dcb7449aa792bd9ce328c3817d"
+        "pin": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+        "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
       }
     ],
     "results": [
@@ -320,7 +321,8 @@
         "name": "fix/battery-power-transitions",
         "oid": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
         "status": "merged",
-        "conflicted": false
+        "conflicted": false,
+        "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
       }
     ]
   }
