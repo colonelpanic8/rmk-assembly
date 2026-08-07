@@ -51,6 +51,12 @@ recorded = "2026-08-07T01:06:45.896131941+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
+hash = "5dfd5ffffc0564852816886e0b0c2ccbb5f20d3c"
+paths = ["rmk-config/src/resolved/host.rs"]
+recorded = "2026-08-07T02:01:38.174047064+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
 hash = "64324ad9bbed3188eba29d71925a9f723e6857b8"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
 recorded = "2026-08-07T01:06:45.896132251+00:00"
@@ -60,6 +66,12 @@ entry = "feat/maintenance-mode"
 hash = "65dd92e4766b3251088df6a9155be0f477d212ad"
 paths = ["rmk-types/src/protocol/rynk/tests.rs"]
 recorded = "2026-08-07T01:06:45.896132532+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "6d28f296a47d87af9e1916fb18adbc0a4eec2026"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-07T02:01:38.174049870+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
