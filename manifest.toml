@@ -85,6 +85,7 @@ branch = "fork:feat/pointing-runtime-config"
 [[entry]]
 branch = "fork:feat/maintenance-mode"
 summary = "Keyboard-controlled maintenance gate for unattended Rynk operations"
+fixup = "patches/maintenance-mode-coherence.patch"
 
 [[exclude]]
 pr = 999

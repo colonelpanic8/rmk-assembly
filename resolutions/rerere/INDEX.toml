@@ -87,6 +87,12 @@ recorded = "2026-08-07T01:06:45.896133864+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
+hash = "c855e2e47fab97a6bb4691d090b39cda2d196e1a"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-07T01:30:07.207460230+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
 hash = "d686d7144b35d480305cc1e5eb3337290da50c91"
 paths = ["rmk-config/src/default_config/event_default.toml"]
 recorded = "2026-08-07T01:06:45.896134155+00:00"
@@ -114,6 +120,12 @@ entry = "feat/maintenance-mode"
 hash = "df77f70803d54ed03b665a6d1fc3d6bf2aeb895f"
 paths = ["rmk-macro/src/codegen/keyboard_config.rs"]
 recorded = "2026-08-07T01:06:45.896135317+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "f24b6e19ec56d3cab40222b94dcdee8f1d218626"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-08-07T01:30:07.207462063+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
