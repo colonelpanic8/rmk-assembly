@@ -80,7 +80,11 @@ branch = "fork:fold/cirque-pinnacle"
 branch = "fork:feat/pointing-drag-mode"
 
 [[entry]]
-branch = "fork:feat/pointing-runtime-config"
+branch = "fork:fold/pointing-runtime-config-pinned"
+
+[[entry]]
+branch = "fork:fold/runtime-behavior-parity"
+fixup = "patches/runtime-behavior-parity-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/maintenance-mode"
