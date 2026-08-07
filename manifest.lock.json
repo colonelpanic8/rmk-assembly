@@ -15,6 +15,7 @@
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
+      "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -22,20 +23,19 @@
       "fold/runtime-behavior-parity": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
-      "glove80-rmk/lighting-v2": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
-      "pr-1031": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
+      "pr-1031": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
       "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
     }
   },
   "build": {
-    "generated": "2026-08-07T20:40:41.503411409+00:00",
+    "generated": "2026-08-07T21:55:50.584115512+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "f270fbc39d768360858270cf7170ca51dc8e241b",
-    "pre_provenance_commit": "f270fbc39d768360858270cf7170ca51dc8e241b",
-    "tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
-    "built_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
+    "commit": "289c3b65e6fa5b529789239a4ab6135294438180",
+    "pre_provenance_commit": "289c3b65e6fa5b529789239a4ab6135294438180",
+    "tree": "1de2a91618d5222ee168788e839b5563579c84d0",
+    "built_tree": "1de2a91618d5222ee168788e839b5563579c84d0",
     "previous_tree": "7a950a82031b093fca5a7680ea23bfe5d07d1f36",
-    "tree_changed": false,
+    "tree_changed": true,
     "conflicts": 12,
     "manifest_entries": [
       {
@@ -54,14 +54,8 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
+        "pin": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
-      },
-      {
-        "name": "glove80-rmk/lighting-v2",
-        "kind": "branch",
-        "source": "fork:glove80-rmk/lighting-v2",
-        "pin": "4fe4754864ad3bbf8f630cf392b878e505eb16d7"
       },
       {
         "name": "fold/connection-selection",
@@ -172,6 +166,12 @@
         "source": "fork:feat/maintenance-mode",
         "pin": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
         "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
+      },
+      {
+        "name": "fix/battery-power-transitions",
+        "kind": "branch",
+        "source": "fork:fix/battery-power-transitions",
+        "pin": "c3acef0a19b541dcb7449aa792bd9ce328c3817d"
       }
     ],
     "results": [
@@ -189,17 +189,11 @@
       },
       {
         "name": "pr-1031",
-        "oid": "f5202f3c7dff95753d8d9e868a81ab2abed49256",
+        "oid": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
-      },
-      {
-        "name": "glove80-rmk/lighting-v2",
-        "oid": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
-        "status": "merged",
-        "conflicted": false
       },
       {
         "name": "fold/connection-selection",
@@ -321,6 +315,12 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
+      },
+      {
+        "name": "fix/battery-power-transitions",
+        "oid": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
