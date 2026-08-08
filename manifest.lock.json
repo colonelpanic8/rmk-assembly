@@ -21,7 +21,7 @@
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/pointing-runtime-config-pinned": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
-      "fold/runtime-behavior-parity": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
+      "fold/runtime-behavior-parity": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
       "pr-1031": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
@@ -29,13 +29,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-08T12:16:07.791698703+00:00",
+    "generated": "2026-08-08T19:24:39.466534827+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "170521424c353e8e27470419c5a99b02d7b346bb",
-    "pre_provenance_commit": "170521424c353e8e27470419c5a99b02d7b346bb",
-    "tree": "5b91f2fc61c61870376a7aba0b40936178074e9d",
-    "built_tree": "5b91f2fc61c61870376a7aba0b40936178074e9d",
-    "previous_tree": "fc38e45489baef35e77a1f3bd3b83fa5715f09a0",
+    "commit": "667e9efbac6f2b614901665138e0af9d02912350",
+    "pre_provenance_commit": "667e9efbac6f2b614901665138e0af9d02912350",
+    "tree": "56db015490ad26907d1cfde902a41c3c34fb220f",
+    "built_tree": "56db015490ad26907d1cfde902a41c3c34fb220f",
+    "previous_tree": "be0c690a7e1470c8ed69cc9b3c1a218dbad769c2",
     "tree_changed": true,
     "conflicts": 14,
     "manifest_entries": [
@@ -152,15 +152,15 @@
         "name": "fold/runtime-behavior-parity",
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
-        "pin": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
-        "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
+        "pin": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
+        "fixup": "54eae5c3d98dbebccb07f4f83ea2888d264e4dd8"
       },
       {
         "name": "feat/maintenance-mode",
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
         "pin": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-        "fixup": "7297429581087b1ff14687c827116c08233a3387"
+        "fixup": "773a3cfaba8889dbf5b53e65787714ec1a1ca0db"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -174,13 +174,14 @@
         "kind": "branch",
         "source": "fork:feat/ble-name-template",
         "pin": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
-        "fixup": "42440ade724a93c372df2b0ef4bdf5f9032e30ab"
+        "fixup": "7d1dfdce65a54e3a4692966ee1d5c7f3d30198af"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
         "kind": "branch",
         "source": "fork:fix/ephemeral-split-layer-state",
-        "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2"
+        "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+        "fixup": "df0cc0379ec1747033892e719a88a1d2ac7c55f4"
       }
     ],
     "results": [
@@ -305,11 +306,11 @@
       },
       {
         "name": "fold/runtime-behavior-parity",
-        "oid": "0dff5bdd1d7d82d29800465ae6ba90d4af431e9d",
+        "oid": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
+        "fixup": "54eae5c3d98dbebccb07f4f83ea2888d264e4dd8"
       },
       {
         "name": "feat/maintenance-mode",
@@ -317,7 +318,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "7297429581087b1ff14687c827116c08233a3387"
+        "fixup": "773a3cfaba8889dbf5b53e65787714ec1a1ca0db"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -332,14 +333,15 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "42440ade724a93c372df2b0ef4bdf5f9032e30ab"
+        "fixup": "7d1dfdce65a54e3a4692966ee1d5c7f3d30198af"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
         "oid": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere",
+        "fixup": "df0cc0379ec1747033892e719a88a1d2ac7c55f4"
       }
     ]
   }

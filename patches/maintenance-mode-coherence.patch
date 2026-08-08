@@ -53,21 +53,6 @@ index 3f26ac62..021e3ba8 100644
  ```
  
  ## Common Setups
-diff --git a/docs/docs/main/docs/development/rynk_protocol.md b/docs/docs/main/docs/development/rynk_protocol.md
-index a734f876..6723d203 100644
---- a/docs/docs/main/docs/development/rynk_protocol.md
-+++ b/docs/docs/main/docs/development/rynk_protocol.md
-@@ -70,6 +70,10 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
- | `0x0502` | `SetFork`                                              | `SetForkRequest`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0601` | `GetBehaviorConfig`                                    | `()`                                                     | `BehaviorConfig`                                     |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0602` | `SetBehaviorConfig`                                    | `BehaviorConfig`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
-+| `0x0603` | `GetBehaviorOptions`                                   | `()`                                                     | `BehaviorOptions`                                    |                  |                                                                                                                                                                                                                                                                                                                    |
-+| `0x0604` | `SetBehaviorOptions`                                   | `BehaviorOptions`                                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
-+| `0x0605` | `GetAutoMouseLayerConfigs`                             | `()`                                                     | `AutoMouseLayerConfigState`                          |                  |                                                                                                                                                                                                                                                                                                                    |
-+| `0x0606` | `SetAutoMouseLayerConfigs`                             | `SetAutoMouseLayerConfigsRequest`                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0701` | `GetConnectionType`                                    | `()`                                                     | `ConnectionType`                                     |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0702` | `GetConnectionStatus`                                  | `()`                                                     | `ConnectionStatus`                                   |                  | Full `ConnectionStatus` snapshot.                                                                                                                                                                                                                                                                                  |
- | `0x0703` | `GetBleStatus`                                         | `()`                                                     | `BleStatus`                                          | `_ble`           |                                                                                                                                                                                                                                                                                                                    |
 diff --git a/docs/docs/main/docs/features/rynk.md b/docs/docs/main/docs/features/rynk.md
 index 7e128943..74d18a94 100644
 --- a/docs/docs/main/docs/features/rynk.md
@@ -359,10 +344,10 @@ index dd78f523..7ae45848 100644
              let controls = LightingControls {
                  output_toggle_user_action: Some(13),
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 7da33ae9..d756c2bb 100644
+index d1cc37a7..5ae25f8b 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -537,16 +537,12 @@ mod tests {
+@@ -540,16 +540,12 @@ mod tests {
      use alloc::vec;
      use alloc::vec::Vec;
  
@@ -381,7 +366,7 @@ index 7da33ae9..d756c2bb 100644
      use crate::keymap::{KeyMap, KeymapData};
      use crate::test_support::test_block_on as block_on;
  
-@@ -634,146 +630,6 @@ mod tests {
+@@ -637,146 +633,6 @@ mod tests {
          out
      }
  

@@ -99,6 +99,7 @@ fixup = "patches/ble-name-template-coherence.patch"
 
 [[entry]]
 branch = "fork:fix/ephemeral-split-layer-state"
+fixup = "patches/final-rynk-protocol-snapshots.patch"
 
 [[exclude]]
 pr = 999
