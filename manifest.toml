@@ -64,9 +64,6 @@ branch = "fork:feat/morse-hold-trigger-positions"
 branch = "fork:feat/morse-hold-trigger-on-release"
 
 [[entry]]
-branch = "fork:feat/morse-unilateral-mod-chording"
-
-[[entry]]
 branch = "fork:feat/consumer-keycodes"
 
 [[entry]]
@@ -109,3 +106,7 @@ reason = "held modifier combinations landed upstream in f91b22a0"
 [[exclude]]
 branch = "fork:feat/rynk"
 reason = "stale copy of the rynk stack; upstream rebased and merged its own feat/rynk into main at 9448f7a1, so the base carries it now"
+
+[[exclude]]
+branch = "fork:feat/morse-unilateral-mod-chording"
+reason = "superseded by strict positional hold triggers and opt-in hold-trigger-on-release; unconditional modifier exemption violates bilateral HRM safety"
