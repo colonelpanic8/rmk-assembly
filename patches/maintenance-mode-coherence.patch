@@ -54,50 +54,13 @@ index 3f26ac62..021e3ba8 100644
  
  ## Common Setups
 diff --git a/docs/docs/main/docs/development/rynk_protocol.md b/docs/docs/main/docs/development/rynk_protocol.md
-index 0a808d91..7f31cc64 100644
+index a734f876..6723d203 100644
 --- a/docs/docs/main/docs/development/rynk_protocol.md
 +++ b/docs/docs/main/docs/development/rynk_protocol.md
-@@ -33,14 +33,14 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
- | `0x0003` | `Reboot`                                               | `()`                                                     | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0004` | `BootloaderJump`                                       | `()`                                                     | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0005` | `StorageReset`                                         | `StorageResetMode`                                       | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
--| `0x0006` | `GetLockStatus`                                        | `()`                                                     | `LockStatus`                                         |                  | Legacy compatibility read; current firmware reports an inert, permanently unlocked state.                                                                                                                                                                                                                                                             |
--| `0x0007` | `UnlockPoll`                                           | `()`                                                     | `LockStatus`                                         |                  | Legacy compatibility read; equivalent to `GetLockStatus`.                                                                                                                                                                                                                                             |
--| `0x0008` | `Lock`                                                 | `()`                                                     | `()`                                                 |                  | Legacy compatibility no-op.                                                                                                                                                                                                                                                                                                |
-+| `0x0006` | `GetLockStatus`                                        | `()`                                                     | `LockStatus`                                         |                  | Pure read of the current lock state — no side effects.                                                                                                                                                                                                                                                             |
-+| `0x0007` | `UnlockPoll`                                           | `()`                                                     | `LockStatus`                                         |                  | Arms/refreshes the unlock attempt and samples the held challenge keys.                                                                                                                                                                                                                                             |
-+| `0x0008` | `Lock`                                                 | `()`                                                     | `()`                                                 |                  | Relock immediately.                                                                                                                                                                                                                                                                                                |
- | `0x0009` | `GetLayout`                                            | `u32`                                                    | `LayoutChunk`                                        |                  | Get layout blob chunk. `u32` is the byte offset.                                                                                                                                                                                                                                                                   |
- | `0x000A` | `GetDeviceInfo`                                        | `()`                                                     | `DeviceInfo`                                         |                  | Identity strings and USB ids; feature gating stays in `GetCapabilities`.                                                                                                                                                                                                                                           |
- | `0x000B` | `GetBuildInfo`                                         | `()`                                                     | `BuildInfo`                                          |                  | Application-defined diagnostic build label; never used for compatibility.                                                                                                                                                                                                                                          |
- | `0x000C` | `PeripheralBootloaderJump`                             | `u8`                                                     | `()`                                                 |                  | Ask the application to route a bootloader jump to one split peripheral.                                                                                                                                                                                                                                            |
--| `0x000D` | `GetMaintenanceMode`  | `()`                   | `MaintenanceMode`       |         | Read the live gate for host maintenance operations.                          |
-+| `0x000D` | `GetMaintenanceMode`                                   | `()`                                                     | `MaintenanceMode`                                    |                  | Read the live gate for host maintenance operations.                                                                                                                                                                                                                                                                |
- | `0x0101` | `GetKeyAction`                                         | `KeyPosition`                                            | `KeyAction`                                          |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0102` | `SetKeyAction`                                         | `SetKeyRequest`                                          | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0103` | `GetDefaultLayer`                                      | `()`                                                     | `u8`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
-@@ -59,19 +59,19 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
- | `0x0402` | `SetMorse`                                             | `SetMorseRequest`                                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0403` | `GetMorseBulk`                                         | `GetMorseBulkRequest`                                    | `GetMorseBulkResponse`                               |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0404` | `SetMorseBulk`                                         | `SetMorseBulkRequest`                                    | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
--| `0x0405` | `GetMorseProfileCount`     | `()`                              | `u8`                          |         | Number of profile slots. Also the support probe for the four commands below: firmware built before them answers `UnknownCmd`. |
--| `0x0406` | `GetMorseProfile`          | `u8`                              | `MorseProfile`                |         | Profile a key bound to this index resolves to — the table entry, or the default profile for a slot nothing has written.       |
--| `0x0407` | `SetMorseProfile`          | `SetMorseProfileRequest`          | `()`                          |         |                                                                                                                               |
--| `0x0408` | `GetMorseProfileBulk`      | `GetMorseProfileBulkRequest`      | `GetMorseProfileBulkResponse` |         |                                                                                                                               |
--| `0x0409` | `SetMorseProfileBulk`      | `SetMorseProfileBulkRequest`      | `()`                          |         |                                                                                                                               |
-+| `0x0405` | `GetMorseProfileCount`                                 | `()`                                                     | `u8`                                                 |                  | Number of profile slots. Also the support probe for the four commands below: firmware built before them answers `UnknownCmd`.                                                                                                                                                                                      |
-+| `0x0406` | `GetMorseProfile`                                      | `u8`                                                     | `MorseProfile`                                       |                  | Profile a key bound to this index resolves to — the table entry, or the default profile for a slot nothing has written.                                                                                                                                                                                            |
-+| `0x0407` | `SetMorseProfile`                                      | `SetMorseProfileRequest`                                 | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
-+| `0x0408` | `GetMorseProfileBulk`                                  | `GetMorseProfileBulkRequest`                             | `GetMorseProfileBulkResponse`                        |                  |                                                                                                                                                                                                                                                                                                                    |
-+| `0x0409` | `SetMorseProfileBulk`                                  | `SetMorseProfileBulkRequest`                             | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
- | `0x0501` | `GetFork`                                              | `u8`                                                     | `Fork`                                               |                  |                                                                                                                                                                                                                                                                                                                    |
+@@ -70,6 +70,10 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
  | `0x0502` | `SetFork`                                              | `SetForkRequest`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0601` | `GetBehaviorConfig`                                    | `()`                                                     | `BehaviorConfig`                                     |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0602` | `SetBehaviorConfig`                                    | `BehaviorConfig`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
--| `0x0603` | `GetBehaviorOptions`       | `()`                              | `BehaviorOptions`             |         |                                                                                                                               |
--| `0x0604` | `SetBehaviorOptions`       | `BehaviorOptions`                 | `()`                          |         |                                                                                                                               |
--| `0x0605` | `GetAutoMouseLayerConfigs` | `()`                              | `AutoMouseLayerConfigState`   |         |                                                                                                                               |
--| `0x0606` | `SetAutoMouseLayerConfigs` | `SetAutoMouseLayerConfigsRequest` | `()`                          |         |                                                                                                                               |
 +| `0x0603` | `GetBehaviorOptions`                                   | `()`                                                     | `BehaviorOptions`                                    |                  |                                                                                                                                                                                                                                                                                                                    |
 +| `0x0604` | `SetBehaviorOptions`                                   | `BehaviorOptions`                                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
 +| `0x0605` | `GetAutoMouseLayerConfigs`                             | `()`                                                     | `AutoMouseLayerConfigState`                          |                  |                                                                                                                                                                                                                                                                                                                    |
@@ -206,10 +169,10 @@ index 7e128943..74d18a94 100644
  ## Advanced tuning
  
 diff --git a/rmk-config/src/lib.rs b/rmk-config/src/lib.rs
-index ce54144c..b5e90e6f 100644
+index c498fe9c..cb1f9c31 100644
 --- a/rmk-config/src/lib.rs
 +++ b/rmk-config/src/lib.rs
-@@ -1415,8 +1415,7 @@ pub(crate) struct HostConfig {
+@@ -1434,8 +1434,7 @@ pub(crate) struct HostConfig {
      /// with `vial_enabled` (the underlying Cargo features conflict).
      #[serde_inline_default(false)]
      pub rynk_enabled: bool,
@@ -396,27 +359,10 @@ index dd78f523..7ae45848 100644
              let controls = LightingControls {
                  output_toggle_user_action: Some(13),
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index ebb3cb59..e57d9f57 100644
+index 7da33ae9..d756c2bb 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -28,7 +28,7 @@ use rmk_types::protocol::rynk::{
- use self::handlers::{serve, serve_bulk};
- use self::topics::TopicSubscribers;
- use super::context::KeyboardContext;
--use crate::config::{DeviceConfig, LockConfig, RmkConfig};
-+use crate::config::{DeviceConfig, RmkConfig};
- use crate::keymap::KeyMap;
- 
- /// The `rmk` crate version baked into the firmware, so hosts can key
-@@ -101,6 +101,7 @@ impl RynkSession {
- 
- impl<'a> RynkService<'a> {
-     pub fn new(keymap: &'a KeyMap<'a>, config: &RmkConfig<'static>) -> Self {
-+        crate::state::initialize_maintenance_mode(config.lock_config.maintenance_mode_default);
-         let mut ctx = KeyboardContext::new(keymap);
-         // Layout is fixed at macro expansion time, like Vial's keyboard-def.
-         ctx.layout_blob = config.layout_blob;
-@@ -530,16 +531,12 @@ mod tests {
+@@ -537,16 +537,12 @@ mod tests {
      use alloc::vec;
      use alloc::vec::Vec;
  
@@ -435,3 +381,150 @@ index ebb3cb59..e57d9f57 100644
      use crate::keymap::{KeyMap, KeymapData};
      use crate::test_support::test_block_on as block_on;
  
+@@ -634,146 +630,6 @@ mod tests {
+         out
+     }
+ 
+-    /// A second session over the same service starts locked again. The gate
+-    /// itself lives in `tests/scenarios/rynk_lock.toml`, which holds the
+-    /// challenge with real matrix input; only the session boundary needs a
+-    /// second `run_session`, which one timeline cannot express.
+-    #[cfg(any())]
+-    #[test]
+-    fn a_new_session_starts_locked_again() {
+-        let mut behavior = BehaviorConfig::default();
+-        let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+-        let mut data: KeymapData<2, 2, 1, 0> =
+-            KeymapData::new([[[KeyAction::No, KeyAction::No], [KeyAction::No, KeyAction::No]]]);
+-        let keymap = block_on(KeyMap::new(&mut data, &mut behavior, &positional));
+-
+-        const UNLOCK_KEYS: &[(u8, u8)] = &[(0, 0)];
+-        let mut config = RmkConfig {
+-            lock_config: LockConfig {
+-                unlock_keys: UNLOCK_KEYS,
+-                insecure: false,
+-                write_requires_unlock: false,
+-                bootloader_requires_unlock: true,
+-            },
+-            ..Default::default()
+-        };
+-        let service = RynkService::new(&keymap, &config);
+-        assert!(service.requires_unlock(Cmd::BootloaderJump));
+-        assert!(service.requires_unlock(Cmd::PeripheralBootloaderJump));
+-
+-        config.lock_config.bootloader_requires_unlock = false;
+-        let deployment_service = RynkService::new(&keymap, &config);
+-        assert!(!deployment_service.requires_unlock(Cmd::BootloaderJump));
+-        assert!(!deployment_service.requires_unlock(Cmd::PeripheralBootloaderJump));
+-        assert!(deployment_service.requires_unlock(Cmd::StorageReset));
+-        assert!(deployment_service.requires_unlock(Cmd::GetMatrixState));
+-
+-        // Hold the challenge key throughout, so only the session boundary can
+-        // account for the second session being locked.
+-        keymap.update_matrix_state(&KeyboardEvent::key(0, 0, true));
+-
+-        let mut chunks = VecDeque::new();
+-        chunks.push_back(req(Cmd::UnlockPoll.raw(), 0));
+-        chunks.push_back(req(Cmd::GetMatrixState.raw(), 1));
+-        let mut rx = ChunkRead { chunks };
+-        let mut tx = VecWrite { captured: Vec::new() };
+-        block_on(service.run_session(&mut rx, &mut tx));
+-
+-        let resp = decode_frames(&tx.captured);
+-        assert!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&resp[1].2)
+-                .unwrap()
+-                .is_ok(),
+-            "gated command served once unlocked"
+-        );
+-
+-        let mut chunks2 = VecDeque::new();
+-        chunks2.push_back(req(Cmd::GetMatrixState.raw(), 0));
+-        let mut rx2 = ChunkRead { chunks: chunks2 };
+-        let mut tx2 = VecWrite { captured: Vec::new() };
+-        block_on(service.run_session(&mut rx2, &mut tx2));
+-
+-        let resp2 = decode_frames(&tx2.captured);
+-        assert_eq!(resp2.len(), 1);
+-        assert_eq!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&resp2[0].2).unwrap(),
+-            Err(RynkError::Locked),
+-            "a fresh session has independent locked state"
+-        );
+-    }
+-
+-    #[cfg(any())]
+-    #[test]
+-    fn sessions_authorize_independently() {
+-        let mut behavior = BehaviorConfig::default();
+-        let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+-        let mut data: KeymapData<2, 2, 1, 0> =
+-            KeymapData::new([[[KeyAction::No, KeyAction::No], [KeyAction::No, KeyAction::No]]]);
+-        let keymap = block_on(KeyMap::new(&mut data, &mut behavior, &positional));
+-
+-        const UNLOCK_KEYS: &[(u8, u8)] = &[(0, 0)];
+-        let mut config = RmkConfig::default();
+-        config.lock_config.unlock_keys = UNLOCK_KEYS;
+-        let service = RynkService::new(&keymap, &config);
+-        keymap.update_matrix_state(&KeyboardEvent::key(0, 0, true));
+-
+-        let mut chunks_a = VecDeque::new();
+-        chunks_a.push_back(req(Cmd::UnlockPoll.raw(), 0x11));
+-        chunks_a.push_back(req(Cmd::GetLockStatus.raw(), 0x12));
+-        chunks_a.push_back(req(Cmd::Lock.raw(), 0x13));
+-        chunks_a.push_back(req(Cmd::GetMatrixState.raw(), 0x14));
+-        let mut rx_a = ChunkRead { chunks: chunks_a };
+-        let mut tx_a = VecWrite { captured: Vec::new() };
+-
+-        let mut chunks_b = VecDeque::new();
+-        chunks_b.push_back(req(Cmd::GetLockStatus.raw(), 0x21));
+-        chunks_b.push_back(req(Cmd::UnlockPoll.raw(), 0x22));
+-        chunks_b.push_back(req(Cmd::GetMatrixState.raw(), 0x23));
+-        let mut rx_b = ChunkRead { chunks: chunks_b };
+-        let mut tx_b = VecWrite { captured: Vec::new() };
+-
+-        block_on(join(
+-            service.run_session(&mut rx_a, &mut tx_a),
+-            service.run_session(&mut rx_b, &mut tx_b),
+-        ));
+-
+-        let responses_a = decode_frames(&tx_a.captured);
+-        assert_eq!(responses_a.len(), 4);
+-        let unlocked_a = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_a[0].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(!unlocked_a.locked);
+-        let status_a = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_a[1].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(!status_a.locked);
+-        assert_eq!(
+-            postcard::from_bytes::<Result<(), RynkError>>(&responses_a[2].2).unwrap(),
+-            Ok(())
+-        );
+-        assert_eq!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&responses_a[3].2).unwrap(),
+-            Err(RynkError::Locked),
+-        );
+-
+-        let responses_b = decode_frames(&tx_b.captured);
+-        assert_eq!(responses_b.len(), 3);
+-        let locked_b = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_b[0].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(locked_b.locked, "session A does not unlock session B");
+-        let unlocked_b = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_b[1].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(!unlocked_b.locked);
+-        assert!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&responses_b[2].2)
+-                .unwrap()
+-                .is_ok(),
+-            "locking session A does not relock session B"
+-        );
+-    }
+-
+     /// A read carrying more than one frame serves them all, in order: the
+     /// pipelined tail is parked out of each reply's way, never dropped.
+     #[test]

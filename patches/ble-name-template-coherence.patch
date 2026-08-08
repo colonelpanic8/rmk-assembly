@@ -1,0 +1,293 @@
+diff --git a/docs/docs/main/docs/development/rynk_protocol.md b/docs/docs/main/docs/development/rynk_protocol.md
+index cac0f4a2..da8543fb 100644
+--- a/docs/docs/main/docs/development/rynk_protocol.md
++++ b/docs/docs/main/docs/development/rynk_protocol.md
+@@ -59,13 +59,13 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+ | `0x0402` | `SetMorse`                                             | `SetMorseRequest`                                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0403` | `GetMorseBulk`                                         | `GetMorseBulkRequest`                                    | `GetMorseBulkResponse`                               |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0404` | `SetMorseBulk`                                         | `SetMorseBulkRequest`                                    | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x0405` | `GetMorseProfileCount`                                | `()`                                                     | `u8`                                                 |                  | Number of profile slots. Also the support probe for the four profile commands below: older firmware answers `UnknownCmd`.                                                                                                                                                                                          |
+-| `0x0406` | `GetMorseProfile`                                     | `u8`                                                     | `MorseProfile`                                       |                  | Profile a key bound to this index resolves to—the table entry, or the default profile for an unwritten slot.                                                                                                                                                                                                        |
+-| `0x0407` | `SetMorseProfile`                                     | `SetMorseProfileRequest`                                 | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x0408` | `GetMorseProfileBulk`                                 | `GetMorseProfileBulkRequest`                             | `GetMorseProfileBulkResponse`                        |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x0409` | `SetMorseProfileBulk`                                 | `SetMorseProfileBulkRequest`                             | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x040A` | `GetMorseHoldTriggerPositions`                         | `()`                                                     | `MorseHoldTriggerPositionState`                      |                  | Read the complete profile-keyed positional hold-trigger table.                                                                                                                                                                                                                                                     |
+ | `0x040B` | `SetMorseHoldTriggerPositions`                         | `SetMorseHoldTriggerPositionsRequest`                    | `()`                                                 |                  | Atomically replace the complete positional hold-trigger table.                                                                                                                                                                                                                                                     |
++| `0x0405` | `GetMorseProfileCount`                                 | `()`                                                     | `u8`                                                 |                  | Number of profile slots. Also the support probe for the four commands below: firmware built before them answers `UnknownCmd`.                                                                                                                                                                                      |
++| `0x0406` | `GetMorseProfile`                                      | `u8`                                                     | `MorseProfile`                                       |                  | Profile a key bound to this index resolves to — the table entry, or the default profile for a slot nothing has written.                                                                                                                                                                                            |
++| `0x0407` | `SetMorseProfile`                                      | `SetMorseProfileRequest`                                 | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0408` | `GetMorseProfileBulk`                                  | `GetMorseProfileBulkRequest`                             | `GetMorseProfileBulkResponse`                        |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0409` | `SetMorseProfileBulk`                                  | `SetMorseProfileBulkRequest`                             | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0501` | `GetFork`                                              | `u8`                                                     | `Fork`                                               |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0502` | `SetFork`                                              | `SetForkRequest`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0601` | `GetBehaviorConfig`                                    | `()`                                                     | `BehaviorConfig`                                     |                  |                                                                                                                                                                                                                                                                                                                    |
+@@ -147,8 +147,8 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+ | `0x0935` | `AbortLightingExtendedRuntimeConditionalSceneReplace`  | `AbortLightingRuntimeConditionalSceneReplaceRequest`     | `LightingUnitResult`                                 | `lighting`       | Discard an extended conditional-table replacement.                                                                                                                                                                                                                                                                 |
+ | `0x0936` | `GetLightingFrame`                                     | `LightingFrameRequest`                                   | `LightingFramePageResult`                            | `lighting`       | Read back what one lighting node last presented to its LEDs, paged. `LightingFeatureFlags` has no bits left, so support is discovered by probing: firmware without it answers `UnknownCmd`.                                                                                                                        |
+ | `0x0937` | `GetLightingReplicaStatus`                             | `()`                                                     | `LightingReplicaStatusResult`                        | `lighting`       | Read both sides of the split lighting replication handshake. Probed like `GetLightingFrame`. Boards may use a read to trigger a coalesced background refresh; reread after one bounded link round trip when a fresh peripheral report is required.                                                                 |
+-| `0x0A01` | `GetPointingConfig`                                    | `()`                                                     | `PointingConfig`                                     |                  | Read every pointing device's behavior, including layer overrides.                                                                                                                                                                                                                                                 |
+-| `0x0A02` | `SetPointingConfig`                                    | `SetPointingConfigRequest`                               | `PointingConfig`                                     |                  | Replace the whole pointing arrangement if its revision still matches.                                                                                                                                                                                                                                             |
++| `0x0A01` | `GetPointingConfig`                                    | `()`                                                     | `PointingConfig`                                     |                  | Every pad's behavior in one read, including its layer overrides.                                                                                                                                                                                                                                                   |
++| `0x0A02` | `SetPointingConfig`                                    | `SetPointingConfigRequest`                               | `PointingConfig`                                     |                  | Replace the whole arrangement, if `revision` still matches.                                                                                                                                                                                                                                                        |
+ 
+ ## Topics
+ 
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
+index b71798f4..c0755d07 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
+@@ -10,14 +10,14 @@
+ BootloaderJump reply Ok(())                                             02 04 02 01 01 00
+ BootloaderJump request ()                                               02 04 02 01 00
+ ConnectionChange topic ConnectionStatus{Configured,{1,Adv},Ble}         03 03 80 03 02 01 02 01 00
+-GetAutoMouseLayerConfigs reply Ok(state)                                04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
++GetAutoMouseLayerConfigs reply Ok(state)                                04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d9 01 01 00
+ GetAutoMouseLayerConfigs request ()                                     04 05 06 01 00
+ GetBehaviorConfig reply Ok(BehaviorConfig{50,500,200,20})               04 01 06 01 07 32 f4 03 c8 01 14 00
+ GetBehaviorConfig request ()                                            04 01 06 01 00
+-GetBuildInfo reply Ok(BuildInfo{my-firmware..})                         02 0b 02 01 21 1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33 00
+-GetBuildInfo request ()                                                 02 0b 02 01 00
+ GetBehaviorOptions reply Ok(BehaviorOptions)                            04 03 06 01 08 01 01 02 03 01 28 01 08 01 3c c6 80 80 85 0c 00
+ GetBehaviorOptions request ()                                           04 03 06 01 00
++GetBuildInfo reply Ok(BuildInfo{my-firmware..})                         02 0b 02 01 21 1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33 00
++GetBuildInfo request ()                                                 02 0b 02 01 00
+ GetCapabilities reply Ok(DeviceCapabilities{1..16})                     02 02 02 01 0c 01 02 03 04 05 06 07 08 09 0a 01 03 01 0b 07 0c 0d 0e 0f 10 01 00
+ GetCapabilities request ()                                              02 02 02 01 00
+ GetCombo reply Ok(Combo{[Single(A)],Morse(1),L2})                       04 01 03 01 04 01 02 01 06 04 05 01 01 02 00
+@@ -76,7 +76,7 @@ PeripheralBootloaderJump request slot 1                                 02 0c 03
+ Reboot reply Ok(())                                                     02 03 02 01 01 00
+ Reboot request ()                                                       02 03 02 01 00
+ SetAutoMouseLayerConfigs reply Ok(())                                   04 06 06 01 01 00
+-SetAutoMouseLayerConfigs request configs                                0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
++SetAutoMouseLayerConfigs request configs                                0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d9 01 01 00
+ SetBehaviorConfig reply Ok(())                                          04 02 06 01 01 00
+ SetBehaviorConfig request BehaviorConfig{50,500,200,20}                 0a 02 06 01 32 f4 03 c8 01 14 00
+ SetBehaviorOptions reply Ok(())                                         04 04 06 01 01 00
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+index 98be0f5b..22e9d7e3 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+@@ -6,107 +6,107 @@
+ #   UPDATE_SNAPSHOTS=1 cargo test -p rmk-types --features rynk wire_values
+ # Format: <label>  <hex bytes>
+ 
+-Action::DefaultLayer(5)                      08 05
+-Action::Key(Hid(A))                          01 00 04
+-Action::KeyWithModifier(A,LShift)            03 04 02
+-Action::KeyboardControl(Bootloader)          11 00
+-Action::KeyboardControl(MaintenanceModeToggle)  11 0b
+-Action::LayerOff(3)                          06 03
+-Action::LayerOn(1)                           04 01
+-Action::LayerOnWithModifier(2,LCtrl)         05 02 01
+-Action::LayerToggle(4)                       07 04
+-Action::LayerToggleOnly(6)                   09 06
+-Action::Light(RgbTog)                        10 07
+-Action::Modifier(LCtrl)                      02 01
+-Action::No                                   00
+-Action::OneShotKey(Hid(B))                   0f 05
+-Action::OneShotLayer(8)                      0d 08
+-Action::OneShotModifier(LAlt)                0e 04
+-Action::Special(GraveEscape)                 12 00
+-Action::TriLayerLower                        0a
+-Action::TriLayerUpper                        0b
+-Action::TriggerMacro(7)                      0c 07
+-Action::User(9)                              13 09
+-AutoMouseLayerConfigState{4,[device1->layer2]} 04 01 01 01 02 f4 03 03 01 01 00 d6 01 00
+-BatteryStatus::Available{Discharging,85}     01 01 01 55
+-BatteryStatus::Unavailable                   00
+-BehaviorConfig{50,500,200,20}                32 f4 03 c8 01 14
+-BleName{Glove80 {slot}}                      0e 47 6c 6f 76 65 38 30 20 7b 73 6c 6f 74 7d
+-BehaviorOptions{[1,2,3],40,true,false,true,60,profile} 01 01 02 03 01 28 01 00 01 3c c6 80 80 85 0c
+-BleState::Advertising                        00
+-BleState::Connected                          01
+-BleState::Inactive                           02
+-BleStatus{2,Connected}                       02 01
+-BuildInfo{my-firmware..}                     1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33
+-ChargeState::Charging                        00
+-ChargeState::Discharging                     01
+-ChargeState::Unknown                         02
+-Combo{[Single(A)],Morse(1),L2}               01 02 01 00 04 05 01 01 02
+-ConnectionStatus{Configured,{1,Adv},Ble}     02 01 00 01
+-ConnectionType::Ble                          01
+-ConnectionType::Usb                          00
+-DeviceCapabilities{1..16}                    01 02 03 04 05 06 07 08 09 0a 01 00 01 0b 00 0c 0d 0e 0f 10 01
+-DeviceInfo{1.2.3,4,5,RMK,..}                 01 02 03 04 05 03 52 4d 4b 0c 52 4d 4b 20 4b 65 79 62 6f 61 72 64 09 72 79 6e 6b 3a 30 30 30 31
+-EncoderAction{Morse(3),No}                   05 03 00
+-Fork{Single(A),No,Morse(2)}                  02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
+-GetEncoderRequest{1,2}                       01 02
+-GetMacroRequest{256}                         80 02
+-HoldTriggerState{16,[d:1,2;3:4,5]}           10 02 ff 01 02 03 04 05
+-KeyAction::LayerModTap(1,LAlt,Tab)           06 01 02 2b
+-KeyAction::Morse(3)                          05 03
+-KeyAction::No                                00
+-KeyAction::Single(Action::Key(Hid(A)))       02 01 00 04
+-KeyAction::Tap(Action::No)                   03 00
+-KeyAction::TapHold(Key(A),LayerOn(3))        04 01 00 04 04 03 ff
+-KeyAction::Transparent                       01
+-KeyCode::Consumer(VolumeIncrement)           01 15
+-KeyCode::Hid(A)                              00 04
+-KeyCode::SystemControl(Sleep)                02 02
+-KeyPosition{layer:0,row:5,col:13}            00 05 0d
+-LayerState{default:2,active:[0x05,..,0x80]}  02 05 00 00 00 00 00 00 80
+-LedIndicator(Num|Scroll)                     05
+-LockStatus{true,false,2,[(1,2),(3,4)]}       01 00 02 02 01 02 03 04
+-MacroData{[0x01,0x02,0x03]}                  03 01 02 03
+-MatrixState{[0x05,0x00,0x20]}                03 05 00 20
+-ModifierCombination(LCtrl|RGui)              81
+-ModifierKey::LAlt                            02
+-ModifierKey::LCtrl                           00
+-ModifierKey::LGui                            03
+-ModifierKey::LShift                          01
+-ModifierKey::RAlt                            06
+-ModifierKey::RCtrl                           04
+-ModifierKey::RGui                            07
+-ModifierKey::RShift                          05
+-MorseProfile(Normal,200,150)                 c8 81 b0 89 0c
+-Morse{TAP->Key(A)}                           00 01 02 01 00 04
+-MouseButtons(B1|B8)                          81
+-ProtocolVersion::CURRENT                     00 01
+-ProtocolVersion{1,0}                         01 00
+-Result<(),RynkError>::Err(StorageFault)      01 02
+-Result<(),RynkError>::Ok                     00
+-RynkError::Internal                          03
+-RynkError::Invalid                           05
+-RynkError::Locked                            07
+-RynkError::Malformed                         00
+-RynkError::NotReady                          01
+-RynkError::StorageFault                      02
+-RynkError::Unimplemented                     04
+-RynkError::UnknownCmd                        06
+-SetAutoMouseLayerConfigsRequest{[device1->layer2]} 01 01 01 02 f4 03 03 01 01 00 d6 01 00
+-SetComboRequest{3,combo}                     03 01 02 01 00 04 05 01 01 02
+-SetEncoderRequest{1,2,{Morse(3),No}}         01 02 05 03 00
+-SetForkRequest{2,fork}                       02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
+-SetHoldTriggers{[d:1,2;3:4,5]}               02 ff 01 02 03 04 05
+-SetKeyRequest{{0,5,13},Morse(7)}             00 05 0d 05 07
+-SetMacroRequest{2,[0x01,0x02,0x03]}          02 03 01 02 03
+-SetMorseProfileRequest{3,profile}            03 c8 81 b0 89 0c
+-SetMorseRequest{0,morse}                     00 00 01 02 01 00 04
+-SplitLatencyPolicy{0,4,Some(2)}              00 04 01 02
+-SplitLatencyState{policy,true,2}             00 04 01 02 01 02
+-StateBits{LCtrl,Caps,B1}                     01 02 01
+-StorageResetMode::Full                       00
+-StorageResetMode::LayoutOnly                 01
+-UsbState::Configured                         02
+-UsbState::Disabled                           00
+-UsbState::Enabled                            01
+-UsbState::Suspended                          03
++Action::DefaultLayer(5)                                 08 05
++Action::Key(Hid(A))                                     01 00 04
++Action::KeyWithModifier(A,LShift)                       03 04 02
++Action::KeyboardControl(Bootloader)                     11 00
++Action::KeyboardControl(MaintenanceModeToggle)          11 0c
++Action::LayerOff(3)                                     06 03
++Action::LayerOn(1)                                      04 01
++Action::LayerOnWithModifier(2,LCtrl)                    05 02 01
++Action::LayerToggle(4)                                  07 04
++Action::LayerToggleOnly(6)                              09 06
++Action::Light(RgbTog)                                   10 07
++Action::Modifier(LCtrl)                                 02 01
++Action::No                                              00
++Action::OneShotKey(Hid(B))                              0f 05
++Action::OneShotLayer(8)                                 0d 08
++Action::OneShotModifier(LAlt)                           0e 04
++Action::Special(GraveEscape)                            12 00
++Action::TriLayerLower                                   0a
++Action::TriLayerUpper                                   0b
++Action::TriggerMacro(7)                                 0c 07
++Action::User(9)                                         13 09
++AutoMouseLayerConfigState{4,[device1->layer2]}          04 01 01 01 02 f4 03 03 01 01 00 d9 01 00
++BatteryStatus::Available{Discharging,85}                01 01 01 55
++BatteryStatus::Unavailable                              00
++BehaviorConfig{50,500,200,20}                           32 f4 03 c8 01 14
++BehaviorOptions{[1,2,3],40,true,false,true,60,profile}  01 01 02 03 01 28 01 00 01 3c c6 80 80 85 0c
++BleName{Glove80 {slot}}                                 0e 47 6c 6f 76 65 38 30 20 7b 73 6c 6f 74 7d
++BleState::Advertising                                   00
++BleState::Connected                                     01
++BleState::Inactive                                      02
++BleStatus{2,Connected}                                  02 01
++BuildInfo{my-firmware..}                                1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33
++ChargeState::Charging                                   00
++ChargeState::Discharging                                01
++ChargeState::Unknown                                    02
++Combo{[Single(A)],Morse(1),L2}                          01 02 01 00 04 05 01 01 02
++ConnectionStatus{Configured,{1,Adv},Ble}                02 01 00 01
++ConnectionType::Ble                                     01
++ConnectionType::Usb                                     00
++DeviceCapabilities{1..16}                               01 02 03 04 05 06 07 08 09 0a 01 00 01 0b 00 0c 0d 0e 0f 10 01
++DeviceInfo{1.2.3,4,5,RMK,..}                            01 02 03 04 05 03 52 4d 4b 0c 52 4d 4b 20 4b 65 79 62 6f 61 72 64 09 72 79 6e 6b 3a 30 30 30 31
++EncoderAction{Morse(3),No}                              05 03 00
++Fork{Single(A),No,Morse(2)}                             02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
++GetEncoderRequest{1,2}                                  01 02
++GetMacroRequest{256}                                    80 02
++HoldTriggerState{16,[d:1,2;3:4,5]}                      10 02 ff 01 02 03 04 05
++KeyAction::LayerModTap(1,LAlt,Tab)                      06 01 02 2b
++KeyAction::Morse(3)                                     05 03
++KeyAction::No                                           00
++KeyAction::Single(Action::Key(Hid(A)))                  02 01 00 04
++KeyAction::Tap(Action::No)                              03 00
++KeyAction::TapHold(Key(A),LayerOn(3))                   04 01 00 04 04 03 ff
++KeyAction::Transparent                                  01
++KeyCode::Consumer(VolumeIncrement)                      01 15
++KeyCode::Hid(A)                                         00 04
++KeyCode::SystemControl(Sleep)                           02 02
++KeyPosition{layer:0,row:5,col:13}                       00 05 0d
++LayerState{default:2,active:[0x05,..,0x80]}             02 05 00 00 00 00 00 00 80
++LedIndicator(Num|Scroll)                                05
++LockStatus{true,false,2,[(1,2),(3,4)]}                  01 00 02 02 01 02 03 04
++MacroData{[0x01,0x02,0x03]}                             03 01 02 03
++MatrixState{[0x05,0x00,0x20]}                           03 05 00 20
++ModifierCombination(LCtrl|RGui)                         81
++ModifierKey::LAlt                                       02
++ModifierKey::LCtrl                                      00
++ModifierKey::LGui                                       03
++ModifierKey::LShift                                     01
++ModifierKey::RAlt                                       06
++ModifierKey::RCtrl                                      04
++ModifierKey::RGui                                       07
++ModifierKey::RShift                                     05
++MorseProfile(Normal,200,150)                            c8 81 b0 89 0c
++Morse{TAP->Key(A)}                                      00 01 02 01 00 04
++MouseButtons(B1|B8)                                     81
++ProtocolVersion::CURRENT                                00 01
++ProtocolVersion{1,0}                                    01 00
++Result<(),RynkError>::Err(StorageFault)                 01 02
++Result<(),RynkError>::Ok                                00
++RynkError::Internal                                     03
++RynkError::Invalid                                      05
++RynkError::Locked                                       07
++RynkError::Malformed                                    00
++RynkError::NotReady                                     01
++RynkError::StorageFault                                 02
++RynkError::Unimplemented                                04
++RynkError::UnknownCmd                                   06
++SetAutoMouseLayerConfigsRequest{[device1->layer2]}      01 01 01 02 f4 03 03 01 01 00 d9 01 00
++SetComboRequest{3,combo}                                03 01 02 01 00 04 05 01 01 02
++SetEncoderRequest{1,2,{Morse(3),No}}                    01 02 05 03 00
++SetForkRequest{2,fork}                                  02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
++SetHoldTriggers{[d:1,2;3:4,5]}                          02 ff 01 02 03 04 05
++SetKeyRequest{{0,5,13},Morse(7)}                        00 05 0d 05 07
++SetMacroRequest{2,[0x01,0x02,0x03]}                     02 03 01 02 03
++SetMorseProfileRequest{3,profile}                       03 c8 81 b0 89 0c
++SetMorseRequest{0,morse}                                00 00 01 02 01 00 04
++SplitLatencyPolicy{0,4,Some(2)}                         00 04 01 02
++SplitLatencyState{policy,true,2}                        00 04 01 02 01 02
++StateBits{LCtrl,Caps,B1}                                01 02 01
++StorageResetMode::Full                                  00
++StorageResetMode::LayoutOnly                            01
++UsbState::Configured                                    02
++UsbState::Disabled                                      00
++UsbState::Enabled                                       01
++UsbState::Suspended                                     03
+diff --git a/rmk-types/src/protocol/rynk/tests.rs b/rmk-types/src/protocol/rynk/tests.rs
+index c55e0009..ebd67e5e 100644
+--- a/rmk-types/src/protocol/rynk/tests.rs
++++ b/rmk-types/src/protocol/rynk/tests.rs
+@@ -425,7 +425,6 @@ fn wire_values_locked() {
+         default_layer: 2,
+         active_bitmap: [0x05, 0, 0, 0, 0, 0, 0, 0x80],
+     };
+-    let profile = MorseProfile::new(None, Some(MorseMode::Normal), Some(200), Some(150));
+     let split_latency_policy = SplitCentralLatencyPolicy {
+         powered: 0,
+         battery: 4,

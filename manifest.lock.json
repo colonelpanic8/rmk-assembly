@@ -3,19 +3,20 @@
   "pins": {
     "base": "65df15775026bad1189139613ee3d338139bec3d",
     "entries": {
+      "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-      "feat/morse-hold-trigger-on-release": "bed6738f6110df6732256109cd46712b533ce228",
-      "feat/morse-hold-trigger-positions": "a6f6a5734fffd5c1c802e88eeae561013991a628",
+      "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
+      "feat/morse-hold-trigger-positions": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1",
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
-      "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+      "fix/ephemeral-split-layer-state": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -28,15 +29,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-07T21:59:26.797865070+00:00",
+    "generated": "2026-08-08T12:16:07.791698703+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "0491defe7d4ad167a5d528a07f64fade0cfbbc4e",
-    "pre_provenance_commit": "0491defe7d4ad167a5d528a07f64fade0cfbbc4e",
-    "tree": "f06ac9f9715a10fcf403833aebab72ca6208f1b6",
-    "built_tree": "f06ac9f9715a10fcf403833aebab72ca6208f1b6",
-    "previous_tree": "1de2a91618d5222ee168788e839b5563579c84d0",
+    "commit": "170521424c353e8e27470419c5a99b02d7b346bb",
+    "pre_provenance_commit": "170521424c353e8e27470419c5a99b02d7b346bb",
+    "tree": "5b91f2fc61c61870376a7aba0b40936178074e9d",
+    "built_tree": "5b91f2fc61c61870376a7aba0b40936178074e9d",
+    "previous_tree": "fc38e45489baef35e77a1f3bd3b83fa5715f09a0",
     "tree_changed": true,
-    "conflicts": 12,
+    "conflicts": 14,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -109,19 +110,13 @@
         "name": "feat/morse-hold-trigger-positions",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-positions",
-        "pin": "a6f6a5734fffd5c1c802e88eeae561013991a628"
+        "pin": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-on-release",
-        "pin": "bed6738f6110df6732256109cd46712b533ce228"
-      },
-      {
-        "name": "feat/morse-unilateral-mod-chording",
-        "kind": "branch",
-        "source": "fork:feat/morse-unilateral-mod-chording",
-        "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
+        "pin": "e8d97930624e48a6a5119783ac6e1e9521987386"
       },
       {
         "name": "feat/consumer-keycodes",
@@ -165,7 +160,7 @@
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
         "pin": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-        "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
+        "fixup": "7297429581087b1ff14687c827116c08233a3387"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -173,6 +168,19 @@
         "source": "fork:fix/battery-power-transitions",
         "pin": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
         "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
+      },
+      {
+        "name": "feat/ble-name-template",
+        "kind": "branch",
+        "source": "fork:feat/ble-name-template",
+        "pin": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
+        "fixup": "42440ade724a93c372df2b0ef4bdf5f9032e30ab"
+      },
+      {
+        "name": "fix/ephemeral-split-layer-state",
+        "kind": "branch",
+        "source": "fork:fix/ephemeral-split-layer-state",
+        "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2"
       }
     ],
     "results": [
@@ -251,23 +259,17 @@
       },
       {
         "name": "feat/morse-hold-trigger-positions",
-        "oid": "a6f6a5734fffd5c1c802e88eeae561013991a628",
+        "oid": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
-        "oid": "bed6738f6110df6732256109cd46712b533ce228",
+        "oid": "e8d97930624e48a6a5119783ac6e1e9521987386",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
-      },
-      {
-        "name": "feat/morse-unilateral-mod-chording",
-        "oid": "a2df0ec69daededb21a8ecf1540fa4d015797269",
-        "status": "merged",
-        "conflicted": false
       },
       {
         "name": "feat/consumer-keycodes",
@@ -315,7 +317,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
+        "fixup": "7297429581087b1ff14687c827116c08233a3387"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -323,6 +325,21 @@
         "status": "merged",
         "conflicted": false,
         "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
+      },
+      {
+        "name": "feat/ble-name-template",
+        "oid": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "42440ade724a93c372df2b0ef4bdf5f9032e30ab"
+      },
+      {
+        "name": "fix/ephemeral-split-layer-state",
+        "oid": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
       }
     ]
   }
