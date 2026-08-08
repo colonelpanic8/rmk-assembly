@@ -17,6 +17,7 @@
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+      "fix/ephemeral-split-layer-state": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -29,15 +30,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-07T22:22:12.203707978+00:00",
+    "generated": "2026-08-08T02:51:55.873942646+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "6c836297a4479989f1c1df8859cd6c1c711559cc",
-    "pre_provenance_commit": "6c836297a4479989f1c1df8859cd6c1c711559cc",
-    "tree": "e32cf81fd0b5a508bc2f66022a78da2313b6eb70",
-    "built_tree": "e32cf81fd0b5a508bc2f66022a78da2313b6eb70",
-    "previous_tree": "c78fb4e75ba955259d19732c22c42d443ecdcc49",
+    "commit": "10abef3b40498bbc102363cb04566ac9260a75cc",
+    "pre_provenance_commit": "10abef3b40498bbc102363cb04566ac9260a75cc",
+    "tree": "51b1298cde1e1b5465bcaaf6696c31825853f5c3",
+    "built_tree": "51b1298cde1e1b5465bcaaf6696c31825853f5c3",
+    "previous_tree": "b7926f37647d9f6c56a264f0636a7a140f669fe2",
     "tree_changed": true,
-    "conflicts": 13,
+    "conflicts": 14,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -180,6 +181,12 @@
         "kind": "branch",
         "source": "fork:feat/ble-name-template",
         "pin": "fa1a4ae33977728eb5f5db72848d144ddbec19a1"
+      },
+      {
+        "name": "fix/ephemeral-split-layer-state",
+        "kind": "branch",
+        "source": "fork:fix/ephemeral-split-layer-state",
+        "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2"
       }
     ],
     "results": [
@@ -334,6 +341,13 @@
       {
         "name": "feat/ble-name-template",
         "oid": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
+      },
+      {
+        "name": "fix/ephemeral-split-layer-state",
+        "oid": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"

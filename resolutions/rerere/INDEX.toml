@@ -356,6 +356,30 @@ paths = ["rmk/src/split/ble/central.rs"]
 recorded = "2026-08-05T15:52:38.662091129+00:00"
 
 [[resolution]]
+entry = "fix/ephemeral-split-layer-state"
+hash = "1478c16f9f49a57ed442b5f0cb860070b28555e3"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-08-08T02:46:57.393762143+00:00"
+
+[[resolution]]
+entry = "fix/ephemeral-split-layer-state"
+hash = "55c5681cf6b5816be2d6d984ccfe8d602c626851"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-08-08T02:07:39.683648338+00:00"
+
+[[resolution]]
+entry = "fix/ephemeral-split-layer-state"
+hash = "dfab301b64a492c6957b3ba53c0079d39bf200a7"
+paths = ["rmk/src/keymap.rs"]
+recorded = "2026-08-08T02:07:39.683649921+00:00"
+
+[[resolution]]
+entry = "fix/ephemeral-split-layer-state"
+hash = "f747d7cf62977d2df1d34211ea8b9c2a82b54f84"
+paths = ["rmk/src/split/mod.rs"]
+recorded = "2026-08-08T02:07:39.683650282+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]

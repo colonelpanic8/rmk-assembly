@@ -99,6 +99,9 @@ fixup = "patches/battery-power-transitions-coherence.patch"
 branch = "fork:feat/ble-name-template"
 summary = "Persistent runtime BLE advertising-name templates with per-profile slot expansion"
 
+[[entry]]
+branch = "fork:fix/ephemeral-split-layer-state"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
