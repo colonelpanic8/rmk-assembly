@@ -7,12 +7,11 @@
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-      "feat/morse-hold-trigger-on-release": "bed6738f6110df6732256109cd46712b533ce228",
-      "feat/morse-hold-trigger-positions": "a6f6a5734fffd5c1c802e88eeae561013991a628",
+      "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
+      "feat/morse-hold-trigger-positions": "a95895d9785e0cf3301afb168f68fcbd955fc979",
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
-      "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
@@ -30,13 +29,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-08T02:51:55.873942646+00:00",
+    "generated": "2026-08-08T06:54:15.607054313+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "10abef3b40498bbc102363cb04566ac9260a75cc",
-    "pre_provenance_commit": "10abef3b40498bbc102363cb04566ac9260a75cc",
-    "tree": "51b1298cde1e1b5465bcaaf6696c31825853f5c3",
-    "built_tree": "51b1298cde1e1b5465bcaaf6696c31825853f5c3",
-    "previous_tree": "b7926f37647d9f6c56a264f0636a7a140f669fe2",
+    "commit": "ab8bbb537894aa047d39079de785335b8b5f8d35",
+    "pre_provenance_commit": "ab8bbb537894aa047d39079de785335b8b5f8d35",
+    "tree": "a140ed730dc0d993dcb2311c786c54cf954fec1a",
+    "built_tree": "a140ed730dc0d993dcb2311c786c54cf954fec1a",
+    "previous_tree": "51b1298cde1e1b5465bcaaf6696c31825853f5c3",
     "tree_changed": true,
     "conflicts": 14,
     "manifest_entries": [
@@ -111,19 +110,13 @@
         "name": "feat/morse-hold-trigger-positions",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-positions",
-        "pin": "a6f6a5734fffd5c1c802e88eeae561013991a628"
+        "pin": "a95895d9785e0cf3301afb168f68fcbd955fc979"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-on-release",
-        "pin": "bed6738f6110df6732256109cd46712b533ce228"
-      },
-      {
-        "name": "feat/morse-unilateral-mod-chording",
-        "kind": "branch",
-        "source": "fork:feat/morse-unilateral-mod-chording",
-        "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
+        "pin": "e8d97930624e48a6a5119783ac6e1e9521987386"
       },
       {
         "name": "feat/consumer-keycodes",
@@ -265,23 +258,17 @@
       },
       {
         "name": "feat/morse-hold-trigger-positions",
-        "oid": "a6f6a5734fffd5c1c802e88eeae561013991a628",
+        "oid": "a95895d9785e0cf3301afb168f68fcbd955fc979",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
-        "oid": "bed6738f6110df6732256109cd46712b533ce228",
+        "oid": "e8d97930624e48a6a5119783ac6e1e9521987386",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
-      },
-      {
-        "name": "feat/morse-unilateral-mod-chording",
-        "oid": "a2df0ec69daededb21a8ecf1540fa4d015797269",
-        "status": "merged",
-        "conflicted": false
       },
       {
         "name": "feat/consumer-keycodes",

@@ -227,7 +227,7 @@ recorded = "2026-08-05T09:48:21.226893030+00:00"
 entry = "feat/morse-hold-trigger-on-release"
 hash = "9d8fc76b977762dc5334289367875026faf74445"
 paths = ["rmk-config/src/lib.rs"]
-recorded = "2026-08-05T09:48:21.226893541+00:00"
+recorded = "2026-08-08T06:51:15.178385347+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
@@ -246,6 +246,12 @@ entry = "feat/morse-hold-trigger-positions"
 hash = "2d5237a51e4c179d53542f13ff9c3f04e12f6696"
 paths = ["rmk/src/keymap.rs"]
 recorded = "2026-08-05T15:53:36.021939073+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-positions"
+hash = "3f52228629b6938a12071de8cecb48baef7811f5"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-08T06:51:02.526715530+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
