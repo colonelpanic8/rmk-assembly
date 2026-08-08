@@ -95,6 +95,7 @@ fixup = "patches/battery-power-transitions-coherence.patch"
 [[entry]]
 branch = "fork:feat/ble-name-template"
 summary = "Persistent runtime BLE advertising-name templates with per-profile slot expansion"
+fixup = "patches/ble-name-template-coherence.patch"
 
 [[entry]]
 branch = "fork:fix/ephemeral-split-layer-state"

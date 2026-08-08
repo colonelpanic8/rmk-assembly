@@ -8,7 +8,7 @@
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
       "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
-      "feat/morse-hold-trigger-positions": "a95895d9785e0cf3301afb168f68fcbd955fc979",
+      "feat/morse-hold-trigger-positions": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1",
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
@@ -29,13 +29,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-08T06:54:15.607054313+00:00",
+    "generated": "2026-08-08T12:16:07.791698703+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "ab8bbb537894aa047d39079de785335b8b5f8d35",
-    "pre_provenance_commit": "ab8bbb537894aa047d39079de785335b8b5f8d35",
-    "tree": "a140ed730dc0d993dcb2311c786c54cf954fec1a",
-    "built_tree": "a140ed730dc0d993dcb2311c786c54cf954fec1a",
-    "previous_tree": "51b1298cde1e1b5465bcaaf6696c31825853f5c3",
+    "commit": "170521424c353e8e27470419c5a99b02d7b346bb",
+    "pre_provenance_commit": "170521424c353e8e27470419c5a99b02d7b346bb",
+    "tree": "5b91f2fc61c61870376a7aba0b40936178074e9d",
+    "built_tree": "5b91f2fc61c61870376a7aba0b40936178074e9d",
+    "previous_tree": "fc38e45489baef35e77a1f3bd3b83fa5715f09a0",
     "tree_changed": true,
     "conflicts": 14,
     "manifest_entries": [
@@ -110,7 +110,7 @@
         "name": "feat/morse-hold-trigger-positions",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-positions",
-        "pin": "a95895d9785e0cf3301afb168f68fcbd955fc979"
+        "pin": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
@@ -160,7 +160,7 @@
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
         "pin": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-        "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
+        "fixup": "7297429581087b1ff14687c827116c08233a3387"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -173,7 +173,8 @@
         "name": "feat/ble-name-template",
         "kind": "branch",
         "source": "fork:feat/ble-name-template",
-        "pin": "fa1a4ae33977728eb5f5db72848d144ddbec19a1"
+        "pin": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
+        "fixup": "42440ade724a93c372df2b0ef4bdf5f9032e30ab"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
@@ -258,7 +259,7 @@
       },
       {
         "name": "feat/morse-hold-trigger-positions",
-        "oid": "a95895d9785e0cf3301afb168f68fcbd955fc979",
+        "oid": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
@@ -316,7 +317,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "8803c09206e8e9dce34871caeb4a0c63a00ca354"
+        "fixup": "7297429581087b1ff14687c827116c08233a3387"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -330,7 +331,8 @@
         "oid": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere",
+        "fixup": "42440ade724a93c372df2b0ef4bdf5f9032e30ab"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
