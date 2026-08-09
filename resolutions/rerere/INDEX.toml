@@ -554,6 +554,48 @@ paths = ["rmk/src/split/peripheral.rs"]
 recorded = "2026-08-05T08:06:30.042539671+00:00"
 
 [[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "26e054424c2d130ff07d1b6c9cefeaee778ec433"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-09T05:53:43.512749535+00:00"
+
+[[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "2a4b3338553efab4d0103d176241b0edea04eaa6"
+paths = ["rmk-config/src/resolved/behavior.rs"]
+recorded = "2026-08-09T05:53:43.512751188+00:00"
+
+[[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "4111925807b05a0c1c7b352ddf32b31f3c81c494"
+paths = ["rmk-types/src/protocol/rynk/tests.rs"]
+recorded = "2026-08-09T05:53:43.512751498+00:00"
+
+[[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "4d89d7d078f00885b8692630cd8839cc61f82a0c"
+paths = ["rmk-types/src/morse.rs"]
+recorded = "2026-08-09T05:53:43.512751819+00:00"
+
+[[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "6dbea9a34f777171112d2e3adb56624be6814f4b"
+paths = ["rmk-macro/src/codegen/action_parser.rs"]
+recorded = "2026-08-09T05:53:43.512752049+00:00"
+
+[[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "8f151f1c6f657789b5a9f57c9703317c0051a9a4"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-09T05:53:43.512752420+00:00"
+
+[[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "d7f65e76e0f482472b2a32acbf34c67ad8353cf3"
+paths = ["rmk/src/keyboard/morse.rs"]
+recorded = "2026-08-09T05:53:43.512752791+00:00"
+
+[[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
 hash = "0ae52f4a522bb6342d65472b9edbb9c9786c8b89"
 paths = ["rmk/src/keyboard/auto_mouse_layer.rs"]

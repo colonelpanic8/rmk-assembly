@@ -104,6 +104,9 @@ fixup = "patches/final-rynk-protocol-snapshots.patch"
 [[entry]]
 branch = "fork:feat/morse-unilateral-mod-chording"
 
+[[entry]]
+branch = "fork:fold/opposite-hand-hold"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

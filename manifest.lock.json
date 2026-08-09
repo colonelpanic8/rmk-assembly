@@ -21,6 +21,7 @@
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
+      "fold/opposite-hand-hold": "24caf85c2dfd9b827edb7386879f0e65972b74bd",
       "fold/pointing-runtime-config-pinned": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
       "fold/runtime-behavior-parity": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
@@ -30,15 +31,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-09T01:15:50.975309474+00:00",
+    "generated": "2026-08-09T07:12:33.098194882+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "0bf53d5f13757addf2a9fc6802525bec55ad6287",
-    "pre_provenance_commit": "0bf53d5f13757addf2a9fc6802525bec55ad6287",
-    "tree": "f4b2ed189b45be08a894660745bbafaecaee775c",
-    "built_tree": "f4b2ed189b45be08a894660745bbafaecaee775c",
-    "previous_tree": "56db015490ad26907d1cfde902a41c3c34fb220f",
+    "commit": "974651ea4a4538061e646e4920c465380b12d0f1",
+    "pre_provenance_commit": "974651ea4a4538061e646e4920c465380b12d0f1",
+    "tree": "7c948f223c4ec8fdc326829f63dddc18f1762a90",
+    "built_tree": "7c948f223c4ec8fdc326829f63dddc18f1762a90",
+    "previous_tree": "f4b2ed189b45be08a894660745bbafaecaee775c",
     "tree_changed": true,
-    "conflicts": 14,
+    "conflicts": 15,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -189,6 +190,12 @@
         "kind": "branch",
         "source": "fork:feat/morse-unilateral-mod-chording",
         "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
+      },
+      {
+        "name": "fold/opposite-hand-hold",
+        "kind": "branch",
+        "source": "fork:fold/opposite-hand-hold",
+        "pin": "24caf85c2dfd9b827edb7386879f0e65972b74bd"
       }
     ],
     "results": [
@@ -355,6 +362,13 @@
         "oid": "a2df0ec69daededb21a8ecf1540fa4d015797269",
         "status": "merged",
         "conflicted": false
+      },
+      {
+        "name": "fold/opposite-hand-hold",
+        "oid": "24caf85c2dfd9b827edb7386879f0e65972b74bd",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere"
       }
     ]
   }
