@@ -44,8 +44,8 @@ use rynk::rmk_types::protocol::rynk::{
     SetComboBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest, SetLightingExtensionParamRequest,
     SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest, SetLightingOutputModeRequest,
     SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest, SetMorseBulkRequest,
-    SetMorseHoldTriggerPositionsRequest, SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode,
-    UnsetLightingOverlayRequest, UnsetLightingSceneCellRequest,
+    SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
+    UnsetLightingSceneCellRequest, SetMorseHoldTriggerPositionsRequest,
 };
 use rynk::{Client, Driver, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
 use wasm_bindgen::prelude::*;

@@ -10,9 +10,10 @@ use rmk_types::fork::Fork;
 use rmk_types::led_indicator::LedIndicator;
 use rmk_types::morse::{Morse, MorseProfile};
 #[cfg(feature = "rynk")]
+use rmk_types::protocol::rynk::{LAYER_STATE_BITMAP_SIZE, LAYER_STATE_CAPACITY, LayerState};
 use rmk_types::protocol::rynk::{
-    LAYER_STATE_BITMAP_SIZE, LAYER_STATE_CAPACITY, LayerState, MorseHoldTriggerPosition,
-    MorseHoldTriggerPositionState, MorseHoldTriggerPositions, SetMorseHoldTriggerPositionsRequest,
+    MorseHoldTriggerPosition, MorseHoldTriggerPositionState, MorseHoldTriggerPositions,
+    SetMorseHoldTriggerPositionsRequest,
 };
 
 use crate::config::HoldTriggerPositions;

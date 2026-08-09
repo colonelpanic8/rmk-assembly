@@ -413,7 +413,25 @@ impl<'a> KeyMap<'a> {
 
         // Read from storage BEFORE flattening (storage expects typed arrays).
         if let Some(storage) = storage
-            && storage.read_boot_data(data, behavior).await.is_err()
+            && {
+                Ok(())
+                    .and(storage.read_keymap(data, behavior).await)
+                    .and(storage.read_behavior_config(behavior).await)
+                    .and(
+                        storage
+                            .read_macro_cache(&mut behavior.keyboard_macros.macro_sequences)
+                            .await,
+                    )
+                    .and(storage.read_combos(&mut behavior.combo.combos).await)
+                    .and(storage.read_forks(&mut behavior.fork.forks).await)
+                    .and(storage.read_morses(&mut behavior.morse.morses).await)
+                    .and(
+                        storage
+                            .read_morse_profiles(&mut behavior.morse.profiles, &mut behavior.morse.profile_names)
+                            .await,
+                    )
+            }
+            .is_err()
         {
             error!("Failed to read from storage, clearing...");
             storage.flash.erase_all().await.ok();
@@ -497,36 +515,8 @@ impl<'a> KeyMap<'a> {
 
     pub(crate) fn auto_mouse_layer_configs(
         &self,
-    ) -> heapless::Vec<rmk_types::auto_mouse::AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }> {
-        let inner = self.inner.borrow();
-        if let Some(configs) = &inner.behavior.runtime_auto_mouse_layer {
-            return configs.clone();
-        }
-
-        inner
-            .behavior
-            .auto_mouse_layer
-            .iter()
-            .map(|config| {
-                let extra_mouse_keys = config.extra_mouse_keys.iter().copied().collect();
-                rmk_types::auto_mouse::AutoMouseLayerConfig {
-                    device_id: config.device_id,
-                    target_layer: config.target_layer,
-                    timeout_ms: config.timeout.as_millis() as u32,
-                    threshold: config.threshold,
-                    deactivate_on_key: config.deactivate_on_key,
-                    extra_mouse_keys,
-                    reset_timeout_on_key: config.reset_timeout_on_key,
-                }
-            })
-            .collect()
-    }
-
-    pub(crate) fn set_auto_mouse_layer_configs(
-        &self,
-        configs: heapless::Vec<rmk_types::auto_mouse::AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }>,
-    ) {
-        self.inner.borrow_mut().behavior.runtime_auto_mouse_layer = Some(configs);
+    ) -> heapless::Vec<crate::config::AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }> {
+        self.inner.borrow().behavior.auto_mouse_layer.clone()
     }
 
     /// Whether `layer_num` is set in the layer mask.
@@ -575,10 +565,6 @@ impl<'a> KeyMap<'a> {
 
     pub(crate) fn combo_timeout(&self) -> Duration {
         self.inner.borrow().behavior.combo.timeout
-    }
-
-    pub(crate) fn tri_layer(&self) -> Option<[u8; 3]> {
-        self.inner.borrow().behavior.tri_layer
     }
 
     pub(crate) fn combo_prior_idle_time(&self) -> Option<Duration> {
@@ -676,43 +662,6 @@ impl<'a> KeyMap<'a> {
         self.inner.borrow().behavior.unicode.mode
     }
 
-    /// Advance the unicode input mode and report the mode now in effect.
-    pub(crate) fn cycle_unicode_mode(&self) -> UnicodeMode {
-        let mut inner = self.inner.borrow_mut();
-        inner.behavior.unicode.mode = inner.behavior.unicode.mode.next();
-        inner.behavior.unicode.mode
-    }
-
-    pub(crate) fn mouse_key_config(&self) -> MouseKeyConfig {
-        self.inner.borrow().behavior.mouse_key
-    }
-
-    pub(crate) fn mouse_layer_scale(&self) -> Option<MouseLayerScaleConfig> {
-        let inner = self.inner.borrow();
-        let active_layer = inner.get_activated_layer();
-        inner
-            .behavior
-            .mouse_layer_scale
-            .iter()
-            .find(|config| config.layer == active_layer)
-            .copied()
-    }
-
-    pub(crate) fn forks_is_empty(&self) -> bool {
-        self.inner.borrow().behavior.fork.forks.is_empty()
-    }
-
-    pub(crate) fn morses_len(&self) -> usize {
-        self.inner.borrow().behavior.morse.morses.len()
-    }
-
-    /// Addressable morse profile slots. Slots past the ones `keyboard.toml`
-    /// named are still writable, so this is the table's capacity rather than
-    /// the number of profiles configured at build time.
-    pub(crate) fn morse_profiles_capacity(&self) -> usize {
-        self.inner.borrow().behavior.morse.profiles.capacity()
-    }
-
     pub(crate) fn morse_profile_name(&self, idx: u8) -> Option<MorseProfileName> {
         self.inner
             .borrow()
@@ -771,24 +720,38 @@ impl<'a> KeyMap<'a> {
         true
     }
 
+    /// Advance the unicode input mode and report the mode now in effect.
+    pub(crate) fn cycle_unicode_mode(&self) -> UnicodeMode {
+        let mut inner = self.inner.borrow_mut();
+        inner.behavior.unicode.mode = inner.behavior.unicode.mode.next();
+        inner.behavior.unicode.mode
+    }
+
+    pub(crate) fn mouse_key_config(&self) -> MouseKeyConfig {
+        self.inner.borrow().behavior.mouse_key
+    }
+
+    pub(crate) fn mouse_layer_scale(&self) -> Option<MouseLayerScaleConfig> {
+        let inner = self.inner.borrow();
+        let active_layer = inner.get_activated_layer();
+        inner
+            .behavior
+            .mouse_layer_scale
+            .iter()
+            .find(|config| config.layer == active_layer)
+            .copied()
+    }
+
+    pub(crate) fn forks_is_empty(&self) -> bool {
+        self.inner.borrow().behavior.fork.forks.is_empty()
+    }
+
+    pub(crate) fn morses_len(&self) -> usize {
+        self.inner.borrow().behavior.morse.morses.len()
+    }
+
     pub(crate) fn set_combo_timeout(&self, timeout: Duration) {
         self.inner.borrow_mut().behavior.combo.timeout = timeout;
-    }
-
-    pub(crate) fn set_tri_layer(&self, tri_layer: Option<[u8; 3]>) {
-        self.inner.borrow_mut().behavior.tri_layer = tri_layer;
-    }
-
-    pub(crate) fn set_combo_prior_idle_time(&self, time: Option<Duration>) {
-        self.inner.borrow_mut().behavior.combo.prior_idle_time = time;
-    }
-
-    pub(crate) fn set_one_shot_modifiers_config(&self, config: OneShotModifiersConfig) {
-        self.inner.borrow_mut().behavior.one_shot_modifiers = config;
-    }
-
-    pub(crate) fn set_morse_enable_flow_tap(&self, enabled: bool) {
-        self.inner.borrow_mut().behavior.morse.enable_flow_tap = enabled;
     }
 
     pub(crate) fn set_one_shot_timeout(&self, timeout: Duration) {
