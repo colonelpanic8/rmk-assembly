@@ -678,6 +678,7 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
         if let Some(StorageData::UnicodeMode(mode)) = self.fetch_data(StorageKey::UnicodeMode).await {
             behavior_config.unicode.mode = mode;
         }
+
         Ok(())
     }
 
