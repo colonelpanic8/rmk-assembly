@@ -12,6 +12,7 @@
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
+      "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
@@ -29,13 +30,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-08T19:24:39.466534827+00:00",
+    "generated": "2026-08-09T01:15:50.975309474+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "667e9efbac6f2b614901665138e0af9d02912350",
-    "pre_provenance_commit": "667e9efbac6f2b614901665138e0af9d02912350",
-    "tree": "56db015490ad26907d1cfde902a41c3c34fb220f",
-    "built_tree": "56db015490ad26907d1cfde902a41c3c34fb220f",
-    "previous_tree": "be0c690a7e1470c8ed69cc9b3c1a218dbad769c2",
+    "commit": "0bf53d5f13757addf2a9fc6802525bec55ad6287",
+    "pre_provenance_commit": "0bf53d5f13757addf2a9fc6802525bec55ad6287",
+    "tree": "f4b2ed189b45be08a894660745bbafaecaee775c",
+    "built_tree": "f4b2ed189b45be08a894660745bbafaecaee775c",
+    "previous_tree": "56db015490ad26907d1cfde902a41c3c34fb220f",
     "tree_changed": true,
     "conflicts": 14,
     "manifest_entries": [
@@ -182,6 +183,12 @@
         "source": "fork:fix/ephemeral-split-layer-state",
         "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
         "fixup": "df0cc0379ec1747033892e719a88a1d2ac7c55f4"
+      },
+      {
+        "name": "feat/morse-unilateral-mod-chording",
+        "kind": "branch",
+        "source": "fork:feat/morse-unilateral-mod-chording",
+        "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
       }
     ],
     "results": [
@@ -342,6 +349,12 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "df0cc0379ec1747033892e719a88a1d2ac7c55f4"
+      },
+      {
+        "name": "feat/morse-unilateral-mod-chording",
+        "oid": "a2df0ec69daededb21a8ecf1540fa4d015797269",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
