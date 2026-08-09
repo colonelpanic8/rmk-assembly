@@ -410,6 +410,78 @@ paths = ["rynk/src/api.rs"]
 recorded = "2026-08-06T21:11:17.766407982+00:00"
 
 [[resolution]]
+entry = "feat/position-combos"
+hash = "0d8147527677eba449e4651853352fd1baf8f60a"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-08-09T22:57:55.078092504+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "1977b750374b97b2a75647c65c74875525e32583"
+paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
+recorded = "2026-08-09T22:57:55.078094377+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "5ac9efcd40137a977d98ab6702b511ed162fab0a"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-08-09T22:57:55.078094848+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "664933f7318759501fa039090fc5eeca66621370"
+paths = ["rmk/src/host/storage.rs"]
+recorded = "2026-08-09T22:57:55.078095149+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "664fbeab2efae3b7be322275436c56d243fbe1bc"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-09T22:57:55.078095419+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "97b7a6a6e0bef293377e2e2c48321e3d1e42ef9d"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-09T22:57:55.078095810+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "a60c173cb2783f42932efd8e186b0423ffe9aa2e"
+paths = ["rmk-macro/src/codegen/behavior.rs"]
+recorded = "2026-08-09T22:57:55.078096040+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "aaeb0e9180cb94130aabb90cbeb00c9251b1ad3e"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-09T22:57:55.078096281+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "cb069fcbaa341ae7fc99c96ce2fc739c854b4e62"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-08-09T22:57:55.078096571+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "cd2af68afaca85c70431caaceb5f420e41452470"
+paths = ["docs/docs/main/docs/features/rynk.md"]
+recorded = "2026-08-09T22:57:55.078096812+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "d66f4ed6101d2e7eb12dcf8e533e1eaf92a16136"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-09T22:57:55.078097142+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
+hash = "d7d2ded5d04a4b376f88c7e6764799188fd46d35"
+paths = ["rmk/tests/scenarios/combo.toml"]
+recorded = "2026-08-09T22:57:55.078097523+00:00"
+
+[[resolution]]
 entry = "feat/single-pass-storage-read"
 hash = "45bb064485ff1fc0ae4dd79fbf31d4471b8436c6"
 paths = ["rmk/src/storage/mod.rs"]

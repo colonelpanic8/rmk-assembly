@@ -1,0 +1,454 @@
+//! System-level protocol types.
+//!
+//! Types for protocol handshake, device discovery, security, and global configuration.
+
+use heapless::{String, Vec};
+use postcard::experimental::max_size::MaxSize;
+use serde::{Deserialize, Serialize};
+
+use crate::auto_mouse::AutoMouseLayerConfig;
+#[cfg(not(feature = "host"))]
+use crate::constants::AUTO_MOUSE_LAYER_MAX_NUM;
+use crate::morse::MorseProfile;
+
+#[cfg(not(feature = "host"))]
+pub type AutoMouseLayerConfigs = Vec<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>;
+#[cfg(feature = "host")]
+pub type AutoMouseLayerConfigs = alloc::vec::Vec<AutoMouseLayerConfig>;
+
+/// Maximum byte length of each `DeviceInfo` string field.
+pub const DEVICE_INFO_STRING_SIZE: usize = 32;
+
+/// Maximum byte length of the application-defined build label.
+pub const BUILD_INFO_STRING_SIZE: usize = 128;
+
+/// Protocol version advertised during the connection handshake.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct ProtocolVersion {
+    pub major: u8,
+    pub minor: u8,
+}
+
+impl ProtocolVersion {
+    /// Current protocol version for this firmware release.
+<<<<<<<
+    /// Now the protocol is still being developed, so the version is v0.1
+    ///
+    /// Version numbers are minted upstream (HaoboGu/rmk) only — downstream
+    /// extensions must never bump this constant, or the same number would
+    /// eventually name two different protocols. Extensions are discovered
+    /// through capability surfaces instead: [`DeviceCapabilities`] flags,
+    /// domain capability endpoints (e.g. `GetLightingCapabilities` /
+    /// `GetLightingSceneStatus`), and per-command probing — firmware answers
+    /// `UnknownCmd` for any command it does not implement.
+    pub const CURRENT: Self = Self { major: 0, minor: 1 };
+=======
+    /// Version 0.2 adds the combo-definition endpoints while preserving the
+    /// original combo command schemas.
+    pub const CURRENT: Self = Self { major: 0, minor: 2 };
+>>>>>>>
+}
+
+/// Human-readable identity of the firmware build.
+///
+/// Unlike [`ProtocolVersion`], this label is deliberately application-defined:
+/// it is for diagnostics and display, never compatibility decisions. RMK
+/// supplies an RMK-only default and downstream firmware may replace it with a
+/// label containing its own package, source revision, or configuration name.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct BuildInfo {
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    pub label: String<BUILD_INFO_STRING_SIZE>,
+}
+
+impl MaxSize for BuildInfo {
+    const POSTCARD_MAX_SIZE: usize = crate::heapless_vec_max_size::<u8, BUILD_INFO_STRING_SIZE>();
+}
+
+/// Device capabilities discovered during the connection handshake.
+///
+/// The host reads this once after connecting to learn the firmware's layout,
+/// feature set, and protocol limits.
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct DeviceCapabilities {
+    // -- Layout --
+    pub num_layers: u8,
+    pub num_rows: u8,
+    pub num_cols: u8,
+
+    // -- Input devices --
+    pub num_encoders: u8,
+    pub max_combos: u8,
+    pub max_combo_keys: u8,
+    /// Byte size of the flat macro region. `0` disables macro data endpoints.
+    pub macro_space_size: u16,
+    pub max_morse: u8,
+    pub max_patterns_per_key: u8,
+    pub max_forks: u8,
+
+    // -- Feature flags --
+    pub storage_enabled: bool,
+    pub lighting_enabled: bool,
+
+    // -- Connectivity --
+    pub is_split: bool,
+    pub num_split_peripherals: u8,
+    pub ble_enabled: bool,
+    pub num_ble_profiles: u8,
+
+    // -- Protocol limits --
+    pub max_payload_size: u16,
+    /// Worst-case keys per `GetKeymapBulk` page; paces pipelined reads.
+    pub max_bulk_keys: u8,
+    /// Worst-case combos/morses per `GetComboBulk`/`GetMorseBulk` page; paces
+    /// pipelined reads. Separate from `max_bulk_keys` because these items are
+    /// far larger than keys. Writes pack by encoded size up to `max_payload_size`.
+    pub max_bulk_items: u8,
+    pub macro_chunk_size: u16,
+    pub bulk_transfer_supported: bool,
+}
+
+/// Version of the `rmk` crate baked into the firmware, so hosts can key
+/// version-specific behavior off the library release, not the user's app.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct FirmwareVersion {
+    pub major: u8,
+    pub minor: u8,
+    pub patch: u8,
+}
+
+/// Device identity for display and per-device host profiles.
+///
+/// Complements [`DeviceCapabilities`]: capabilities answer "what can you do"
+/// for feature gating, identity answers "which device is this".
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct DeviceInfo {
+    pub rmk_version: FirmwareVersion,
+    pub vendor_id: u16,
+    pub product_id: u16,
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    pub manufacturer: String<DEVICE_INFO_STRING_SIZE>,
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    pub product_name: String<DEVICE_INFO_STRING_SIZE>,
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    pub serial_number: String<DEVICE_INFO_STRING_SIZE>,
+}
+
+impl MaxSize for DeviceInfo {
+    // A str encodes as varint length + UTF-8 bytes — the same wire shape as
+    // `Vec<u8, N>`, so the Vec bound covers each string field.
+    const POSTCARD_MAX_SIZE: usize = FirmwareVersion::POSTCARD_MAX_SIZE
+        + 2 * u16::POSTCARD_MAX_SIZE
+        + 3 * crate::heapless_vec_max_size::<u8, DEVICE_INFO_STRING_SIZE>();
+}
+
+/// Legacy lock status retained for wire compatibility. Current Rynk firmware
+/// reports an inert unlocked value; maintenance mode owns authorization.
+///
+/// Loses `Copy` and derived `MaxSize` (both forbidden by the `heapless::Vec`
+/// field): handlers return it by value, and the bound is hand-written below.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct LockStatus {
+    pub locked: bool,
+    /// Whether a legacy unlock attempt is armed.
+    pub unlocking: bool,
+    /// Legacy challenge keys not currently held.
+    pub remaining_keys: u8,
+    /// Legacy challenge positions; empty on current Rynk firmware.
+    #[cfg_attr(feature = "wasm", tsify(type = "[number, number][]"))]
+    pub key_positions: Vec<(u8, u8), 4>,
+}
+
+// `#[derive(MaxSize)]` doesn't support `heapless::Vec` (see `crate` root), so
+// hand-write the bound: two bools + one u8 + the key-position vec.
+impl MaxSize for LockStatus {
+    const POSTCARD_MAX_SIZE: usize =
+        2 * bool::POSTCARD_MAX_SIZE + u8::POSTCARD_MAX_SIZE + crate::heapless_vec_max_size::<(u8, u8), 4>();
+}
+
+/// Live and compiled-default host maintenance policy.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct MaintenanceMode {
+    pub enabled: bool,
+    pub default_enabled: bool,
+}
+
+/// Storage reset mode for the `StorageReset` endpoint.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub enum StorageResetMode {
+    /// Reset all stored data — including keymap and BLE bonds.
+    Full,
+    /// Reset only the layout/keymap data, preserving BLE bonds.
+    LayoutOnly,
+}
+
+/// Protocol-facing behavior configuration (global timing settings).
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct BehaviorConfig {
+    pub combo_timeout_ms: u16,
+    pub oneshot_timeout_ms: u16,
+    pub tap_interval_ms: u16,
+    pub tap_capslock_interval_ms: u16,
+}
+
+/// Active-mode split BLE latency policy. Values count connection events.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct SplitCentralLatencyPolicy {
+    /// Maximum skipped connection events when USB power is present.
+    pub powered: u16,
+    /// Maximum skipped connection events when running on battery.
+    pub battery: u16,
+    /// Forced value for both power states; `None` restores automatic selection.
+    pub override_latency: Option<u16>,
+}
+
+/// Current split BLE latency selection and its policy inputs.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct SplitCentralLatencyState {
+    pub policy: SplitCentralLatencyPolicy,
+    /// Whether USB power is currently present.
+    pub powered: bool,
+    /// Value currently requested for the active split connection.
+    pub effective: u16,
+}
+
+/// Protocol-facing behavior settings added after [`BehaviorConfig`].
+///
+/// This is a separate payload rather than an extension of `BehaviorConfig` so
+/// older clients and firmware keep their existing postcard layout.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct BehaviorOptions {
+    pub tri_layer: Option<[u8; 3]>,
+    pub combo_prior_idle_ms: Option<u16>,
+    pub oneshot_activate_on_keypress: bool,
+    pub oneshot_quick_release: bool,
+    pub morse_enable_flow_tap: bool,
+    pub morse_prior_idle_ms: u16,
+    pub morse_default_profile: MorseProfile,
+}
+
+/// The complete auto mouse layer table and the firmware's compiled capacity.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct AutoMouseLayerConfigState {
+    pub capacity: u8,
+    #[cfg_attr(feature = "wasm", tsify(type = "AutoMouseLayerConfig[]"))]
+    pub configs: AutoMouseLayerConfigs,
+}
+
+#[cfg(not(feature = "host"))]
+impl MaxSize for AutoMouseLayerConfigState {
+    const POSTCARD_MAX_SIZE: usize =
+        u8::POSTCARD_MAX_SIZE + crate::heapless_vec_max_size::<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>();
+}
+
+/// Atomic replacement payload for the complete auto mouse layer table.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+pub struct SetAutoMouseLayerConfigsRequest {
+    #[cfg_attr(feature = "wasm", tsify(type = "AutoMouseLayerConfig[]"))]
+    pub configs: AutoMouseLayerConfigs,
+}
+
+#[cfg(not(feature = "host"))]
+impl MaxSize for SetAutoMouseLayerConfigsRequest {
+    const POSTCARD_MAX_SIZE: usize = crate::heapless_vec_max_size::<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::protocol::rynk::tests::{assert_max_size_bound, round_trip};
+
+    #[test]
+    fn round_trip_protocol_version() {
+        round_trip(&ProtocolVersion { major: 1, minor: 0 });
+        round_trip(&ProtocolVersion { major: 255, minor: 255 });
+    }
+
+    #[test]
+    fn round_trip_device_capabilities() {
+        // Populated and all-zero edge cases.
+        round_trip(&DeviceCapabilities {
+            num_layers: 4,
+            num_rows: 6,
+            num_cols: 14,
+            num_encoders: 2,
+            max_combos: 16,
+            max_combo_keys: 4,
+            macro_space_size: 2048,
+            max_morse: 8,
+            max_patterns_per_key: 8,
+            max_forks: 4,
+            storage_enabled: true,
+            lighting_enabled: false,
+            is_split: false,
+            num_split_peripherals: 0,
+            ble_enabled: true,
+            num_ble_profiles: 4,
+            max_payload_size: 256,
+            max_bulk_keys: 32,
+            max_bulk_items: 8,
+            macro_chunk_size: 64,
+            bulk_transfer_supported: true,
+        });
+        round_trip(&DeviceCapabilities {
+            num_layers: 0,
+            num_rows: 0,
+            num_cols: 0,
+            num_encoders: 0,
+            max_combos: 0,
+            max_combo_keys: 0,
+            macro_space_size: 0,
+            max_morse: 0,
+            max_patterns_per_key: 0,
+            max_forks: 0,
+            storage_enabled: false,
+            lighting_enabled: false,
+            is_split: false,
+            num_split_peripherals: 0,
+            ble_enabled: false,
+            num_ble_profiles: 0,
+            max_payload_size: 0,
+            max_bulk_keys: 0,
+            max_bulk_items: 0,
+            macro_chunk_size: 0,
+            bulk_transfer_supported: false,
+        });
+    }
+
+    #[test]
+    fn round_trip_device_info() {
+        // Fill strings and ids so varints take their full width.
+        let full: String<DEVICE_INFO_STRING_SIZE> = String::try_from("🦀🦀🦀🦀🦀🦀🦀🦀").unwrap();
+        assert_eq!(full.len(), DEVICE_INFO_STRING_SIZE);
+        let info = DeviceInfo {
+            rmk_version: FirmwareVersion {
+                major: 255,
+                minor: 255,
+                patch: 255,
+            },
+            vendor_id: u16::MAX,
+            product_id: u16::MAX,
+            manufacturer: full.clone(),
+            product_name: full.clone(),
+            serial_number: full,
+        };
+        round_trip(&info);
+        assert_max_size_bound(&info);
+    }
+
+    #[test]
+    fn round_trip_build_info() {
+        let full: String<BUILD_INFO_STRING_SIZE> =
+            String::try_from("x".repeat(BUILD_INFO_STRING_SIZE).as_str()).unwrap();
+        let info = BuildInfo { label: full };
+        round_trip(&info);
+        assert_max_size_bound(&info);
+    }
+
+    #[test]
+    fn round_trip_lock_status() {
+        // Locked, no attempt armed, challenge advertised.
+        let mut kp = Vec::new();
+        kp.push((1, 2)).unwrap();
+        kp.push((3, 4)).unwrap();
+        round_trip(&LockStatus {
+            locked: true,
+            unlocking: false,
+            remaining_keys: 2,
+            key_positions: kp,
+        });
+        // Unlocked / no challenge configured.
+        round_trip(&LockStatus {
+            locked: false,
+            unlocking: true,
+            remaining_keys: 0,
+            key_positions: Vec::new(),
+        });
+
+        // Max-capacity case: every (u8, u8) at u8::MAX so each varint takes its
+        // full width and the hand-written `MaxSize` bound is genuinely exercised.
+        let mut full = Vec::new();
+        while full.push((u8::MAX, u8::MAX)).is_ok() {}
+        let status = LockStatus {
+            locked: true,
+            unlocking: true,
+            remaining_keys: u8::MAX,
+            key_positions: full,
+        };
+        round_trip(&status);
+        assert_max_size_bound(&status);
+    }
+
+    #[test]
+    fn round_trip_storage_reset_mode() {
+        round_trip(&StorageResetMode::Full);
+        round_trip(&StorageResetMode::LayoutOnly);
+    }
+
+    #[test]
+    fn round_trip_behavior_config() {
+        round_trip(&BehaviorConfig {
+            combo_timeout_ms: 50,
+            oneshot_timeout_ms: 500,
+            tap_interval_ms: 200,
+            tap_capslock_interval_ms: 20,
+        });
+    }
+    #[test]
+    fn round_trip_split_central_latency() {
+        let policy = SplitCentralLatencyPolicy {
+            powered: 0,
+            battery: 4,
+            override_latency: Some(2),
+        };
+        round_trip(&policy);
+        round_trip(&SplitCentralLatencyState {
+            policy,
+            powered: true,
+            effective: 2,
+        });
+    }
+
+    #[test]
+    fn round_trip_behavior_options() {
+        round_trip(&BehaviorOptions {
+            tri_layer: Some([1, 2, 3]),
+            combo_prior_idle_ms: Some(u16::MAX),
+            oneshot_activate_on_keypress: true,
+            oneshot_quick_release: true,
+            morse_enable_flow_tap: true,
+            morse_prior_idle_ms: u16::MAX,
+            morse_default_profile: MorseProfile::default(),
+        });
+    }
+}

@@ -1,8 +1,8 @@
 diff --git a/docs/docs/main/docs/development/rynk_protocol.md b/docs/docs/main/docs/development/rynk_protocol.md
-index 2f81cc72..d9c5d462 100644
+index 2ab8e404..2e48c9d2 100644
 --- a/docs/docs/main/docs/development/rynk_protocol.md
 +++ b/docs/docs/main/docs/development/rynk_protocol.md
-@@ -33,7 +33,7 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+@@ -33,13 +33,14 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
  | `0x0003` | `Reboot`                                               | `()`                                                     | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0004` | `BootloaderJump`                                       | `()`                                                     | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0005` | `StorageReset`                                         | `StorageResetMode`                                       | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
@@ -11,15 +11,14 @@ index 2f81cc72..d9c5d462 100644
  | `0x0007` | `UnlockPoll`                                           | `()`                                                     | `LockStatus`                                         |                  | Arms/refreshes the unlock attempt and samples the held challenge keys.                                                                                                                                                                                                                                             |
  | `0x0008` | `Lock`                                                 | `()`                                                     | `()`                                                 |                  | Relock immediately.                                                                                                                                                                                                                                                                                                |
  | `0x0009` | `GetLayout`                                            | `u32`                                                    | `LayoutChunk`                                        |                  | Get layout blob chunk. `u32` is the byte offset.                                                                                                                                                                                                                                                                   |
-@@ -41,6 +41,7 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
- | `0x000D` | `GetMaintenanceMode`                                  | `()`                                                     | `MaintenanceMode`                                   |                  | Read the live maintenance-mode gate and its boot-time default.                                                                                                                                                                                                                                                     |
+ | `0x000A` | `GetDeviceInfo`                                        | `()`                                                     | `DeviceInfo`                                         |                  | Identity strings and USB ids; feature gating stays in `GetCapabilities`.                                                                                                                                                                                                                                           |
  | `0x000B` | `GetBuildInfo`                                         | `()`                                                     | `BuildInfo`                                          |                  | Application-defined diagnostic build label; never used for compatibility.                                                                                                                                                                                                                                          |
  | `0x000C` | `PeripheralBootloaderJump`                             | `u8`                                                     | `()`                                                 |                  | Ask the application to route a bootloader jump to one split peripheral.                                                                                                                                                                                                                                            |
 +| `0x000D` | `GetMaintenanceMode`                                   | `()`                                                     | `MaintenanceMode`                                    |                  | Read the live gate for host maintenance operations.                                                                                                                                                                                                                                                                |
  | `0x0101` | `GetKeyAction`                                         | `KeyPosition`                                            | `KeyAction`                                          |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0102` | `SetKeyAction`                                         | `SetKeyRequest`                                          | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0103` | `GetDefaultLayer`                                      | `()`                                                     | `u8`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
-@@ -80,6 +81,8 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+@@ -83,6 +84,8 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
  | `0x0705` | `ClearBleProfile`                                      | `u8`                                                     | `()`                                                 | `_ble`           |                                                                                                                                                                                                                                                                                                                    |
  | `0x0706` | `GetSplitCentralLatency`                               | `()`                                                     | `SplitCentralLatencyState`                           | `_ble` + `split` | Read the volatile active-mode policy, current USB-power selection, and effective value.                                                                                                                                                                                                                            |
  | `0x0707` | `SetSplitCentralLatency`                               | `SplitCentralLatencyPolicy`                              | `SplitCentralLatencyState`                           | `_ble` + `split` | Replace the volatile policy. Each connection-event count must be `0..=499`.                                                                                                                                                                                                                                        |
@@ -29,272 +28,223 @@ index 2f81cc72..d9c5d462 100644
  | `0x0802` | `GetMatrixState`                                       | `()`                                                     | `MatrixState`                                        |                  |                                                                                                                                                                                                                                                                                                                    |
  | `0x0803` | `GetBatteryStatus`                                     | `()`                                                     | `BatteryStatus`                                      | `_ble`           |                                                                                                                                                                                                                                                                                                                    |
 diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
-index 40c82203..16646b4c 100644
+index 5a5dc703..16646b4c 100644
 --- a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
 +++ b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
-@@ -10,8 +10,14 @@
- BootloaderJump reply Ok(())                                             02 04 02 01 01 00
- BootloaderJump request ()                                               02 04 02 01 00
+@@ -12,14 +12,14 @@ BootloaderJump request ()                                               02 04 02
  ConnectionChange topic ConnectionStatus{Configured,{1,Adv},Ble}         03 03 80 03 02 01 02 01 00
-+DeleteMorseProfile reply Ok(())                                         04 0e 04 01 01 00
-+DeleteMorseProfile request 3                                            05 0e 04 01 03 00
+ DeleteMorseProfile reply Ok(())                                         04 0e 04 01 01 00
+ DeleteMorseProfile request 3                                            05 0e 04 01 03 00
+-GetAutoMouseLayerConfigs reply Ok(state)                                04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
 +GetAutoMouseLayerConfigs reply Ok(state)                                04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d9 01 01 00
-+GetAutoMouseLayerConfigs request ()                                     04 05 06 01 00
+ GetAutoMouseLayerConfigs request ()                                     04 05 06 01 00
  GetBehaviorConfig reply Ok(BehaviorConfig{50,500,200,20})               04 01 06 01 07 32 f4 03 c8 01 14 00
  GetBehaviorConfig request ()                                            04 01 06 01 00
-+GetBehaviorOptions reply Ok(BehaviorOptions)                            04 03 06 01 08 01 01 02 03 01 28 01 08 01 3c c6 80 80 85 0c 00
-+GetBehaviorOptions request ()                                           04 03 06 01 00
- GetBuildInfo reply Ok(BuildInfo{my-firmware..})                         02 0b 02 01 21 1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33 00
- GetBuildInfo request ()                                                 02 0b 02 01 00
+-GetBuildInfo reply Ok(BuildInfo{my-firmware..})                         02 0b 02 01 21 1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33 00
+-GetBuildInfo request ()                                                 02 0b 02 01 00
+ GetBehaviorOptions reply Ok(BehaviorOptions)                            04 03 06 01 08 01 01 02 03 01 28 01 08 01 3c c6 80 80 85 0c 00
+ GetBehaviorOptions request ()                                           04 03 06 01 00
++GetBuildInfo reply Ok(BuildInfo{my-firmware..})                         02 0b 02 01 21 1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33 00
++GetBuildInfo request ()                                                 02 0b 02 01 00
  GetCapabilities reply Ok(DeviceCapabilities{1..16})                     02 02 02 01 0c 01 02 03 04 05 06 07 08 09 0a 01 03 01 0b 07 0c 0d 0e 0f 10 01 00
-@@ -52,6 +58,12 @@ GetMorse reply Ok(Morse{TAP->Key(A)})                                   04 01 04
- GetMorse request 0                                                      04 01 04 01 01 00
- GetMorseHoldTriggerPositions reply Ok({16,[(default,1,2),(3,4,5)]})     04 0a 04 01 09 10 02 ff 01 02 03 04 05 00
- GetMorseHoldTriggerPositions request ()                                 04 0a 04 01 00
-+GetMorseProfile reply Ok(MorseProfile(Normal,200,150))                  04 06 04 01 06 c8 81 b0 89 0c 00
-+GetMorseProfile request 3                                               05 06 04 01 03 00
-+GetMorseProfileCount reply Ok(16)                                       04 05 04 01 02 10 00
-+GetMorseProfileCount request ()                                         04 05 04 01 00
-+GetMorseProfileState reply Ok(state)                                    04 0c 04 01 17 10 01 01 03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c 00
-+GetMorseProfileState request {offset:0}                                 04 0c 04 01 01 00
- GetSleepState reply Ok(true)                                            04 06 08 01 02 01 00
- GetSleepState request ()                                                04 06 08 01 00
- GetVersion reply Ok(CURRENT)                                            02 01 02 01 01 02 01 00
-@@ -67,8 +79,12 @@ PeripheralBootloaderJump reply Ok(())                                   02 0c 02
- PeripheralBootloaderJump request slot 1                                 02 0c 03 01 01 00
+ GetCapabilities request ()                                              02 02 02 01 00
+ GetCombo reply Ok(Combo{[Single(A)],Morse(1),L2})                       04 01 03 01 04 01 02 01 06 04 05 01 01 02 00
+@@ -80,7 +80,7 @@ PeripheralBootloaderJump request slot 1                                 02 0c 03
  Reboot reply Ok(())                                                     02 03 02 01 01 00
  Reboot request ()                                                       02 03 02 01 00
-+SetAutoMouseLayerConfigs reply Ok(())                                   04 06 06 01 01 00
+ SetAutoMouseLayerConfigs reply Ok(())                                   04 06 06 01 01 00
+-SetAutoMouseLayerConfigs request configs                                0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
 +SetAutoMouseLayerConfigs request configs                                0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d9 01 01 00
  SetBehaviorConfig reply Ok(())                                          04 02 06 01 01 00
  SetBehaviorConfig request BehaviorConfig{50,500,200,20}                 0a 02 06 01 32 f4 03 c8 01 14 00
-+SetBehaviorOptions reply Ok(())                                         04 04 06 01 01 00
-+SetBehaviorOptions request BehaviorOptions                              0b 04 06 01 01 01 02 03 01 28 01 08 01 3c c6 80 80 85 0c 00
- SetCombo reply Ok(())                                                   04 02 03 01 01 00
- SetCombo request SetComboRequest{3,combo}                               08 02 03 01 03 01 02 01 06 04 05 01 01 02 00
- SetDefaultLayer reply Ok(())                                            04 04 01 01 01 00
-@@ -87,6 +103,10 @@ SetMorse request SetMorseRequest{0,morse}                               04 02 04
- SetMorseHoldTriggerPositions reply Err(Invalid)                         06 0b 04 01 01 05 00
- SetMorseHoldTriggerPositions reply Ok(())                               04 0b 04 01 01 00
- SetMorseHoldTriggerPositions request {[(default,1,2),(3,4,5)]}          0b 0b 04 01 02 ff 01 02 03 04 05 00
-+SetMorseProfile reply Ok(())                                            04 07 04 01 01 00
-+SetMorseProfile request SetMorseProfileRequest{3,profile}               0a 07 04 01 03 c8 81 b0 89 0c 00
-+SetMorseProfileEntry reply Ok(())                                       04 0d 04 01 01 00
-+SetMorseProfileEntry request {entry}                                    17 0d 04 01 03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c 00
- SleepState topic true                                                   03 04 80 02 01 00
- StorageReset reply Ok(())                                               02 05 02 01 01 00
- StorageReset request StorageResetMode::Full                             02 05 02 01 01 00
+ SetBehaviorOptions reply Ok(())                                         04 04 06 01 01 00
 diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
-index bc8b4be9..f5e22cbc 100644
+index 7e8308f5..f5e22cbc 100644
 --- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
 +++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
-@@ -6,101 +6,111 @@
- #   UPDATE_SNAPSHOTS=1 cargo test -p rmk-types --features rynk wire_values
- # Format: <label>  <hex bytes>
- 
--Action::DefaultLayer(5)                      08 05
--Action::Key(Hid(A))                          01 00 04
--Action::KeyWithModifier(A,LShift)            03 04 02
--Action::KeyboardControl(Bootloader)          11 00
--Action::LayerOff(3)                          06 03
--Action::LayerOn(1)                           04 01
--Action::LayerOnWithModifier(2,LCtrl)         05 02 01
--Action::LayerToggle(4)                       07 04
--Action::LayerToggleOnly(6)                   09 06
--Action::Light(RgbTog)                        10 07
--Action::Modifier(LCtrl)                      02 01
--Action::No                                   00
--Action::OneShotKey(Hid(B))                   0f 05
--Action::OneShotLayer(8)                      0d 08
--Action::OneShotModifier(LAlt)                0e 04
--Action::Special(GraveEscape)                 12 00
--Action::TriLayerLower                        0a
--Action::TriLayerUpper                        0b
--Action::TriggerMacro(7)                      0c 07
--Action::User(9)                              13 09
--BatteryStatus::Available{Discharging,85}     01 01 01 55
--BatteryStatus::Unavailable                   00
--BehaviorConfig{50,500,200,20}                32 f4 03 c8 01 14
--BleState::Advertising                        00
--BleState::Connected                          01
--BleState::Inactive                           02
--BleStatus{2,Connected}                       02 01
--BuildInfo{my-firmware..}                     1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33
--ChargeState::Charging                        00
--ChargeState::Discharging                     01
--ChargeState::Unknown                         02
--Combo{[Single(A)],Morse(1),L2}               01 02 01 00 04 05 01 01 02
--ConnectionStatus{Configured,{1,Adv},Ble}     02 01 00 01
--ConnectionType::Ble                          01
--ConnectionType::Usb                          00
--DeviceCapabilities{1..16}                    01 02 03 04 05 06 07 08 09 0a 01 00 01 0b 00 0c 0d 0e 0f 10 01
--DeviceInfo{1.2.3,4,5,RMK,..}                 01 02 03 04 05 03 52 4d 4b 0c 52 4d 4b 20 4b 65 79 62 6f 61 72 64 09 72 79 6e 6b 3a 30 30 30 31
--EncoderAction{Morse(3),No}                   05 03 00
--Fork{Single(A),No,Morse(2)}                  02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
--GetEncoderRequest{1,2}                       01 02
--GetMacroRequest{256}                         80 02
--HoldTriggerState{16,[d:1,2;3:4,5]}            10 02 ff 01 02 03 04 05
--KeyAction::LayerModTap(1,LAlt,Tab)           06 01 02 2b
--KeyAction::Morse(3)                          05 03
--KeyAction::No                                00
--KeyAction::Single(Action::Key(Hid(A)))       02 01 00 04
--KeyAction::Tap(Action::No)                   03 00
--KeyAction::TapHold(Key(A),LayerOn(3))        04 01 00 04 04 03 ff
--KeyAction::Transparent                       01
--KeyCode::Consumer(VolumeIncrement)           01 15
--KeyCode::Hid(A)                              00 04
--KeyCode::SystemControl(Sleep)                02 02
--KeyPosition{layer:0,row:5,col:13}            00 05 0d
--LayerState{default:2,active:[0x05,..,0x80]}  02 05 00 00 00 00 00 00 80
--LedIndicator(Num|Scroll)                     05
--LockStatus{true,false,2,[(1,2),(3,4)]}       01 00 02 02 01 02 03 04
--MacroData{[0x01,0x02,0x03]}                  03 01 02 03
--MatrixState{[0x05,0x00,0x20]}                03 05 00 20
--ModifierCombination(LCtrl|RGui)              81
--ModifierKey::LAlt                            02
--ModifierKey::LCtrl                           00
--ModifierKey::LGui                            03
--ModifierKey::LShift                          01
--ModifierKey::RAlt                            06
--ModifierKey::RCtrl                           04
--ModifierKey::RGui                            07
--ModifierKey::RShift                          05
--MorseProfile(Normal,200,150)                 c8 81 b0 89 0c
--Morse{TAP->Key(A)}                           00 01 02 01 00 04
--MouseButtons(B1|B8)                          81
--ProtocolVersion::CURRENT                     00 01
--ProtocolVersion{1,0}                         01 00
--Result<(),RynkError>::Err(StorageFault)      01 02
--Result<(),RynkError>::Ok                     00
--RynkError::Internal                          03
--RynkError::Invalid                           05
--RynkError::Locked                            07
--RynkError::Malformed                         00
--RynkError::NotReady                          01
--RynkError::StorageFault                      02
--RynkError::Unimplemented                     04
--RynkError::UnknownCmd                        06
--SetComboRequest{3,combo}                     03 01 02 01 00 04 05 01 01 02
--SetEncoderRequest{1,2,{Morse(3),No}}         01 02 05 03 00
--SetForkRequest{2,fork}                       02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
--SetHoldTriggers{[d:1,2;3:4,5]}               02 ff 01 02 03 04 05
--SetKeyRequest{{0,5,13},Morse(7)}             00 05 0d 05 07
--SetMacroRequest{2,[0x01,0x02,0x03]}          02 03 01 02 03
--SetMorseRequest{0,morse}                     00 00 01 02 01 00 04
--SplitLatencyPolicy{0,4,Some(2)}              00 04 01 02
--SplitLatencyState{policy,true,2}             00 04 01 02 01 02
--StateBits{LCtrl,Caps,B1}                     01 02 01
--StorageResetMode::Full                       00
--StorageResetMode::LayoutOnly                 01
--UsbState::Configured                         02
--UsbState::Disabled                           00
--UsbState::Enabled                            01
--UsbState::Suspended                          03
-+Action::DefaultLayer(5)                                 08 05
-+Action::Key(Hid(A))                                     01 00 04
-+Action::KeyWithModifier(A,LShift)                       03 04 02
-+Action::KeyboardControl(Bootloader)                     11 00
+@@ -10,6 +10,7 @@ Action::DefaultLayer(5)                                 08 05
+ Action::Key(Hid(A))                                     01 00 04
+ Action::KeyWithModifier(A,LShift)                       03 04 02
+ Action::KeyboardControl(Bootloader)                     11 00
 +Action::KeyboardControl(MaintenanceModeToggle)          11 0c
-+Action::LayerOff(3)                                     06 03
-+Action::LayerOn(1)                                      04 01
-+Action::LayerOnWithModifier(2,LCtrl)                    05 02 01
-+Action::LayerToggle(4)                                  07 04
-+Action::LayerToggleOnly(6)                              09 06
-+Action::Light(RgbTog)                                   10 07
-+Action::Modifier(LCtrl)                                 02 01
-+Action::No                                              00
-+Action::OneShotKey(Hid(B))                              0f 05
-+Action::OneShotLayer(8)                                 0d 08
-+Action::OneShotModifier(LAlt)                           0e 04
-+Action::Special(GraveEscape)                            12 00
-+Action::TriLayerLower                                   0a
-+Action::TriLayerUpper                                   0b
-+Action::TriggerMacro(7)                                 0c 07
-+Action::User(9)                                         13 09
-+AutoMouseLayerConfigState{4,[device1->layer2]}          04 01 01 01 02 f4 03 03 01 01 00 d9 01 00
-+BatteryStatus::Available{Discharging,85}                01 01 01 55
-+BatteryStatus::Unavailable                              00
-+BehaviorConfig{50,500,200,20}                           32 f4 03 c8 01 14
-+BehaviorOptions{[1,2,3],40,true,false,true,60,profile}  01 01 02 03 01 28 01 00 01 3c c6 80 80 85 0c
+ Action::LayerOff(3)                                     06 03
+ Action::LayerOn(1)                                      04 01
+ Action::LayerOnWithModifier(2,LCtrl)                    05 02 01
+@@ -31,6 +32,7 @@ BatteryStatus::Available{Discharging,85}                01 01 01 55
+ BatteryStatus::Unavailable                              00
+ BehaviorConfig{50,500,200,20}                           32 f4 03 c8 01 14
+ BehaviorOptions{[1,2,3],40,true,false,true,60,profile}  01 01 02 03 01 28 01 00 01 3c c6 80 80 85 0c
 +BleName{Glove80 {slot}}                                 0e 47 6c 6f 76 65 38 30 20 7b 73 6c 6f 74 7d
-+BleState::Advertising                                   00
-+BleState::Connected                                     01
-+BleState::Inactive                                      02
-+BleStatus{2,Connected}                                  02 01
-+BuildInfo{my-firmware..}                                1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33
-+ChargeState::Charging                                   00
-+ChargeState::Discharging                                01
-+ChargeState::Unknown                                    02
-+Combo{[Single(A)],Morse(1),L2}                          01 02 01 00 04 05 01 01 02
-+ConnectionStatus{Configured,{1,Adv},Ble}                02 01 00 01
-+ConnectionType::Ble                                     01
-+ConnectionType::Usb                                     00
-+DeviceCapabilities{1..16}                               01 02 03 04 05 06 07 08 09 0a 01 00 01 0b 00 0c 0d 0e 0f 10 01
-+DeviceInfo{1.2.3,4,5,RMK,..}                            01 02 03 04 05 03 52 4d 4b 0c 52 4d 4b 20 4b 65 79 62 6f 61 72 64 09 72 79 6e 6b 3a 30 30 30 31
-+EncoderAction{Morse(3),No}                              05 03 00
-+Fork{Single(A),No,Morse(2)}                             02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
-+GetEncoderRequest{1,2}                                  01 02
-+GetMacroRequest{256}                                    80 02
-+GetMorseProfileStateRequest{0}                          00
-+HoldTriggerState{16,[d:1,2;3:4,5]}                      10 02 ff 01 02 03 04 05
-+KeyAction::LayerModTap(1,LAlt,Tab)                      06 01 02 2b
-+KeyAction::Morse(3)                                     05 03
-+KeyAction::No                                           00
-+KeyAction::Single(Action::Key(Hid(A)))                  02 01 00 04
-+KeyAction::Tap(Action::No)                              03 00
-+KeyAction::TapHold(Key(A),LayerOn(3))                   04 01 00 04 04 03 ff
-+KeyAction::Transparent                                  01
-+KeyCode::Consumer(VolumeIncrement)                      01 15
-+KeyCode::Hid(A)                                         00 04
-+KeyCode::SystemControl(Sleep)                           02 02
-+KeyPosition{layer:0,row:5,col:13}                       00 05 0d
-+LayerState{default:2,active:[0x05,..,0x80]}             02 05 00 00 00 00 00 00 80
-+LedIndicator(Num|Scroll)                                05
-+LockStatus{true,false,2,[(1,2),(3,4)]}                  01 00 02 02 01 02 03 04
-+MacroData{[0x01,0x02,0x03]}                             03 01 02 03
-+MatrixState{[0x05,0x00,0x20]}                           03 05 00 20
-+ModifierCombination(LCtrl|RGui)                         81
-+ModifierKey::LAlt                                       02
-+ModifierKey::LCtrl                                      00
-+ModifierKey::LGui                                       03
-+ModifierKey::LShift                                     01
-+ModifierKey::RAlt                                       06
-+ModifierKey::RCtrl                                      04
-+ModifierKey::RGui                                       07
-+ModifierKey::RShift                                     05
-+MorseProfile(Normal,200,150)                            c8 81 b0 89 0c
-+MorseProfileEntry{3,home-row-mod,profile}               03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c
-+MorseProfileState{16,1,[entry]}                         10 01 01 03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c
-+Morse{TAP->Key(A)}                                      00 01 02 01 00 04
-+MouseButtons(B1|B8)                                     81
-+ProtocolVersion::CURRENT                                00 01
-+ProtocolVersion{1,0}                                    01 00
-+Result<(),RynkError>::Err(StorageFault)                 01 02
-+Result<(),RynkError>::Ok                                00
-+RynkError::Internal                                     03
-+RynkError::Invalid                                      05
-+RynkError::Locked                                       07
-+RynkError::Malformed                                    00
-+RynkError::NotReady                                     01
-+RynkError::StorageFault                                 02
-+RynkError::Unimplemented                                04
-+RynkError::UnknownCmd                                   06
-+SetAutoMouseLayerConfigsRequest{[device1->layer2]}      01 01 01 02 f4 03 03 01 01 00 d9 01 00
-+SetComboRequest{3,combo}                                03 01 02 01 00 04 05 01 01 02
-+SetEncoderRequest{1,2,{Morse(3),No}}                    01 02 05 03 00
-+SetForkRequest{2,fork}                                  02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
-+SetHoldTriggers{[d:1,2;3:4,5]}                          02 ff 01 02 03 04 05
-+SetKeyRequest{{0,5,13},Morse(7)}                        00 05 0d 05 07
-+SetMacroRequest{2,[0x01,0x02,0x03]}                     02 03 01 02 03
-+SetMorseProfileEntryRequest{entry}                      03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c
-+SetMorseProfileRequest{3,profile}                       03 c8 81 b0 89 0c
-+SetMorseRequest{0,morse}                                00 00 01 02 01 00 04
-+SplitLatencyPolicy{0,4,Some(2)}                         00 04 01 02
-+SplitLatencyState{policy,true,2}                        00 04 01 02 01 02
-+StateBits{LCtrl,Caps,B1}                                01 02 01
-+StorageResetMode::Full                                  00
-+StorageResetMode::LayoutOnly                            01
-+UsbState::Configured                                    02
-+UsbState::Disabled                                      00
-+UsbState::Enabled                                       01
-+UsbState::Suspended                                     03
+ BleState::Advertising                                   00
+ BleState::Connected                                     01
+ BleState::Inactive                                      02
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 698b36d6..9cd1dc0d 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -548,16 +548,12 @@ mod tests {
+     use alloc::vec;
+     use alloc::vec::Vec;
+
+-    use embassy_futures::join::join;
+     use embedded_io_async::{ErrorKind, ErrorType, Read, Write};
+     use rmk_types::action::KeyAction;
+-    use rmk_types::protocol::rynk::{
+-        LockStatus, MatrixState, ProtocolVersion, RYNK_HEADER_SIZE, RynkHeader, encode_frame,
+-    };
++    use rmk_types::protocol::rynk::{ProtocolVersion, RYNK_HEADER_SIZE, RynkHeader, encode_frame};
+
+     use super::*;
+-    use crate::config::{BehaviorConfig, LockConfig, PositionalConfig, RmkConfig};
+-    use crate::event::KeyboardEvent;
++    use crate::config::{BehaviorConfig, PositionalConfig, RmkConfig};
+     use crate::keymap::{KeyMap, KeymapData};
+     use crate::test_support::test_block_on as block_on;
+
+@@ -645,146 +641,6 @@ mod tests {
+         out
+     }
+
+-    /// A second session over the same service starts locked again. The gate
+-    /// itself lives in `tests/scenarios/rynk_lock.toml`, which holds the
+-    /// challenge with real matrix input; only the session boundary needs a
+-    /// second `run_session`, which one timeline cannot express.
+-    #[cfg(any())]
+-    #[test]
+-    fn a_new_session_starts_locked_again() {
+-        let mut behavior = BehaviorConfig::default();
+-        let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+-        let mut data: KeymapData<2, 2, 1, 0> =
+-            KeymapData::new([[[KeyAction::No, KeyAction::No], [KeyAction::No, KeyAction::No]]]);
+-        let keymap = block_on(KeyMap::new(&mut data, &mut behavior, &positional));
+-
+-        const UNLOCK_KEYS: &[(u8, u8)] = &[(0, 0)];
+-        let mut config = RmkConfig {
+-            lock_config: LockConfig {
+-                unlock_keys: UNLOCK_KEYS,
+-                insecure: false,
+-                write_requires_unlock: false,
+-                bootloader_requires_unlock: true,
+-            },
+-            ..Default::default()
+-        };
+-        let service = RynkService::new(&keymap, &config);
+-        assert!(service.requires_unlock(Cmd::BootloaderJump));
+-        assert!(service.requires_unlock(Cmd::PeripheralBootloaderJump));
+-
+-        config.lock_config.bootloader_requires_unlock = false;
+-        let deployment_service = RynkService::new(&keymap, &config);
+-        assert!(!deployment_service.requires_unlock(Cmd::BootloaderJump));
+-        assert!(!deployment_service.requires_unlock(Cmd::PeripheralBootloaderJump));
+-        assert!(deployment_service.requires_unlock(Cmd::StorageReset));
+-        assert!(deployment_service.requires_unlock(Cmd::GetMatrixState));
+-
+-        // Hold the challenge key throughout, so only the session boundary can
+-        // account for the second session being locked.
+-        keymap.update_matrix_state(&KeyboardEvent::key(0, 0, true));
+-
+-        let mut chunks = VecDeque::new();
+-        chunks.push_back(req(Cmd::UnlockPoll.raw(), 0));
+-        chunks.push_back(req(Cmd::GetMatrixState.raw(), 1));
+-        let mut rx = ChunkRead { chunks };
+-        let mut tx = VecWrite { captured: Vec::new() };
+-        block_on(service.run_session(&mut rx, &mut tx));
+-
+-        let resp = decode_frames(&tx.captured);
+-        assert!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&resp[1].2)
+-                .unwrap()
+-                .is_ok(),
+-            "gated command served once unlocked"
+-        );
+-
+-        let mut chunks2 = VecDeque::new();
+-        chunks2.push_back(req(Cmd::GetMatrixState.raw(), 0));
+-        let mut rx2 = ChunkRead { chunks: chunks2 };
+-        let mut tx2 = VecWrite { captured: Vec::new() };
+-        block_on(service.run_session(&mut rx2, &mut tx2));
+-
+-        let resp2 = decode_frames(&tx2.captured);
+-        assert_eq!(resp2.len(), 1);
+-        assert_eq!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&resp2[0].2).unwrap(),
+-            Err(RynkError::Locked),
+-            "a fresh session has independent locked state"
+-        );
+-    }
+-
+-    #[cfg(any())]
+-    #[test]
+-    fn sessions_authorize_independently() {
+-        let mut behavior = BehaviorConfig::default();
+-        let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+-        let mut data: KeymapData<2, 2, 1, 0> =
+-            KeymapData::new([[[KeyAction::No, KeyAction::No], [KeyAction::No, KeyAction::No]]]);
+-        let keymap = block_on(KeyMap::new(&mut data, &mut behavior, &positional));
+-
+-        const UNLOCK_KEYS: &[(u8, u8)] = &[(0, 0)];
+-        let mut config = RmkConfig::default();
+-        config.lock_config.unlock_keys = UNLOCK_KEYS;
+-        let service = RynkService::new(&keymap, &config);
+-        keymap.update_matrix_state(&KeyboardEvent::key(0, 0, true));
+-
+-        let mut chunks_a = VecDeque::new();
+-        chunks_a.push_back(req(Cmd::UnlockPoll.raw(), 0x11));
+-        chunks_a.push_back(req(Cmd::GetLockStatus.raw(), 0x12));
+-        chunks_a.push_back(req(Cmd::Lock.raw(), 0x13));
+-        chunks_a.push_back(req(Cmd::GetMatrixState.raw(), 0x14));
+-        let mut rx_a = ChunkRead { chunks: chunks_a };
+-        let mut tx_a = VecWrite { captured: Vec::new() };
+-
+-        let mut chunks_b = VecDeque::new();
+-        chunks_b.push_back(req(Cmd::GetLockStatus.raw(), 0x21));
+-        chunks_b.push_back(req(Cmd::UnlockPoll.raw(), 0x22));
+-        chunks_b.push_back(req(Cmd::GetMatrixState.raw(), 0x23));
+-        let mut rx_b = ChunkRead { chunks: chunks_b };
+-        let mut tx_b = VecWrite { captured: Vec::new() };
+-
+-        block_on(join(
+-            service.run_session(&mut rx_a, &mut tx_a),
+-            service.run_session(&mut rx_b, &mut tx_b),
+-        ));
+-
+-        let responses_a = decode_frames(&tx_a.captured);
+-        assert_eq!(responses_a.len(), 4);
+-        let unlocked_a = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_a[0].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(!unlocked_a.locked);
+-        let status_a = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_a[1].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(!status_a.locked);
+-        assert_eq!(
+-            postcard::from_bytes::<Result<(), RynkError>>(&responses_a[2].2).unwrap(),
+-            Ok(())
+-        );
+-        assert_eq!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&responses_a[3].2).unwrap(),
+-            Err(RynkError::Locked),
+-        );
+-
+-        let responses_b = decode_frames(&tx_b.captured);
+-        assert_eq!(responses_b.len(), 3);
+-        let locked_b = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_b[0].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(locked_b.locked, "session A does not unlock session B");
+-        let unlocked_b = postcard::from_bytes::<Result<LockStatus, RynkError>>(&responses_b[1].2)
+-            .unwrap()
+-            .unwrap();
+-        assert!(!unlocked_b.locked);
+-        assert!(
+-            postcard::from_bytes::<Result<MatrixState, RynkError>>(&responses_b[2].2)
+-                .unwrap()
+-                .is_ok(),
+-            "locking session A does not relock session B"
+-        );
+-    }
+-
+     /// A read carrying more than one frame serves them all, in order: the
+     /// pipelined tail is parked out of each reply's way, never dropped.
+     #[test]
