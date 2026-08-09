@@ -3,6 +3,7 @@
   "pins": {
     "base": "65df15775026bad1189139613ee3d338139bec3d",
     "entries": {
+      "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
@@ -11,10 +12,11 @@
       "feat/morse-per-profile-prior-idle": "6b3ef8a8f36af168cf9cf9a890cf18f7b4618e21",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
-      "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
+      "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+      "fix/ephemeral-split-layer-state": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -27,15 +29,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-09T01:11:21.675751653+00:00",
+    "generated": "2026-08-09T01:18:01.250182365+00:00",
     "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "965ef4516a4d48336883b1ce936f1d0e8cba7eb7",
-    "pre_provenance_commit": "965ef4516a4d48336883b1ce936f1d0e8cba7eb7",
-    "tree": "9b2d8af81e1c962c7940053769561c97ada1308c",
-    "built_tree": "9b2d8af81e1c962c7940053769561c97ada1308c",
-    "previous_tree": "8f59e7cea9db457697d89e2be253580292d79bce",
-    "tree_changed": true,
-    "conflicts": 12,
+    "commit": "537236c336a3280451a6f116e8a0e62fa022b1d7",
+    "pre_provenance_commit": "537236c336a3280451a6f116e8a0e62fa022b1d7",
+    "tree": "80a455fe9198c4c968b3c1dfa26091ce788fa255",
+    "built_tree": "80a455fe9198c4c968b3c1dfa26091ce788fa255",
+    "previous_tree": "80a455fe9198c4c968b3c1dfa26091ce788fa255",
+    "tree_changed": false,
+    "conflicts": 14,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -117,12 +119,6 @@
         "pin": "e8d97930624e48a6a5119783ac6e1e9521987386"
       },
       {
-        "name": "feat/morse-unilateral-mod-chording",
-        "kind": "branch",
-        "source": "fork:feat/morse-unilateral-mod-chording",
-        "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
-      },
-      {
         "name": "feat/consumer-keycodes",
         "kind": "branch",
         "source": "fork:feat/consumer-keycodes",
@@ -157,14 +153,35 @@
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
         "pin": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
-        "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
+        "fixup": "54eae5c3d98dbebccb07f4f83ea2888d264e4dd8"
       },
       {
         "name": "feat/maintenance-mode",
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
         "pin": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
-        "fixup": "df3d4041e393ffcfbef0367af58de84e509383dc"
+        "fixup": "1c30742706e3ee347a95e5d74160ac4243afabdd"
+      },
+      {
+        "name": "fix/battery-power-transitions",
+        "kind": "branch",
+        "source": "fork:fix/battery-power-transitions",
+        "pin": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+        "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
+      },
+      {
+        "name": "feat/ble-name-template",
+        "kind": "branch",
+        "source": "fork:feat/ble-name-template",
+        "pin": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
+        "fixup": "7d1dfdce65a54e3a4692966ee1d5c7f3d30198af"
+      },
+      {
+        "name": "fix/ephemeral-split-layer-state",
+        "kind": "branch",
+        "source": "fork:fix/ephemeral-split-layer-state",
+        "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+        "fixup": "f3e1040426298369d07ea830f882b5dc07b20cb5"
       }
     ],
     "results": [
@@ -246,20 +263,14 @@
         "oid": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:0079240228a0343132f9594c8810d013595e06db,0d7f522eda4f44f32bbe4ddce097f01472de8d23,0d95aa07487e9bca982610154775ef5ac6717864,13bf19fb4f83db553ba83c6aad9d8ec58128a4c0,3f52228629b6938a12071de8cecb48baef7811f5,9761ba6e3c4713b2965af59782d342c06b7ca68d,b6fc87403d6740a123b04a6f0fab0b3ce2aa77d0,df5540291864d0c8a0190c7a9c9582dec08db2a8,e0dc01e29a7fc00eb5f7a3294872740f44fe444a,fe6952d1e08b018db2473a1583f71e6c1105e163"
+        "resolution": "rerere"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
         "oid": "e8d97930624e48a6a5119783ac6e1e9521987386",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:9d8fc76b977762dc5334289367875026faf74445"
-      },
-      {
-        "name": "feat/morse-unilateral-mod-chording",
-        "oid": "a2df0ec69daededb21a8ecf1540fa4d015797269",
-        "status": "merged",
-        "conflicted": false
+        "resolution": "rerere"
       },
       {
         "name": "feat/consumer-keycodes",
@@ -272,7 +283,7 @@
         "oid": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:de49557afdc90343e1f7e249cb28638ae6a53c74"
+        "resolution": "rerere"
       },
       {
         "name": "fold/cirque-pinnacle",
@@ -291,23 +302,46 @@
         "oid": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:0926e7ae139b128884792ab1d309f8448c8f2811,0ae52f4a522bb6342d65472b9edbb9c9786c8b89,58f2b51f463e93eb7ab1fa7a1076fee1ba7f08eb,666fe985fd1856450c15e66ea3f1a6a8283c9bf5,6b8eecfaa447479c1b0de47f547f910282dff10e,a1177cf3f49e317be19515a3ad3cb7e2cca50ae6,a19507ef35a92b00b512051809148a50b082555e,d6962b1d333b54f212f7f79aa9ce6c6e57c7dadb"
+        "resolution": "rerere"
       },
       {
         "name": "fold/runtime-behavior-parity",
         "oid": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:0f07a03957ab3a33efc98f199303a928549c08f4,13b9950c608fc6f70d8fef5774b3a0fde766eecf,1c3d9d29d96eed22aee9d556a39ee5ab811badde,25336606be2a804e063fa78662768ed235f91501,285914fe1c0173d8f1ae37affc041ab8befcfe21,36218e9ac084610089a9c89862df11b40c0a2404,36c16928e22da2092d41a6c52350cad01980f370,6944b3e2be1e5957d9c8ed2abc7cef546623d0b2,6946233fad19f0ba1a74798e3931428f566b1290,6e7ceba65770e9965f0b751e42cf85934525a1cc,97e6323ae8b8b7b61ed5f2c46094c1bc82a54179,9e756af9611693ba1b7031f2d24c77c0d666651b,ad1e6c6dee8242c866714a85ecbf6c5c8948c15f,d5ce30483431da863f3c0b37624564fa1c02bb59,eb8e98c079b268cec32a83e87866e0d474188ce9,f40fdd5141a608bcdf2150dd9fe89a931511aa4e,f6153f24490440577976bd5c460b4738b1a2acaf",
-        "fixup": "7c59fc0be4d917dbd3a261f277543991e73dbfd7"
+        "resolution": "rerere",
+        "fixup": "54eae5c3d98dbebccb07f4f83ea2888d264e4dd8"
       },
       {
         "name": "feat/maintenance-mode",
         "oid": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:09396486e8aa7fed989ebba77ab56f0d4679fd55,382e697b5f3e746c0012a18248f6a3c580d7b2ed,4323109a66864db1417015602ab25b5d90a8a2a3,7f44f38e42f7ef2e3afcfdb4e6cb57e9d83ac085,9173ba8b0780b23ebe92ada578f0184ff9d62f52",
-        "fixup": "df3d4041e393ffcfbef0367af58de84e509383dc"
+        "resolution": "rerere",
+        "fixup": "1c30742706e3ee347a95e5d74160ac4243afabdd"
+      },
+      {
+        "name": "fix/battery-power-transitions",
+        "oid": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+        "status": "merged",
+        "conflicted": false,
+        "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
+      },
+      {
+        "name": "feat/ble-name-template",
+        "oid": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "7d1dfdce65a54e3a4692966ee1d5c7f3d30198af"
+      },
+      {
+        "name": "fix/ephemeral-split-layer-state",
+        "oid": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "f3e1040426298369d07ea830f882b5dc07b20cb5"
       }
     ]
   }
