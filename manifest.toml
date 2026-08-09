@@ -107,6 +107,10 @@ branch = "fork:feat/morse-unilateral-mod-chording"
 [[entry]]
 branch = "fork:fold/opposite-hand-hold"
 
+[[entry]]
+branch = "fork:feat/position-combos"
+fixup = "patches/position-combos-coherence.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

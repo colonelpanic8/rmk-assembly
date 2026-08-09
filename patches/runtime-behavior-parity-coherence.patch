@@ -1,8 +1,1038 @@
+diff --git a/docs/docs/main/docs/development/rynk_protocol.md b/docs/docs/main/docs/development/rynk_protocol.md
+index 29b54f98..2ab8e404 100644
+--- a/docs/docs/main/docs/development/rynk_protocol.md
++++ b/docs/docs/main/docs/development/rynk_protocol.md
+@@ -58,20 +58,24 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+ | `0x0402` | `SetMorse`                                             | `SetMorseRequest`                                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0403` | `GetMorseBulk`                                         | `GetMorseBulkRequest`                                    | `GetMorseBulkResponse`                               |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0404` | `SetMorseBulk`                                         | `SetMorseBulkRequest`                                    | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x0405` | `GetMorseProfileCount`                                 | `()`                                                     | `u8`                                                 |                  | Number of profile slots.                                                                                                                                                                                                                                                                                           |
+-| `0x0406` | `GetMorseProfile`                                      | `u8`                                                     | `MorseProfile`                                       |                  | Profile selected by a tap-hold key.                                                                                                                                                                                                                                                                                 |
++| `0x040A` | `GetMorseHoldTriggerPositions`                         | `()`                                                     | `MorseHoldTriggerPositionState`                      |                  | Read the complete profile-keyed positional hold-trigger table.                                                                                                                                                                                                                                                     |
++| `0x040B` | `SetMorseHoldTriggerPositions`                         | `SetMorseHoldTriggerPositionsRequest`                    | `()`                                                 |                  | Atomically replace the complete positional hold-trigger table.                                                                                                                                                                                                                                                     |
++| `0x0405` | `GetMorseProfileCount`                                 | `()`                                                     | `u8`                                                 |                  | Number of profile slots. Also the support probe for the four commands below: firmware built before them answers `UnknownCmd`.                                                                                                                                                                                      |
++| `0x0406` | `GetMorseProfile`                                      | `u8`                                                     | `MorseProfile`                                       |                  | Profile a key bound to this index resolves to — the table entry, or the default profile for a slot nothing has written.                                                                                                                                                                                            |
+ | `0x0407` | `SetMorseProfile`                                      | `SetMorseProfileRequest`                                 | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x0408` | `GetMorseProfileBulk`                                  | `GetMorseProfileBulkRequest`                            | `GetMorseProfileBulkResponse`                        |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x0409` | `SetMorseProfileBulk`                                  | `SetMorseProfileBulkRequest`                            | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+-| `0x040A` | `GetMorseHoldTriggerPositions`                         | `()`                                                     | `MorseHoldTriggerPositionState`                     |                  | Read the complete profile-keyed positional hold-trigger table.                                                                                                                                                                                                                                                                                                             |
+-| `0x040B` | `SetMorseHoldTriggerPositions`                        | `SetMorseHoldTriggerPositionsRequest`                    | `()`                                                 |                  | Atomically replace the complete positional hold-trigger table.                                                                                                                                                                                                                                                                                                            |
++| `0x0408` | `GetMorseProfileBulk`                                  | `GetMorseProfileBulkRequest`                             | `GetMorseProfileBulkResponse`                        |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0409` | `SetMorseProfileBulk`                                  | `SetMorseProfileBulkRequest`                             | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x040C` | `GetMorseProfileState`                                 | `GetMorseProfileStateRequest`                            | `MorseProfileState`                                  |                  | Read one page of occupied profile slots, including persistent names.                                                                                                                                                                                                                                               |
+-| `0x040D` | `SetMorseProfileEntry`                                 | `SetMorseProfileEntryRequest`                            | `()`                                                 |                  | Create, rename, or update one stable profile slot.                                                                                                                                                                                                                                                                  |
+-| `0x040E` | `DeleteMorseProfile`                                   | `u8`                                                     | `()`                                                 |                  | Vacate one profile slot without renumbering later bindings.                                                                                                                                                                                                                                                        |
++| `0x040D` | `SetMorseProfileEntry`                                 | `SetMorseProfileEntryRequest`                            | `()`                                                 |                  | Create, rename, or update one stable profile slot.                                                                                                                                                                                                                                                                 |
++| `0x040E` | `DeleteMorseProfile`                                   | `u8`                                                     | `()`                                                 |                  | Vacate one profile slot without renumbering any later bindings.                                                                                                                                                                                                                                                    |
+ | `0x0501` | `GetFork`                                              | `u8`                                                     | `Fork`                                               |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0502` | `SetFork`                                              | `SetForkRequest`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0601` | `GetBehaviorConfig`                                    | `()`                                                     | `BehaviorConfig`                                     |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0602` | `SetBehaviorConfig`                                    | `BehaviorConfig`                                         | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0603` | `GetBehaviorOptions`                                   | `()`                                                     | `BehaviorOptions`                                    |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0604` | `SetBehaviorOptions`                                   | `BehaviorOptions`                                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0605` | `GetAutoMouseLayerConfigs`                             | `()`                                                     | `AutoMouseLayerConfigState`                          |                  |                                                                                                                                                                                                                                                                                                                    |
++| `0x0606` | `SetAutoMouseLayerConfigs`                             | `SetAutoMouseLayerConfigsRequest`                        | `()`                                                 |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0701` | `GetConnectionType`                                    | `()`                                                     | `ConnectionType`                                     |                  |                                                                                                                                                                                                                                                                                                                    |
+ | `0x0702` | `GetConnectionStatus`                                  | `()`                                                     | `ConnectionStatus`                                   |                  | Full `ConnectionStatus` snapshot.                                                                                                                                                                                                                                                                                  |
+ | `0x0703` | `GetBleStatus`                                         | `()`                                                     | `BleStatus`                                          | `_ble`           |                                                                                                                                                                                                                                                                                                                    |
+@@ -86,8 +90,6 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+ | `0x0805` | `GetWpm`                                               | `()`                                                     | `u16`                                                |                  | Latest WPM, sourced from the `WpmUpdate` topic snapshot.                                                                                                                                                                                                                                                           |
+ | `0x0806` | `GetSleepState`                                        | `()`                                                     | `bool`                                               |                  | Latest sleep flag, sourced from the `SleepState` topic snapshot.                                                                                                                                                                                                                                                   |
+ | `0x0807` | `GetLedIndicator`                                      | `()`                                                     | `LedIndicator`                                       |                  | Latest HID LED bitmap, sourced from the `LedIndicatorChange` topic snapshot.                                                                                                                                                                                                                                       |
+-| `0x0A01` | `GetPointingConfig`                                    | `()`                                                     | `PointingConfig`                                     |                  | Every pad's behavior in one read, including its layer overrides.                                                                                                                                                                                                                                                       |
+-| `0x0A02` | `SetPointingConfig`                                    | `SetPointingConfigRequest`                              | `PointingConfig`                                     |                  | Replace the whole arrangement, if `revision` still matches.                                                                                                                                                                                                                                                            |
+ | `0x0808` | `GetLayerState`                                        | `()`                                                     | `LayerState`                                         |                  | Default layer and complete active-layer bitmap.                                                                                                                                                                                                                                                                    |
+ | `0x0809` | `GetModifierState`                                     | `()`                                                     | `ModifierCombination`                                |                  | Final resolved modifier bitmap used by the HID keyboard report.                                                                                                                                                                                                                                                    |
+ | `0x0901` | `GetLightingCapabilities`                              | `()`                                                     | `LightingCapabilitiesResult`                         | `lighting`       |                                                                                                                                                                                                                                                                                                                    |
+@@ -145,6 +147,8 @@ Which commands a firmware answers depends on the RMK Cargo features it was built
+ | `0x0935` | `AbortLightingExtendedRuntimeConditionalSceneReplace`  | `AbortLightingRuntimeConditionalSceneReplaceRequest`     | `LightingUnitResult`                                 | `lighting`       | Discard an extended conditional-table replacement.                                                                                                                                                                                                                                                                 |
+ | `0x0936` | `GetLightingFrame`                                     | `LightingFrameRequest`                                   | `LightingFramePageResult`                            | `lighting`       | Read back what one lighting node last presented to its LEDs, paged. `LightingFeatureFlags` has no bits left, so support is discovered by probing: firmware without it answers `UnknownCmd`.                                                                                                                        |
+ | `0x0937` | `GetLightingReplicaStatus`                             | `()`                                                     | `LightingReplicaStatusResult`                        | `lighting`       | Read both sides of the split lighting replication handshake. Probed like `GetLightingFrame`. Boards may use a read to trigger a coalesced background refresh; reread after one bounded link round trip when a fresh peripheral report is required.                                                                 |
++| `0x0A01` | `GetPointingConfig`                                    | `()`                                                     | `PointingConfig`                                     |                  | Every pad's behavior in one read, including its layer overrides.                                                                                                                                                                                                                                                   |
++| `0x0A02` | `SetPointingConfig`                                    | `SetPointingConfigRequest`                               | `PointingConfig`                                     |                  | Replace the whole arrangement, if `revision` still matches.                                                                                                                                                                                                                                                        |
+
+ ## Topics
+
+diff --git a/rmk-config/src/lib.rs b/rmk-config/src/lib.rs
+index 0d848cba..fc90608f 100644
+--- a/rmk-config/src/lib.rs
++++ b/rmk-config/src/lib.rs
+@@ -1140,6 +1140,7 @@ pub(crate) struct MorseProfile {
+     pub retro_tap: Option<bool>,
+     /// overrides the global `[behavior.morse] prior_idle_time` for keys using this profile
+     pub prior_idle_time: Option<DurationMillis>,
++
+     /// Key positions allowed to trigger the hold, as `[row, col]` pairs. When set, any other
+     /// key resolves this tap-hold as a tap. Same as ZMK's `hold-trigger-key-positions`.
+     pub hold_trigger_key_positions: Option<Vec<[u8; 2]>>,
+@@ -1279,6 +1280,7 @@ pub(crate) struct MorsesConfig {
+     /// A key outside `hold_trigger_key_positions` settles the tap-hold as a tap when it is
+     /// released rather than when it is pressed
+     pub hold_trigger_on_release: Option<bool>,
++
+     /// these can be used to overrides the defaults given above
+     pub profiles: Option<HashMap<String, MorseProfile>>,
+
+diff --git a/rmk-types/src/protocol/rynk/command.rs b/rmk-types/src/protocol/rynk/command.rs
+index 9efb00de..e62d71ea 100644
+--- a/rmk-types/src/protocol/rynk/command.rs
++++ b/rmk-types/src/protocol/rynk/command.rs
+@@ -14,20 +14,15 @@ use serde::de::DeserializeOwned;
+
+ use super::message::{RynkHeader, encode_frame};
+ use super::{
+-    BehaviorConfig, BuildInfo, DeviceCapabilities, DeviceInfo, GetComboBulkRequest, GetComboBulkResponse,
+-    GetEncoderRequest, GetKeymapBulkRequest, GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest,
+-    GetMorseBulkResponse, KeyPosition, LayerState, LayoutChunk, LockStatus, MacroData, MatrixState,
+-    MorseHoldTriggerPositionState, PointingConfig, ProtocolVersion,
+-    RynkError, SetComboBulkRequest, SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest,
+-    SetKeymapBulkRequest, SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseRequest,
+-    SetPointingConfigRequest,
+-    AutoMouseLayerConfigState, BehaviorConfig, BehaviorOptions, DeviceCapabilities, DeviceInfo, GetComboBulkRequest,
+-    GetComboBulkResponse, GetEncoderRequest, GetKeymapBulkRequest, GetKeymapBulkResponse, GetMacroRequest,
+-    GetMorseBulkRequest, GetMorseBulkResponse, GetMorseProfileBulkRequest, GetMorseProfileBulkResponse,
+-    GetMorseProfileStateRequest, KeyPosition, LayoutChunk, LockStatus, MacroData, MatrixState, MorseProfileState,
+-    ProtocolVersion, RynkError, SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboRequest,
+-    SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetMacroRequest, SetMorseBulkRequest,
+-    SetMorseProfileBulkRequest, SetMorseProfileEntryRequest, SetMorseProfileRequest, SetMorseRequest, StorageResetMode,
++    AutoMouseLayerConfigState, BehaviorConfig, BehaviorOptions, BuildInfo, DeviceCapabilities, DeviceInfo,
++    GetComboBulkRequest, GetComboBulkResponse, GetEncoderRequest, GetKeymapBulkRequest, GetKeymapBulkResponse,
++    GetMacroRequest, GetMorseBulkRequest, GetMorseBulkResponse, GetMorseProfileBulkRequest,
++    GetMorseProfileBulkResponse, GetMorseProfileStateRequest, KeyPosition, LayerState, LayoutChunk, LockStatus,
++    MacroData, MatrixState, MorseHoldTriggerPositionState, MorseProfileState, PointingConfig, ProtocolVersion,
++    RynkError, SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboRequest, SetEncoderRequest,
++    SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetMacroRequest, SetMorseBulkRequest,
++    SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
++    SetMorseProfileRequest, SetMorseRequest, SetPointingConfigRequest, StorageResetMode,
+ };
+ use crate::action::{EncoderAction, KeyAction};
+ #[cfg(feature = "_ble")]
+@@ -39,7 +34,7 @@ use crate::connection::{ConnectionStatus, ConnectionType};
+ use crate::fork::Fork;
+ use crate::led_indicator::LedIndicator;
+ use crate::modifier::ModifierCombination;
+-use crate::morse::Morse;
++use crate::morse::{Morse, MorseProfile};
+ #[cfg(feature = "split")]
+ use crate::protocol::rynk::PeripheralStatus;
+ #[cfg(feature = "lighting")]
+@@ -374,6 +369,10 @@ endpoints! {
+     // Behavior (0x06xx).
+     GetBehaviorConfig = 0x0601: () => BehaviorConfig;
+     SetBehaviorConfig = 0x0602: BehaviorConfig => ();
++    GetBehaviorOptions = 0x0603: () => BehaviorOptions;
++    SetBehaviorOptions = 0x0604: BehaviorOptions => ();
++    GetAutoMouseLayerConfigs = 0x0605: () => AutoMouseLayerConfigState;
++    SetAutoMouseLayerConfigs = 0x0606: SetAutoMouseLayerConfigsRequest => ();
+
+     // Connection (0x07xx).
+     GetConnectionType = 0x0701: () => ConnectionType;
+diff --git a/rmk-types/src/protocol/rynk/payload/morse.rs b/rmk-types/src/protocol/rynk/payload/morse.rs
+index f5ea0cd8..d574cf78 100644
+--- a/rmk-types/src/protocol/rynk/payload/morse.rs
++++ b/rmk-types/src/protocol/rynk/payload/morse.rs
+@@ -66,6 +66,13 @@ impl MaxSize for SetMorseHoldTriggerPositionsRequest {
+         crate::heapless_vec_max_size::<MorseHoldTriggerPosition, HOLD_TRIGGER_KEY_POSITION_MAX_NUM>();
+ }
+
++// A profile is smaller than a morse, so the shared `max_bulk_items` page count
++// bounds it too.
++#[cfg(not(feature = "host"))]
++type BulkMorseProfiles = heapless::Vec<MorseProfile, MAX_BULK_ITEMS>;
++#[cfg(feature = "host")]
++type BulkMorseProfiles = alloc::vec::Vec<MorseProfile>;
++
+ /// Maximum named profiles returned by one catalog page.
+ pub const MORSE_PROFILE_ENTRY_CHUNK: usize = 4;
+
+@@ -176,6 +183,56 @@ impl MaxSize for GetMorseBulkResponse {
+     const POSTCARD_MAX_SIZE: usize = crate::heapless_vec_max_size::<Morse, MAX_BULK_ITEMS>();
+ }
+
++/// Request payload for `SetMorseProfile`: replace the profile in slot `index`
++/// of the named-profile table that tap-hold keys resolve through.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct SetMorseProfileRequest {
++    pub index: u8,
++    pub profile: MorseProfile,
++}
++
++/// Request payload for `GetMorseProfileBulk`: read a page of profiles starting
++/// at slot `start_index`, with the same paging rules as `GetMorseBulk`.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct GetMorseProfileBulkRequest {
++    pub start_index: u8,
++}
++
++/// Bulk request payload for `SetMorseProfileBulk`: write `profiles` into
++/// consecutive slots starting at `start_index`.
++#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct SetMorseProfileBulkRequest {
++    pub start_index: u8,
++    #[cfg_attr(feature = "wasm", tsify(type = "MorseProfile[]"))]
++    pub profiles: BulkMorseProfiles,
++}
++
++// Set pages pack by real encoded size, so the wire bound is the whole payload budget.
++#[cfg(not(feature = "host"))]
++impl MaxSize for SetMorseProfileBulkRequest {
++    const POSTCARD_MAX_SIZE: usize = crate::protocol::rynk::RYNK_MAX_PAYLOAD_SIZE;
++}
++
++/// Bulk response for reading multiple morse profiles at once.
++#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct GetMorseProfileBulkResponse {
++    #[cfg_attr(feature = "wasm", tsify(type = "MorseProfile[]"))]
++    pub profiles: BulkMorseProfiles,
++}
++
++#[cfg(not(feature = "host"))]
++impl MaxSize for GetMorseProfileBulkResponse {
++    const POSTCARD_MAX_SIZE: usize = crate::heapless_vec_max_size::<MorseProfile, MAX_BULK_ITEMS>();
++}
++
+ #[cfg(test)]
+ mod tests {
+     use super::*;
+@@ -183,7 +240,7 @@ mod tests {
+     use crate::constants::MORSE_SIZE;
+     use crate::keycode::HidKeyCode;
+     use crate::modifier::ModifierCombination;
+-    use crate::morse::{MorsePattern, MorseProfile};
++    use crate::morse::{MorseMode, MorsePattern, MorseProfile};
+     use crate::protocol::rynk::tests::{assert_max_size_bound, round_trip};
+
+     /// Build a `Morse` whose `actions` `LinearMap` is filled to `MORSE_SIZE`
+@@ -309,6 +366,46 @@ mod tests {
+             round_trip(&resp);
+             assert_max_size_bound(&resp);
+         }
++
++        #[test]
++        fn round_trip_set_morse_profile_bulk_request_max_capacity() {
++            let mut profiles: Vec<MorseProfile, MAX_BULK_ITEMS> = Vec::new();
++            for _ in 0..MAX_BULK_ITEMS {
++                profiles.push(full_profile()).unwrap();
++            }
++            let req = SetMorseProfileBulkRequest {
++                start_index: u8::MAX,
++                profiles,
++            };
++            round_trip(&req);
++            assert_max_size_bound(&req);
++        }
++
++        #[test]
++        fn round_trip_get_morse_profile_bulk_response_max_capacity() {
++            let mut profiles: Vec<MorseProfile, MAX_BULK_ITEMS> = Vec::new();
++            for _ in 0..MAX_BULK_ITEMS {
++                profiles.push(full_profile()).unwrap();
++            }
++            let resp = GetMorseProfileBulkResponse { profiles };
++            round_trip(&resp);
++            assert_max_size_bound(&resp);
++        }
++
++        #[test]
++        fn round_trip_morse_profile_state_max_page() {
++            let mut entries = Vec::new();
++            for index in 0..MORSE_PROFILE_ENTRY_CHUNK {
++                entries.push(named_profile(index as u8)).unwrap();
++            }
++            let state = MorseProfileState {
++                capacity: u8::MAX,
++                total: u8::MAX,
++                entries,
++            };
++            round_trip(&state);
++            assert_max_size_bound(&state);
++        }
+     }
+
+     // Firmware-only: the host side intentionally uses an unbounded Vec and
+@@ -353,20 +450,5 @@ mod tests {
+             round_trip(&request);
+             assert_max_size_bound(&request);
+         }
+-
+-        #[test]
+-        fn round_trip_morse_profile_state_max_page() {
+-            let mut entries = Vec::new();
+-            for index in 0..MORSE_PROFILE_ENTRY_CHUNK {
+-                entries.push(named_profile(index as u8)).unwrap();
+-            }
+-            let state = MorseProfileState {
+-                capacity: u8::MAX,
+-                total: u8::MAX,
+-                entries,
+-            };
+-            round_trip(&state);
+-            assert_max_size_bound(&state);
+-        }
+     }
+ }
+diff --git a/rmk-types/src/protocol/rynk/payload/system.rs b/rmk-types/src/protocol/rynk/payload/system.rs
+index d5f3e58c..e4c7d254 100644
+--- a/rmk-types/src/protocol/rynk/payload/system.rs
++++ b/rmk-types/src/protocol/rynk/payload/system.rs
+@@ -6,6 +6,16 @@ use heapless::{String, Vec};
+ use postcard::experimental::max_size::MaxSize;
+ use serde::{Deserialize, Serialize};
+
++use crate::auto_mouse::AutoMouseLayerConfig;
++#[cfg(not(feature = "host"))]
++use crate::constants::AUTO_MOUSE_LAYER_MAX_NUM;
++use crate::morse::MorseProfile;
++
++#[cfg(not(feature = "host"))]
++pub type AutoMouseLayerConfigs = Vec<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>;
++#[cfg(feature = "host")]
++pub type AutoMouseLayerConfigs = alloc::vec::Vec<AutoMouseLayerConfig>;
++
+ /// Maximum byte length of each `DeviceInfo` string field.
+ pub const DEVICE_INFO_STRING_SIZE: usize = 32;
+
+@@ -211,6 +221,54 @@ pub struct SplitCentralLatencyState {
+     pub effective: u16,
+ }
+
++/// Protocol-facing behavior settings added after [`BehaviorConfig`].
++///
++/// This is a separate payload rather than an extension of `BehaviorConfig` so
++/// older clients and firmware keep their existing postcard layout.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, MaxSize)]
++#[cfg_attr(feature = "defmt", derive(defmt::Format))]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct BehaviorOptions {
++    pub tri_layer: Option<[u8; 3]>,
++    pub combo_prior_idle_ms: Option<u16>,
++    pub oneshot_activate_on_keypress: bool,
++    pub oneshot_quick_release: bool,
++    pub morse_enable_flow_tap: bool,
++    pub morse_prior_idle_ms: u16,
++    pub morse_default_profile: MorseProfile,
++}
++
++/// The complete auto mouse layer table and the firmware's compiled capacity.
++#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct AutoMouseLayerConfigState {
++    pub capacity: u8,
++    #[cfg_attr(feature = "wasm", tsify(type = "AutoMouseLayerConfig[]"))]
++    pub configs: AutoMouseLayerConfigs,
++}
++
++#[cfg(not(feature = "host"))]
++impl MaxSize for AutoMouseLayerConfigState {
++    const POSTCARD_MAX_SIZE: usize =
++        u8::POSTCARD_MAX_SIZE + crate::heapless_vec_max_size::<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>();
++}
++
++/// Atomic replacement payload for the complete auto mouse layer table.
++#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
++#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
++#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
++pub struct SetAutoMouseLayerConfigsRequest {
++    #[cfg_attr(feature = "wasm", tsify(type = "AutoMouseLayerConfig[]"))]
++    pub configs: AutoMouseLayerConfigs,
++}
++
++#[cfg(not(feature = "host"))]
++impl MaxSize for SetAutoMouseLayerConfigsRequest {
++    const POSTCARD_MAX_SIZE: usize = crate::heapless_vec_max_size::<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>();
++}
++
+ #[cfg(test)]
+ mod tests {
+     use super::*;
+@@ -352,7 +410,6 @@ mod tests {
+             tap_capslock_interval_ms: 20,
+         });
+     }
+-
+     #[test]
+     fn round_trip_split_central_latency() {
+         let policy = SplitCentralLatencyPolicy {
+@@ -367,4 +424,17 @@ mod tests {
+             effective: 2,
+         });
+     }
++
++    #[test]
++    fn round_trip_behavior_options() {
++        round_trip(&BehaviorOptions {
++            tri_layer: Some([1, 2, 3]),
++            combo_prior_idle_ms: Some(u16::MAX),
++            oneshot_activate_on_keypress: true,
++            oneshot_quick_release: true,
++            morse_enable_flow_tap: true,
++            morse_prior_idle_ms: u16::MAX,
++            morse_default_profile: MorseProfile::default(),
++        });
++    }
+ }
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
+index 5281fe09..02ac4ac0 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
+@@ -10,10 +10,16 @@
+ BootloaderJump reply Ok(())                                             02 04 02 01 01 00
+ BootloaderJump request ()                                               02 04 02 01 00
+ ConnectionChange topic ConnectionStatus{Configured,{1,Adv},Ble}         03 03 80 03 02 01 02 01 00
++DeleteMorseProfile reply Ok(())                                         04 0e 04 01 01 00
++DeleteMorseProfile request 3                                            05 0e 04 01 03 00
++GetAutoMouseLayerConfigs reply Ok(state)                                04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
++GetAutoMouseLayerConfigs request ()                                     04 05 06 01 00
+ GetBehaviorConfig reply Ok(BehaviorConfig{50,500,200,20})               04 01 06 01 07 32 f4 03 c8 01 14 00
+ GetBehaviorConfig request ()                                            04 01 06 01 00
+ GetBuildInfo reply Ok(BuildInfo{my-firmware..})                         02 0b 02 01 21 1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33 00
+ GetBuildInfo request ()                                                 02 0b 02 01 00
++GetBehaviorOptions reply Ok(BehaviorOptions)                            04 03 06 01 08 01 01 02 03 01 28 01 08 01 3c c6 80 80 85 0c 00
++GetBehaviorOptions request ()                                           04 03 06 01 00
+ GetCapabilities reply Ok(DeviceCapabilities{1..16})                     02 02 02 01 0c 01 02 03 04 05 06 07 08 09 0a 01 03 01 0b 07 0c 0d 0e 0f 10 01 00
+ GetCapabilities request ()                                              02 02 02 01 00
+ GetCombo reply Ok(Combo{[Single(A)],Morse(1),L2})                       04 01 03 01 04 01 02 01 06 04 05 01 01 02 00
+@@ -50,6 +56,12 @@ GetMorse reply Ok(Morse{TAP->Key(A)})                                   04 01 04
+ GetMorse request 0                                                      04 01 04 01 01 00
+ GetMorseHoldTriggerPositions reply Ok({16,[(default,1,2),(3,4,5)]})     04 0a 04 01 09 10 02 ff 01 02 03 04 05 00
+ GetMorseHoldTriggerPositions request ()                                 04 0a 04 01 00
++GetMorseProfile reply Ok(MorseProfile(Normal,200,150))                  04 06 04 01 06 c8 81 b0 89 0c 00
++GetMorseProfile request 3                                               05 06 04 01 03 00
++GetMorseProfileCount reply Ok(16)                                       04 05 04 01 02 10 00
++GetMorseProfileCount request ()                                         04 05 04 01 00
++GetMorseProfileState reply Ok(state)                                    04 0c 04 01 17 10 01 01 03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c 00
++GetMorseProfileState request {offset:0}                                 04 0c 04 01 01 00
+ GetSleepState reply Ok(true)                                            04 06 08 01 02 01 00
+ GetSleepState request ()                                                04 06 08 01 00
+ GetVersion reply Ok(CURRENT)                                            02 01 02 01 01 02 01 00
+@@ -65,8 +77,12 @@ PeripheralBootloaderJump reply Ok(())                                   02 0c 02
+ PeripheralBootloaderJump request slot 1                                 02 0c 03 01 01 00
+ Reboot reply Ok(())                                                     02 03 02 01 01 00
+ Reboot request ()                                                       02 03 02 01 00
++SetAutoMouseLayerConfigs reply Ok(())                                   04 06 06 01 01 00
++SetAutoMouseLayerConfigs request configs                                0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
+ SetBehaviorConfig reply Ok(())                                          04 02 06 01 01 00
+ SetBehaviorConfig request BehaviorConfig{50,500,200,20}                 0a 02 06 01 32 f4 03 c8 01 14 00
++SetBehaviorOptions reply Ok(())                                         04 04 06 01 01 00
++SetBehaviorOptions request BehaviorOptions                              0b 04 06 01 01 01 02 03 01 28 01 08 01 3c c6 80 80 85 0c 00
+ SetCombo reply Ok(())                                                   04 02 03 01 01 00
+ SetCombo request SetComboRequest{3,combo}                               08 02 03 01 03 01 02 01 06 04 05 01 01 02 00
+ SetDefaultLayer reply Ok(())                                            04 04 01 01 01 00
+@@ -85,6 +101,10 @@ SetMorse request SetMorseRequest{0,morse}                               04 02 04
+ SetMorseHoldTriggerPositions reply Err(Invalid)                         06 0b 04 01 01 05 00
+ SetMorseHoldTriggerPositions reply Ok(())                               04 0b 04 01 01 00
+ SetMorseHoldTriggerPositions request {[(default,1,2),(3,4,5)]}          0b 0b 04 01 02 ff 01 02 03 04 05 00
++SetMorseProfile reply Ok(())                                            04 07 04 01 01 00
++SetMorseProfile request SetMorseProfileRequest{3,profile}               0a 07 04 01 03 c8 81 b0 89 0c 00
++SetMorseProfileEntry reply Ok(())                                       04 0d 04 01 01 00
++SetMorseProfileEntry request {entry}                                    17 0d 04 01 03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c 00
+ SleepState topic true                                                   03 04 80 02 01 00
+ StorageReset reply Ok(())                                               02 05 02 01 01 00
+ StorageReset request StorageResetMode::Full                             02 05 02 01 01 00
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+index bc8b4be9..7e8308f5 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+@@ -6,101 +6,109 @@
+ #   UPDATE_SNAPSHOTS=1 cargo test -p rmk-types --features rynk wire_values
+ # Format: <label>  <hex bytes>
+
+-Action::DefaultLayer(5)                      08 05
+-Action::Key(Hid(A))                          01 00 04
+-Action::KeyWithModifier(A,LShift)            03 04 02
+-Action::KeyboardControl(Bootloader)          11 00
+-Action::LayerOff(3)                          06 03
+-Action::LayerOn(1)                           04 01
+-Action::LayerOnWithModifier(2,LCtrl)         05 02 01
+-Action::LayerToggle(4)                       07 04
+-Action::LayerToggleOnly(6)                   09 06
+-Action::Light(RgbTog)                        10 07
+-Action::Modifier(LCtrl)                      02 01
+-Action::No                                   00
+-Action::OneShotKey(Hid(B))                   0f 05
+-Action::OneShotLayer(8)                      0d 08
+-Action::OneShotModifier(LAlt)                0e 04
+-Action::Special(GraveEscape)                 12 00
+-Action::TriLayerLower                        0a
+-Action::TriLayerUpper                        0b
+-Action::TriggerMacro(7)                      0c 07
+-Action::User(9)                              13 09
+-BatteryStatus::Available{Discharging,85}     01 01 01 55
+-BatteryStatus::Unavailable                   00
+-BehaviorConfig{50,500,200,20}                32 f4 03 c8 01 14
+-BleState::Advertising                        00
+-BleState::Connected                          01
+-BleState::Inactive                           02
+-BleStatus{2,Connected}                       02 01
+-BuildInfo{my-firmware..}                     1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33
+-ChargeState::Charging                        00
+-ChargeState::Discharging                     01
+-ChargeState::Unknown                         02
+-Combo{[Single(A)],Morse(1),L2}               01 02 01 00 04 05 01 01 02
+-ConnectionStatus{Configured,{1,Adv},Ble}     02 01 00 01
+-ConnectionType::Ble                          01
+-ConnectionType::Usb                          00
+-DeviceCapabilities{1..16}                    01 02 03 04 05 06 07 08 09 0a 01 00 01 0b 00 0c 0d 0e 0f 10 01
+-DeviceInfo{1.2.3,4,5,RMK,..}                 01 02 03 04 05 03 52 4d 4b 0c 52 4d 4b 20 4b 65 79 62 6f 61 72 64 09 72 79 6e 6b 3a 30 30 30 31
+-EncoderAction{Morse(3),No}                   05 03 00
+-Fork{Single(A),No,Morse(2)}                  02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
+-GetEncoderRequest{1,2}                       01 02
+-GetMacroRequest{256}                         80 02
+-HoldTriggerState{16,[d:1,2;3:4,5]}            10 02 ff 01 02 03 04 05
+-KeyAction::LayerModTap(1,LAlt,Tab)           06 01 02 2b
+-KeyAction::Morse(3)                          05 03
+-KeyAction::No                                00
+-KeyAction::Single(Action::Key(Hid(A)))       02 01 00 04
+-KeyAction::Tap(Action::No)                   03 00
+-KeyAction::TapHold(Key(A),LayerOn(3))        04 01 00 04 04 03 ff
+-KeyAction::Transparent                       01
+-KeyCode::Consumer(VolumeIncrement)           01 15
+-KeyCode::Hid(A)                              00 04
+-KeyCode::SystemControl(Sleep)                02 02
+-KeyPosition{layer:0,row:5,col:13}            00 05 0d
+-LayerState{default:2,active:[0x05,..,0x80]}  02 05 00 00 00 00 00 00 80
+-LedIndicator(Num|Scroll)                     05
+-LockStatus{true,false,2,[(1,2),(3,4)]}       01 00 02 02 01 02 03 04
+-MacroData{[0x01,0x02,0x03]}                  03 01 02 03
+-MatrixState{[0x05,0x00,0x20]}                03 05 00 20
+-ModifierCombination(LCtrl|RGui)              81
+-ModifierKey::LAlt                            02
+-ModifierKey::LCtrl                           00
+-ModifierKey::LGui                            03
+-ModifierKey::LShift                          01
+-ModifierKey::RAlt                            06
+-ModifierKey::RCtrl                           04
+-ModifierKey::RGui                            07
+-ModifierKey::RShift                          05
+-MorseProfile(Normal,200,150)                 c8 81 b0 89 0c
+-Morse{TAP->Key(A)}                           00 01 02 01 00 04
+-MouseButtons(B1|B8)                          81
+-ProtocolVersion::CURRENT                     00 01
+-ProtocolVersion{1,0}                         01 00
+-Result<(),RynkError>::Err(StorageFault)      01 02
+-Result<(),RynkError>::Ok                     00
+-RynkError::Internal                          03
+-RynkError::Invalid                           05
+-RynkError::Locked                            07
+-RynkError::Malformed                         00
+-RynkError::NotReady                          01
+-RynkError::StorageFault                      02
+-RynkError::Unimplemented                     04
+-RynkError::UnknownCmd                        06
+-SetComboRequest{3,combo}                     03 01 02 01 00 04 05 01 01 02
+-SetEncoderRequest{1,2,{Morse(3),No}}         01 02 05 03 00
+-SetForkRequest{2,fork}                       02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
+-SetHoldTriggers{[d:1,2;3:4,5]}               02 ff 01 02 03 04 05
+-SetKeyRequest{{0,5,13},Morse(7)}             00 05 0d 05 07
+-SetMacroRequest{2,[0x01,0x02,0x03]}          02 03 01 02 03
+-SetMorseRequest{0,morse}                     00 00 01 02 01 00 04
+-SplitLatencyPolicy{0,4,Some(2)}              00 04 01 02
+-SplitLatencyState{policy,true,2}             00 04 01 02 01 02
+-StateBits{LCtrl,Caps,B1}                     01 02 01
+-StorageResetMode::Full                       00
+-StorageResetMode::LayoutOnly                 01
+-UsbState::Configured                         02
+-UsbState::Disabled                           00
+-UsbState::Enabled                            01
+-UsbState::Suspended                          03
++Action::DefaultLayer(5)                                 08 05
++Action::Key(Hid(A))                                     01 00 04
++Action::KeyWithModifier(A,LShift)                       03 04 02
++Action::KeyboardControl(Bootloader)                     11 00
++Action::LayerOff(3)                                     06 03
++Action::LayerOn(1)                                      04 01
++Action::LayerOnWithModifier(2,LCtrl)                    05 02 01
++Action::LayerToggle(4)                                  07 04
++Action::LayerToggleOnly(6)                              09 06
++Action::Light(RgbTog)                                   10 07
++Action::Modifier(LCtrl)                                 02 01
++Action::No                                              00
++Action::OneShotKey(Hid(B))                              0f 05
++Action::OneShotLayer(8)                                 0d 08
++Action::OneShotModifier(LAlt)                           0e 04
++Action::Special(GraveEscape)                            12 00
++Action::TriLayerLower                                   0a
++Action::TriLayerUpper                                   0b
++Action::TriggerMacro(7)                                 0c 07
++Action::User(9)                                         13 09
++AutoMouseLayerConfigState{4,[device1->layer2]}          04 01 01 01 02 f4 03 03 01 01 00 d9 01 00
++BatteryStatus::Available{Discharging,85}                01 01 01 55
++BatteryStatus::Unavailable                              00
++BehaviorConfig{50,500,200,20}                           32 f4 03 c8 01 14
++BehaviorOptions{[1,2,3],40,true,false,true,60,profile}  01 01 02 03 01 28 01 00 01 3c c6 80 80 85 0c
++BleState::Advertising                                   00
++BleState::Connected                                     01
++BleState::Inactive                                      02
++BleStatus{2,Connected}                                  02 01
++BuildInfo{my-firmware..}                                1f 6d 79 2d 66 69 72 6d 77 61 72 65 20 76 34 2e 35 2e 36 20 2f 20 52 4d 4b 20 76 31 2e 32 2e 33
++ChargeState::Charging                                   00
++ChargeState::Discharging                                01
++ChargeState::Unknown                                    02
++Combo{[Single(A)],Morse(1),L2}                          01 02 01 00 04 05 01 01 02
++ConnectionStatus{Configured,{1,Adv},Ble}                02 01 00 01
++ConnectionType::Ble                                     01
++ConnectionType::Usb                                     00
++DeviceCapabilities{1..16}                               01 02 03 04 05 06 07 08 09 0a 01 00 01 0b 00 0c 0d 0e 0f 10 01
++DeviceInfo{1.2.3,4,5,RMK,..}                            01 02 03 04 05 03 52 4d 4b 0c 52 4d 4b 20 4b 65 79 62 6f 61 72 64 09 72 79 6e 6b 3a 30 30 30 31
++EncoderAction{Morse(3),No}                              05 03 00
++Fork{Single(A),No,Morse(2)}                             02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
++GetEncoderRequest{1,2}                                  01 02
++GetMacroRequest{256}                                    80 02
++GetMorseProfileStateRequest{0}                          00
++HoldTriggerState{16,[d:1,2;3:4,5]}                      10 02 ff 01 02 03 04 05
++KeyAction::LayerModTap(1,LAlt,Tab)                      06 01 02 2b
++KeyAction::Morse(3)                                     05 03
++KeyAction::No                                           00
++KeyAction::Single(Action::Key(Hid(A)))                  02 01 00 04
++KeyAction::Tap(Action::No)                              03 00
++KeyAction::TapHold(Key(A),LayerOn(3))                   04 01 00 04 04 03 ff
++KeyAction::Transparent                                  01
++KeyCode::Consumer(VolumeIncrement)                      01 15
++KeyCode::Hid(A)                                         00 04
++KeyCode::SystemControl(Sleep)                           02 02
++KeyPosition{layer:0,row:5,col:13}                       00 05 0d
++LayerState{default:2,active:[0x05,..,0x80]}             02 05 00 00 00 00 00 00 80
++LedIndicator(Num|Scroll)                                05
++LockStatus{true,false,2,[(1,2),(3,4)]}                  01 00 02 02 01 02 03 04
++MacroData{[0x01,0x02,0x03]}                             03 01 02 03
++MatrixState{[0x05,0x00,0x20]}                           03 05 00 20
++ModifierCombination(LCtrl|RGui)                         81
++ModifierKey::LAlt                                       02
++ModifierKey::LCtrl                                      00
++ModifierKey::LGui                                       03
++ModifierKey::LShift                                     01
++ModifierKey::RAlt                                       06
++ModifierKey::RCtrl                                      04
++ModifierKey::RGui                                       07
++ModifierKey::RShift                                     05
++MorseProfile(Normal,200,150)                            c8 81 b0 89 0c
++MorseProfileEntry{3,home-row-mod,profile}               03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c
++MorseProfileState{16,1,[entry]}                         10 01 01 03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c
++Morse{TAP->Key(A)}                                      00 01 02 01 00 04
++MouseButtons(B1|B8)                                     81
++ProtocolVersion::CURRENT                                00 01
++ProtocolVersion{1,0}                                    01 00
++Result<(),RynkError>::Err(StorageFault)                 01 02
++Result<(),RynkError>::Ok                                00
++RynkError::Internal                                     03
++RynkError::Invalid                                      05
++RynkError::Locked                                       07
++RynkError::Malformed                                    00
++RynkError::NotReady                                     01
++RynkError::StorageFault                                 02
++RynkError::Unimplemented                                04
++RynkError::UnknownCmd                                   06
++SetAutoMouseLayerConfigsRequest{[device1->layer2]}      01 01 01 02 f4 03 03 01 01 00 d9 01 00
++SetComboRequest{3,combo}                                03 01 02 01 00 04 05 01 01 02
++SetEncoderRequest{1,2,{Morse(3),No}}                    01 02 05 03 00
++SetForkRequest{2,fork}                                  02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01
++SetHoldTriggers{[d:1,2;3:4,5]}                          02 ff 01 02 03 04 05
++SetKeyRequest{{0,5,13},Morse(7)}                        00 05 0d 05 07
++SetMacroRequest{2,[0x01,0x02,0x03]}                     02 03 01 02 03
++SetMorseProfileEntryRequest{entry}                      03 0c 68 6f 6d 65 2d 72 6f 77 2d 6d 6f 64 c8 81 b0 89 0c
++SetMorseProfileRequest{3,profile}                       03 c8 81 b0 89 0c
++SetMorseRequest{0,morse}                                00 00 01 02 01 00 04
++SplitLatencyPolicy{0,4,Some(2)}                         00 04 01 02
++SplitLatencyState{policy,true,2}                        00 04 01 02 01 02
++StateBits{LCtrl,Caps,B1}                                01 02 01
++StorageResetMode::Full                                  00
++StorageResetMode::LayoutOnly                            01
++UsbState::Configured                                    02
++UsbState::Disabled                                      00
++UsbState::Enabled                                       01
++UsbState::Suspended                                     03
+diff --git a/rmk-types/src/protocol/rynk/tests.rs b/rmk-types/src/protocol/rynk/tests.rs
+index 4e6f7bcf..1a11f186 100644
+--- a/rmk-types/src/protocol/rynk/tests.rs
++++ b/rmk-types/src/protocol/rynk/tests.rs
+@@ -17,6 +17,7 @@ use serde::{Deserialize, Serialize};
+
+ use super::*;
+ use crate::action::{Action, EncoderAction, KeyAction, KeyboardAction, LightAction};
++use crate::auto_mouse::AutoMouseLayerConfig;
+ use crate::battery::{BatteryStatus, ChargeState};
+ use crate::ble::{BleState, BleStatus};
+ use crate::combo::Combo;
+@@ -25,7 +26,7 @@ use crate::fork::{Fork, StateBits};
+ use crate::keycode::{ConsumerKey, HidKeyCode, KeyCode, SpecialKey, SystemControlKey};
+ use crate::led_indicator::LedIndicator;
+ use crate::modifier::{ModifierCombination, ModifierKey};
+-use crate::morse::{Morse, MorseMode, MorseProfile, TAP};
++use crate::morse::{Morse, MorseMode, MorseProfile, MorseProfileName, TAP};
+ use crate::mouse_button::MouseButtons;
+
+ /// Buffer size used by round-trip / max-size helpers.
+@@ -206,12 +207,15 @@ struct Exemplars {
+     device_info: DeviceInfo,
+     build_info: BuildInfo,
+     behavior: BehaviorConfig,
++    behavior_options: BehaviorOptions,
++    auto_mouse: AutoMouseLayerConfigState,
+     connection: ConnectionStatus,
+     state_bits: StateBits,
+     combo: Combo,
+     fork: Fork,
+     morse: Morse,
+     hold_trigger_positions: MorseHoldTriggerPositions,
++    profile: MorseProfile,
+     macro_data: MacroData,
+     encoder: EncoderAction,
+ }
+@@ -304,6 +308,28 @@ fn exemplars() -> Exemplars {
+         tap_interval_ms: 200,
+         tap_capslock_interval_ms: 20,
+     };
++    let behavior_options = BehaviorOptions {
++        tri_layer: Some([1, 2, 3]),
++        combo_prior_idle_ms: Some(40),
++        oneshot_activate_on_keypress: true,
++        oneshot_quick_release: false,
++        morse_enable_flow_tap: true,
++        morse_prior_idle_ms: 60,
++        morse_default_profile: MorseProfile::new(None, Some(MorseMode::Normal), Some(70), Some(80)),
++    };
++    let auto_mouse_config = AutoMouseLayerConfig {
++        device_id: Some(1),
++        target_layer: 2,
++        timeout_ms: 500,
++        threshold: 3,
++        deactivate_on_key: true,
++        extra_mouse_keys: [KeyCode::Hid(HidKeyCode::LCtrl)].into_iter().collect(),
++        reset_timeout_on_key: false,
++    };
++    let auto_mouse = AutoMouseLayerConfigState {
++        capacity: 4,
++        configs: [auto_mouse_config].into_iter().collect(),
++    };
+     let connection = ConnectionStatus {
+         usb: UsbState::Configured,
+         ble: BleStatus {
+@@ -342,6 +368,7 @@ fn exemplars() -> Exemplars {
+         actions: morse_actions,
+     };
+     let hold_trigger_positions = exemplar_hold_trigger_positions();
++    let profile = MorseProfile::new(None, Some(MorseMode::Normal), Some(200), Some(150));
+     let mut macro_bytes = heapless::Vec::new();
+     macro_bytes.extend_from_slice(&[0x01, 0x02, 0x03]).unwrap();
+     let macro_data = MacroData { data: macro_bytes };
+@@ -353,12 +380,15 @@ fn exemplars() -> Exemplars {
+         device_info,
+         build_info,
+         behavior,
++        behavior_options,
++        auto_mouse,
+         connection,
+         state_bits,
+         combo,
+         fork,
+         morse,
+         hold_trigger_positions,
++        profile,
+         macro_data,
+         encoder,
+     }
+@@ -380,6 +410,16 @@ fn exemplars() -> Exemplars {
+ #[test]
+ fn wire_values_locked() {
+     let ex = exemplars();
++    let profile_entry = MorseProfileEntry {
++        index: 3,
++        name: MorseProfileName::try_from("home-row-mod").unwrap(),
++        profile: ex.profile,
++    };
++    let profile_state = MorseProfileState {
++        capacity: 16,
++        total: 1,
++        entries: core::iter::once(profile_entry.clone()).collect(),
++    };
+
+     // Values-only exemplars (no frame counterpart).
+     let mut unlock_keys = heapless::Vec::new();
+@@ -515,7 +555,7 @@ fn wire_values_locked() {
+             "MouseButtons(B1|B8)",
+             encode(&(MouseButtons::BUTTON1 | MouseButtons::BUTTON8))
+         ),
+-        ("MorseProfile(Normal,200,150)", encode(&profile)),
++        ("MorseProfile(Normal,200,150)", encode(&ex.profile)),
+         // --- Keymap / encoder / behavior config payloads ---
+         (
+             "KeyPosition{layer:0,row:5,col:13}",
+@@ -547,6 +587,11 @@ fn wire_values_locked() {
+         ("BehaviorConfig{50,500,200,20}", encode(&ex.behavior)),
+         ("SplitLatencyPolicy{0,4,Some(2)}", encode(&split_latency_policy),),
+         ("SplitLatencyState{policy,true,2}", encode(&split_latency_state),),
++        (
++            "BehaviorOptions{[1,2,3],40,true,false,true,60,profile}",
++            encode(&ex.behavior_options),
++        ),
++        ("AutoMouseLayerConfigState{4,[device1->layer2]}", encode(&ex.auto_mouse)),
+         ("ConnectionStatus{Configured,{1,Adv},Ble}", encode(&ex.connection)),
+         ("ProtocolVersion{1,0}", encode(&ProtocolVersion { major: 1, minor: 0 })),
+         ("ProtocolVersion::CURRENT", encode(&ProtocolVersion::CURRENT)),
+@@ -633,6 +678,25 @@ fn wire_values_locked() {
+                 positions: ex.hold_trigger_positions.clone(),
+             }),
+         ),
++        (
++            "SetMorseProfileRequest{3,profile}",
++            encode(&SetMorseProfileRequest {
++                index: 3,
++                profile: ex.profile
++            })
++        ),
++        ("MorseProfileEntry{3,home-row-mod,profile}", encode(&profile_entry)),
++        ("MorseProfileState{16,1,[entry]}", encode(&profile_state)),
++        (
++            "GetMorseProfileStateRequest{0}",
++            encode(&GetMorseProfileStateRequest { offset: 0 }),
++        ),
++        (
++            "SetMorseProfileEntryRequest{entry}",
++            encode(&SetMorseProfileEntryRequest {
++                entry: profile_entry.clone(),
++            }),
++        ),
+         (
+             "SetForkRequest{2,fork}",
+             encode(&SetForkRequest {
+@@ -640,6 +704,12 @@ fn wire_values_locked() {
+                 config: ex.fork
+             })
+         ),
++        (
++            "SetAutoMouseLayerConfigsRequest{[device1->layer2]}",
++            encode(&SetAutoMouseLayerConfigsRequest {
++                configs: ex.auto_mouse.configs.clone(),
++            }),
++        ),
+     ];
+     let view: alloc::vec::Vec<(&str, &[u8])> = entries.iter().map(|(l, b)| (*l, b.as_slice())).collect();
+
+@@ -670,6 +740,16 @@ fn wire_values_locked() {
+ #[test]
+ fn wire_frames_locked() {
+     let ex = exemplars();
++    let profile_entry = MorseProfileEntry {
++        index: 3,
++        name: MorseProfileName::try_from("home-row-mod").unwrap(),
++        profile: ex.profile,
++    };
++    let profile_state = MorseProfileState {
++        capacity: 16,
++        total: 1,
++        entries: core::iter::once(profile_entry.clone()).collect(),
++    };
+
+     // Request seq; a reply echoes it. Topics are always seq 0.
+     const SEQ: u8 = 1;
+@@ -955,6 +1035,73 @@ fn wire_frames_locked() {
+                 &Err::<(), RynkError>(RynkError::Invalid),
+             ),
+         ),
++        (
++            "GetMorseProfileCount request ()",
++            encode_frame(Cmd::GetMorseProfileCount, SEQ, &())
++        ),
++        (
++            "GetMorseProfileCount reply Ok(16)",
++            encode_frame(Cmd::GetMorseProfileCount, SEQ, &Ok::<u8, RynkError>(16)),
++        ),
++        (
++            "GetMorseProfile request 3",
++            encode_frame(Cmd::GetMorseProfile, SEQ, &3u8)
++        ),
++        (
++            "GetMorseProfile reply Ok(MorseProfile(Normal,200,150))",
++            encode_frame(Cmd::GetMorseProfile, SEQ, &Ok::<MorseProfile, RynkError>(ex.profile)),
++        ),
++        (
++            "SetMorseProfile request SetMorseProfileRequest{3,profile}",
++            encode_frame(
++                Cmd::SetMorseProfile,
++                SEQ,
++                &SetMorseProfileRequest {
++                    index: 3,
++                    profile: ex.profile
++                }
++            ),
++        ),
++        (
++            "SetMorseProfile reply Ok(())",
++            encode_frame(Cmd::SetMorseProfile, SEQ, &Ok::<(), RynkError>(()))
++        ),
++        (
++            "GetMorseProfileState request {offset:0}",
++            encode_frame(
++                Cmd::GetMorseProfileState,
++                SEQ,
++                &GetMorseProfileStateRequest { offset: 0 }
++            ),
++        ),
++        (
++            "GetMorseProfileState reply Ok(state)",
++            encode_frame(
++                Cmd::GetMorseProfileState,
++                SEQ,
++                &Ok::<MorseProfileState, RynkError>(profile_state)
++            ),
++        ),
++        (
++            "SetMorseProfileEntry request {entry}",
++            encode_frame(
++                Cmd::SetMorseProfileEntry,
++                SEQ,
++                &SetMorseProfileEntryRequest { entry: profile_entry },
++            ),
++        ),
++        (
++            "SetMorseProfileEntry reply Ok(())",
++            encode_frame(Cmd::SetMorseProfileEntry, SEQ, &Ok::<(), RynkError>(())),
++        ),
++        (
++            "DeleteMorseProfile request 3",
++            encode_frame(Cmd::DeleteMorseProfile, SEQ, &3u8),
++        ),
++        (
++            "DeleteMorseProfile reply Ok(())",
++            encode_frame(Cmd::DeleteMorseProfile, SEQ, &Ok::<(), RynkError>(())),
++        ),
+         // Fork (0x05xx).
+         ("GetFork request 2", encode_frame(Cmd::GetFork, SEQ, &2u8)),
+         (
+@@ -997,6 +1144,52 @@ fn wire_frames_locked() {
+             "SetBehaviorConfig reply Ok(())",
+             encode_frame(Cmd::SetBehaviorConfig, SEQ, &Ok::<(), RynkError>(())),
+         ),
++        (
++            "GetBehaviorOptions request ()",
++            encode_frame(Cmd::GetBehaviorOptions, SEQ, &()),
++        ),
++        (
++            "GetBehaviorOptions reply Ok(BehaviorOptions)",
++            encode_frame(
++                Cmd::GetBehaviorOptions,
++                SEQ,
++                &Ok::<BehaviorOptions, RynkError>(ex.behavior_options),
++            ),
++        ),
++        (
++            "SetBehaviorOptions request BehaviorOptions",
++            encode_frame(Cmd::SetBehaviorOptions, SEQ, &ex.behavior_options),
++        ),
++        (
++            "SetBehaviorOptions reply Ok(())",
++            encode_frame(Cmd::SetBehaviorOptions, SEQ, &Ok::<(), RynkError>(())),
++        ),
++        (
++            "GetAutoMouseLayerConfigs request ()",
++            encode_frame(Cmd::GetAutoMouseLayerConfigs, SEQ, &()),
++        ),
++        (
++            "GetAutoMouseLayerConfigs reply Ok(state)",
++            encode_frame(
++                Cmd::GetAutoMouseLayerConfigs,
++                SEQ,
++                &Ok::<AutoMouseLayerConfigState, RynkError>(ex.auto_mouse.clone()),
++            ),
++        ),
++        (
++            "SetAutoMouseLayerConfigs request configs",
++            encode_frame(
++                Cmd::SetAutoMouseLayerConfigs,
++                SEQ,
++                &SetAutoMouseLayerConfigsRequest {
++                    configs: ex.auto_mouse.configs.clone(),
++                },
++            ),
++        ),
++        (
++            "SetAutoMouseLayerConfigs reply Ok(())",
++            encode_frame(Cmd::SetAutoMouseLayerConfigs, SEQ, &Ok::<(), RynkError>(())),
++        ),
+         // Connection (0x07xx).
+         (
+             "GetConnectionType request ()",
+diff --git a/rmk/src/config/behavior.rs b/rmk/src/config/behavior.rs
+index 3fdbc471..2d2392f7 100644
+--- a/rmk/src/config/behavior.rs
++++ b/rmk/src/config/behavior.rs
+@@ -1,5 +1,6 @@
+ use embassy_time::Duration;
+ use heapless::Vec;
++use rmk_types::auto_mouse::AutoMouseLayerConfig as RuntimeAutoMouseLayerConfig;
+ use rmk_types::fork::Fork;
+ use rmk_types::keycode::KeyCode;
+ use rmk_types::morse::{Morse, MorseMode, MorseProfile, MorseProfileName};
+@@ -40,6 +41,8 @@ pub struct BehaviorConfig {
+     pub auto_mouse_layer: Vec<AutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>,
+     pub mouse_layer_scale: Vec<MouseLayerScaleConfig, MOUSE_LAYER_SCALE_MAX_NUM>,
+     pub unicode: UnicodeConfig,
++    #[doc(hidden)]
++    pub runtime_auto_mouse_layer: Option<Vec<RuntimeAutoMouseLayerConfig, AUTO_MOUSE_LAYER_MAX_NUM>>,
+ }
+
+ /// Mouse movement and scroll scaling for one active layer.
 diff --git a/rmk/src/host/context.rs b/rmk/src/host/context.rs
-index ee566f8b..2e9a4956 100644
+index 238b30da..2e9a4956 100644
 --- a/rmk/src/host/context.rs
 +++ b/rmk/src/host/context.rs
-@@ -348,6 +348,8 @@ impl<'a> KeyboardContext<'a> {
+@@ -2,6 +2,7 @@
+
+ use embassy_time::Duration;
+ use rmk_types::action::{EncoderAction, KeyAction};
++use rmk_types::auto_mouse::AutoMouseLayerConfig;
+ #[cfg(feature = "_ble")]
+ use rmk_types::battery::BatteryStatus;
+ use rmk_types::combo::Combo as ComboConfig;
+@@ -10,15 +11,14 @@ use rmk_types::fork::Fork;
+ use rmk_types::led_indicator::LedIndicator;
+ use rmk_types::morse::{Morse, MorseProfile, MorseProfileName};
+ #[cfg(feature = "rynk")]
+-use rmk_types::protocol::rynk::{LAYER_STATE_BITMAP_SIZE, LAYER_STATE_CAPACITY, LayerState};
+ use rmk_types::protocol::rynk::{
+-    MorseHoldTriggerPosition, MorseHoldTriggerPositionState, MorseHoldTriggerPositions,
+-    SetMorseHoldTriggerPositionsRequest, BehaviorOptions, MORSE_PROFILE_ENTRY_CHUNK, MorseProfileEntry,
+-    MorseProfileState, SetMorseProfileEntryRequest,
++    BehaviorOptions, LAYER_STATE_BITMAP_SIZE, LAYER_STATE_CAPACITY, LayerState, MORSE_PROFILE_ENTRY_CHUNK,
++    MorseHoldTriggerPosition, MorseHoldTriggerPositionState, MorseHoldTriggerPositions, MorseProfileEntry,
++    MorseProfileState, SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest,
+ };
+
+-use crate::config::HoldTriggerPositions;
+-use crate::event::KeyboardEventPos;
++use crate::config::{HoldTriggerPositions, OneShotModifiersConfig};
++use crate::event::{AutoMouseLayerConfigChangeEvent, KeyboardEventPos, publish_event};
+ use crate::keyboard::combo::Combo;
+ use crate::keymap::KeyMap;
+ #[cfg(feature = "storage")]
+@@ -255,16 +255,6 @@ impl<'a> KeyboardContext<'a> {
+         ((idx as usize) < self.keymap.morse_profiles_capacity()).then(|| self.keymap.morse_profile(idx))
+     }
+
+-    pub fn morse_profiles_capacity(&self) -> usize {
+-        self.keymap.morse_profiles_capacity()
+-    }
+-
+-    /// Profile a key bound to `idx` resolves to. `None` if `idx` is past the
+-    /// table's capacity.
+-    pub fn get_morse_profile(&self, idx: u8) -> Option<MorseProfile> {
+-        ((idx as usize) < self.keymap.morse_profiles_capacity()).then(|| self.keymap.morse_profile(idx))
+-    }
+-
+     pub fn morse_profile_state(&self, offset: u8) -> MorseProfileState {
+         let total = (0..self.keymap.morse_profiles_capacity())
+             .filter(|index| self.keymap.morse_profile_name(*index as u8).is_some())
+@@ -358,6 +348,8 @@ impl<'a> KeyboardContext<'a> {
              return false;
          }
          #[cfg(feature = "storage")]
@@ -11,7 +1041,7 @@ index ee566f8b..2e9a4956 100644
          {
              FLASH_CHANNEL
                  .send(FlashOperationMessage::MorseProfile {
-@@ -361,6 +363,9 @@ impl<'a> KeyboardContext<'a> {
+@@ -371,6 +363,9 @@ impl<'a> KeyboardContext<'a> {
                      name: MorseProfileName::new(),
                  })
                  .await;
@@ -21,11 +1051,221 @@ index ee566f8b..2e9a4956 100644
          }
          true
      }
+@@ -407,6 +402,97 @@ impl<'a> KeyboardContext<'a> {
+             .await;
+     }
+
++    pub fn behavior_options(&self) -> BehaviorOptions {
++        let one_shot = self.keymap.one_shot_modifiers_config();
++        BehaviorOptions {
++            tri_layer: self.keymap.tri_layer(),
++            combo_prior_idle_ms: self
++                .keymap
++                .combo_prior_idle_time()
++                .map(|duration| duration.as_millis() as u16),
++            oneshot_activate_on_keypress: one_shot.activate_on_keypress,
++            oneshot_quick_release: one_shot.quick_release,
++            morse_enable_flow_tap: self.keymap.morse_enable_flow_tap(),
++            morse_prior_idle_ms: self.keymap.morse_prior_idle_time().as_millis() as u16,
++            morse_default_profile: self.keymap.morse_default_profile(),
++        }
++    }
++
++    /// Replace the global behavior options and persist them. Invalid layer
++    /// indices reject the whole update before any field changes.
++    pub async fn set_behavior_options(&self, options: BehaviorOptions) -> bool {
++        let (_, _, layers) = self.keymap.get_keymap_config();
++        if options
++            .tri_layer
++            .is_some_and(|tri_layer| tri_layer.into_iter().any(|layer| layer as usize >= layers))
++        {
++            return false;
++        }
++
++        self.keymap.set_tri_layer(options.tri_layer);
++        self.keymap
++            .set_combo_prior_idle_time(options.combo_prior_idle_ms.map(|ms| Duration::from_millis(ms as u64)));
++        self.keymap.set_one_shot_modifiers_config(OneShotModifiersConfig {
++            activate_on_keypress: options.oneshot_activate_on_keypress,
++            quick_release: options.oneshot_quick_release,
++        });
++        self.keymap.set_morse_enable_flow_tap(options.morse_enable_flow_tap);
++        self.keymap
++            .set_morse_prior_idle_time(Duration::from_millis(options.morse_prior_idle_ms as u64));
++        self.keymap.set_morse_default_profile(options.morse_default_profile);
++
++        #[cfg(feature = "storage")]
++        {
++            FLASH_CHANNEL
++                .send(FlashOperationMessage::BehaviorOptions(options))
++                .await;
++            FLASH_CHANNEL
++                .send(FlashOperationMessage::PriorIdleTime(options.morse_prior_idle_ms))
++                .await;
++            FLASH_CHANNEL
++                .send(FlashOperationMessage::MorseDefaultProfile(
++                    options.morse_default_profile,
++                ))
++                .await;
++        }
++        true
++    }
++
++    pub fn auto_mouse_layer_configs(&self) -> heapless::Vec<AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }> {
++        self.keymap.auto_mouse_layer_configs()
++    }
++
++    /// Atomically replace the auto mouse layer table after validating every
++    /// entry against this firmware's compiled resources.
++    pub async fn set_auto_mouse_layer_configs(
++        &self,
++        configs: heapless::Vec<AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }>,
++    ) -> bool {
++        let (_, _, layers) = self.keymap.get_keymap_config();
++        for (index, config) in configs.iter().enumerate() {
++            if config.target_layer as usize >= layers || config.timeout_ms == 0 || config.threshold == 0 {
++                return false;
++            }
++            if (config.deactivate_on_key || config.reset_timeout_on_key) && crate::ACTION_EVENT_SUB_SIZE == 0 {
++                return false;
++            }
++            if configs[..index]
++                .iter()
++                .any(|existing| existing.device_id == config.device_id)
++            {
++                return false;
++            }
++        }
++
++        self.keymap.set_auto_mouse_layer_configs(configs.clone());
++        publish_event(AutoMouseLayerConfigChangeEvent);
++        #[cfg(feature = "storage")]
++        FLASH_CHANNEL
++            .send(FlashOperationMessage::AutoMouseLayerConfigs(configs))
++            .await;
++        true
++    }
++
+     pub async fn set_combo_timeout(&self, ms: u16) {
+         self.keymap.set_combo_timeout(Duration::from_millis(ms as u64));
+         #[cfg(feature = "storage")]
+diff --git a/rmk/src/host/rynk/handlers/morse.rs b/rmk/src/host/rynk/handlers/morse.rs
+index cd8716b9..84d52205 100644
+--- a/rmk/src/host/rynk/handlers/morse.rs
++++ b/rmk/src/host/rynk/handlers/morse.rs
+@@ -1,15 +1,15 @@
+ //! Morse handlers.
+
+ use rmk_types::constants::MORSE_PROFILE_MAX_NUM;
+-use rmk_types::morse::Morse;
++use rmk_types::morse::{Morse, MorseProfile};
+ use rmk_types::protocol::rynk::command::{
+-    DeleteMorseProfile, GetMorse, GetMorseBulk, GetMorseProfile, GetMorseProfileBulk, GetMorseProfileCount,
+-    GetMorseProfileState, GetMorseHoldTriggerPositions, SetMorse, SetMorseBulk, SetMorseHoldTriggerPositions,
+-    SetMorseProfile, SetMorseProfileBulk, SetMorseProfileEntry,
++    DeleteMorseProfile, GetMorse, GetMorseBulk, GetMorseHoldTriggerPositions, GetMorseProfile, GetMorseProfileBulk,
++    GetMorseProfileCount, GetMorseProfileState, SetMorse, SetMorseBulk, SetMorseHoldTriggerPositions, SetMorseProfile,
++    SetMorseProfileBulk, SetMorseProfileEntry,
+ };
+ use rmk_types::protocol::rynk::{
+-    GetMorseBulkRequest, GetMorseProfileBulkRequest, GetMorseProfileStateRequest, MorseProfileState, RynkError,
+-    MorseHoldTriggerPositionState, RynkMessage, SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest,
++    GetMorseBulkRequest, GetMorseProfileBulkRequest, GetMorseProfileStateRequest, MorseHoldTriggerPositionState,
++    MorseProfileState, RynkError, RynkMessage, SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest,
+     SetMorseProfileRequest, SetMorseRequest, bulk_item_capacity,
+ };
+
+@@ -56,7 +56,6 @@ impl HandleBulk<SetMorseBulk> for RynkService<'_> {
+         msg.encode_response(&())
+     }
+ }
+-
+ impl Handle<GetMorseHoldTriggerPositions> for RynkService<'_> {
+     async fn handle(&self, _: ()) -> Result<MorseHoldTriggerPositionState, RynkError> {
+         Ok(self.ctx.morse_hold_trigger_positions())
+@@ -78,6 +77,49 @@ impl Handle<SetMorseHoldTriggerPositions> for RynkService<'_> {
+     }
+ }
+
++impl Handle<GetMorseProfileCount> for RynkService<'_> {
++    async fn handle(&self, _: ()) -> Result<u8, RynkError> {
++        Ok(self.ctx.morse_profiles_capacity() as u8)
++    }
++}
++
++impl Handle<GetMorseProfile> for RynkService<'_> {
++    async fn handle(&self, idx: u8) -> Result<MorseProfile, RynkError> {
++        self.ctx.get_morse_profile(idx).ok_or(RynkError::Invalid)
++    }
++}
++
++impl Handle<SetMorseProfile> for RynkService<'_> {
++    async fn handle(&self, r: SetMorseProfileRequest) -> Result<(), RynkError> {
++        if self.ctx.set_morse_profile(r.index, r.profile).await {
++            Ok(())
++        } else {
++            Err(RynkError::Invalid)
++        }
++    }
++}
++
++impl HandleBulk<GetMorseProfileBulk> for RynkService<'_> {
++    async fn handle_bulk(&self, msg: &mut RynkMessage<'_>) -> Result<(), RynkError> {
++        let req = msg.decode_request::<GetMorseProfileBulkRequest>()?;
++        let cap = bulk_item_capacity(msg.capacity());
++        let page = bulk_page(req.start_index as usize, cap, self.ctx.morse_profiles_capacity())?;
++        msg.encode_bulk(page.map(|idx| self.ctx.get_morse_profile(idx as u8).unwrap_or_default()))
++    }
++}
++
++impl HandleBulk<SetMorseProfileBulk> for RynkService<'_> {
++    async fn handle_bulk(&self, msg: &mut RynkMessage<'_>) -> Result<(), RynkError> {
++        let mut cursor = msg.payload();
++        let start_index = take_element::<u8>(&mut cursor)? as usize;
++        let total = self.ctx.morse_profiles_capacity();
++        for (idx, profile) in take_bulk::<MorseProfile>(&mut cursor, start_index, total)? {
++            self.ctx.set_morse_profile(idx as u8, profile).await;
++        }
++        msg.encode_response(&())
++    }
++}
++
+ impl Handle<GetMorseProfileState> for RynkService<'_> {
+     async fn handle(&self, request: GetMorseProfileStateRequest) -> Result<MorseProfileState, RynkError> {
+         Ok(self.ctx.morse_profile_state(request.offset))
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 9ffcae84..31966087 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -173,7 +173,11 @@ impl<'a> RynkService<'a> {
+             | Cmd::SetKeymapBulk
+             | Cmd::SetComboBulk
+             | Cmd::SetMorseBulk
+-            | Cmd::SetMorseHoldTriggerPositions => self.lock_config.write_requires_unlock,
++            | Cmd::SetMorseHoldTriggerPositions
++            | Cmd::SetMorseProfile
++            | Cmd::SetMorseProfileBulk
++            | Cmd::SetBehaviorOptions
++            | Cmd::SetAutoMouseLayerConfigs => self.lock_config.write_requires_unlock,
+             #[cfg(feature = "lighting")]
+             Cmd::SetLightingState
+             | Cmd::SetLightingOverlay
+@@ -270,6 +274,10 @@ impl<'a> RynkService<'a> {
+
+             Cmd::GetBehaviorConfig => serve::<command::GetBehaviorConfig, _>(self, msg).await,
+             Cmd::SetBehaviorConfig => serve::<command::SetBehaviorConfig, _>(self, msg).await,
++            Cmd::GetBehaviorOptions => serve::<command::GetBehaviorOptions, _>(self, msg).await,
++            Cmd::SetBehaviorOptions => serve::<command::SetBehaviorOptions, _>(self, msg).await,
++            Cmd::GetAutoMouseLayerConfigs => serve::<command::GetAutoMouseLayerConfigs, _>(self, msg).await,
++            Cmd::SetAutoMouseLayerConfigs => serve::<command::SetAutoMouseLayerConfigs, _>(self, msg).await,
+
+             Cmd::GetPointingConfig => serve::<command::GetPointingConfig, _>(self, msg).await,
+             Cmd::SetPointingConfig => serve::<command::SetPointingConfig, _>(self, msg).await,
 diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
-index 4e5957db..dd7e613b 100644
+index 18f53693..dd7e613b 100644
 --- a/rmk/src/host/storage.rs
 +++ b/rmk/src/host/storage.rs
-@@ -1,7 +1,6 @@
+@@ -1,13 +1,12 @@
  use embassy_futures::yield_now;
  use embedded_storage_async::nor_flash::NorFlash as AsyncNorFlash;
 -use rmk_types::fork::Fork;
@@ -33,17 +1273,24 @@ index 4e5957db..dd7e613b 100644
 +use rmk_types::morse::{MorseProfile, MorseProfileName};
  use serde::de::{Error as DeError, SeqAccess, Visitor};
  use serde::{Deserializer, Serializer};
- 
+
+ use crate::keyboard::combo::Combo;
+ use crate::storage::{Storage, StorageData, StorageKey, print_storage_error};
+-use crate::{COMBO_MAX_NUM, FORK_MAX_NUM, MACRO_SPACE_SIZE, MORSE_MAX_NUM};
++use crate::{COMBO_MAX_NUM, FORK_MAX_NUM, MACRO_SPACE_SIZE, MORSE_MAX_NUM, MORSE_PROFILE_MAX_NUM};
+
+ pub(crate) mod macro_bytes_serde {
+     use super::*;
 @@ -83,6 +82,8 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
              .map_err(|e| print_storage_error::<F>(e))?;
- 
+
          let mut records_read = 0;
 +        let mut stored_profiles = [false; MORSE_PROFILE_MAX_NUM];
 +        let mut stored_profile_names = [false; MORSE_PROFILE_MAX_NUM];
          while let Some((key, item)) = key_iterator
              .next::<StorageData>(&mut self.buffer)
              .await
-@@ -142,6 +143,48 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+@@ -142,56 +143,73 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
                          *item = morse;
                      }
                  }
@@ -91,11 +1338,8 @@ index 4e5957db..dd7e613b 100644
 +                }
                  _ => {}
              }
- 
-@@ -152,52 +195,21 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
-             }
-         }
- 
+-        }
+-
 -        Ok(())
 -    }
 -
@@ -118,14 +1362,18 @@ index 4e5957db..dd7e613b 100644
 -                .fetch_item(&mut self.buffer, &StorageKey::morse_profile_name(i as u8))
 -                .await
 -                .map_err(|e| print_storage_error::<F>(e))?;
--
+
 -            let had_profile = matches!(profile_data, Some(StorageData::MorseProfile(_)));
 -            if let Some(StorageData::MorseProfile(profile)) = profile_data {
 -                if i >= profiles.len() {
 -                    profiles.resize(i + 1, MorseProfile::default()).ok();
 -                }
 -                profiles[i] = profile;
--            }
++            records_read += 1;
++            if records_read % 32 == 0 {
++                // Memory-mapped flash can keep every read ready, so let other tasks run.
++                yield_now().await;
+             }
 -            if let Some(StorageData::MorseProfileName(name)) = name_data {
 -                if i >= profiles.len() {
 -                    profiles.resize(i + 1, MorseProfile::default()).ok();
@@ -136,6 +1384,8 @@ index 4e5957db..dd7e613b 100644
 -                profile_names[i] = name;
 -            } else if had_profile && profile_names.get(i).is_none_or(|name| name.is_empty()) {
 -                use core::fmt::Write;
++        }
++
 +        for (idx, stored) in stored_profiles.into_iter().enumerate() {
 +            if stored
 +                && !stored_profile_names[idx]
@@ -157,12 +1407,322 @@ index 4e5957db..dd7e613b 100644
 +                behavior.morse.profile_names[idx] = name;
              }
          }
- 
+
+diff --git a/rmk/src/input_device/pointing.rs b/rmk/src/input_device/pointing.rs
+index aca0713d..e8967068 100644
+--- a/rmk/src/input_device/pointing.rs
++++ b/rmk/src/input_device/pointing.rs
+@@ -6,6 +6,7 @@ use embedded_hal_async::digital::Wait;
+ use futures::future::pending;
+ use rmk_macro::{input_device, processor};
+ use rmk_types::keycode::HidKeyCode;
++pub use rmk_types::pointing::{CaretConfig, CursorConfig, DragConfig, PointingMode, ScrollConfig, SniperConfig};
+ use usbd_hid::descriptor::MouseReport;
+
+ use crate::channel::send_hid_report;
+@@ -254,176 +255,6 @@ impl<S: PointingDriver> PointingDevice<S> {
+     }
+ }
+
+-/// Pointing mode determines how raw XY motion is interpreted
+-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+-pub enum PointingMode {
+-    /// Default cursor mode - XY maps to mouse XY movement
+-    Cursor(CursorConfig),
+-    /// Scroll mode - XY maps to wheel (vertical) and pan (horizontal)
+-    Scroll(ScrollConfig),
+-    /// Sniper mode - XY maps to cursor but at reduced sensitivity
+-    Sniper(SniperConfig),
+-    /// Caret mode, XY maps to vertical and horizontal caret movement
+-    Caret(CaretConfig),
+-    /// Drag mode - XY maps to cursor movement, and a device tap latches a
+-    /// mouse button down until the next tap
+-    Drag(DragConfig),
+-}
+-
+-impl Default for PointingMode {
+-    fn default() -> Self {
+-        Self::Cursor(CursorConfig::default())
+-    }
+-}
+-
+-/// Configuration for cursor mode
+-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+-pub struct CursorConfig {
+-    /// Multiplier for X axis. Higher = more output per unit of motion. 0 disables X.
+-    pub multiplier_x: u8,
+-    /// Multiplier for Y axis. Higher = more output per unit of motion. 0 disables Y.
+-    pub multiplier_y: u8,
+-    /// Invert X axis movement.
+-    pub invert_x: bool,
+-    /// Invert Y axis movement.
+-    pub invert_y: bool,
+-}
+-
+-impl Default for CursorConfig {
+-    fn default() -> Self {
+-        Self {
+-            multiplier_x: 1,
+-            multiplier_y: 1,
+-            invert_x: false,
+-            invert_y: false,
+-        }
+-    }
+-}
+-
+-/// Configuration for caret mode
+-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+-pub struct CaretConfig {
+-    /// Disable X axis in caret mode.
+-    pub disable_x: bool,
+-    /// Disable y axis in caret mode.
+-    pub disable_y: bool,
+-    /// Invert X axis.
+-    pub invert_x: bool,
+-    /// Invert Y axis.
+-    pub invert_y: bool,
+-    /// Threshold for accumulated motion. Read this as sensitivity in caret mode.
+-    /// Higher values mean less sensitivity.
+-    pub threshold: i16,
+-    /// Keycode to emit for up rotation. Default: Up arrow
+-    pub keycode_up: HidKeyCode,
+-    /// Keycode to emit for down rotation. Default: Down arrow
+-    pub keycode_down: HidKeyCode,
+-    /// Keycode to emit for left rotation. Default: Left arrow
+-    pub keycode_left: HidKeyCode,
+-    /// Keycode to emit for right rotation. Default: Right arrow
+-    pub keycode_right: HidKeyCode,
+-}
+-
+-impl Default for CaretConfig {
+-    fn default() -> Self {
+-        Self {
+-            disable_x: false,
+-            disable_y: false,
+-            invert_x: false,
+-            invert_y: false,
+-            threshold: 100,
+-            keycode_up: HidKeyCode::Up,
+-            keycode_down: HidKeyCode::Down,
+-            keycode_left: HidKeyCode::Left,
+-            keycode_right: HidKeyCode::Right,
+-        }
+-    }
+-}
+-/// Configuration for scroll mode
+-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+-pub struct ScrollConfig {
+-    /// Multiplier for X axis (→ pan). Higher = more output per unit of motion. 0 disables horizontal pan.
+-    pub multiplier_x: u8,
+-    /// Divisor for X axis (→ pan). Higher = slower. 0 disables horizontal pan.
+-    pub divisor_x: u8,
+-    /// Multiplier for Y axis (→ wheel). Higher = more output per unit of motion. 0 disables vertical scroll.
+-    pub multiplier_y: u8,
+-    /// Divisor for Y axis (→ wheel). Higher = slower. 0 disables vertical scroll.
+-    pub divisor_y: u8,
+-    /// Invert X axis. In scroll mode X maps to pan, so this reverses pan direction.
+-    pub invert_x: bool,
+-    /// Invert Y axis. In scroll mode Y maps to wheel, so this reverses scroll direction.
+-    pub invert_y: bool,
+-}
+-
+-impl Default for ScrollConfig {
+-    fn default() -> Self {
+-        Self {
+-            multiplier_x: 1,
+-            multiplier_y: 1,
+-            divisor_x: 8,
+-            divisor_y: 8,
+-            invert_x: false,
+-            invert_y: false,
+-        }
+-    }
+-}
+-/// Configuration for sniper (precision) mode
+-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+-pub struct SniperConfig {
+-    /// Multiplier for both axes. Higher = more output per unit of motion.
+-    pub multiplier: u8,
+-    /// Divisor for both axes. Higher = slower, more precise movement.
+-    pub divisor: u8,
+-    /// Invert X axis movement.
+-    pub invert_x: bool,
+-    /// Invert Y axis movement.
+-    pub invert_y: bool,
+-}
+-
+-impl Default for SniperConfig {
+-    fn default() -> Self {
+-        Self {
+-            multiplier: 1,
+-            divisor: 4,
+-            invert_x: false,
+-            invert_y: false,
+-        }
+-    }
+-}
+-
+-/// Configuration for drag mode
+-///
+-/// A pad with no physical buttons can still drag: the device's own tap
+-/// gesture latches a button down and holds it, so the next stroke moves
+-/// whatever the tap grabbed. A second tap drops it.
+-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+-#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+-pub struct DragConfig {
+-    /// Motion behaves exactly as it does in cursor mode.
+-    pub cursor: CursorConfig,
+-    /// Device button whose press toggles the latch, as a bit mask in the
+-    /// HID mouse report's button order (bit 0 is the primary button).
+-    pub toggled_by: u8,
+-    /// Button held while the latch is engaged, in the same bit order.
+-    pub latches: u8,
+-}
+-
+-impl Default for DragConfig {
+-    fn default() -> Self {
+-        Self {
+-            cursor: CursorConfig::default(),
+-            toggled_by: 1,
+-            latches: 1,
+-        }
+-    }
+-}
+-
+ /// Accumulator for sub-unit motion deltas (used in Scroll and Sniper modes)
+ ///
+ /// When dividing motion by a divisor, small movements would be lost.
 diff --git a/rmk/src/keymap.rs b/rmk/src/keymap.rs
-index 752c7cc7..01378110 100644
+index 637b264f..01378110 100644
 --- a/rmk/src/keymap.rs
 +++ b/rmk/src/keymap.rs
-@@ -768,6 +768,9 @@ impl<'a> KeyMap<'a> {
+@@ -413,25 +413,7 @@ impl<'a> KeyMap<'a> {
+
+         // Read from storage BEFORE flattening (storage expects typed arrays).
+         if let Some(storage) = storage
+-            && {
+-                Ok(())
+-                    .and(storage.read_keymap(data, behavior).await)
+-                    .and(storage.read_behavior_config(behavior).await)
+-                    .and(
+-                        storage
+-                            .read_macro_cache(&mut behavior.keyboard_macros.macro_sequences)
+-                            .await,
+-                    )
+-                    .and(storage.read_combos(&mut behavior.combo.combos).await)
+-                    .and(storage.read_forks(&mut behavior.fork.forks).await)
+-                    .and(storage.read_morses(&mut behavior.morse.morses).await)
+-                    .and(
+-                        storage
+-                            .read_morse_profiles(&mut behavior.morse.profiles, &mut behavior.morse.profile_names)
+-                            .await,
+-                    )
+-            }
+-            .is_err()
++            && storage.read_boot_data(data, behavior).await.is_err()
+         {
+             error!("Failed to read from storage, clearing...");
+             storage.flash.erase_all().await.ok();
+@@ -515,8 +497,36 @@ impl<'a> KeyMap<'a> {
+
+     pub(crate) fn auto_mouse_layer_configs(
+         &self,
+-    ) -> heapless::Vec<crate::config::AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }> {
+-        self.inner.borrow().behavior.auto_mouse_layer.clone()
++    ) -> heapless::Vec<rmk_types::auto_mouse::AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }> {
++        let inner = self.inner.borrow();
++        if let Some(configs) = &inner.behavior.runtime_auto_mouse_layer {
++            return configs.clone();
++        }
++
++        inner
++            .behavior
++            .auto_mouse_layer
++            .iter()
++            .map(|config| {
++                let extra_mouse_keys = config.extra_mouse_keys.iter().copied().collect();
++                rmk_types::auto_mouse::AutoMouseLayerConfig {
++                    device_id: config.device_id,
++                    target_layer: config.target_layer,
++                    timeout_ms: config.timeout.as_millis() as u32,
++                    threshold: config.threshold,
++                    deactivate_on_key: config.deactivate_on_key,
++                    extra_mouse_keys,
++                    reset_timeout_on_key: config.reset_timeout_on_key,
++                }
++            })
++            .collect()
++    }
++
++    pub(crate) fn set_auto_mouse_layer_configs(
++        &self,
++        configs: heapless::Vec<rmk_types::auto_mouse::AutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }>,
++    ) {
++        self.inner.borrow_mut().behavior.runtime_auto_mouse_layer = Some(configs);
+     }
+
+     /// Whether `layer_num` is set in the layer mask.
+@@ -567,6 +577,10 @@ impl<'a> KeyMap<'a> {
+         self.inner.borrow().behavior.combo.timeout
+     }
+
++    pub(crate) fn tri_layer(&self) -> Option<[u8; 3]> {
++        self.inner.borrow().behavior.tri_layer
++    }
++
+     pub(crate) fn combo_prior_idle_time(&self) -> Option<Duration> {
+         self.inner.borrow().behavior.combo.prior_idle_time
+     }
+@@ -662,6 +676,43 @@ impl<'a> KeyMap<'a> {
+         self.inner.borrow().behavior.unicode.mode
+     }
+
++    /// Advance the unicode input mode and report the mode now in effect.
++    pub(crate) fn cycle_unicode_mode(&self) -> UnicodeMode {
++        let mut inner = self.inner.borrow_mut();
++        inner.behavior.unicode.mode = inner.behavior.unicode.mode.next();
++        inner.behavior.unicode.mode
++    }
++
++    pub(crate) fn mouse_key_config(&self) -> MouseKeyConfig {
++        self.inner.borrow().behavior.mouse_key
++    }
++
++    pub(crate) fn mouse_layer_scale(&self) -> Option<MouseLayerScaleConfig> {
++        let inner = self.inner.borrow();
++        let active_layer = inner.get_activated_layer();
++        inner
++            .behavior
++            .mouse_layer_scale
++            .iter()
++            .find(|config| config.layer == active_layer)
++            .copied()
++    }
++
++    pub(crate) fn forks_is_empty(&self) -> bool {
++        self.inner.borrow().behavior.fork.forks.is_empty()
++    }
++
++    pub(crate) fn morses_len(&self) -> usize {
++        self.inner.borrow().behavior.morse.morses.len()
++    }
++
++    /// Addressable morse profile slots. Slots past the ones `keyboard.toml`
++    /// named are still writable, so this is the table's capacity rather than
++    /// the number of profiles configured at build time.
++    pub(crate) fn morse_profiles_capacity(&self) -> usize {
++        self.inner.borrow().behavior.morse.profiles.capacity()
++    }
++
+     pub(crate) fn morse_profile_name(&self, idx: u8) -> Option<MorseProfileName> {
+         self.inner
+             .borrow()
+@@ -717,41 +768,30 @@ impl<'a> KeyMap<'a> {
          if let Some(name) = morse.profile_names.get_mut(idx) {
              name.clear();
          }
@@ -171,7 +1731,929 @@ index 752c7cc7..01378110 100644
 +            .retain(|(profile, _, _)| *profile != idx as u8);
          true
      }
- 
+
+-    /// Advance the unicode input mode and report the mode now in effect.
+-    pub(crate) fn cycle_unicode_mode(&self) -> UnicodeMode {
+-        let mut inner = self.inner.borrow_mut();
+-        inner.behavior.unicode.mode = inner.behavior.unicode.mode.next();
+-        inner.behavior.unicode.mode
+-    }
+-
+-    pub(crate) fn mouse_key_config(&self) -> MouseKeyConfig {
+-        self.inner.borrow().behavior.mouse_key
++    pub(crate) fn set_combo_timeout(&self, timeout: Duration) {
++        self.inner.borrow_mut().behavior.combo.timeout = timeout;
+     }
+
+-    pub(crate) fn mouse_layer_scale(&self) -> Option<MouseLayerScaleConfig> {
+-        let inner = self.inner.borrow();
+-        let active_layer = inner.get_activated_layer();
+-        inner
+-            .behavior
+-            .mouse_layer_scale
+-            .iter()
+-            .find(|config| config.layer == active_layer)
+-            .copied()
++    pub(crate) fn set_tri_layer(&self, tri_layer: Option<[u8; 3]>) {
++        self.inner.borrow_mut().behavior.tri_layer = tri_layer;
+     }
+
+-    pub(crate) fn forks_is_empty(&self) -> bool {
+-        self.inner.borrow().behavior.fork.forks.is_empty()
++    pub(crate) fn set_combo_prior_idle_time(&self, time: Option<Duration>) {
++        self.inner.borrow_mut().behavior.combo.prior_idle_time = time;
+     }
+
+-    pub(crate) fn morses_len(&self) -> usize {
+-        self.inner.borrow().behavior.morse.morses.len()
++    pub(crate) fn set_one_shot_modifiers_config(&self, config: OneShotModifiersConfig) {
++        self.inner.borrow_mut().behavior.one_shot_modifiers = config;
+     }
+
+-    pub(crate) fn set_combo_timeout(&self, timeout: Duration) {
+-        self.inner.borrow_mut().behavior.combo.timeout = timeout;
++    pub(crate) fn set_morse_enable_flow_tap(&self, enabled: bool) {
++        self.inner.borrow_mut().behavior.morse.enable_flow_tap = enabled;
+     }
+
+     pub(crate) fn set_one_shot_timeout(&self, timeout: Duration) {
+diff --git a/rmk/src/split/driver.rs b/rmk/src/split/driver.rs
+index 45622ec1..a46c9b9b 100644
+--- a/rmk/src/split/driver.rs
++++ b/rmk/src/split/driver.rs
+@@ -184,23 +184,11 @@ impl<T: SplitReader + SplitWriter> PeripheralManager<T> {
+         #[cfg(feature = "_render_state")]
+         let mut sleep_sub = crate::event::SleepStateEvent::subscriber();
+
+-        // Expose the split-link state to the application. This
+-        // manager runs exactly while the peripheral session is up; the
+-        // `false → true` edge is the application's resync trigger.
+-        //
+-        // The link-down edge MUST be sent from a drop guard: on connection
+-        // loss the outer `select3` in `split/ble/central.rs` resolves via its
+-        // connection-monitor arm and this future is *cancelled*, so any
+-        // `send(false)` written on an error path here would never run.
+-        struct LinkDownGuard;
+-        impl Drop for LinkDownGuard {
+-            fn drop(&mut self) {
+-                crate::split_app::SPLIT_APP_LINK.sender().send(false);
+-            }
+-        }
+-        let _link_guard = LinkDownGuard;
+-        let app_link = crate::split_app::SPLIT_APP_LINK.sender();
+-        app_link.send(true);
++        // This manager runs exactly while the peripheral session is up. On
++        // connection loss the outer session future cancels this one, so the
++        // guard's `Drop` supplies the link-down edge.
++        let mut app_link = crate::split_app::LinkGuard::new();
++        app_link.mark_up();
+
+         // Send the current state once on startup so the peripheral matches us
+         // even when no transition has happened since the central booted.
+@@ -305,14 +293,7 @@ impl<T: SplitReader + SplitWriter> PeripheralManager<T> {
+             },
+             // Non-key events are drop-on-full to keep the split read loop responsive.
+             SplitMessage::Pointing(e) => publish_event(e),
+-            // Forward peripheral → central application
+-            // payloads into the (symmetric) inbox; drop-on-full so a slow
+-            // consumer can never stall the split read loop.
+-            SplitMessage::Application(data) => {
+-                if crate::split_app::SPLIT_APP_RX.try_send(data).is_err() {
+-                    warn!("split app message dropped (inbox full)");
+-                }
+-            }
++            SplitMessage::Application(data) => crate::split_app::deliver_received(data),
+             #[cfg(feature = "_ble")]
+             SplitMessage::BatteryStatus(state) => set_peripheral_battery(self.id, state.0),
+             #[cfg(feature = "dfu_split")]
+diff --git a/rmk/src/split/peripheral.rs b/rmk/src/split/peripheral.rs
+index ae61b8dd..4d0e6215 100644
+--- a/rmk/src/split/peripheral.rs
++++ b/rmk/src/split/peripheral.rs
+@@ -85,39 +85,10 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
+     /// The peripheral uses the general matrix, does scanning and sends key events through `SplitWriter`.
+     /// It also receives split messages from the central through `SplitReader`.
+     pub(crate) async fn run(&mut self) {
+-        // Expose the split-link state to the application.
+-        // `run` executes exactly while a central session is up (for BLE it is
+-        // invoked per connection and returns on disconnect).
+-        //
+-        // As on the central side (split/driver.rs), the link-down edge MUST
+-        // come from a drop guard: this future can be cancelled from outside
+-        // when the session dies, so no in-line `send(false)` is guaranteed to
+-        // run. Without the false edge, reconnects look like true->true and
+-        // link-up-triggered behavior (e.g. the version announcement) never
+-        // re-arms.
+-        //
+-        // The link-UP edge is deliberately NOT sent here at session start:
+-        // for BLE the connection is up, but the central has not yet
+-        // subscribed to the peripheral's notify characteristic (CCCD write),
+-        // and trouble-host silently drops notifications to an unsubscribed
+-        // peer — anything the application sent in that window would vanish.
+-        // Instead, link-up is declared on the FIRST message received from
+-        // the central: the central's `PeripheralManager` sends its
+-        // `ConnectionStatus` snapshot immediately after subscribing, and ATT
+-        // bearer ordering guarantees the CCCD write was processed before
+-        // that message, so peripheral → central traffic is deliverable from
+-        // this point on. (Serial split has no subscription step and reaches
+-        // the same first message; the edge is simply "the session is
+-        // bidirectionally live".)
+-        struct LinkDownGuard;
+-        impl Drop for LinkDownGuard {
+-            fn drop(&mut self) {
+-                crate::split_app::SPLIT_APP_LINK.sender().send(false);
+-            }
+-        }
+-        let _link_guard = LinkDownGuard;
+-        let app_link = crate::split_app::SPLIT_APP_LINK.sender();
+-        let mut link_up_sent = false;
++        // The guard lowers the link state even if this session future is
++        // cancelled. Link-up waits for the first central message: on BLE that
++        // proves the central has subscribed and the link is bidirectional.
++        let mut app_link = crate::split_app::LinkGuard::new();
+
+         // Proactively announce our firmware hash so the central can detect
+         // us even when it booted first and already gave up waiting for a query response.
+@@ -160,159 +131,8 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
+                 Either::First(m) => match m {
+                     // Process split messages from the central
+                     Ok(split_message) => {
+-                        // First traffic from the central ⇒ the
+-                        // session is bidirectionally live (see the LinkDownGuard
+-                        // comment above for why link-up is not sent at start).
+-                        if !link_up_sent {
+-                            app_link.send(true);
+-                            link_up_sent = true;
+-                        }
+-                        match split_message {
+-                            SplitMessage::ConnectionStatus(status) => {
+-                                trace!("Received central connection status: {:?}", status);
+-                                update_status(|c| *c = status);
+-                                // Replay the cached status onto this session.
+-                                // `battery_sub` only sees levels published after
+-                                // it subscribed, but the first reading lands
+-                                // milliseconds into boot and the next one waits
+-                                // for the level to move -- which never happens
+-                                // on a battery resting at the 100% clamp. The
+-                                // central sends this message right after
+-                                // subscribing, so it is the earliest deliverable
+-                                // moment.
+-                                #[cfg(feature = "_ble")]
+-                                {
+-                                    let battery = crate::input_device::battery::current_battery_status();
+-                                    if battery != BatteryStatus::Unavailable {
+-                                        self.split_driver
+-                                            .write(&SplitMessage::BatteryStatus(battery.into()))
+-                                            .await
+-                                            .ok();
+-                                    }
+-                                }
+-                            }
+-                            #[cfg(all(feature = "_ble", feature = "storage"))]
+-                            SplitMessage::ClearPeer => {
+-                                // Clear the peer address
+-                                FLASH_CHANNEL
+-                                    .send(crate::storage::FlashOperationMessage::PeerAddress(PeerAddress::new(
+-                                        0, false, [0; 6],
+-                                    )))
+-                                    .await;
+-                            }
+-                            SplitMessage::KeyboardIndicator(indicator) => {
+-                                // Publish KeyboardIndicator event
+-                                let indicator = rmk_types::led_indicator::LedIndicator::from_bits(indicator);
+-                                crate::keyboard::set_current_led_indicator(indicator);
+-                                publish_event(LedIndicatorEvent::new(indicator));
+-                            }
+-                            SplitMessage::Layer(layer) => {
+-                                // Publish Layer event
+-                                publish_event(LayerChangeEvent::new(layer));
+-                            }
+-                            #[cfg(feature = "display")]
+-                            SplitMessage::Wpm(wpm) => publish_event(WpmUpdateEvent::new(wpm)),
+-                            #[cfg(feature = "display")]
+-                            SplitMessage::Modifier(bits) => {
+-                                crate::state::set_modifier_state(rmk_types::modifier::ModifierCombination::from_bits(
+-                                    bits,
+-                                ));
+-                            }
+-                            #[cfg(feature = "_render_state")]
+-                            SplitMessage::SleepState(sleeping) => {
+-                                crate::state::set_sleeping(sleeping);
+-                                publish_event(SleepStateEvent::new(sleeping));
+-                            }
+-                            // --- dfu_split: firmware update handlers ---
+-                            #[cfg(feature = "dfu_split")]
+-                            SplitMessage::FirmwareHashQuery => {
+-                                let hash = crate::dfu::read_embedded_firmware_hash();
+-                                info!("dfu_split: hash query, responding with {:#x}", hash);
+-                                self.split_driver
+-                                    .write(&SplitMessage::FirmwareHashResponse(hash))
+-                                    .await
+-                                    .ok();
+-                            }
+-                            #[cfg(feature = "dfu_split")]
+-                            SplitMessage::FirmwareChunk { offset, len, data } => {
+-                                if self.dfu_handler.is_none() {
+-                                    self.dfu_handler = crate::dfu::SplitDfuHandler::new();
+-                                    if self.dfu_handler.is_none() {
+-                                        error!("dfu_split: FlashManager not initialized, skipping chunk");
+-                                        continue;
+-                                    }
+-                                }
+-                                let handler = self.dfu_handler.as_mut().unwrap();
+-                                let actual_len = len as usize;
+-                                let chunk_data = &data.0[..actual_len];
+-                                match handler.write_chunk(offset as u32, chunk_data) {
+-                                    Ok(()) => {
+-                                        debug!("dfu_split: wrote {} bytes at offset {}", actual_len, offset);
+-                                        let ack = SplitMessage::FirmwareChunkAck {
+-                                            offset,
+-                                            crc: crate::crc32::crc32(chunk_data),
+-                                        };
+-                                        self.split_driver.write(&ack).await.ok();
+-                                    }
+-                                    Err(()) => error!("dfu_split: write error at offset {}", offset),
+-                                }
+-                            }
+-                            #[cfg(feature = "dfu_split")]
+-                            SplitMessage::FirmwareUpdateComplete => {
+-                                if let Some(ref mut handler) = self.dfu_handler {
+-                                    let dfu_crc = handler.compute_dfu_crc();
+-                                    info!("dfu_split: DFU partition CRC: {:#010x}", dfu_crc);
+-                                    let crc_msg = SplitMessage::FirmwareCrcReport(dfu_crc);
+-                                    self.split_driver.write(&crc_msg).await.ok();
+-                                    info!("dfu_split: CRC report sent");
+-
+-                                    let deadline = embassy_time::Instant::now() + embassy_time::Duration::from_secs(5);
+-                                    let ok = loop {
+-                                        match select(self.split_driver.read(), embassy_time::Timer::at(deadline)).await
+-                                        {
+-                                            Either::First(Ok(SplitMessage::FirmwareCrcOk)) => {
+-                                                info!("dfu_split: central confirmed CRC, resetting");
+-                                                break true;
+-                                            }
+-                                            Either::First(Ok(SplitMessage::FirmwareCrcFail)) => {
+-                                                warn!("dfu_split: central rejected CRC, stopping update");
+-                                                break false;
+-                                            }
+-                                            Either::First(Ok(_)) => {}
+-                                            Either::First(Err(e)) => {
+-                                                error!("read error: {:?}", e);
+-                                                break false;
+-                                            }
+-                                            Either::Second(_) => {
+-                                                error!("timeout");
+-                                                break false;
+-                                            }
+-                                        }
+-                                    };
+-
+-                                    if ok {
+-                                        self.split_driver.write(&SplitMessage::FirmwareUpdateConfirm).await.ok();
+-                                        embassy_time::Timer::after_millis(50).await;
+-                                        handler.mark_updated_and_reset().ok();
+-                                    } else {
+-                                        self.dfu_handler = None;
+-                                    }
+-                                } else {
+-                                    error!("dfu_split: no active DFU session");
+-                                }
+-                            }
+-                            // Forward application payloads;
+-                            // drop-on-full so a slow consumer can never stall the
+-                            // split read loop (the application resyncs on
+-                            // reconnect and must tolerate loss).
+-                            SplitMessage::Application(data) => {
+-                                let queued = crate::split_app::SPLIT_APP_RX.try_send(data);
+-                                if queued.is_err() {
+-                                    warn!("split app message dropped (inbox full)");
+-                                }
+-                            }
+-                            _ => (),
+-                        }
++                        app_link.mark_up();
++                        self.handle_central_message(split_message).await;
+                     }
+                     Err(e) => {
+                         error!("Split message read error: {:?}", e);
+@@ -327,8 +147,135 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
+                 }
+             }
+         }
++    }
+
+-        // The loop only exits on disconnect.
+-        app_link.send(false);
++    /// Process a single message from the central.
++    async fn handle_central_message(&mut self, split_message: SplitMessage) {
++        match split_message {
++            SplitMessage::ConnectionStatus(status) => {
++                trace!("Received central connection status: {:?}", status);
++                update_status(|c| *c = status);
++                // Replay the cached reading after the central subscribes. A
++                // clamped battery level may not publish another change event.
++                #[cfg(feature = "_ble")]
++                {
++                    let battery = crate::input_device::battery::current_battery_status();
++                    if battery != BatteryStatus::Unavailable {
++                        self.split_driver
++                            .write(&SplitMessage::BatteryStatus(battery.into()))
++                            .await
++                            .ok();
++                    }
++                }
++            }
++            #[cfg(all(feature = "_ble", feature = "storage"))]
++            SplitMessage::ClearPeer => {
++                // Clear the peer address
++                FLASH_CHANNEL
++                    .send(crate::storage::FlashOperationMessage::PeerAddress(PeerAddress::new(
++                        0, false, [0; 6],
++                    )))
++                    .await;
++            }
++            SplitMessage::KeyboardIndicator(indicator) => {
++                let indicator = rmk_types::led_indicator::LedIndicator::from_bits(indicator);
++                crate::keyboard::set_current_led_indicator(indicator);
++                publish_event(LedIndicatorEvent::new(indicator));
++            }
++            SplitMessage::Layer(layer) => {
++                // Publish Layer event
++                publish_event(LayerChangeEvent::new(layer));
++            }
++            #[cfg(feature = "display")]
++            SplitMessage::Wpm(wpm) => publish_event(WpmUpdateEvent::new(wpm)),
++            #[cfg(feature = "display")]
++            SplitMessage::Modifier(bits) => {
++                crate::state::set_modifier_state(rmk_types::modifier::ModifierCombination::from_bits(bits));
++            }
++            #[cfg(feature = "_render_state")]
++            SplitMessage::SleepState(sleeping) => {
++                crate::state::set_sleeping(sleeping);
++                publish_event(SleepStateEvent::new(sleeping));
++            }
++            // --- dfu_split: firmware update handlers ---
++            #[cfg(feature = "dfu_split")]
++            SplitMessage::FirmwareHashQuery => {
++                let hash = crate::dfu::read_embedded_firmware_hash();
++                info!("dfu_split: hash query, responding with {:#x}", hash);
++                self.split_driver
++                    .write(&SplitMessage::FirmwareHashResponse(hash))
++                    .await
++                    .ok();
++            }
++            #[cfg(feature = "dfu_split")]
++            SplitMessage::FirmwareChunk { offset, len, data } => {
++                if self.dfu_handler.is_none() {
++                    self.dfu_handler = crate::dfu::SplitDfuHandler::new();
++                    if self.dfu_handler.is_none() {
++                        error!("dfu_split: FlashManager not initialized, skipping chunk");
++                        return;
++                    }
++                }
++                let handler = self.dfu_handler.as_mut().unwrap();
++                let actual_len = len as usize;
++                let chunk_data = &data.0[..actual_len];
++                match handler.write_chunk(offset as u32, chunk_data) {
++                    Ok(()) => {
++                        debug!("dfu_split: wrote {} bytes at offset {}", actual_len, offset);
++                        let ack = SplitMessage::FirmwareChunkAck {
++                            offset,
++                            crc: crate::crc32::crc32(chunk_data),
++                        };
++                        self.split_driver.write(&ack).await.ok();
++                    }
++                    Err(()) => error!("dfu_split: write error at offset {}", offset),
++                }
++            }
++            #[cfg(feature = "dfu_split")]
++            SplitMessage::FirmwareUpdateComplete => {
++                if let Some(ref mut handler) = self.dfu_handler {
++                    let dfu_crc = handler.compute_dfu_crc();
++                    info!("dfu_split: DFU partition CRC: {:#010x}", dfu_crc);
++                    let crc_msg = SplitMessage::FirmwareCrcReport(dfu_crc);
++                    self.split_driver.write(&crc_msg).await.ok();
++                    info!("dfu_split: CRC report sent");
++
++                    let deadline = embassy_time::Instant::now() + embassy_time::Duration::from_secs(5);
++                    let ok = loop {
++                        match select(self.split_driver.read(), embassy_time::Timer::at(deadline)).await {
++                            Either::First(Ok(SplitMessage::FirmwareCrcOk)) => {
++                                info!("dfu_split: central confirmed CRC, resetting");
++                                break true;
++                            }
++                            Either::First(Ok(SplitMessage::FirmwareCrcFail)) => {
++                                warn!("dfu_split: central rejected CRC, stopping update");
++                                break false;
++                            }
++                            Either::First(Ok(_)) => {}
++                            Either::First(Err(e)) => {
++                                error!("read error: {:?}", e);
++                                break false;
++                            }
++                            Either::Second(_) => {
++                                error!("timeout");
++                                break false;
++                            }
++                        }
++                    };
++
++                    if ok {
++                        self.split_driver.write(&SplitMessage::FirmwareUpdateConfirm).await.ok();
++                        embassy_time::Timer::after_millis(50).await;
++                        handler.mark_updated_and_reset().ok();
++                    } else {
++                        self.dfu_handler = None;
++                    }
++                } else {
++                    error!("dfu_split: no active DFU session");
++                }
++            }
++            SplitMessage::Application(data) => crate::split_app::deliver_received(data),
++            _ => (),
++        }
+     }
+ }
+diff --git a/rmk/src/split_app.rs b/rmk/src/split_app.rs
+index d086ed06..eda84025 100644
+--- a/rmk/src/split_app.rs
++++ b/rmk/src/split_app.rs
+@@ -120,8 +120,43 @@ pub static SPLIT_APP_RX: Channel<RawMutex, SplitAppData, 8> = Channel::new();
+ /// tiny, rare state (e.g. its build identity once per link-up).
+ pub static SPLIT_APP_PERIPH_TX: Channel<RawMutex, SplitAppData, 2> = Channel::new();
+
++/// Deliver a received payload into [`SPLIT_APP_RX`]. Drop-on-full: a slow
++/// application consumer must never stall the split read loops, and the
++/// application resyncs on reconnect anyway.
++pub(crate) fn deliver_received(data: SplitAppData) {
++    if SPLIT_APP_RX.try_send(data).is_err() {
++        warn!("split app message dropped (inbox full)");
++    }
++}
++
+ /// Split-link state for the application: on the central, "peripheral link
+ /// up"; on the peripheral, "central link up". Written by the split driver at
+ /// session start/end; state-based (a late receiver still observes the latest
+ /// value), so edges cannot be lost the way pub/sub events can.
+ pub static SPLIT_APP_LINK: Watch<RawMutex, bool, 2> = Watch::new();
++
++/// Owns one split session's [`SPLIT_APP_LINK`] state. The down edge comes
++/// from `Drop` because the session future can be cancelled on connection loss.
++pub(crate) struct LinkGuard {
++    up: bool,
++}
++
++impl LinkGuard {
++    pub(crate) fn new() -> Self {
++        Self { up: false }
++    }
++
++    /// Send the link-up edge once.
++    pub(crate) fn mark_up(&mut self) {
++        if !self.up {
++            SPLIT_APP_LINK.sender().send(true);
++            self.up = true;
++        }
++    }
++}
++
++impl Drop for LinkGuard {
++    fn drop(&mut self) {
++        SPLIT_APP_LINK.sender().send(false);
++    }
++}
+diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+index 3058b029..a0a64792 100644
+--- a/rmk/src/storage/mod.rs
++++ b/rmk/src/storage/mod.rs
+@@ -6,8 +6,12 @@ use embassy_time::Duration;
+ use embedded_storage::nor_flash::NorFlash;
+ use embedded_storage_async::nor_flash::NorFlash as AsyncNorFlash;
+ use postcard::experimental::max_size::MaxSize;
++use rmk_types::auto_mouse::AutoMouseLayerConfig as RuntimeAutoMouseLayerConfig;
+ use rmk_types::connection::ConnectionType;
+ use rmk_types::morse::{MorseProfile, MorseProfileName};
++use rmk_types::protocol::rynk::BehaviorOptions;
++#[cfg(feature = "rynk")]
++use rmk_types::protocol::rynk::PointingConfig;
+ #[cfg(all(feature = "lighting", feature = "rynk"))]
+ use rmk_types::protocol::rynk::{
+     LIGHTING_CONDITIONAL_SCENE_CHUNK_SIZE, LIGHTING_EXTENDED_CONDITIONAL_SCENE_CHUNK_SIZE,
+@@ -15,9 +19,6 @@ use rmk_types::protocol::rynk::{
+     LightingExtendedConditionalSceneCell, LightingLayerPolicy, LightingSceneCell,
+ };
+ use rmk_types::unicode::UnicodeMode;
+-#[cfg(feature = "rynk")]
+-use rmk_types::protocol::rynk::PointingConfig;
+-use rmk_types::protocol::rynk::BehaviorOptions;
+ use sequential_storage::Error as SSError;
+ use sequential_storage::cache::{Cache, Uncached};
+ use sequential_storage::map::{Key, MapConfig, MapStorage, PostcardValue, SerializationError};
+@@ -150,6 +151,7 @@ pub(crate) enum FlashOperationMessage {
+     },
+     #[cfg(feature = "host")]
+     MorseHoldTriggerPositions(HoldTriggerPositions),
++    #[cfg(feature = "host")]
+     MorseProfile {
+         idx: u8,
+         profile: MorseProfile,
+@@ -218,6 +220,7 @@ pub(crate) enum FlashOperationMessage {
+     #[cfg(all(feature = "lighting", feature = "rynk"))]
+     LightingExtensionOverlay(LightingExtensionOverlayRecord),
+     #[cfg(feature = "rynk")]
++    // Every pointing device's behavior, replaced as one unit.
+     PointingConfig(PointingConfig),
+ }
+
+@@ -276,6 +279,12 @@ pub(crate) enum StorageKey {
+     UnicodeMode,
+     #[cfg(feature = "rynk")]
+     PointingConfig,
++    // Postcard tags variants by declaration order, so new keys go last: an
++    // existing keyboard's persisted items must keep the tags they were saved
++    // with.
++    #[cfg(feature = "host")]
++    MorseProfile(u8),
++    #[cfg(feature = "host")]
+     BehaviorOptions,
+     #[cfg(feature = "host")]
+     AutoMouseLayerConfigs,
+@@ -318,6 +327,7 @@ impl StorageKey {
+     pub(crate) const fn morse(idx: u8) -> Self {
+         Self::Morse(idx)
+     }
++
+     #[cfg(feature = "host")]
+     pub(crate) const fn morse_profile(idx: u8) -> Self {
+         Self::MorseProfile(idx)
+@@ -398,6 +408,10 @@ pub(crate) enum StorageData {
+     UnicodeMode(UnicodeMode),
+     #[cfg(feature = "rynk")]
+     PointingConfig(PointingConfig),
++    // New variants go last, for the same reason as in `StorageKey`.
++    #[cfg(feature = "host")]
++    MorseProfile(MorseProfile),
++    #[cfg(feature = "host")]
+     BehaviorOptions(StoredBehaviorOptions),
+     #[cfg(feature = "host")]
+     AutoMouseLayerConfigs(heapless::Vec<RuntimeAutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }>),
+@@ -499,6 +513,64 @@ pub(crate) struct BehaviorConfig {
+     pub(crate) tap_capslock_interval: u16,
+ }
+
++#[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize, MaxSize)]
++#[cfg_attr(feature = "defmt", derive(defmt::Format))]
++pub(crate) struct StoredBehaviorOptions {
++    pub(crate) tri_layer: Option<[u8; 3]>,
++    pub(crate) combo_prior_idle_ms: Option<u16>,
++    pub(crate) oneshot_activate_on_keypress: bool,
++    pub(crate) oneshot_quick_release: bool,
++    pub(crate) morse_enable_flow_tap: bool,
++}
++
++impl From<BehaviorOptions> for StoredBehaviorOptions {
++    fn from(options: BehaviorOptions) -> Self {
++        Self {
++            tri_layer: options.tri_layer,
++            combo_prior_idle_ms: options.combo_prior_idle_ms,
++            oneshot_activate_on_keypress: options.oneshot_activate_on_keypress,
++            oneshot_quick_release: options.oneshot_quick_release,
++            morse_enable_flow_tap: options.morse_enable_flow_tap,
++        }
++    }
++}
++
++impl From<&config::BehaviorConfig> for StoredBehaviorOptions {
++    fn from(behavior: &config::BehaviorConfig) -> Self {
++        Self {
++            tri_layer: behavior.tri_layer,
++            combo_prior_idle_ms: behavior
++                .combo
++                .prior_idle_time
++                .map(|duration| duration.as_millis() as u16),
++            oneshot_activate_on_keypress: behavior.one_shot_modifiers.activate_on_keypress,
++            oneshot_quick_release: behavior.one_shot_modifiers.quick_release,
++            morse_enable_flow_tap: behavior.morse.enable_flow_tap,
++        }
++    }
++}
++
++fn auto_mouse_layer_configs(
++    behavior: &config::BehaviorConfig,
++) -> heapless::Vec<RuntimeAutoMouseLayerConfig, { crate::AUTO_MOUSE_LAYER_MAX_NUM }> {
++    if let Some(configs) = &behavior.runtime_auto_mouse_layer {
++        return configs.clone();
++    }
++    behavior
++        .auto_mouse_layer
++        .iter()
++        .map(|config| RuntimeAutoMouseLayerConfig {
++            device_id: config.device_id,
++            target_layer: config.target_layer,
++            timeout_ms: config.timeout.as_millis() as u32,
++            threshold: config.threshold,
++            deactivate_on_key: config.deactivate_on_key,
++            extra_mouse_keys: config.extra_mouse_keys.iter().copied().collect(),
++            reset_timeout_on_key: config.reset_timeout_on_key,
++        })
++        .collect()
++}
++
+ impl From<LocalStorageConfig> for StorageData {
+     fn from(config: LocalStorageConfig) -> Self {
+         Self::StorageConfig(config)
+@@ -719,15 +791,32 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+         if let Some(StorageData::UnicodeMode(mode)) = self.fetch_data(StorageKey::UnicodeMode).await {
+             behavior_config.unicode.mode = mode;
+         }
+-        Ok(())
+-    }
+
+-    #[cfg(feature = "rynk")]
+-    pub async fn read_pointing_config(&mut self) -> Option<PointingConfig> {
+-        match self.fetch_data(StorageKey::PointingConfig).await {
+-            Some(StorageData::PointingConfig(config)) => Some(config),
+-            _ => None,
++        let read_data = self
++            .flash
++            .fetch_item(&mut self.buffer, &StorageKey::BehaviorOptions)
++            .await
++            .map_err(|e| print_storage_error::<F>(e))?;
++
++        if let Some(StorageData::BehaviorOptions(options)) = read_data {
++            behavior_config.tri_layer = options.tri_layer;
++            behavior_config.combo.prior_idle_time =
++                options.combo_prior_idle_ms.map(|ms| Duration::from_millis(ms as u64));
++            behavior_config.one_shot_modifiers.activate_on_keypress = options.oneshot_activate_on_keypress;
++            behavior_config.one_shot_modifiers.quick_release = options.oneshot_quick_release;
++            behavior_config.morse.enable_flow_tap = options.morse_enable_flow_tap;
++        }
++
++        let read_data = self
++            .flash
++            .fetch_item(&mut self.buffer, &StorageKey::AutoMouseLayerConfigs)
++            .await
++            .map_err(|e| print_storage_error::<F>(e))?;
++        if let Some(StorageData::AutoMouseLayerConfigs(configs)) = read_data {
++            behavior_config.runtime_auto_mouse_layer = Some(configs);
+         }
++
++        Ok(())
+     }
+
+     /// Read the persisted animated-extension selection at startup, before the
+@@ -920,6 +1009,20 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+         self.store_data(StorageKey::BehaviorConfig, &StorageData::from(behavior))
+             .await
+             .map_err(|e| print_storage_error::<F>(e))?;
++        #[cfg(feature = "host")]
++        self.store_data(
++            StorageKey::BehaviorOptions,
++            &StorageData::BehaviorOptions(behavior.into()),
++        )
++        .await
++        .map_err(|e| print_storage_error::<F>(e))?;
++        #[cfg(feature = "host")]
++        self.store_data(
++            StorageKey::AutoMouseLayerConfigs,
++            &StorageData::AutoMouseLayerConfigs(auto_mouse_layer_configs(behavior)),
++        )
++        .await
++        .map_err(|e| print_storage_error::<F>(e))?;
+
+         #[cfg(feature = "host")]
+         self.store_data(
+@@ -983,6 +1086,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+             &StorageData::MorseHoldTriggerPositions(behavior.morse.hold_trigger_positions.clone()),
+         )
+         .await?;
++        self.store_data(
++            StorageKey::BehaviorOptions,
++            &StorageData::BehaviorOptions(behavior.into()),
++        )
++        .await?;
++        self.store_data(
++            StorageKey::AutoMouseLayerConfigs,
++            &StorageData::AutoMouseLayerConfigs(auto_mouse_layer_configs(behavior)),
++        )
++        .await?;
+
+         // TODO: Generic reset for vial and other hosts
+         for (layer, layer_data) in keymap.iter().enumerate() {
+@@ -1022,6 +1135,15 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+         }
+         false
+     }
++    /// The stored pointing configuration, or `None` when nothing was ever
++    /// written, which means no pointing policy rather than a default one.
++    #[cfg(feature = "rynk")]
++    pub async fn read_pointing_config(&mut self) -> Option<PointingConfig> {
++        match self.fetch_data(StorageKey::PointingConfig).await {
++            Some(StorageData::PointingConfig(config)) => Some(config),
++            _ => None,
++        }
++    }
+ }
+
+ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usize, const NUM_ENCODER: usize>
+@@ -1127,9 +1249,9 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+                     )
+                     .await
+                 }
+-                #[cfg(feature = "rynk")]
+-                FlashOperationMessage::PointingConfig(config) => {
+-                    self.store_data(StorageKey::PointingConfig, &StorageData::PointingConfig(config))
++                #[cfg(feature = "host")]
++                FlashOperationMessage::MorseProfile { idx, profile } => {
++                    self.store_data(StorageKey::morse_profile(idx), &StorageData::MorseProfile(profile))
+                         .await
+                 }
+                 #[cfg(feature = "host")]
+@@ -1178,6 +1300,11 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+                     self.store_data(StorageKey::bond_info(slot_num), &StorageData::BondInfo(empty))
+                         .await
+                 }
++                #[cfg(feature = "rynk")]
++                FlashOperationMessage::PointingConfig(config) => {
++                    self.store_data(StorageKey::PointingConfig, &StorageData::PointingConfig(config))
++                        .await
++                }
+                 #[cfg(feature = "_ble")]
+                 FlashOperationMessage::ProfileInfo(b) => {
+                     debug!("Saving profile info: {:?}", b);
+@@ -1282,6 +1409,22 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+                     self.store_data(StorageKey::UnicodeMode, &StorageData::UnicodeMode(mode))
+                         .await
+                 }
++                #[cfg(feature = "host")]
++                FlashOperationMessage::BehaviorOptions(options) => {
++                    self.store_data(
++                        StorageKey::BehaviorOptions,
++                        &StorageData::BehaviorOptions(options.into()),
++                    )
++                    .await
++                }
++                #[cfg(feature = "host")]
++                FlashOperationMessage::AutoMouseLayerConfigs(configs) => {
++                    self.store_data(
++                        StorageKey::AutoMouseLayerConfigs,
++                        &StorageData::AutoMouseLayerConfigs(configs),
++                    )
++                    .await
++                }
+             };
+
+             match write_result {
+@@ -1488,6 +1631,8 @@ mod tests {
+             #[cfg(all(feature = "lighting", feature = "rynk"))]
+             StorageKey::LightingRuntimeConditionalSceneShardV2(0),
+             StorageKey::UnicodeMode,
++            #[cfg(feature = "host")]
++            StorageKey::MorseProfile(9),
+         ];
+
+         let mut buffer = [0u8; 64];
+diff --git a/rmk/tests/integration/rynk.rs b/rmk/tests/integration/rynk.rs
+index 5ac4db24..89050991 100644
+--- a/rmk/tests/integration/rynk.rs
++++ b/rmk/tests/integration/rynk.rs
+@@ -120,7 +120,6 @@ fn keymap_write_survives_restart() {
+             .await;
+     });
+ }
+-
+ #[cfg(feature = "storage")]
+ #[test]
+ fn hold_trigger_positions_survive_restart() {
+@@ -147,3 +146,128 @@ fn hold_trigger_positions_survive_restart() {
+             .await;
+     });
+ }
++
++/// A retuned profile has to outlive the session that set it, or dialing timings
++/// in by feel would reset on every unplug. The restarted keyboard compiles a
++/// 300 ms hold, so a 150 ms press resolving as a hold can only come from the
++/// 100 ms that was persisted.
++#[cfg(feature = "storage")]
++#[test]
++fn morse_profile_write_survives_restart() {
++    use rmk::config::BehaviorConfig;
++    use rmk::mtp;
++    use rmk::types::modifier::ModifierCombination;
++    use rmk::types::morse::{MorseMode, MorseProfile};
++
++    const SET_PROFILE: &str = r#"{"index":0,"profile":{"mode":"Normal","hold_timeout_ms":100,"gap_timeout_ms":100}}"#;
++
++    fn compiled_behavior() -> BehaviorConfig {
++        let mut behavior = BehaviorConfig::default();
++        behavior
++            .morse
++            .profiles
++            .push(MorseProfile::new(None, Some(MorseMode::Normal), Some(300), Some(300)))
++            .unwrap();
++        behavior
++    }
++
++    test_block_on(async {
++        let flash = crate::simulator::flash::InMemoryFlash::new();
++        let keymap = [[[mtp!(A, ModifierCombination::LSHIFT, 0)]]];
++        {
++            let mut keyboard = SimKeyboard::builder(keymap)
++                .behavior_config(compiled_behavior())
++                .build_with_flash(flash.clone())
++                .await;
++            keyboard
++                .rynk::<command::SetMorseProfile>(SET_PROFILE, RynkReply::Ok("null"))
++                .wait_storage()
++                .run()
++                .await;
++        }
++        let mut keyboard = SimKeyboard::builder(keymap)
++            .behavior_config(compiled_behavior())
++            .build_with_flash(flash)
++            .await;
++        keyboard
++            .tap(0, 0, 150)
++            .expect_keys_with_mods(ModifierCombination::LSHIFT.into_bits(), [])
++            .expect_keys([])
++            .run()
++            .await;
++    });
++}
++
++#[cfg(feature = "storage")]
++#[test]
++fn named_morse_profile_survives_restart() {
++    const SET_ENTRY: &str = r#"{"entry":{"index":3,"name":"thumb-layer","profile":{"mode":"Normal","hold_timeout_ms":180,"gap_timeout_ms":180}}}"#;
++    const GET_STATE: &str = r#"{"capacity":16,"total":1,"entries":[{"index":3,"name":"thumb-layer","profile":{"mode":"Normal","hold_timeout_ms":180,"gap_timeout_ms":180}}]}"#;
++
++    test_block_on(async {
++        let flash = crate::simulator::flash::InMemoryFlash::new();
++        {
++            let mut keyboard = SimKeyboard::builder([[[k!(A)]]]).build_with_flash(flash.clone()).await;
++            keyboard
++                .rynk::<command::SetMorseProfileEntry>(SET_ENTRY, RynkReply::Ok("null"))
++                .wait_storage()
++                .run()
++                .await;
++        }
++        let mut keyboard = SimKeyboard::builder([[[k!(A)]]]).build_with_flash(flash).await;
++        keyboard
++            .rynk::<command::GetMorseProfileState>(r#"{"offset":0}"#, RynkReply::Ok(GET_STATE))
++            .run()
++            .await;
++    });
++}
++
++/// Global behavior options are durable just like the older timeout payload.
++#[cfg(feature = "storage")]
++#[test]
++fn behavior_options_write_survives_restart() {
++    const SET_OPTIONS: &str = r#"{"tri_layer":[0,1,2],"combo_prior_idle_ms":75,"oneshot_activate_on_keypress":true,"oneshot_quick_release":true,"morse_enable_flow_tap":true,"morse_prior_idle_ms":125,"morse_default_profile":{"mode":"PermissiveHold","hold_timeout_ms":225,"gap_timeout_ms":175}}"#;
++
++    test_block_on(async {
++        let flash = crate::simulator::flash::InMemoryFlash::new();
++        let keymap = [[[k!(A)]], [[k!(A)]], [[k!(A)]]];
++        {
++            let mut keyboard = SimKeyboard::builder(keymap).build_with_flash(flash.clone()).await;
++            keyboard
++                .rynk::<command::SetBehaviorOptions>(SET_OPTIONS, RynkReply::Ok("null"))
++                .wait_storage()
++                .run()
++                .await;
++        }
++        let mut keyboard = SimKeyboard::builder(keymap).build_with_flash(flash).await;
++        keyboard
++            .rynk::<command::GetBehaviorOptions>("null", RynkReply::Ok(SET_OPTIONS))
++            .run()
++            .await;
++    });
++}
++
++#[cfg(feature = "storage")]
++#[test]
++fn auto_mouse_layer_configs_write_survives_restart() {
++    const SET_CONFIGS: &str = r#"{"configs":[{"device_id":1,"target_layer":2,"timeout_ms":500,"threshold":3,"deactivate_on_key":false,"extra_mouse_keys":[],"reset_timeout_on_key":false}]}"#;
++    const GET_CONFIGS: &str = r#"{"capacity":2,"configs":[{"device_id":1,"target_layer":2,"timeout_ms":500,"threshold":3,"deactivate_on_key":false,"extra_mouse_keys":[],"reset_timeout_on_key":false}]}"#;
++
++    test_block_on(async {
++        let flash = crate::simulator::flash::InMemoryFlash::new();
++        let keymap = [[[k!(A)]], [[k!(A)]], [[k!(A)]]];
++        {
++            let mut keyboard = SimKeyboard::builder(keymap).build_with_flash(flash.clone()).await;
++            keyboard
++                .rynk::<command::SetAutoMouseLayerConfigs>(SET_CONFIGS, RynkReply::Ok("null"))
++                .wait_storage()
++                .run()
++                .await;
++        }
++        let mut keyboard = SimKeyboard::builder(keymap).build_with_flash(flash).await;
++        keyboard
++            .rynk::<command::GetAutoMouseLayerConfigs>("null", RynkReply::Ok(GET_CONFIGS))
++            .run()
++            .await;
++    });
++}
 diff --git a/rmk/tests/scenarios/rynk_morse_profile.toml b/rmk/tests/scenarios/rynk_morse_profile.toml
 index b670372a..c5cf40e0 100644
 --- a/rmk/tests/scenarios/rynk_morse_profile.toml
@@ -193,3 +2675,294 @@ index b670372a..c5cf40e0 100644
 +    { profile = 1, row = 0, col = 1 },
 +  ] } } },
  ]
+diff --git a/rynk/rynk-wasm/src/client.rs b/rynk/rynk-wasm/src/client.rs
+index 9c3b4e0a..f8d4d1d6 100644
+--- a/rynk/rynk-wasm/src/client.rs
++++ b/rynk/rynk-wasm/src/client.rs
+@@ -24,33 +24,29 @@ use rynk::rmk_types::modifier::ModifierCombination;
+ use rynk::rmk_types::morse::Morse;
+ use rynk::rmk_types::protocol::rynk::{
+     AbortLightingOverlayReplaceRequest, AbortLightingRuntimeConditionalSceneReplaceRequest,
+-    AbortLightingSceneReplaceRequest, BeginLightingOverlayReplaceRequest,
+-    BeginLightingRuntimeConditionalSceneReplaceRequest, BeginLightingSceneReplaceRequest, BehaviorConfig, BuildInfo,
+-    ClearLightingOverlayRequest, CommitLightingOverlayReplaceRequest,
++    AbortLightingSceneReplaceRequest, AutoMouseLayerConfigState, BeginLightingOverlayReplaceRequest,
++    BeginLightingRuntimeConditionalSceneReplaceRequest, BeginLightingSceneReplaceRequest, BehaviorConfig,
++    BehaviorOptions, BuildInfo, ClearLightingOverlayRequest, CommitLightingOverlayReplaceRequest,
+     CommitLightingRuntimeConditionalSceneReplaceRequest, CommitLightingSceneReplaceRequest, DeviceCapabilities,
+-    DeviceInfo, GetComboBulkResponse, GetKeymapBulkResponse, GetMorseBulkResponse, LayerState, LightingCapabilities,
+-    LightingCompiledSceneStatus, LightingCompiledScenesPage, LightingConditionalSceneStatus,
+-    LightingConditionalScenesPage, LightingExtendedRuntimeConditionalScenesPage, LightingExtension,
+-    LightingExtensionLayers, LightingExtensionNamesPage, LightingExtensionNamesRequest, LightingExtensionParamsPage,
+-    LightingExtensionParamsRequest, LightingKeysPage, LightingLedsPage, LightingOutputModeState, LightingOutputsPage,
+-    LightingOverlayPage, LightingOverlayPageRequest, LightingOverlayTransaction, LightingPageRequest,
+-    LightingPhysicalKeysPage, LightingRoutesPage, LightingRuntimeConditionalScenePageRequest,
+-    LightingRuntimeConditionalSceneStatus, LightingRuntimeConditionalSceneTransaction,
+-    LightingRuntimeConditionalScenesPage, LightingScenePageRequest, LightingSceneStatus, LightingSceneTransaction,
+-    LightingScenesPage, LightingState, LightingZoneMembershipsPage, LightingZonesPage, LockStatus, MacroData,
+-    MatrixState, MorseHoldTriggerPositionState, PeripheralStatus, PointingConfig, ProtocolVersion,
+-    PutLightingExtendedRuntimeConditionalSceneChunkRequest,
++    DeviceInfo, GetComboBulkResponse, GetKeymapBulkResponse, GetMorseBulkResponse, GetMorseProfileBulkResponse,
++    LayerState, LightingCapabilities, LightingCompiledSceneStatus, LightingCompiledScenesPage,
++    LightingConditionalSceneStatus, LightingConditionalScenesPage, LightingExtendedRuntimeConditionalScenesPage,
++    LightingExtension, LightingExtensionLayers, LightingExtensionNamesPage, LightingExtensionNamesRequest,
++    LightingExtensionParamsPage, LightingExtensionParamsRequest, LightingKeysPage, LightingLedsPage,
++    LightingOutputModeState, LightingOutputsPage, LightingOverlayPage, LightingOverlayPageRequest,
++    LightingOverlayTransaction, LightingPageRequest, LightingPhysicalKeysPage, LightingRoutesPage,
++    LightingRuntimeConditionalScenePageRequest, LightingRuntimeConditionalSceneStatus,
++    LightingRuntimeConditionalSceneTransaction, LightingRuntimeConditionalScenesPage, LightingScenePageRequest,
++    LightingSceneStatus, LightingSceneTransaction, LightingScenesPage, LightingState, LightingZoneMembershipsPage,
++    LightingZonesPage, LockStatus, MacroData, MatrixState, MorseHoldTriggerPositionState, MorseProfileState,
++    PeripheralStatus, PointingConfig, ProtocolVersion, PutLightingExtendedRuntimeConditionalSceneChunkRequest,
+     PutLightingOverlayChunkRequest, PutLightingRuntimeConditionalSceneChunkRequest, PutLightingSceneChunkRequest,
+-    SetComboBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest, SetLightingExtensionParamRequest,
+-    SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest, SetLightingOutputModeRequest,
+-    SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest, SetMorseBulkRequest,
+-    SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
+-    AutoMouseLayerConfigState, BehaviorConfig, BehaviorOptions, DeviceCapabilities, DeviceInfo, GetComboBulkResponse,
+-    GetKeymapBulkResponse, GetMorseBulkResponse, GetMorseProfileBulkResponse, LockStatus, MacroData, MatrixState,
+-    MorseProfileState, PeripheralStatus, ProtocolVersion, SetAutoMouseLayerConfigsRequest, SetComboBulkRequest,
+-    SetKeymapBulkRequest, SetMorseBulkRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
+-    StorageResetMode,
+-    MorseProfileState, SetMorseProfileEntryRequest,
++    SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest,
++    SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
++    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
++    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
++    SetMorseProfileEntryRequest, SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode,
++    UnsetLightingOverlayRequest, UnsetLightingSceneCellRequest,
+ };
+ use rynk::{Client, Driver, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
+ use wasm_bindgen::prelude::*;
+@@ -110,11 +106,7 @@ impl RynkClient {
+     pub async fn next_topic(&self) -> Result<TopicEvent, JsValue> {
+         self.drive(async { Ok(self.client.next_topic().await) }).await
+     }
+-    #[wasm_bindgen(unchecked_return_type = "MorseProfileState")]
+-    pub async fn read_morse_profile_state(&self) -> Result<JsValue, JsValue> {
+-        let state = self.drive(self.client.read_morse_profile_state()).await?;
+-        serde_wasm_bindgen::to_value(&state).map_err(|error| JsValue::from_str(&error.to_string()))
+-    }
++
+     #[wasm_bindgen(unchecked_return_type = "MorseProfileState")]
+     pub async fn read_morse_profile_state(&self) -> Result<JsValue, JsValue> {
+         let state = self.drive(self.client.read_morse_profile_state()).await?;
+@@ -214,11 +206,6 @@ endpoints! {
+     set_morse_bulk(request: SetMorseBulkRequest) -> (),
+     get_morse_hold_trigger_positions() -> MorseHoldTriggerPositionState,
+     set_morse_hold_trigger_positions(request: SetMorseHoldTriggerPositionsRequest) -> (),
+-    get_pointing_config() -> PointingConfig,
+-    set_pointing_config(config: PointingConfig) -> PointingConfig,
+-    get_morse_profile_count() -> u8,
+-    get_morse_profile_bulk(start_index: u8) -> GetMorseProfileBulkResponse,
+-    set_morse_profile_bulk(request: SetMorseProfileBulkRequest) -> (),
+     get_morse_profile_count() -> u8,
+     get_morse_profile_bulk(start_index: u8) -> GetMorseProfileBulkResponse,
+     set_morse_profile_bulk(request: SetMorseProfileBulkRequest) -> (),
+@@ -227,11 +214,18 @@ endpoints! {
+     delete_morse_profile(index: u8) -> (),
+     get_macro(offset: u16) -> MacroData,
+     set_macro(offset: u16, data: MacroData) -> (),
++    // pointing
++    get_pointing_config() -> PointingConfig,
++    set_pointing_config(config: PointingConfig) -> PointingConfig,
+     // behavior
+     get_behavior() -> BehaviorConfig,
+     set_behavior(config: BehaviorConfig) -> (),
+     get_split_central_latency() -> SplitCentralLatencyState,
+     set_split_central_latency(policy: SplitCentralLatencyPolicy) -> SplitCentralLatencyState,
++    get_behavior_options() -> BehaviorOptions,
++    set_behavior_options(options: BehaviorOptions) -> (),
++    get_auto_mouse_layer_configs() -> AutoMouseLayerConfigState,
++    set_auto_mouse_layer_configs(request: SetAutoMouseLayerConfigsRequest) -> (),
+     // status
+     get_current_layer() -> u8,
+     get_layer_state() -> LayerState,
+diff --git a/rynk/src/api.rs b/rynk/src/api.rs
+index 1bf7b2be..34947cbb 100644
+--- a/rynk/src/api.rs
++++ b/rynk/src/api.rs
+@@ -20,42 +20,37 @@ use rmk_types::connection::{ConnectionStatus, ConnectionType};
+ use rmk_types::fork::Fork;
+ use rmk_types::led_indicator::LedIndicator;
+ use rmk_types::modifier::ModifierCombination;
+-use rmk_types::morse::Morse;
++use rmk_types::morse::{Morse, MorseProfile};
+ use rmk_types::protocol::rynk::{
+     AbortLightingOverlayReplaceRequest, AbortLightingRuntimeConditionalSceneReplaceRequest,
+-    AbortLightingSceneReplaceRequest, BeginLightingOverlayReplaceRequest,
+-    BeginLightingRuntimeConditionalSceneReplaceRequest, BeginLightingSceneReplaceRequest, BehaviorConfig, BuildInfo,
+-    ClearLightingOverlayRequest, Cmd, CommitLightingOverlayReplaceRequest,
++    AbortLightingSceneReplaceRequest, AutoMouseLayerConfigState, BeginLightingOverlayReplaceRequest,
++    BeginLightingRuntimeConditionalSceneReplaceRequest, BeginLightingSceneReplaceRequest, BehaviorConfig,
++    BehaviorOptions, BuildInfo, ClearLightingOverlayRequest, Cmd, CommitLightingOverlayReplaceRequest,
+     CommitLightingRuntimeConditionalSceneReplaceRequest, CommitLightingSceneReplaceRequest, DeviceCapabilities,
+     DeviceInfo, GetComboBulkRequest, GetComboBulkResponse, GetEncoderRequest, GetKeymapBulkRequest,
+-    GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest, GetMorseBulkResponse, KeyPosition, LayerState,
+-    LightingCapabilities, LightingCompiledSceneStatus, LightingCompiledScenesPage, LightingConditionalSceneStatus,
+-    LightingConditionalScenesPage, LightingExtendedRuntimeConditionalScenesPage, LightingExtension,
+-    LightingExtensionLayers, LightingExtensionNameKind, LightingExtensionNamesPage, LightingExtensionNamesRequest,
+-    LightingExtensionParamsPage, LightingExtensionParamsRequest, LightingFramePage, LightingFrameRequest,
+-    LightingKeysPage, LightingLedsPage, LightingOutputModeState, LightingOutputsPage, LightingOverlayPage,
+-    LightingOverlayPageRequest, LightingOverlayTransaction, LightingPageRequest, LightingPhysicalKeysPage,
+-    LightingReplicaStatus, LightingResult, LightingRoutesPage, LightingRuntimeConditionalScenePageRequest,
+-    LightingRuntimeConditionalSceneStatus, LightingRuntimeConditionalSceneTransaction,
+-    LightingRuntimeConditionalScenesPage, LightingScenePageRequest, LightingSceneStatus, LightingSceneTransaction,
+-    LightingScenesPage, LightingState, LightingZoneMembershipsPage, LightingZonesPage, LockStatus, MacroData,
+-    MatrixState, MorseHoldTriggerPositionState, PeripheralStatus, PointingConfig, ProtocolVersion,
+-    PutLightingExtendedRuntimeConditionalSceneChunkRequest,
++    GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest, GetMorseBulkResponse, GetMorseProfileBulkRequest,
++    GetMorseProfileBulkResponse, GetMorseProfileStateRequest, KeyPosition, LayerState, LightingCapabilities,
++    LightingCompiledSceneStatus,
++    LightingCompiledScenesPage, LightingConditionalSceneStatus, LightingConditionalScenesPage,
++    LightingExtendedRuntimeConditionalScenesPage, LightingExtension, LightingExtensionLayers,
++    LightingExtensionNameKind, LightingExtensionNamesPage, LightingExtensionNamesRequest, LightingExtensionParamsPage,
++    LightingExtensionParamsRequest, LightingFramePage, LightingFrameRequest, LightingKeysPage, LightingLedsPage,
++    LightingOutputModeState, LightingOutputsPage, LightingOverlayPage, LightingOverlayPageRequest,
++    LightingOverlayTransaction, LightingPageRequest, LightingPhysicalKeysPage, LightingReplicaStatus, LightingResult,
++    LightingRoutesPage, LightingRuntimeConditionalScenePageRequest, LightingRuntimeConditionalSceneStatus,
++    LightingRuntimeConditionalSceneTransaction, LightingRuntimeConditionalScenesPage, LightingScenePageRequest,
++    LightingSceneStatus, LightingSceneTransaction, LightingScenesPage, LightingState, LightingZoneMembershipsPage,
++    LightingZonesPage, LockStatus, MacroData, MatrixState, MorseHoldTriggerPositionState, MorseProfileEntry,
++    MorseProfileState, PeripheralStatus, PointingConfig, ProtocolVersion, PutLightingExtendedRuntimeConditionalSceneChunkRequest,
+     PutLightingOverlayChunkRequest, PutLightingRuntimeConditionalSceneChunkRequest, PutLightingSceneChunkRequest,
+-    SetComboBulkRequest, SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest,
+-    SetLightingExtensionLayersRequest, SetLightingExtensionParamRequest, SetLightingExtensionStateRequest,
+-    SetLightingLayerPolicyRequest, SetLightingOutputModeRequest, SetLightingOverlayRequest,
+-    SetLightingSceneCellRequest, SetLightingStateRequest, SetMacroRequest, SetMorseBulkRequest, SetMorseRequest,
++    SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboRequest, SetEncoderRequest, SetForkRequest,
++    SetKeyRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest, SetLightingExtensionParamRequest,
++    SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest, SetLightingOutputModeRequest,
++    SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest, SetMacroRequest,
++    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
++    SetMorseProfileEntryRequest, SetMorseProfileRequest, SetMorseRequest, SetPointingConfigRequest,
+     SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
+-    AutoMouseLayerConfigState, BehaviorConfig, BehaviorOptions, Cmd, DeviceCapabilities, DeviceInfo,
+-    GetComboBulkRequest, GetComboBulkResponse, GetEncoderRequest, GetKeymapBulkRequest, GetKeymapBulkResponse,
+-    GetMacroRequest, GetMorseBulkRequest, GetMorseBulkResponse, GetMorseProfileBulkRequest,
+-    GetMorseProfileBulkResponse, GetMorseProfileStateRequest, KeyPosition, LockStatus, MacroData, MatrixState,
+-    MorseProfileEntry, MorseProfileState, PeripheralStatus, ProtocolVersion, SetAutoMouseLayerConfigsRequest,
+-    SetComboBulkRequest, SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest,
+-    SetMacroRequest, SetMorseBulkRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
+-    SetMorseProfileRequest, SetMorseRequest, StorageResetMode, command,
+-    GetMorseProfileStateRequest, MorseProfileEntry, MorseProfileState, SetMorseProfileEntryRequest,
++    UnsetLightingSceneCellRequest, command,
+ };
+ #[cfg(feature = "alloc")]
+ use rmk_types::protocol::rynk::{RYNK_HEADER_SIZE, RynkError, max_wire_size};
+@@ -366,6 +361,46 @@ impl Client {
+         self.request::<command::SetMorseHoldTriggerPositions>(&request).await
+     }
+
++    /// Read how many morse profile slots the device has.
++    ///
++    /// Doubles as the feature probe: firmware built before the profile
++    /// endpoints answers [`RynkHostError::Rejected`] with
++    /// [`RynkError::UnknownCmd`](rmk_types::protocol::rynk::RynkError::UnknownCmd),
++    /// and none of the calls below will work against it.
++    pub async fn get_morse_profile_count(&self) -> Result<u8, RynkHostError> {
++        self.request::<command::GetMorseProfileCount>(&()).await
++    }
++
++    /// Read the profile a tap-hold key bound to `index` resolves to. A slot
++    /// nothing has written reads as the device's default profile.
++    pub async fn get_morse_profile(&self, index: u8) -> Result<MorseProfile, RynkHostError> {
++        self.request::<command::GetMorseProfile>(&index).await
++    }
++
++    /// Write one morse profile by index. Every tap-hold key bound to that index
++    /// picks the new timings up on its next press.
++    pub async fn set_morse_profile(&self, index: u8, profile: MorseProfile) -> Result<(), RynkHostError> {
++        self.request::<command::SetMorseProfile>(&SetMorseProfileRequest { index, profile })
++            .await
++    }
++
++    /// Read one page of morse profiles starting at slot `start_index`, with the
++    /// same paging rules as [`get_morse_bulk`](Self::get_morse_bulk).
++    /// Requires [`DeviceCapabilities::bulk_transfer_supported`]; nothing is sent otherwise.
++    pub async fn get_morse_profile_bulk(&self, start_index: u8) -> Result<GetMorseProfileBulkResponse, RynkHostError> {
++        self.require_bulk_transfer(Cmd::GetMorseProfileBulk)?;
++        self.request::<command::GetMorseProfileBulk>(&GetMorseProfileBulkRequest { start_index })
++            .await
++    }
++
++    /// Write `request.profiles` into consecutive profile slots starting at
++    /// `request.start_index`.
++    /// Requires [`DeviceCapabilities::bulk_transfer_supported`]; nothing is sent otherwise.
++    pub async fn set_morse_profile_bulk(&self, request: SetMorseProfileBulkRequest) -> Result<(), RynkHostError> {
++        self.require_bulk_transfer(Cmd::SetMorseProfileBulk)?;
++        self.request::<command::SetMorseProfileBulk>(&request).await
++    }
++
+     /// Read the sparse set of occupied profile slots and their persistent names.
+     pub async fn get_morse_profile_state(&self, offset: u8) -> Result<MorseProfileState, RynkHostError> {
+         self.request::<command::GetMorseProfileState>(&GetMorseProfileStateRequest { offset })
+@@ -411,12 +446,38 @@ impl Client {
+         self.request::<command::GetPointingConfig>(&()).await
+     }
+
+-    /// Replace the pointing configuration and return what the device now holds.
++    /// Replace the pointing configuration and return what the device now
++    /// holds. The write is rejected unless `config.revision` still matches
++    /// the device's, so read before writing and retry on rejection.
+     pub async fn set_pointing_config(&self, config: PointingConfig) -> Result<PointingConfig, RynkHostError> {
+         self.request::<command::SetPointingConfig>(&SetPointingConfigRequest { config })
+             .await
+     }
+
++    /// Read the global behavior settings added after [`BehaviorConfig`].
++    /// Firmware predating the endpoint rejects this with `UnknownCmd`.
++    pub async fn get_behavior_options(&self) -> Result<BehaviorOptions, RynkHostError> {
++        self.request::<command::GetBehaviorOptions>(&()).await
++    }
++
++    /// Replace the global behavior settings added after [`BehaviorConfig`].
++    pub async fn set_behavior_options(&self, options: BehaviorOptions) -> Result<(), RynkHostError> {
++        self.request::<command::SetBehaviorOptions>(&options).await
++    }
++
++    /// Read the complete auto mouse layer table and the firmware's capacity.
++    pub async fn get_auto_mouse_layer_configs(&self) -> Result<AutoMouseLayerConfigState, RynkHostError> {
++        self.request::<command::GetAutoMouseLayerConfigs>(&()).await
++    }
++
++    /// Atomically replace the complete auto mouse layer table.
++    pub async fn set_auto_mouse_layer_configs(
++        &self,
++        request: SetAutoMouseLayerConfigsRequest,
++    ) -> Result<(), RynkHostError> {
++        self.request::<command::SetAutoMouseLayerConfigs>(&request).await
++    }
++
+     /// Read the currently active layer.
+     pub async fn get_current_layer(&self) -> Result<u8, RynkHostError> {
+         self.request::<command::GetCurrentLayer>(&()).await
+@@ -1047,6 +1108,7 @@ impl Client {
+             entries,
+         })
+     }
++
+     /// Write the whole keymap with concurrent paged writes, each page filled up to the
+     /// device's payload limit. A failure leaves the earlier pages applied.
+     pub async fn write_all_keymap(&self, actions: Vec<KeyAction>) -> Result<(), RynkHostError> {
+@@ -1589,6 +1651,20 @@ impl Client {
+         .await
+     }
+
++    /// Write every morse profile with concurrent paged writes, each page filled
++    /// up to the device's payload limit. A failure leaves the earlier pages applied.
++    pub async fn write_all_morse_profiles(&self, profiles: Vec<MorseProfile>) -> Result<(), RynkHostError> {
++        // 1 fixed byte before the items: start_index.
++        self.write_all(Cmd::SetMorseProfileBulk, 1, profiles, async |c, start, profiles| {
++            c.set_morse_profile_bulk(SetMorseProfileBulkRequest {
++                start_index: start as u8,
++                profiles,
++            })
++            .await
++        })
++        .await
++    }
++
+     /// Read a whole resource on [`MAX_IN_FLIGHT`] lanes concurrently.
+     /// `advertised` is the device's max items per page (`max_bulk_items`/`max_bulk_keys`).
+     ///
