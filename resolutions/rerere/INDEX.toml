@@ -680,6 +680,12 @@ paths = ["rmk/src/keyboard/morse.rs"]
 recorded = "2026-08-09T05:53:43.512752791+00:00"
 
 [[resolution]]
+entry = "fold/opposite-hand-hold"
+hash = "e45ae7dca5ca4aa95deef0168b332bce0cd30dde"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-08-10T15:52:09.125626985+00:00"
+
+[[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
 hash = "0ae52f4a522bb6342d65472b9edbb9c9786c8b89"
 paths = ["rmk/src/keyboard/auto_mouse_layer.rs"]
