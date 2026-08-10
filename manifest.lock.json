@@ -32,14 +32,14 @@
     }
   },
   "build": {
-    "generated": "2026-08-10T07:06:16.881063468+00:00",
+    "generated": "2026-08-10T07:10:03.799487455+00:00",
     "base": "0b11ba03831d508a0316a2c7220d7262e1b1ee9d",
-    "commit": "cbbb30ef581fdf0c653c1d19f596e487429465bf",
-    "pre_provenance_commit": "cbbb30ef581fdf0c653c1d19f596e487429465bf",
-    "tree": "0642bdc6ac9316a5a6f55061614239313e44831c",
-    "built_tree": "0642bdc6ac9316a5a6f55061614239313e44831c",
+    "commit": "9f92bdd2a2cccfba9a8597a3b89b45a6e062a0fc",
+    "pre_provenance_commit": "9f92bdd2a2cccfba9a8597a3b89b45a6e062a0fc",
+    "tree": "5c8076fbfd0d37273c42794be98749ce19a17710",
+    "built_tree": "5c8076fbfd0d37273c42794be98749ce19a17710",
     "previous_tree": "0642bdc6ac9316a5a6f55061614239313e44831c",
-    "tree_changed": false,
+    "tree_changed": true,
     "conflicts": 16,
     "manifest_entries": [
       {
@@ -203,7 +203,7 @@
         "kind": "branch",
         "source": "fork:feat/position-combos",
         "pin": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
-        "fixup": "5b312a69f07872e3cc76e915c9b3327699faa8ed"
+        "fixup": "6cfd08f9db322d5b1c85bbc6bf6412d2653c5e63"
       }
     ],
     "results": [
@@ -384,7 +384,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "5b312a69f07872e3cc76e915c9b3327699faa8ed"
+        "fixup": "6cfd08f9db322d5b1c85bbc6bf6412d2653c5e63"
       }
     ]
   }

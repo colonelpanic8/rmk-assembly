@@ -27,3 +27,86 @@ index 3b2803a1..5989b47a 100644
  ]
 
  # Two different writes, each read back: the read follows the write instead of
+diff --git a/rynk/rynk-wasm/src/client.rs b/rynk/rynk-wasm/src/client.rs
+index b4440ca9..8bf7f476 100644
+--- a/rynk/rynk-wasm/src/client.rs
++++ b/rynk/rynk-wasm/src/client.rs
+@@ -45,8 +45,9 @@ use rynk::rmk_types::protocol::rynk::{
+     SetComboBulkRequest, SetComboDefinitionBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest,
+     SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
+     SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
+-    SetMorseBulkRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest, SplitCentralLatencyPolicy,
+-    SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
++    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
++    SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
++    UnsetLightingSceneCellRequest,
+ };
+ use rynk::{Client, Driver, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
+ use wasm_bindgen::prelude::*;
+@@ -111,11 +112,6 @@ impl RynkClient {
+         let state = self.drive(self.client.read_morse_profile_state()).await?;
+         serde_wasm_bindgen::to_value(&state).map_err(|error| JsValue::from_str(&error.to_string()))
+     }
+-    #[wasm_bindgen(unchecked_return_type = "MorseProfileState")]
+-    pub async fn read_morse_profile_state(&self) -> Result<JsValue, JsValue> {
+-        let state = self.drive(self.client.read_morse_profile_state()).await?;
+-        serde_wasm_bindgen::to_value(&state).map_err(|error| JsValue::from_str(&error.to_string()))
+-    }
+
+     #[wasm_bindgen(unchecked_return_type = "MorseProfile[]")]
+     pub async fn read_all_morse_profiles(&self) -> Result<JsValue, JsValue> {
+@@ -216,11 +212,6 @@ endpoints! {
+     set_morse_bulk(request: SetMorseBulkRequest) -> (),
+     get_morse_hold_trigger_positions() -> MorseHoldTriggerPositionState,
+     set_morse_hold_trigger_positions(request: SetMorseHoldTriggerPositionsRequest) -> (),
+-    get_pointing_config() -> PointingConfig,
+-    set_pointing_config(config: PointingConfig) -> PointingConfig,
+-    get_morse_profile_count() -> u8,
+-    get_morse_profile_bulk(start_index: u8) -> GetMorseProfileBulkResponse,
+-    set_morse_profile_bulk(request: SetMorseProfileBulkRequest) -> (),
+     get_morse_profile_count() -> u8,
+     get_morse_profile_bulk(start_index: u8) -> GetMorseProfileBulkResponse,
+     set_morse_profile_bulk(request: SetMorseProfileBulkRequest) -> (),
+@@ -234,6 +225,10 @@ endpoints! {
+     set_behavior(config: BehaviorConfig) -> (),
+     get_split_central_latency() -> SplitCentralLatencyState,
+     set_split_central_latency(policy: SplitCentralLatencyPolicy) -> SplitCentralLatencyState,
++    get_behavior_options() -> BehaviorOptions,
++    set_behavior_options(options: BehaviorOptions) -> (),
++    get_auto_mouse_layer_configs() -> AutoMouseLayerConfigState,
++    set_auto_mouse_layer_configs(request: SetAutoMouseLayerConfigsRequest) -> (),
+     // status
+     get_current_layer() -> u8,
+     get_layer_state() -> LayerState,
+diff --git a/rynk/src/api.rs b/rynk/src/api.rs
+index 5454722d..54cacfed 100644
+--- a/rynk/src/api.rs
++++ b/rynk/src/api.rs
+@@ -25,7 +25,7 @@ use rmk_types::protocol::rynk::{
+     AbortLightingOverlayReplaceRequest, AbortLightingRuntimeConditionalSceneReplaceRequest,
+     AbortLightingSceneReplaceRequest, AutoMouseLayerConfigState, BeginLightingOverlayReplaceRequest,
+     BeginLightingRuntimeConditionalSceneReplaceRequest, BeginLightingSceneReplaceRequest, BehaviorConfig,
+-    BehaviorOptions, BuildInfo, ClearLightingOverlayRequest, Cmd, CommitLightingOverlayReplaceRequest,
++    BehaviorOptions, BleName, BuildInfo, ClearLightingOverlayRequest, Cmd, CommitLightingOverlayReplaceRequest,
+     CommitLightingRuntimeConditionalSceneReplaceRequest, CommitLightingSceneReplaceRequest, DeviceCapabilities,
+     DeviceInfo, GetComboBulkRequest, GetComboBulkResponse, GetComboDefinitionBulkResponse, GetEncoderRequest,
+     GetKeymapBulkRequest, GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest, GetMorseBulkResponse,
+@@ -1074,6 +1074,18 @@ impl Client {
+         self.require_ble(Cmd::ClearBleProfile)?;
+         self.request::<command::ClearBleProfile>(&slot).await
+     }
++
++    /// Read the persistent BLE advertising-name template.
++    pub async fn get_ble_name(&self) -> Result<BleName, RynkHostError> {
++        self.require_ble(Cmd::GetBleName)?;
++        self.request::<command::GetBleName>(&()).await
++    }
++
++    /// Replace the persistent BLE advertising-name template.
++    pub async fn set_ble_name(&self, value: &BleName) -> Result<(), RynkHostError> {
++        self.require_ble(Cmd::SetBleName)?;
++        self.request::<command::SetBleName>(value).await
++    }
+ }
+
+ #[cfg(feature = "alloc")]
