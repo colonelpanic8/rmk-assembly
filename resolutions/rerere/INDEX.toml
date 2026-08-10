@@ -543,6 +543,12 @@ recorded = "2026-08-09T22:57:55.078095419+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
+hash = "8713d252e296d382b1e1da0927ce5d45cf3c9726"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-10T07:05:40.808525727+00:00"
+
+[[resolution]]
+entry = "feat/position-combos"
 hash = "97b7a6a6e0bef293377e2e2c48321e3d1e42ef9d"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-08-09T22:57:55.078095810+00:00"
@@ -615,15 +621,15 @@ recorded = "2026-08-08T02:07:39.683649921+00:00"
 
 [[resolution]]
 entry = "fix/ephemeral-split-layer-state"
-hash = "f747d7cf62977d2df1d34211ea8b9c2a82b54f84"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-08-08T02:07:39.683650282+00:00"
-
-[[resolution]]
-entry = "fix/ephemeral-split-layer-state"
 hash = "f381175cb7e0aa51242449cdf4e0eb6ee01674ca"
 paths = ["rmk/src/split/mod.rs"]
 recorded = "2026-08-10T06:57:47.870782791+00:00"
+
+[[resolution]]
+entry = "fix/ephemeral-split-layer-state"
+hash = "f747d7cf62977d2df1d34211ea8b9c2a82b54f84"
+paths = ["rmk/src/split/mod.rs"]
+recorded = "2026-08-08T02:07:39.683650282+00:00"
 
 [[resolution]]
 entry = "fold/lighting-rynk"

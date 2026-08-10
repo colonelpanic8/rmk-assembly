@@ -1,7 +1,7 @@
 {
   "version": 1,
   "pins": {
-    "base": "65df15775026bad1189139613ee3d338139bec3d",
+    "base": "0b11ba03831d508a0316a2c7220d7262e1b1ee9d",
     "entries": {
       "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
@@ -15,9 +15,10 @@
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
+      "feat/position-combos": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
-      "fix/ephemeral-split-layer-state": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+      "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
       "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -31,15 +32,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-09T07:12:33.098194882+00:00",
-    "base": "65df15775026bad1189139613ee3d338139bec3d",
-    "commit": "974651ea4a4538061e646e4920c465380b12d0f1",
-    "pre_provenance_commit": "974651ea4a4538061e646e4920c465380b12d0f1",
-    "tree": "7c948f223c4ec8fdc326829f63dddc18f1762a90",
-    "built_tree": "7c948f223c4ec8fdc326829f63dddc18f1762a90",
-    "previous_tree": "f4b2ed189b45be08a894660745bbafaecaee775c",
-    "tree_changed": true,
-    "conflicts": 15,
+    "generated": "2026-08-10T07:06:16.881063468+00:00",
+    "base": "0b11ba03831d508a0316a2c7220d7262e1b1ee9d",
+    "commit": "cbbb30ef581fdf0c653c1d19f596e487429465bf",
+    "pre_provenance_commit": "cbbb30ef581fdf0c653c1d19f596e487429465bf",
+    "tree": "0642bdc6ac9316a5a6f55061614239313e44831c",
+    "built_tree": "0642bdc6ac9316a5a6f55061614239313e44831c",
+    "previous_tree": "0642bdc6ac9316a5a6f55061614239313e44831c",
+    "tree_changed": false,
+    "conflicts": 16,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -155,7 +156,7 @@
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
         "pin": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
-        "fixup": "54eae5c3d98dbebccb07f4f83ea2888d264e4dd8"
+        "fixup": "dd917a145b70d3632c6239b0448c97d65f79500f"
       },
       {
         "name": "feat/maintenance-mode",
@@ -182,7 +183,7 @@
         "name": "fix/ephemeral-split-layer-state",
         "kind": "branch",
         "source": "fork:fix/ephemeral-split-layer-state",
-        "pin": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+        "pin": "003b180bf0de0655e58256098d6f164d0fae9761",
         "fixup": "df0cc0379ec1747033892e719a88a1d2ac7c55f4"
       },
       {
@@ -196,6 +197,13 @@
         "kind": "branch",
         "source": "fork:fold/opposite-hand-hold",
         "pin": "24caf85c2dfd9b827edb7386879f0e65972b74bd"
+      },
+      {
+        "name": "feat/position-combos",
+        "kind": "branch",
+        "source": "fork:feat/position-combos",
+        "pin": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
+        "fixup": "5b312a69f07872e3cc76e915c9b3327699faa8ed"
       }
     ],
     "results": [
@@ -324,7 +332,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "54eae5c3d98dbebccb07f4f83ea2888d264e4dd8"
+        "fixup": "dd917a145b70d3632c6239b0448c97d65f79500f"
       },
       {
         "name": "feat/maintenance-mode",
@@ -351,7 +359,7 @@
       },
       {
         "name": "fix/ephemeral-split-layer-state",
-        "oid": "278b04ac883a9873de39a82d0a60afd998bfc3a2",
+        "oid": "003b180bf0de0655e58256098d6f164d0fae9761",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -369,6 +377,14 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
+      },
+      {
+        "name": "feat/position-combos",
+        "oid": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "5b312a69f07872e3cc76e915c9b3327699faa8ed"
       }
     ]
   }
