@@ -620,6 +620,12 @@ paths = ["rmk/src/split/mod.rs"]
 recorded = "2026-08-08T02:07:39.683650282+00:00"
 
 [[resolution]]
+entry = "fix/ephemeral-split-layer-state"
+hash = "f381175cb7e0aa51242449cdf4e0eb6ee01674ca"
+paths = ["rmk/src/split/mod.rs"]
+recorded = "2026-08-10T06:57:47.870782791+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]
