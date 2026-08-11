@@ -13,7 +13,7 @@
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
-      "feat/nrf-half-duplex-split": "75f8fe0b01199b1be8c6c678826ba8f771bf56e1",
+      "feat/nrf-half-duplex-split": "b5e0541da9e5d82b76c2ab48f832c3d30554960d",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/position-combos": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
@@ -33,13 +33,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-11T05:46:31.379291840+00:00",
+    "generated": "2026-08-11T05:50:13.215145307+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "4d8ef8866aded15beeaf92ebe459fefaf7dc7337",
-    "pre_provenance_commit": "4d8ef8866aded15beeaf92ebe459fefaf7dc7337",
-    "tree": "de838371ca78bce916b2bea76ad04f9aa8edb9d2",
-    "built_tree": "de838371ca78bce916b2bea76ad04f9aa8edb9d2",
-    "previous_tree": "5fac419f5a34c2aafb869dbfb9fe25b4a7aff2c4",
+    "commit": "40b5a2f10e6153b9b4be0b2cd6a40e8c8910e8ea",
+    "pre_provenance_commit": "40b5a2f10e6153b9b4be0b2cd6a40e8c8910e8ea",
+    "tree": "49903170141bddb9bf94650c7090a70972cf9c27",
+    "built_tree": "49903170141bddb9bf94650c7090a70972cf9c27",
+    "previous_tree": "de838371ca78bce916b2bea76ad04f9aa8edb9d2",
     "tree_changed": true,
     "conflicts": 17,
     "manifest_entries": [
@@ -210,7 +210,7 @@
         "name": "feat/nrf-half-duplex-split",
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
-        "pin": "75f8fe0b01199b1be8c6c678826ba8f771bf56e1",
+        "pin": "b5e0541da9e5d82b76c2ab48f832c3d30554960d",
         "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
       }
     ],
@@ -396,7 +396,7 @@
       },
       {
         "name": "feat/nrf-half-duplex-split",
-        "oid": "75f8fe0b01199b1be8c6c678826ba8f771bf56e1",
+        "oid": "b5e0541da9e5d82b76c2ab48f832c3d30554960d",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
