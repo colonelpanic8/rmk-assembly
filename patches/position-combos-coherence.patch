@@ -78,35 +78,3 @@ index b4440ca9..8bf7f476 100644
      // status
      get_current_layer() -> u8,
      get_layer_state() -> LayerState,
-diff --git a/rynk/src/api.rs b/rynk/src/api.rs
-index 5454722d..54cacfed 100644
---- a/rynk/src/api.rs
-+++ b/rynk/src/api.rs
-@@ -25,7 +25,7 @@ use rmk_types::protocol::rynk::{
-     AbortLightingOverlayReplaceRequest, AbortLightingRuntimeConditionalSceneReplaceRequest,
-     AbortLightingSceneReplaceRequest, AutoMouseLayerConfigState, BeginLightingOverlayReplaceRequest,
-     BeginLightingRuntimeConditionalSceneReplaceRequest, BeginLightingSceneReplaceRequest, BehaviorConfig,
--    BehaviorOptions, BuildInfo, ClearLightingOverlayRequest, Cmd, CommitLightingOverlayReplaceRequest,
-+    BehaviorOptions, BleName, BuildInfo, ClearLightingOverlayRequest, Cmd, CommitLightingOverlayReplaceRequest,
-     CommitLightingRuntimeConditionalSceneReplaceRequest, CommitLightingSceneReplaceRequest, DeviceCapabilities,
-     DeviceInfo, GetComboBulkRequest, GetComboBulkResponse, GetComboDefinitionBulkResponse, GetEncoderRequest,
-     GetKeymapBulkRequest, GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest, GetMorseBulkResponse,
-@@ -1074,6 +1074,18 @@ impl Client {
-         self.require_ble(Cmd::ClearBleProfile)?;
-         self.request::<command::ClearBleProfile>(&slot).await
-     }
-+
-+    /// Read the persistent BLE advertising-name template.
-+    pub async fn get_ble_name(&self) -> Result<BleName, RynkHostError> {
-+        self.require_ble(Cmd::GetBleName)?;
-+        self.request::<command::GetBleName>(&()).await
-+    }
-+
-+    /// Replace the persistent BLE advertising-name template.
-+    pub async fn set_ble_name(&self, value: &BleName) -> Result<(), RynkHostError> {
-+        self.require_ble(Cmd::SetBleName)?;
-+        self.request::<command::SetBleName>(value).await
-+    }
- }
-
- #[cfg(feature = "alloc")]

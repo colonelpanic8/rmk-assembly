@@ -29,18 +29,19 @@
       "fold/runtime-behavior-parity": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
-      "pr-1031": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
-      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
+      "pr-1031": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
+      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
+      "runtime-lighting-wake-layers": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
     }
   },
   "build": {
-    "generated": "2026-08-11T20:02:16.263280347+00:00",
+    "generated": "2026-08-11T23:27:18.952386942+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "6556f2ce792cb77fc8caed30e394f50487d5cfc8",
-    "pre_provenance_commit": "6556f2ce792cb77fc8caed30e394f50487d5cfc8",
-    "tree": "db2fb1b971439f23cb5563fc3918e9b567a39cb4",
-    "built_tree": "db2fb1b971439f23cb5563fc3918e9b567a39cb4",
-    "previous_tree": "49903170141bddb9bf94650c7090a70972cf9c27",
+    "commit": "98149f6dc3f87fe4f64885fce7fea6fea93e8add",
+    "pre_provenance_commit": "98149f6dc3f87fe4f64885fce7fea6fea93e8add",
+    "tree": "3c564481ef308ab1c41dc269781fa347f72df267",
+    "built_tree": "3c564481ef308ab1c41dc269781fa347f72df267",
+    "previous_tree": "938c359a9a93f98c7944d82d64b6ca6308a2c36f",
     "tree_changed": true,
     "conflicts": 18,
     "manifest_entries": [
@@ -60,7 +61,7 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
+        "pin": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -205,7 +206,7 @@
         "kind": "branch",
         "source": "fork:feat/position-combos",
         "pin": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
-        "fixup": "6cfd08f9db322d5b1c85bbc6bf6412d2653c5e63"
+        "fixup": "71a947104d821e378c3abfecca8c239147806eac"
       },
       {
         "name": "feat/nrf-half-duplex-split",
@@ -219,6 +220,12 @@
         "kind": "branch",
         "source": "fork:feat/device-data",
         "pin": "751f23a0bf360fb397e9b3b412203d3e19edeb1e"
+      },
+      {
+        "name": "runtime-lighting-wake-layers",
+        "kind": "patch",
+        "source": "patches/runtime-lighting-wake-layers.patch",
+        "pin": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
       }
     ],
     "results": [
@@ -236,7 +243,7 @@
       },
       {
         "name": "pr-1031",
-        "oid": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
+        "oid": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -399,7 +406,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "6cfd08f9db322d5b1c85bbc6bf6412d2653c5e63"
+        "fixup": "71a947104d821e378c3abfecca8c239147806eac"
       },
       {
         "name": "feat/nrf-half-duplex-split",
@@ -414,7 +421,13 @@
         "oid": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:13ee9f5bd0546a315d04820e6fd8cd1ffb40ae47,1c8dddd7c1dbaba8028863ee9c257f9675a7cd04,359ae5ff233bc09f36e0739007a75c8ec2ec64bd,51d63bd5386e54a737a9b6f86d33c8d4ac5da27b,7a199d1b5133fc5e9df1475d9b833df6ea234d13,7a90ee2f95a56e9d96c535150ffd0aa5fc89ad87,a3eaf7cda4d9aa52da6e6be9defc866ac97496bc,bc9c1d70225143a27f3c60d259e0fdb937f9041a,d76f5e954f2943a359c41c1b70ff1b8861cb03ee"
+        "resolution": "rerere"
+      },
+      {
+        "name": "runtime-lighting-wake-layers",
+        "oid": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b",
+        "status": "applied",
+        "conflicted": false
       }
     ]
   }

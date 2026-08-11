@@ -118,6 +118,9 @@ fixup = "patches/nrf-half-duplex-split-coherence.patch"
 [[entry]]
 branch = "fork:feat/device-data"
 
+[[entry]]
+patch = "patches/runtime-lighting-wake-layers.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
