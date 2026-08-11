@@ -115,6 +115,9 @@ fixup = "patches/position-combos-coherence.patch"
 branch = "fork:feat/nrf-half-duplex-split"
 fixup = "patches/nrf-half-duplex-split-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/device-data"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

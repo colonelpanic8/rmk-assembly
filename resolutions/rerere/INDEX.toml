@@ -104,6 +104,60 @@ paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-08-05T15:53:01.664787136+00:00"
 
 [[resolution]]
+entry = "feat/device-data"
+hash = "13ee9f5bd0546a315d04820e6fd8cd1ffb40ae47"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-08-11T20:02:16.238403677+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "1c8dddd7c1dbaba8028863ee9c257f9675a7cd04"
+paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
+recorded = "2026-08-11T20:02:16.238405801+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "359ae5ff233bc09f36e0739007a75c8ec2ec64bd"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-08-11T20:02:16.238406262+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "51d63bd5386e54a737a9b6f86d33c8d4ac5da27b"
+paths = ["rynk/src/driver/tests.rs"]
+recorded = "2026-08-11T20:02:16.238406582+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "7a199d1b5133fc5e9df1475d9b833df6ea234d13"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-11T20:02:16.238406873+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "7a90ee2f95a56e9d96c535150ffd0aa5fc89ad87"
+paths = ["rmk-types/src/protocol/rynk/tests.rs"]
+recorded = "2026-08-11T20:02:16.238407173+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "a3eaf7cda4d9aa52da6e6be9defc866ac97496bc"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-08-11T20:02:16.238407364+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "bc9c1d70225143a27f3c60d259e0fdb937f9041a"
+paths = ["rmk/src/host/rynk/handlers/system.rs"]
+recorded = "2026-08-11T20:02:16.238407614+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
+hash = "d76f5e954f2943a359c41c1b70ff1b8861cb03ee"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-08-11T20:02:16.238408005+00:00"
+
+[[resolution]]
 entry = "feat/maintenance-mode"
 hash = "03db6fecebc57eecba8c562ea7d973e80b958e35"
 paths = ["rmk/src/host/rynk/mod.rs"]
