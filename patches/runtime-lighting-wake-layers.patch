@@ -204,14 +204,15 @@ diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
 diff --git a/rynk/src/api.rs b/rynk/src/api.rs
 --- a/rynk/src/api.rs
 +++ b/rynk/src/api.rs
-@@ -54,4 +54,4 @@ use rmk_types::protocol::rynk::{
+@@ -54,4 +54,5 @@ use rmk_types::protocol::rynk::{
      SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
 -    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
 -    SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
 +    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
 +    SetLightingWakeLayersRequest, SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest,
++    SetMorseProfileBulkRequest,
      SetMorseProfileEntryRequest, SetMorseProfileRequest, SetMorseRequest, SetPointingConfigRequest,
-@@ -602,6 +603,15 @@ impl Client {
+@@ -602,6 +604,15 @@ impl Client {
          Self::flatten_lighting(self.request::<command::SetLightingOutputMode>(&request).await?)
      }
  

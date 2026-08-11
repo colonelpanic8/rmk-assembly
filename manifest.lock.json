@@ -31,17 +31,17 @@
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
       "pr-1031": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
       "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
-      "runtime-lighting-wake-layers": "ea097bd9c33652851b9f7aa752089aa63f0a8137"
+      "runtime-lighting-wake-layers": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
     }
   },
   "build": {
-    "generated": "2026-08-11T23:23:06.263077105+00:00",
+    "generated": "2026-08-11T23:27:18.952386942+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "f1ea763882f63a824db1d8ccad581f048de2c5d7",
-    "pre_provenance_commit": "f1ea763882f63a824db1d8ccad581f048de2c5d7",
-    "tree": "938c359a9a93f98c7944d82d64b6ca6308a2c36f",
-    "built_tree": "938c359a9a93f98c7944d82d64b6ca6308a2c36f",
-    "previous_tree": "0a13e56d670b576057fea9fa8d69e438ab8499b6",
+    "commit": "98149f6dc3f87fe4f64885fce7fea6fea93e8add",
+    "pre_provenance_commit": "98149f6dc3f87fe4f64885fce7fea6fea93e8add",
+    "tree": "3c564481ef308ab1c41dc269781fa347f72df267",
+    "built_tree": "3c564481ef308ab1c41dc269781fa347f72df267",
+    "previous_tree": "938c359a9a93f98c7944d82d64b6ca6308a2c36f",
     "tree_changed": true,
     "conflicts": 18,
     "manifest_entries": [
@@ -225,7 +225,7 @@
         "name": "runtime-lighting-wake-layers",
         "kind": "patch",
         "source": "patches/runtime-lighting-wake-layers.patch",
-        "pin": "ea097bd9c33652851b9f7aa752089aa63f0a8137"
+        "pin": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
       }
     ],
     "results": [
@@ -421,11 +421,11 @@
         "oid": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:998ab8b814737500ba724748095d8884cecdc1ca"
+        "resolution": "rerere"
       },
       {
         "name": "runtime-lighting-wake-layers",
-        "oid": "ea097bd9c33652851b9f7aa752089aa63f0a8137",
+        "oid": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b",
         "status": "applied",
         "conflicted": false
       }
