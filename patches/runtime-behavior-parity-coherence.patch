@@ -22,7 +22,7 @@ index ee566f8b..2e9a4956 100644
          true
      }
 diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
-index 4e5957db..dd7e613b 100644
+index 4e5957db..32dbb903 100644
 --- a/rmk/src/host/storage.rs
 +++ b/rmk/src/host/storage.rs
 @@ -1,7 +1,6 @@
@@ -33,17 +33,17 @@ index 4e5957db..dd7e613b 100644
 +use rmk_types::morse::{MorseProfile, MorseProfileName};
  use serde::de::{Error as DeError, SeqAccess, Visitor};
  use serde::{Deserializer, Serializer};
- 
+
 @@ -83,6 +82,8 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
              .map_err(|e| print_storage_error::<F>(e))?;
- 
+
          let mut records_read = 0;
 +        let mut stored_profiles = [false; MORSE_PROFILE_MAX_NUM];
 +        let mut stored_profile_names = [false; MORSE_PROFILE_MAX_NUM];
          while let Some((key, item)) = key_iterator
              .next::<StorageData>(&mut self.buffer)
              .await
-@@ -142,6 +143,48 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+@@ -142,9 +143,50 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
                          *item = morse;
                      }
                  }
@@ -91,11 +91,14 @@ index 4e5957db..dd7e613b 100644
 +                }
                  _ => {}
              }
- 
-@@ -152,52 +195,21 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+-
+             records_read += 1;
+             if records_read % 32 == 0 {
+                 // Memory-mapped flash can keep every read ready, so let other tasks run.
+@@ -152,52 +194,21 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
              }
          }
- 
+
 -        Ok(())
 -    }
 -
@@ -157,7 +160,7 @@ index 4e5957db..dd7e613b 100644
 +                behavior.morse.profile_names[idx] = name;
              }
          }
- 
+
 diff --git a/rmk/src/keymap.rs b/rmk/src/keymap.rs
 index 752c7cc7..01378110 100644
 --- a/rmk/src/keymap.rs
@@ -171,7 +174,7 @@ index 752c7cc7..01378110 100644
 +            .retain(|(profile, _, _)| *profile != idx as u8);
          true
      }
- 
+
 diff --git a/rmk/tests/scenarios/rynk_morse_profile.toml b/rmk/tests/scenarios/rynk_morse_profile.toml
 index b670372a..c5cf40e0 100644
 --- a/rmk/tests/scenarios/rynk_morse_profile.toml
