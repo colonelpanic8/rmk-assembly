@@ -111,6 +111,9 @@ branch = "fork:fold/opposite-hand-hold"
 branch = "fork:feat/position-combos"
 fixup = "patches/position-combos-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/nrf-half-duplex-split"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
