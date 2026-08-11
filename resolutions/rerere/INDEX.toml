@@ -147,6 +147,12 @@ recorded = "2026-08-11T20:02:16.238407173+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
+hash = "998ab8b814737500ba724748095d8884cecdc1ca"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-08-11T23:23:06.164682980+00:00"
+
+[[resolution]]
+entry = "feat/device-data"
 hash = "a3eaf7cda4d9aa52da6e6be9defc866ac97496bc"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-08-11T20:02:16.238407364+00:00"
