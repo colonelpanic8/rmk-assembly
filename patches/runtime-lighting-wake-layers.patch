@@ -1,0 +1,305 @@
+diff --git a/rmk/src/lighting/standard/command.rs b/rmk/src/lighting/standard/command.rs
+--- a/rmk/src/lighting/standard/command.rs
++++ b/rmk/src/lighting/standard/command.rs
+@@ -189,6 +189,7 @@ pub struct StandardState {
+     pub output_mode: OutputMode,
+     pub powered: bool,
+     pub wake_active: bool,
++    pub wake_layers: u64,
+     pub output_brightness: u8,
+     pub background: BackgroundState,
+     pub overlay_len: usize,
+@@ -444,6 +445,7 @@ pub struct StandardReplicaState<const OVERLAY_CAP: usize, const SCENE_CAP: usize
+     pub revision: u32,
+     pub mutable: StandardMutableState,
+     pub output_mode: OutputMode,
++    pub wake_layers: u64,
+     pub overlay: OverlayBatch<OVERLAY_CAP>,
+     pub scenes: SceneTable<SCENE_CAP>,
+     pub runtime_conditional_scenes: RuntimeConditionalSceneTable<SCENE_CAP>,
+diff --git a/rmk/src/lighting/standard/engine.rs b/rmk/src/lighting/standard/engine.rs
+--- a/rmk/src/lighting/standard/engine.rs
++++ b/rmk/src/lighting/standard/engine.rs
+@@ -182,6 +182,7 @@ impl<'scenes, Extension, Status, const N: usize, const OVERLAY_CAP: usize, const
+             output_mode: self.output_mode,
+             powered: self.powered,
+             wake_active: self.wake_active,
++            wake_layers: self.controls.wake_layers,
+             output_brightness: self.output_brightness,
+             background: self.background.state(),
+             overlay_len: self.overlay.active_len(),
+@@ -347,6 +348,7 @@ impl<'scenes, Extension, Status, const N: usize, const OVERLAY_CAP: usize, const
+             revision: self.revision,
+             mutable: self.mutable_state(),
+             output_mode: self.output_mode,
++            wake_layers: self.controls.wake_layers,
+             overlay,
+             scenes: self.scenes,
+             runtime_conditional_scenes: self.runtime_conditional_scenes,
+@@ -395,6 +397,7 @@ impl<'scenes, Extension, Status, const N: usize, const OVERLAY_CAP: usize, const
+         self.overlay = overlay;
+         self.set_mutable_state(replica.mutable);
+         self.output_mode = replica.output_mode;
++        self.controls.wake_layers = replica.wake_layers;
+         self.scenes = replica.scenes;
+         self.runtime_conditional_scenes = replica.runtime_conditional_scenes;
+         self.revision = replica.revision;
+diff --git a/rmk/src/host/rynk/lighting.rs b/rmk/src/host/rynk/lighting.rs
+--- a/rmk/src/host/rynk/lighting.rs
++++ b/rmk/src/host/rynk/lighting.rs
+@@ -403,9 +403,9 @@ impl<'a> RynkLightingController<'a> {
+         self
+     }
+ 
+-    pub(super) const fn controls_to_wire(&self) -> WireLightingControls {
++    pub(super) const fn controls_to_wire(&self, wake_layers: u64) -> WireLightingControls {
+         WireLightingControls {
+             output_toggle_user_action: self.controls.output_toggle_user_action,
+-            wake_layers: self.controls.wake_layers,
++            wake_layers,
+         }
+     }
+@@ -427,7 +427,7 @@ impl<'a> RynkLightingController<'a> {
+                 crate::lighting::PoweredOnlyScope::Local => rmk_types::protocol::rynk::LightingPoweredOnlyScope::Local,
+             },
+             cycle_user_action: self.controls.output_mode_cycle_user_action,
+-            wake_layers: self.controls.wake_layers,
++            wake_layers: state.wake_layers,
+             indicator: self.controls.output_mode_indicator.and_then(|indicator| {
+                 self.descriptor
+                     .topology
+@@ -1088,6 +1088,15 @@ impl<'a, const OVERLAY_CAPACITY: usize, const CORE_COMMAND_CAPACITY: usize, cons
+                         layers,
+                     })
+                     .await?;
++                #[cfg(feature = "storage")]
++                {
++                    use crate::channel::FLASH_CHANNEL;
++                    use crate::storage::FlashOperationMessage;
++
++                    FLASH_CHANNEL
++                        .send(FlashOperationMessage::LightingWakeLayers(layers))
++                        .await;
++                }
+                 return Ok(RynkLightingReadback::OutputMode(state));
+             }
+             RynkLightingCommand::ReadOverlay {
+diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
+--- a/rmk/src/host/rynk/handlers/lighting.rs
++++ b/rmk/src/host/rynk/handlers/lighting.rs
+@@ -363,11 +363,22 @@ impl Handle<GetLightingCompiledScenes> for RynkService<'_> {
+ 
+ impl Handle<GetLightingConditionalSceneStatus> for RynkService<'_> {
+     async fn handle(&self, _: ()) -> Result<LightingConditionalSceneStatusResult, RynkError> {
+-        Ok(controller(self).map(|controller| LightingConditionalSceneStatus {
+-            topology_revision: controller.descriptor.topology_revision,
+-            cell_len: count(controller.conditional_scenes.len()),
+-            chunk_capacity: LIGHTING_CONDITIONAL_SCENE_CHUNK_SIZE as u8,
+-            controls: controller.controls_to_wire(),
+-        }))
++        Ok(match controller(self) {
++            Ok(controller) => {
++                controller
++                    .request(RynkLightingCommand::ReadOutputMode)
++                    .await
++                    .and_then(|reply| match reply {
++                        RynkLightingReadback::OutputMode(state) => Ok(LightingConditionalSceneStatus {
++                            topology_revision: controller.descriptor.topology_revision,
++                            cell_len: count(controller.conditional_scenes.len()),
++                            chunk_capacity: LIGHTING_CONDITIONAL_SCENE_CHUNK_SIZE as u8,
++                            controls: controller.controls_to_wire(state.wake_layers),
++                        }),
++                        _ => Err(LightingError::InvalidRequest),
++                    })
++            }
++            Err(error) => Err(error),
++        })
+     }
+ }
+diff --git a/rmk/src/lighting/standard/tests.rs b/rmk/src/lighting/standard/tests.rs
+--- a/rmk/src/lighting/standard/tests.rs
++++ b/rmk/src/lighting/standard/tests.rs
+@@ -291,6 +291,7 @@ fn replica_slot_rejects_overwrite_and_empty_take() {
+             background: BackgroundState::default(),
+         },
+         output_mode: OutputMode::AlwaysOn,
++        wake_layers: 0,
+         overlay: OverlayBatch::new(),
+         scenes: SceneTable::new(),
+         runtime_conditional_scenes: RuntimeConditionalSceneTable::new(),
+@@ -326,6 +327,7 @@ fn apply_replica_restores_complete_runtime_state() {
+             },
+         },
+         output_mode: OutputMode::AlwaysOff,
++        wake_layers: 1 << 2,
+         overlay: OverlayBatch::new(),
+         scenes: SceneTable::new(),
+         runtime_conditional_scenes: RuntimeConditionalSceneTable::new(),
+@@ -538,6 +540,7 @@ fn snapshot_rejects_scene_truncation() {
+             background: BackgroundState::default(),
+         },
+         output_mode: OutputMode::AlwaysOn,
++        wake_layers: 0,
+         overlay,
+         scenes: SceneTable::new(),
+         runtime_conditional_scenes: RuntimeConditionalSceneTable::new(),
+diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+--- a/rmk/src/storage/mod.rs
++++ b/rmk/src/storage/mod.rs
+@@ -246,3 +246,5 @@ pub(crate) enum FlashOperationMessage {
+     // Persist the BLE advertising-name template.
+     BleName(BleName),
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    LightingWakeLayers(u64),
+ }
+@@ -317,4 +319,7 @@ pub(crate) enum StorageKey {
+     // Postcard tags variants by declaration order, so new keys go last.
+     #[cfg(feature = "_ble")]
+     BleName,
++    // Append-only: postcard encodes enum variants by ordinal.
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    LightingWakeLayers,
+ }
+@@ -445,4 +450,6 @@ pub(crate) enum StorageData {
+     /// Appended to preserve every existing postcard enum discriminant.
+     #[cfg(feature = "host")]
+     PositionCombo(PositionComboConfig),
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    LightingWakeLayers(u64),
+ }
+@@ -872,6 +879,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+         }
+     }
+ 
++    /// Read the user-selected wake-layer mask. `None` preserves the board's
++    /// compiled fallback on keyboards that have never configured it.
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    pub async fn read_lighting_wake_layers(&mut self) -> Option<u64> {
++        match self.fetch_data(StorageKey::LightingWakeLayers).await {
++            Some(StorageData::LightingWakeLayers(layers)) => Some(layers),
++            _ => None,
++        }
++    }
++
+     /// Read the persisted lighting scene configuration at startup, before the
+     /// storage task takes ownership. Returns the persisted layer policy, if
+     /// any, and appends up to `CAP` stored cells to `cells`.
+@@ -1410,6 +1427,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+                     }
+                 }
+                 #[cfg(all(feature = "lighting", feature = "rynk"))]
++                FlashOperationMessage::LightingWakeLayers(layers) => {
++                    match self.fetch_data(StorageKey::LightingWakeLayers).await {
++                        Some(StorageData::LightingWakeLayers(saved)) if saved == layers => Ok(()),
++                        _ => {
++                            self.store_data(StorageKey::LightingWakeLayers, &StorageData::LightingWakeLayers(layers))
++                                .await
++                        }
++                    }
++                }
++                #[cfg(all(feature = "lighting", feature = "rynk"))]
+                 FlashOperationMessage::LightingSceneTable { len, policy } => {
+                     // Scene persistence rewrites the whole table on every
+                     // mutation; comparing before writing keeps unchanged
+diff --git a/rynk/src/api.rs b/rynk/src/api.rs
+--- a/rynk/src/api.rs
++++ b/rynk/src/api.rs
+@@ -54,4 +54,4 @@ use rmk_types::protocol::rynk::{
+     SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
+-    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
+-    SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
++    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
++    SetLightingWakeLayersRequest, SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest,
+     SetMorseProfileEntryRequest, SetMorseProfileRequest, SetMorseRequest, SetPointingConfigRequest,
+@@ -602,6 +603,15 @@ impl Client {
+         Self::flatten_lighting(self.request::<command::SetLightingOutputMode>(&request).await?)
+     }
+ 
++    /// Replace the layer mask that temporarily wakes otherwise-disabled lighting.
++    pub async fn set_lighting_wake_layers(
++        &self,
++        request: SetLightingWakeLayersRequest,
++    ) -> Result<LightingOutputModeState, RynkHostError> {
++        self.require_lighting(Cmd::SetLightingWakeLayers)?;
++        Self::flatten_lighting(self.request::<command::SetLightingWakeLayers>(&request).await?)
++    }
++
+     /// Atomically replace standard mutable state when the revision still matches.
+     pub async fn set_lighting_state(&self, request: SetLightingStateRequest) -> Result<LightingState, RynkHostError> {
+         self.require_lighting(Cmd::SetLightingState)?;
+diff --git a/rynk/rynk-wasm/src/client.rs b/rynk/rynk-wasm/src/client.rs
+--- a/rynk/rynk-wasm/src/client.rs
++++ b/rynk/rynk-wasm/src/client.rs
+@@ -46,6 +46,6 @@ use rynk::rmk_types::protocol::rynk::{
+     SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
+-    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
+-    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
+-    SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
+-    UnsetLightingSceneCellRequest,
++    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
++    SetLightingWakeLayersRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
++    SetMorseProfileEntryRequest, SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode,
++    UnsetLightingOverlayRequest, UnsetLightingSceneCellRequest,
+ };
+@@ -245,6 +246,7 @@ endpoints! {
+     get_lighting_state() -> LightingState,
+     get_lighting_output_mode() -> LightingOutputModeState,
+     set_lighting_output_mode(request: SetLightingOutputModeRequest) -> LightingOutputModeState,
++    set_lighting_wake_layers(request: SetLightingWakeLayersRequest) -> LightingOutputModeState,
+     set_lighting_state(request: SetLightingStateRequest) -> LightingState,
+     get_lighting_keys(request: LightingPageRequest) -> LightingKeysPage,
+     get_lighting_physical_keys(request: LightingPageRequest) -> LightingPhysicalKeysPage,
+diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
+--- a/rmk/src/host/rynk/handlers/lighting.rs
++++ b/rmk/src/host/rynk/handlers/lighting.rs
+@@ -2294,13 +2294,13 @@ mod tests {
+             GetLightingCompiledSceneStatus, GetLightingCompiledScenes, GetLightingConditionalSceneStatus,
+             GetLightingConditionalScenes, GetLightingOutputMode, GetLightingOverlay, GetLightingSceneStatus,
+             GetLightingScenes, PutLightingSceneChunk, SetLightingLayerPolicy, SetLightingOverlay, SetLightingSceneCell,
+-            UnsetLightingSceneCell,
++            SetLightingWakeLayers, UnsetLightingSceneCell,
+         };
+         use rmk_types::protocol::rynk::{
+             BeginLightingSceneReplaceRequest, CommitLightingSceneReplaceRequest, LightingLayerPolicy,
+             LightingOverlayPageRequest, LightingPageRequest, LightingScenePageRequest, PutLightingSceneChunkRequest,
+             SetLightingLayerPolicyRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest,
+-            UnsetLightingSceneCellRequest,
++            SetLightingWakeLayersRequest, UnsetLightingSceneCellRequest,
+         };
+ 
+         use crate::lighting::{
+@@ -2870,6 +2870,23 @@ mod tests {
+                         current: 8,
+                     })
+                 );
++                let wake = call::<SetLightingWakeLayers>(
++                    &service,
++                    &session,
++                    &SetLightingWakeLayersRequest {
++                        expected_revision: 8,
++                        layers: 1 << 2,
++                    },
++                )
++                .await
++                .unwrap()
++                .unwrap();
++                assert_eq!(wake.wake_layers, 1 << 2);
++                let conditional_status = call::<GetLightingConditionalSceneStatus>(&service, &session, &())
++                    .await
++                    .unwrap()
++                    .unwrap();
++                assert_eq!(conditional_status.controls.wake_layers, 1 << 2);
+             };
+ 
+             let adapter_loop = async {
+@@ -2933,6 +2950,10 @@ mod tests {
+                     message,
+                     FlashOperationMessage::LightingRuntimeConditionalSceneTable { len: 1 }
+                 )));
++                assert!(persisted.iter().any(|message| matches!(
++                    message,
++                    FlashOperationMessage::LightingWakeLayers(layers) if *layers == 1 << 2
++                )));
+             }
+         });
+     }

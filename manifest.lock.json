@@ -28,19 +28,20 @@
       "fold/runtime-behavior-parity": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
-      "pr-1031": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
-      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd"
+      "pr-1031": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
+      "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
+      "runtime-lighting-wake-layers": "ea097bd9c33652851b9f7aa752089aa63f0a8137"
     }
   },
   "build": {
-    "generated": "2026-08-11T05:50:13.215145307+00:00",
+    "generated": "2026-08-11T23:16:11.900899643+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "40b5a2f10e6153b9b4be0b2cd6a40e8c8910e8ea",
-    "pre_provenance_commit": "40b5a2f10e6153b9b4be0b2cd6a40e8c8910e8ea",
-    "tree": "49903170141bddb9bf94650c7090a70972cf9c27",
-    "built_tree": "49903170141bddb9bf94650c7090a70972cf9c27",
-    "previous_tree": "de838371ca78bce916b2bea76ad04f9aa8edb9d2",
-    "tree_changed": true,
+    "commit": "abb87b2a83f45f234b8f6b84180f7e81207e8acb",
+    "pre_provenance_commit": "abb87b2a83f45f234b8f6b84180f7e81207e8acb",
+    "tree": "0a13e56d670b576057fea9fa8d69e438ab8499b6",
+    "built_tree": "0a13e56d670b576057fea9fa8d69e438ab8499b6",
+    "previous_tree": "0a13e56d670b576057fea9fa8d69e438ab8499b6",
+    "tree_changed": false,
     "conflicts": 17,
     "manifest_entries": [
       {
@@ -59,7 +60,7 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
+        "pin": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -212,6 +213,12 @@
         "source": "fork:feat/nrf-half-duplex-split",
         "pin": "b5e0541da9e5d82b76c2ab48f832c3d30554960d",
         "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
+      },
+      {
+        "name": "runtime-lighting-wake-layers",
+        "kind": "patch",
+        "source": "patches/runtime-lighting-wake-layers.patch",
+        "pin": "ea097bd9c33652851b9f7aa752089aa63f0a8137"
       }
     ],
     "results": [
@@ -229,7 +236,7 @@
       },
       {
         "name": "pr-1031",
-        "oid": "4fe4754864ad3bbf8f630cf392b878e505eb16d7",
+        "oid": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -401,6 +408,12 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
+      },
+      {
+        "name": "runtime-lighting-wake-layers",
+        "oid": "ea097bd9c33652851b9f7aa752089aa63f0a8137",
+        "status": "applied",
+        "conflicted": false
       }
     ]
   }
