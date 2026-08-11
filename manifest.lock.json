@@ -6,6 +6,7 @@
       "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
+      "feat/device-data": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
       "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
       "feat/morse-hold-trigger-positions": "126418c4acad4bdc41e2c6694cdb9c6adbb24fe1",
@@ -215,6 +216,12 @@
         "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
       },
       {
+        "name": "feat/device-data",
+        "kind": "branch",
+        "source": "fork:feat/device-data",
+        "pin": "751f23a0bf360fb397e9b3b412203d3e19edeb1e"
+      },
+      {
         "name": "runtime-lighting-wake-layers",
         "kind": "patch",
         "source": "patches/runtime-lighting-wake-layers.patch",
@@ -408,6 +415,13 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
+      },
+      {
+        "name": "feat/device-data",
+        "oid": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:13ee9f5bd0546a315d04820e6fd8cd1ffb40ae47,1c8dddd7c1dbaba8028863ee9c257f9675a7cd04,359ae5ff233bc09f36e0739007a75c8ec2ec64bd,51d63bd5386e54a737a9b6f86d33c8d4ac5da27b,7a199d1b5133fc5e9df1475d9b833df6ea234d13,7a90ee2f95a56e9d96c535150ffd0aa5fc89ad87,a3eaf7cda4d9aa52da6e6be9defc866ac97496bc,bc9c1d70225143a27f3c60d259e0fdb937f9041a,d76f5e954f2943a359c41c1b70ff1b8861cb03ee"
       },
       {
         "name": "runtime-lighting-wake-layers",

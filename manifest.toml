@@ -116,6 +116,9 @@ branch = "fork:feat/nrf-half-duplex-split"
 fixup = "patches/nrf-half-duplex-split-coherence.patch"
 
 [[entry]]
+branch = "fork:feat/device-data"
+
+[[entry]]
 patch = "patches/runtime-lighting-wake-layers.patch"
 
 [[exclude]]
