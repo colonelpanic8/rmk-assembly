@@ -113,6 +113,7 @@ fixup = "patches/position-combos-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/nrf-half-duplex-split"
+fixup = "patches/nrf-half-duplex-split-coherence.patch"
 
 [[exclude]]
 pr = 999
