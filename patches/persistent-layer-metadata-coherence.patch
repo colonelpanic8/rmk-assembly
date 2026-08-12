@@ -1,0 +1,12 @@
+diff --git a/rmk-config/src/resolved/lighting.rs b/rmk-config/src/resolved/lighting.rs
+index 409b8b79e..52858f5bc 100644
+--- a/rmk-config/src/resolved/lighting.rs
++++ b/rmk-config/src/resolved/lighting.rs
+@@ -207,6 +207,7 @@ impl crate::KeyboardTomlConfig {
+             rows: layout.rows,
+             cols: layout.cols,
+             layers,
++            layer_names: Vec::new(),
+             keymap: Vec::new(),
+             encoder_map: Vec::new(),
+             key_info: Vec::new(),

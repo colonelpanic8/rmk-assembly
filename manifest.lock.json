@@ -15,6 +15,7 @@
       "feat/morse-tap-unless-interrupted": "e954947b9e6bb85c1abfdccdc7aa5be2427364eb",
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/nrf-half-duplex-split": "b5e0541da9e5d82b76c2ab48f832c3d30554960d",
+      "feat/persistent-layer-metadata": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
       "feat/position-combos": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
@@ -35,15 +36,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-11T23:27:18.952386942+00:00",
+    "generated": "2026-08-12T22:17:09.486419742+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "98149f6dc3f87fe4f64885fce7fea6fea93e8add",
-    "pre_provenance_commit": "98149f6dc3f87fe4f64885fce7fea6fea93e8add",
-    "tree": "3c564481ef308ab1c41dc269781fa347f72df267",
-    "built_tree": "3c564481ef308ab1c41dc269781fa347f72df267",
-    "previous_tree": "938c359a9a93f98c7944d82d64b6ca6308a2c36f",
+    "commit": "4f6fc4f4558fc276f534a7ce62d75d4004b55ab8",
+    "pre_provenance_commit": "4f6fc4f4558fc276f534a7ce62d75d4004b55ab8",
+    "tree": "f25b03b4b9afff807e73630839e96949600c3d8e",
+    "built_tree": "f25b03b4b9afff807e73630839e96949600c3d8e",
+    "previous_tree": "4d1d8ffd3afa3c4f72c8f15e78f44318ba186df8",
     "tree_changed": true,
-    "conflicts": 18,
+    "conflicts": 19,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -226,6 +227,13 @@
         "kind": "patch",
         "source": "patches/runtime-lighting-wake-layers.patch",
         "pin": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
+      },
+      {
+        "name": "feat/persistent-layer-metadata",
+        "kind": "branch",
+        "source": "fork:feat/persistent-layer-metadata",
+        "pin": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
+        "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
       }
     ],
     "results": [
@@ -428,6 +436,14 @@
         "oid": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b",
         "status": "applied",
         "conflicted": false
+      },
+      {
+        "name": "feat/persistent-layer-metadata",
+        "oid": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
       }
     ]
   }
