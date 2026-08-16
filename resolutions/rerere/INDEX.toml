@@ -867,6 +867,12 @@ recorded = "2026-08-07T20:07:26.192852350+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
+hash = "785a9482fcbb89de5951a2dd6385dabb53bfffd0"
+paths = ["rmk/src/input_device/pointing.rs"]
+recorded = "2026-08-16T04:42:51.805316547+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
 hash = "78d16565c2d743e20d0c9870e85e61ba294cf0c3"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-08-08T12:00:25.314743613+00:00"

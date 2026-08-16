@@ -17,16 +17,16 @@
       "feat/nrf-half-duplex-split": "b5e0541da9e5d82b76c2ab48f832c3d30554960d",
       "feat/persistent-layer-metadata": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
-      "feat/pointing-drag-mode": "211af5703d7e398951159cd5598dd691d2e7035f",
+      "feat/pointing-drag-mode": "c85e3860da7c0e2d3992c1aa7e45fd5445037388",
       "feat/position-combos": "20bf10c72bd3fbd5231638f343bdf25e81558bc9",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
-      "fold/cirque-pinnacle": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
+      "fold/cirque-pinnacle": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b",
       "fold/connection-selection": "ce4107275d761a050b52f0fe8664ba83f49b3ffd",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/opposite-hand-hold": "4a4fe93b1482fb103ba2ec5798fe3aa7c6a251f2",
-      "fold/pointing-runtime-config-pinned": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
+      "fold/pointing-runtime-config-pinned": "2c58d6b4f64e78bdef4c634317a0f68849c157a0",
       "fold/runtime-behavior-parity": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
@@ -36,13 +36,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-12T22:17:09.486419742+00:00",
+    "generated": "2026-08-16T04:42:52.780092061+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "4f6fc4f4558fc276f534a7ce62d75d4004b55ab8",
-    "pre_provenance_commit": "4f6fc4f4558fc276f534a7ce62d75d4004b55ab8",
-    "tree": "f25b03b4b9afff807e73630839e96949600c3d8e",
-    "built_tree": "f25b03b4b9afff807e73630839e96949600c3d8e",
-    "previous_tree": "4d1d8ffd3afa3c4f72c8f15e78f44318ba186df8",
+    "commit": "f10f7a06a3566adb7050d67bd6799a1f43c45aca",
+    "pre_provenance_commit": "f10f7a06a3566adb7050d67bd6799a1f43c45aca",
+    "tree": "0c1dc61e6899aa676c79e156c18818200cbf7f12",
+    "built_tree": "0c1dc61e6899aa676c79e156c18818200cbf7f12",
+    "previous_tree": "f25b03b4b9afff807e73630839e96949600c3d8e",
     "tree_changed": true,
     "conflicts": 19,
     "manifest_entries": [
@@ -141,19 +141,19 @@
         "name": "fold/cirque-pinnacle",
         "kind": "branch",
         "source": "fork:fold/cirque-pinnacle",
-        "pin": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56"
+        "pin": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b"
       },
       {
         "name": "feat/pointing-drag-mode",
         "kind": "branch",
         "source": "fork:feat/pointing-drag-mode",
-        "pin": "211af5703d7e398951159cd5598dd691d2e7035f"
+        "pin": "c85e3860da7c0e2d3992c1aa7e45fd5445037388"
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
         "kind": "branch",
         "source": "fork:fold/pointing-runtime-config-pinned",
-        "pin": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446"
+        "pin": "2c58d6b4f64e78bdef4c634317a0f68849c157a0"
       },
       {
         "name": "fold/runtime-behavior-parity",
@@ -339,22 +339,22 @@
       },
       {
         "name": "fold/cirque-pinnacle",
-        "oid": "9e78ba9fc0919af5468572d97fe6eb6a21fc4b56",
+        "oid": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b",
         "status": "merged",
         "conflicted": false
       },
       {
         "name": "feat/pointing-drag-mode",
-        "oid": "211af5703d7e398951159cd5598dd691d2e7035f",
+        "oid": "c85e3860da7c0e2d3992c1aa7e45fd5445037388",
         "status": "merged",
         "conflicted": false
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
-        "oid": "42f7f35ef6e49ca178d708c5bb6e0c6a42341446",
+        "oid": "2c58d6b4f64e78bdef4c634317a0f68849c157a0",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere:785a9482fcbb89de5951a2dd6385dabb53bfffd0"
       },
       {
         "name": "fold/runtime-behavior-parity",
