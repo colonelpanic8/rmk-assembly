@@ -9,7 +9,7 @@ fork = "https://github.com/colonelpanic8/rmk"
 
 [publish]
 remote = "fork"
-branch = "assembled"
+branch = "assembled-go60-deterministic-current"
 
 [base]
 remote = "upstream"
@@ -124,6 +124,9 @@ patch = "patches/runtime-lighting-wake-layers.patch"
 [[entry]]
 branch = "fork:feat/persistent-layer-metadata"
 fixup = "patches/persistent-layer-metadata-coherence.patch"
+
+[[entry]]
+branch = "fork:feat/deterministic-build-hash"
 
 [[exclude]]
 pr = 999

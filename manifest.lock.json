@@ -6,6 +6,7 @@
       "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
+      "feat/deterministic-build-hash": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85",
       "feat/device-data": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
       "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
@@ -36,13 +37,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-17T19:11:46.335360703+00:00",
+    "generated": "2026-08-17T19:49:40.074353020+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "639d9610165eb8dfc3bffb50abec1271f706cd54",
-    "pre_provenance_commit": "639d9610165eb8dfc3bffb50abec1271f706cd54",
-    "tree": "1869f03d89ebbb18bb8a54c12e88e15026136c3d",
-    "built_tree": "1869f03d89ebbb18bb8a54c12e88e15026136c3d",
-    "previous_tree": "0c1dc61e6899aa676c79e156c18818200cbf7f12",
+    "commit": "098889c42a8087322c79def9cccb4082e0703973",
+    "pre_provenance_commit": "098889c42a8087322c79def9cccb4082e0703973",
+    "tree": "750b080f4f8cb3fa4f3477fa04ee4f9d20bdf37a",
+    "built_tree": "750b080f4f8cb3fa4f3477fa04ee4f9d20bdf37a",
+    "previous_tree": "1869f03d89ebbb18bb8a54c12e88e15026136c3d",
     "tree_changed": true,
     "conflicts": 19,
     "manifest_entries": [
@@ -234,6 +235,12 @@
         "source": "fork:feat/persistent-layer-metadata",
         "pin": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
         "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
+      },
+      {
+        "name": "feat/deterministic-build-hash",
+        "kind": "branch",
+        "source": "fork:feat/deterministic-build-hash",
+        "pin": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85"
       }
     ],
     "results": [
@@ -429,7 +436,7 @@
         "oid": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:1085de6362de94b32237a37c3363a14544a5b6b0,2761cf44fc6bc931dfc7911d2f58c88a00ec0c0b,3906d6574c4d3c5bdd098579a1b1d5ce5be8dd95,7d1109d7a82c819e050cf6c4a430187c2841787d"
+        "resolution": "rerere"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -442,8 +449,14 @@
         "oid": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:07d90bf2d479e7a023aa4ac75271882526c206b9,5b1ba50ed5f6e3a583a2bbf18d89a3f034e8ed5b,94882e3a95b5e4bc13c620f967ce760b35e7540a,df8c6f94dca391a8f2ece4ee6940ea9c5094ce4c,dfcd1287a6a2bb2f2e16dbd7989e82eadc65a76d",
+        "resolution": "rerere",
         "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
+      },
+      {
+        "name": "feat/deterministic-build-hash",
+        "oid": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
