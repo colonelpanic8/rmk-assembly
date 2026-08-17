@@ -6,6 +6,7 @@
       "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
+      "feat/deterministic-build-hash": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85",
       "feat/device-data": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
       "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
@@ -36,13 +37,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-16T04:42:52.780092061+00:00",
+    "generated": "2026-08-17T19:37:57.263916500+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "f10f7a06a3566adb7050d67bd6799a1f43c45aca",
-    "pre_provenance_commit": "f10f7a06a3566adb7050d67bd6799a1f43c45aca",
-    "tree": "0c1dc61e6899aa676c79e156c18818200cbf7f12",
-    "built_tree": "0c1dc61e6899aa676c79e156c18818200cbf7f12",
-    "previous_tree": "f25b03b4b9afff807e73630839e96949600c3d8e",
+    "commit": "99caad6bc5209a41bc3a2ca191bca66c227b638c",
+    "pre_provenance_commit": "99caad6bc5209a41bc3a2ca191bca66c227b638c",
+    "tree": "970273942decb0a80ed93c49eab1ef144f61a8d0",
+    "built_tree": "970273942decb0a80ed93c49eab1ef144f61a8d0",
+    "previous_tree": "0c1dc61e6899aa676c79e156c18818200cbf7f12",
     "tree_changed": true,
     "conflicts": 19,
     "manifest_entries": [
@@ -234,6 +235,12 @@
         "source": "fork:feat/persistent-layer-metadata",
         "pin": "05d4327ee0ccadeef37425d5ce6f9020274d351f",
         "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
+      },
+      {
+        "name": "feat/deterministic-build-hash",
+        "kind": "branch",
+        "source": "fork:feat/deterministic-build-hash",
+        "pin": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85"
       }
     ],
     "results": [
@@ -354,7 +361,7 @@
         "oid": "2c58d6b4f64e78bdef4c634317a0f68849c157a0",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:785a9482fcbb89de5951a2dd6385dabb53bfffd0"
+        "resolution": "rerere"
       },
       {
         "name": "fold/runtime-behavior-parity",
@@ -444,6 +451,12 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
+      },
+      {
+        "name": "feat/deterministic-build-hash",
+        "oid": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
