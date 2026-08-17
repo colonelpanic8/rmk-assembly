@@ -10,3 +10,18 @@ index 177fedfd..2792d74c 100644
                  &self.config,
                  #[cfg(feature = "host")]
                  self.host_service,
+diff --git a/rmk/src/split/peripheral.rs b/rmk/src/split/peripheral.rs
+index 72bee8b6..10a0e8ac 100644
+--- a/rmk/src/split/peripheral.rs
++++ b/rmk/src/split/peripheral.rs
+@@ -214,6 +214,10 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
+                 super::update_legacy_effective_layer(layer);
+                 publish_event(LayerChangeEvent::new(layer));
+             }
++            SplitMessage::TransportOverride(mode) => {
++                info!("Split transport force from central: {}", mode);
++                crate::split::selector::set_forced(mode);
++            }
+             SplitMessage::LayerState(state) => {
+                 super::update_layer_state(state);
+                 publish_event(LayerChangeEvent::new(state.effective));
