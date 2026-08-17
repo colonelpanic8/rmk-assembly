@@ -627,6 +627,12 @@ recorded = "2026-08-17T06:42:26.332604339+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
+hash = "d492f003bd09ec56d1f39ac8ff5d7677cc01656f"
+paths = ["rmk/src/split/driver.rs"]
+recorded = "2026-08-17T07:11:46.731587136+00:00"
+
+[[resolution]]
+entry = "feat/nrf-half-duplex-split"
 hash = "ed0b42dd422b962986c0e1abc219b64394c7bf4a"
 paths = ["rmk-types/src/protocol/rynk/payload/mod.rs"]
 recorded = "2026-08-17T06:42:26.332604503+00:00"
