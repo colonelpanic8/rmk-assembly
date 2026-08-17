@@ -132,6 +132,9 @@ branch = "fork:fix/mpsl-interrupt-priorities"
 branch = "fork:fix/pointing-mode-event-priority"
 fixup = "patches/pointing-mode-event-priority-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/deterministic-build-hash"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

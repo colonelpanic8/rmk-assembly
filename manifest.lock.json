@@ -6,6 +6,7 @@
       "feat/ble-name-template": "fa1a4ae33977728eb5f5db72848d144ddbec19a1",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
+      "feat/deterministic-build-hash": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85",
       "feat/device-data": "751f23a0bf360fb397e9b3b412203d3e19edeb1e",
       "feat/maintenance-mode": "711fa96104fc9d96502ff54cf5dd4f144e743cb5",
       "feat/morse-hold-trigger-on-release": "e8d97930624e48a6a5119783ac6e1e9521987386",
@@ -38,15 +39,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-17T22:19:48.852720469+00:00",
+    "generated": "2026-08-17T22:40:28.147149235+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "a2eb1d85906ccd0019e78feb3bdf19a38d77d741",
-    "pre_provenance_commit": "a2eb1d85906ccd0019e78feb3bdf19a38d77d741",
-    "tree": "d70f5538f53245e35a09f3214c9d10de40b154a4",
-    "built_tree": "d70f5538f53245e35a09f3214c9d10de40b154a4",
-    "previous_tree": "129305dfbb0845de15056b0995223dd621d6dfaf",
+    "commit": "9022472c32546d077af3ce5c07242c89826fd611",
+    "pre_provenance_commit": "9022472c32546d077af3ce5c07242c89826fd611",
+    "tree": "beb24de5e072a811d069e5283ed1a28f21a4d2ce",
+    "built_tree": "beb24de5e072a811d069e5283ed1a28f21a4d2ce",
+    "previous_tree": "d70f5538f53245e35a09f3214c9d10de40b154a4",
     "tree_changed": true,
-    "conflicts": 19,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -249,6 +250,12 @@
         "source": "fork:fix/pointing-mode-event-priority",
         "pin": "b4e07f36905aa6dea326932085dbfac14c25379e",
         "fixup": "ac42e95524e0c48cd3385eb2f80432347e853d84"
+      },
+      {
+        "name": "feat/deterministic-build-hash",
+        "kind": "branch",
+        "source": "fork:feat/deterministic-build-hash",
+        "pin": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85"
       }
     ],
     "results": [
@@ -472,6 +479,12 @@
         "status": "merged",
         "conflicted": false,
         "fixup": "ac42e95524e0c48cd3385eb2f80432347e853d84"
+      },
+      {
+        "name": "feat/deterministic-build-hash",
+        "oid": "0ad83b0bc57ea18db4c7f68d33a68af09938ca85",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
