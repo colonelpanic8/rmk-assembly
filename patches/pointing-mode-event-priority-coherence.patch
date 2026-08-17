@@ -1,0 +1,12 @@
+diff --git a/rmk/src/input_device/pointing.rs b/rmk/src/input_device/pointing.rs
+index 28624d09..81b2ed39 100644
+--- a/rmk/src/input_device/pointing.rs
++++ b/rmk/src/input_device/pointing.rs
+@@ -1672,6 +1672,7 @@ mod tests {
+         publish_event(PointingEvent {
+             device_id: 0,
+             axes: [axis(Axis::X), axis(Axis::Y), axis(Axis::Z)],
++            buttons: 0,
+         });
+         publish_event(PointingProcessorEvent {
+             device_id: 0,

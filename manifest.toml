@@ -128,6 +128,10 @@ fixup = "patches/persistent-layer-metadata-coherence.patch"
 [[entry]]
 branch = "fork:fix/mpsl-interrupt-priorities"
 
+[[entry]]
+branch = "fork:fix/pointing-mode-event-priority"
+fixup = "patches/pointing-mode-event-priority-coherence.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
