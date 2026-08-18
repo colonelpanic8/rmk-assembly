@@ -196,3 +196,66 @@ index b670372a..c5cf40e0 100644
 +    { profile = 1, row = 0, col = 1 },
 +  ] } } },
  ]
+diff --git a/rmk/src/config/mod.rs b/rmk/src/config/mod.rs
+--- a/rmk/src/config/mod.rs
++++ b/rmk/src/config/mod.rs
+@@ -9,10 +9,9 @@ mod storage;
+ mod vial;
+ 
+ pub use behavior::{
+-    AutoMouseLayerConfig, BehaviorConfig, CombosConfig, ForksConfig, HOLD_TRIGGER_DEFAULT_PROFILE, HoldTriggerPositions,
+-    KeyboardMacrosConfig, MorsesConfig, MouseKeyConfig, MouseLayerScaleConfig, OneShotConfig, OneShotModifiersConfig,
+-    TapConfig,
+-    UnicodeConfig,
++    AutoMouseLayerConfig, BehaviorConfig, CombosConfig, ForksConfig, HOLD_TRIGGER_DEFAULT_PROFILE,
++    HoldTriggerPositions, KeyboardMacrosConfig, MorsesConfig, MouseKeyConfig, MouseLayerScaleConfig, OneShotConfig,
++    OneShotModifiersConfig, TapConfig, UnicodeConfig,
+ };
+ #[cfg(feature = "_ble")]
+ pub use ble_battery::BleBatteryConfig;
+diff --git a/rmk/src/host/context.rs b/rmk/src/host/context.rs
+--- a/rmk/src/host/context.rs
++++ b/rmk/src/host/context.rs
+@@ -13,17 +13,16 @@ use rmk_types::led_indicator::LedIndicator;
+ use rmk_types::morse::{Morse, MorseProfile, MorseProfileName};
+ #[cfg(feature = "rynk")]
+ use rmk_types::protocol::rynk::{
+-    BehaviorConfig, BehaviorOptions, MORSE_PROFILE_ENTRY_CHUNK, MorseHoldTriggerPosition,
+-    MorseHoldTriggerPositionState, MorseHoldTriggerPositions, MorseProfileEntry, MorseProfileState,
+-    SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest, LAYER_STATE_BITMAP_SIZE,
+-    LAYER_STATE_CAPACITY, LayerState,
++    BehaviorConfig, BehaviorOptions, LAYER_STATE_BITMAP_SIZE, LAYER_STATE_CAPACITY, LayerState,
++    MORSE_PROFILE_ENTRY_CHUNK, MorseHoldTriggerPosition, MorseHoldTriggerPositionState, MorseHoldTriggerPositions,
++    MorseProfileEntry, MorseProfileState, SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest,
+ };
+ 
+ #[cfg(feature = "rynk")]
+ use crate::config::{HoldTriggerPositions, OneShotModifiersConfig};
++use crate::event::KeyboardEventPos;
+ #[cfg(feature = "rynk")]
+ use crate::event::{AutoMouseLayerConfigChangeEvent, publish_event};
+-use crate::event::KeyboardEventPos;
+ use crate::keyboard::combo::Combo;
+ use crate::keymap::KeyMap;
+ #[cfg(feature = "storage")]
+diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+--- a/rmk/src/storage/mod.rs
++++ b/rmk/src/storage/mod.rs
+@@ -9,6 +9,8 @@ use postcard::experimental::max_size::MaxSize;
+ use rmk_types::auto_mouse::AutoMouseLayerConfig as RuntimeAutoMouseLayerConfig;
+ use rmk_types::connection::ConnectionType;
+ use rmk_types::morse::{MorseProfile, MorseProfileName};
++#[cfg(feature = "rynk")]
++use rmk_types::protocol::rynk::{BehaviorOptions, PointingConfig};
+ #[cfg(all(feature = "lighting", feature = "rynk"))]
+ use rmk_types::protocol::rynk::{
+     LIGHTING_CONDITIONAL_SCENE_CHUNK_SIZE, LIGHTING_EXTENDED_CONDITIONAL_SCENE_CHUNK_SIZE,
+@@ -16,8 +18,6 @@ use rmk_types::protocol::rynk::{
+     LightingExtendedConditionalSceneCell, LightingLayerPolicy, LightingSceneCell,
+ };
+ use rmk_types::unicode::UnicodeMode;
+-#[cfg(feature = "rynk")]
+-use rmk_types::protocol::rynk::{BehaviorOptions, PointingConfig};
+ use sequential_storage::Error as SSError;
+ use sequential_storage::cache::{Cache, Uncached};
+ use sequential_storage::map::{Key, MapConfig, MapStorage, PostcardValue, SerializationError};

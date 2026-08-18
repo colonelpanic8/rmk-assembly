@@ -1,8 +1,8 @@
 diff --git a/docs/docs/main/docs/configuration/appendix.md b/docs/docs/main/docs/configuration/appendix.md
-index 01b09c1b..a524ca11 100644
+index 8f0e73ece..c24293438 100644
 --- a/docs/docs/main/docs/configuration/appendix.md
 +++ b/docs/docs/main/docs/configuration/appendix.md
-@@ -484,14 +484,12 @@ vial_enabled = true
+@@ -577,14 +577,12 @@ vial_enabled = true
  # Rynk and Vial are mutually exclusive and must match Cargo features.
  rynk_enabled = false
  # The unlock keys are the combo of the row 0, col 0 key and
@@ -21,10 +21,10 @@ index 01b09c1b..a524ca11 100644
  # Chip-specific configuration
  # To use the default configuration, ignore this section completely
 diff --git a/docs/docs/main/docs/configuration/host_config.md b/docs/docs/main/docs/configuration/host_config.md
-index 3f26ac62..021e3ba8 100644
+index 3b6300018..9fe800e3a 100644
 --- a/docs/docs/main/docs/configuration/host_config.md
 +++ b/docs/docs/main/docs/configuration/host_config.md
-@@ -20,9 +20,7 @@ rynk_enabled = true
+@@ -21,9 +21,7 @@ rynk_enabled = true
  # Disable Vial when using Rynk. Rynk and Vial are mutually exclusive.
  vial_enabled = false
  
@@ -35,7 +35,7 @@ index 3f26ac62..021e3ba8 100644
  unlock_keys = [[0, 0], [0, 1]]  # Keys at (row=0,col=0) and (row=0,col=1)
  
  # Start (and stay) unlocked, bypassing the unlock-key combo (default: false).
-@@ -30,14 +28,9 @@ unlock_keys = [[0, 0], [0, 1]]  # Keys at (row=0,col=0) and (row=0,col=1)
+@@ -31,14 +29,9 @@ unlock_keys = [[0, 0], [0, 1]]  # Keys at (row=0,col=0) and (row=0,col=1)
  # which still parses.
  insecure = false
  
@@ -54,10 +54,10 @@ index 3f26ac62..021e3ba8 100644
  
  ## Common Setups
 diff --git a/docs/docs/main/docs/features/rynk.md b/docs/docs/main/docs/features/rynk.md
-index 7e128943..74d18a94 100644
+index ace07af49..57ac63445 100644
 --- a/docs/docs/main/docs/features/rynk.md
 +++ b/docs/docs/main/docs/features/rynk.md
-@@ -88,76 +88,39 @@ Rynk tooling is still young. Today you have two options:
+@@ -101,76 +101,39 @@ and
  
  A ready-made desktop app is not available yet.
  
@@ -154,10 +154,10 @@ index 7e128943..74d18a94 100644
  ## Advanced tuning
  
 diff --git a/rmk-config/src/lib.rs b/rmk-config/src/lib.rs
-index c498fe9c..cb1f9c31 100644
+index 6f7f9a635..94182833c 100644
 --- a/rmk-config/src/lib.rs
 +++ b/rmk-config/src/lib.rs
-@@ -1434,8 +1434,7 @@ pub(crate) struct HostConfig {
+@@ -1468,8 +1468,7 @@ pub(crate) struct HostConfig {
      /// with `vial_enabled` (the underlying Cargo features conflict).
      #[serde_inline_default(false)]
      pub rynk_enabled: bool,
@@ -168,7 +168,7 @@ index c498fe9c..cb1f9c31 100644
      /// Start (and stay) unlocked, bypassing the unlock-key combo (default:
      /// false). Renamed from `vial_insecure`; the old name still parses.
 diff --git a/rmk-macro/src/codegen/keyboard_config.rs b/rmk-macro/src/codegen/keyboard_config.rs
-index 1d54ddf0..1bbe627f 100644
+index 1d54ddf07..1bbe627f3 100644
 --- a/rmk-macro/src/codegen/keyboard_config.rs
 +++ b/rmk-macro/src/codegen/keyboard_config.rs
 @@ -79,14 +79,12 @@ pub(crate) fn expand_lock_config(host: &Host) -> proc_macro2::TokenStream {
@@ -187,7 +187,7 @@ index 1d54ddf0..1bbe627f 100644
          };
      }
 diff --git a/rmk-macro/src/codegen/simulator.rs b/rmk-macro/src/codegen/simulator.rs
-index 7c9f1144..0355c08d 100644
+index 7c9f1144f..0355c08d4 100644
 --- a/rmk-macro/src/codegen/simulator.rs
 +++ b/rmk-macro/src/codegen/simulator.rs
 @@ -316,7 +316,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
@@ -207,20 +207,19 @@ index 7c9f1144..0355c08d 100644
              },
              layout_blob: #blob,
 diff --git a/rmk/CHANGELOG.md b/rmk/CHANGELOG.md
-index 97c0de71..7de8d681 100644
+index 116b10e0a..43fa56665 100644
 --- a/rmk/CHANGELOG.md
 +++ b/rmk/CHANGELOG.md
-@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
- ## [Unreleased]
+@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  
+ - Add OLED display support (`display` Cargo feature) with a `[display]` section in `keyboard.toml`. Ships `oled_async` drivers for SH1106, SH1107, SH1108 and SSD1309, plus `lcd-async` for color panels. Default renderers show layer, connection, and battery state, blank while the keyboard sleeps, and honour configurable render/poll intervals. Custom renderers are supported — see [examples/use_rust/custom_renderer](https://github.com/rmk-rs/rmk/tree/main/examples/use_rust/custom_renderer). On splits, the central forwards display state events to peripherals so both halves can show the same status
  - Add runtime-authored conditional lighting without changing the immutable board-compiled source: hosts discover `RUNTIME_CONDITIONAL_SCENES`, read revision-pinned ordered pages, and atomically replace the persistent table with `0x0925..=0x092A`. Add revision-checked `SetLightingOutputMode = 0x0924` alongside the existing three-state readback. Both additions use capability/command probing and leave `ProtocolVersion` unchanged.
--- Add [Rynk](https://rmk.rs/docs/features/rynk), RMK's native host protocol for on-the-fly configuration over USB and BLE — an opt-in alternative to Vial that covers every RMK feature (keymap, layers, encoders, combos, forks, tap-dance/morse, macros, and behavior config), plus live status (current layer, matrix tester, WPM, HID indicators, battery, connection/BLE profile) and device management (reboot, bootloader, storage reset). Enable with the `rynk` Cargo feature and `[host] rynk_enabled = true`; it is mutually exclusive with Vial. Dangerous operations (bootloader, storage reset, matrix tester, clearing a BLE bond) are gated behind a physical-presence unlock (`[host].unlock_keys`). Host client crates live in the new `rynk/` workspace ([#962](https://github.com/rmk-rs/rmk/pull/962))
 +- Add [Rynk](https://rmk.rs/docs/features/rynk), RMK's native host protocol for on-the-fly configuration over USB and BLE — an opt-in alternative to Vial that covers every RMK feature (keymap, layers, encoders, combos, forks, tap-dance/morse, macros, and behavior config), plus live status (current layer, matrix tester, WPM, HID indicators, battery, connection/BLE profile) and device management (reboot, bootloader, storage reset). Enable with the `rynk` Cargo feature and `[host] rynk_enabled = true`; it is mutually exclusive with Vial. A keyboard-controlled maintenance lock gates every mutation and sensitive operation, with its reboot state selected by `[host].maintenance_lock_default`. Host client crates live in the new `rynk/` workspace ([#962](https://github.com/rmk-rs/rmk/pull/962))
  - Add runtime-configurable per-layer lighting scenes over Rynk: hosts can store per-layer, per-LED effects on the keyboard (`GetLightingSceneStatus`/`GetLightingScenes`, `SetLightingSceneCell`/`UnsetLightingSceneCell`, an atomic `BeginLightingSceneReplace`/`PutLightingSceneChunk`/`CommitLightingSceneReplace`/`AbortLightingSceneReplace` transaction, and `SetLightingLayerPolicy`). Scene cells compose in the layer band — above the board's static layer scenes, below the transient TTL overlay — and persist via RMK storage, loading on boot and clearing with a storage reset. Boards opt in by choosing a scene capacity on the standard lighting engine and advertising it with `RynkLightingController::with_scene_capacity`. Scenes are a capability-gated extension, not a protocol-version entry: hosts discover them via `LightingFeatureFlags::LAYER_SCENES` and `GetLightingSceneStatus` (older firmware answers `UnknownCmd`); `ProtocolVersion` is unchanged — version numbers are minted upstream only, and downstream extensions (scenes, `GetBuildInfo`, `PeripheralBootloaderJump`, the lighting endpoints) are detected through capability surfaces and per-command probing. Firmware already in the field that reports a higher minor (v0.2–v0.5) remains compatible: hosts gate on capabilities, and the handshake only rejects `major` mismatches
- - Add Azoteq IQS5xx (IQS550 / IQS572 / IQS525) trackpad driver, used by Azoteq's TPS43/TPS65 modules. Supports operation with or without an `RDY` pin and is configurable via `keyboard.toml` on nRF52 / RP2040; currently publishes single-finger relative cursor movement only ([#29](https://github.com/rmk-rs/rmk/issues/29))
- - Add PMW3360 / PMW3389 optical mouse sensor support
+ - Add Plover HID stenography support (`steno` Cargo feature): a steno HID descriptor and USB endpoint, an `Action::Steno` keycode with `STN(key)` syntax in `keyboard.toml`, and a live-state reporter
+ 
 diff --git a/rmk/src/config/lock.rs b/rmk/src/config/lock.rs
-index 94946ad1..50f5a439 100644
+index 94946ad15..50f5a4392 100644
 --- a/rmk/src/config/lock.rs
 +++ b/rmk/src/config/lock.rs
 @@ -10,10 +10,6 @@ pub struct LockConfig {
@@ -243,7 +242,7 @@ index 94946ad1..50f5a439 100644
          }
      }
 diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
-index dd78f523..7ae45848 100644
+index dd78f5235..7ae45848f 100644
 --- a/rmk/src/host/rynk/handlers/lighting.rs
 +++ b/rmk/src/host/rynk/handlers/lighting.rs
 @@ -1810,15 +1810,7 @@ mod tests {
@@ -344,10 +343,10 @@ index dd78f523..7ae45848 100644
              let controls = LightingControls {
                  output_toggle_user_action: Some(13),
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index d1cc37a7..5ae25f8b 100644
+index 8ed28b177..3af0920e5 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -540,16 +540,12 @@ mod tests {
+@@ -541,16 +541,12 @@ mod tests {
      use alloc::vec;
      use alloc::vec::Vec;
  
@@ -366,7 +365,7 @@ index d1cc37a7..5ae25f8b 100644
      use crate::keymap::{KeyMap, KeymapData};
      use crate::test_support::test_block_on as block_on;
  
-@@ -637,146 +633,6 @@ mod tests {
+@@ -638,146 +634,6 @@ mod tests {
          out
      }
  
