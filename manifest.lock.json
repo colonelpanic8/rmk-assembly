@@ -39,13 +39,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-18T18:06:23.319133143+00:00",
+    "generated": "2026-08-18T20:26:51.310350049+00:00",
     "base": "0909421ff95ff1819145dc704a794f1be22cac9c",
-    "commit": "376e12f381a58ee17c44173ca07a53ff4b0a4ca6",
-    "pre_provenance_commit": "376e12f381a58ee17c44173ca07a53ff4b0a4ca6",
-    "tree": "0a97ff4fccfa191001e59404fd58c16ca5ac5a5f",
-    "built_tree": "0a97ff4fccfa191001e59404fd58c16ca5ac5a5f",
-    "previous_tree": "ab25af4f711626cb3820d1277026038ef16f89d0",
+    "commit": "550f1249b213275e28416a003056b3f2294e8288",
+    "pre_provenance_commit": "550f1249b213275e28416a003056b3f2294e8288",
+    "tree": "f66b7595872bb8f01ded39d5bde974b9274641c7",
+    "built_tree": "f66b7595872bb8f01ded39d5bde974b9274641c7",
+    "previous_tree": "0a97ff4fccfa191001e59404fd58c16ca5ac5a5f",
     "tree_changed": true,
     "conflicts": 20,
     "manifest_entries": [
@@ -476,7 +476,7 @@
         "oid": "b4e07f36905aa6dea326932085dbfac14c25379e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:c6323925a146d9a6148ee4e500366f646975269d",
+        "resolution": "rerere",
         "fixup": "ac42e95524e0c48cd3385eb2f80432347e853d84"
       },
       {
