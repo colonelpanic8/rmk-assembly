@@ -1749,6 +1749,12 @@ recorded = "2026-08-07T20:04:19.533555105+00:00"
 
 [[resolution]]
 entry = "pr-984"
+hash = "82cf3440954336b278152c0d74aa7b47483fef2e"
+paths = ["rmk/src/split_app.rs"]
+recorded = "2026-08-18T23:59:28.187006520+00:00"
+
+[[resolution]]
+entry = "pr-984"
 hash = "9ac39b7160674ec075935b89db9becbffd072cd3"
 paths = ["rmk/src/split/mod.rs"]
 recorded = "2026-08-07T20:04:19.533555546+00:00"
