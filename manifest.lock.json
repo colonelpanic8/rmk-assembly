@@ -33,21 +33,21 @@
       "fold/runtime-behavior-parity": "26c03ece30cfeafc62dfcd9fc7826f591e827cd2",
       "fold/split-reliability": "c2b265837f678c6f4455fa91c99a14cd9451b356",
       "fold/unicode-input": "cf4f5585b92e7c8fd1d3a160c63b2262fbad2dcb",
-      "pr-1031": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
+      "pr-1031": "16f5002009eee7dd6943fddb52f33f35f1969dfe",
       "pr-984": "c4b4cc0ba1049874402d1a0ca1f4796e81b713fd",
       "runtime-lighting-wake-layers": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
     }
   },
   "build": {
-    "generated": "2026-08-17T22:40:28.147149235+00:00",
+    "generated": "2026-08-18T05:32:32.135534028+00:00",
     "base": "1a411da55bcaae80487ce76ca00351ef1aee32f5",
-    "commit": "9022472c32546d077af3ce5c07242c89826fd611",
-    "pre_provenance_commit": "9022472c32546d077af3ce5c07242c89826fd611",
-    "tree": "beb24de5e072a811d069e5283ed1a28f21a4d2ce",
-    "built_tree": "beb24de5e072a811d069e5283ed1a28f21a4d2ce",
-    "previous_tree": "d70f5538f53245e35a09f3214c9d10de40b154a4",
+    "commit": "5783ec8a03d77c0442791656022b264d94d21a70",
+    "pre_provenance_commit": "5783ec8a03d77c0442791656022b264d94d21a70",
+    "tree": "64dd90e9bc6d9e2498148dddef99a4c9f796bde2",
+    "built_tree": "64dd90e9bc6d9e2498148dddef99a4c9f796bde2",
+    "previous_tree": "beb24de5e072a811d069e5283ed1a28f21a4d2ce",
     "tree_changed": true,
-    "conflicts": 0,
+    "conflicts": 19,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -65,7 +65,7 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
+        "pin": "16f5002009eee7dd6943fddb52f33f35f1969dfe",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -273,7 +273,7 @@
       },
       {
         "name": "pr-1031",
-        "oid": "c5dfce7a777d4cffc9771fd9dc398e6ec1b20244",
+        "oid": "16f5002009eee7dd6943fddb52f33f35f1969dfe",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
