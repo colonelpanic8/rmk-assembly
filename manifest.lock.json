@@ -29,7 +29,7 @@
       "fold/connection-selection": "c52fba62db0c402764b51d813aff4adfaeb971db",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/opposite-hand-hold": "61f8171a2694ff1e55393ce0fb5ac20f3aea7bf8",
-      "fold/pointing-runtime-config-pinned": "22be77335f69777295a3051ddbf3df154bb00121",
+      "fold/pointing-runtime-config-pinned": "88b845b9d2e9bc33764041916b194f2756a261de",
       "fold/runtime-behavior-parity": "b8d17e85b007f912f1a4b63542b13c65def28f08",
       "fold/split-reliability": "2c87f4aa34b7b6803fb4c45e4b0b2b193d1177f5",
       "fold/unicode-input": "2c04fa74bfd4670002721770b19546552899739a",
@@ -39,15 +39,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-18T09:36:10.461566981+00:00",
+    "generated": "2026-08-18T19:58:27.386380585+00:00",
     "base": "0909421ff95ff1819145dc704a794f1be22cac9c",
-    "commit": "cba4af39327b9e9660aa451b5660a5e473c3499c",
-    "pre_provenance_commit": "cba4af39327b9e9660aa451b5660a5e473c3499c",
-    "tree": "5d1411d57718d5efc18b697613577f79ad1a4c84",
-    "built_tree": "5d1411d57718d5efc18b697613577f79ad1a4c84",
-    "previous_tree": "64dd90e9bc6d9e2498148dddef99a4c9f796bde2",
+    "commit": "82ca2ca28f6b80cf782d52439e23a846b378bdbd",
+    "pre_provenance_commit": "82ca2ca28f6b80cf782d52439e23a846b378bdbd",
+    "tree": "d9d8c01ffcf989505692b47f5de4bfd4a4dddadc",
+    "built_tree": "d9d8c01ffcf989505692b47f5de4bfd4a4dddadc",
+    "previous_tree": "5d1411d57718d5efc18b697613577f79ad1a4c84",
     "tree_changed": true,
-    "conflicts": 19,
+    "conflicts": 20,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -156,7 +156,7 @@
         "name": "fold/pointing-runtime-config-pinned",
         "kind": "branch",
         "source": "fork:fold/pointing-runtime-config-pinned",
-        "pin": "22be77335f69777295a3051ddbf3df154bb00121"
+        "pin": "88b845b9d2e9bc33764041916b194f2756a261de"
       },
       {
         "name": "fold/runtime-behavior-parity",
@@ -216,7 +216,7 @@
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
         "pin": "0516173c4d998376dcf0c51e469d7ba4c8e2ad26",
-        "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
+        "fixup": "34608597c4501ca049236df2b769e9a8d65a9b72"
       },
       {
         "name": "feat/device-data",
@@ -372,7 +372,7 @@
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
-        "oid": "22be77335f69777295a3051ddbf3df154bb00121",
+        "oid": "88b845b9d2e9bc33764041916b194f2756a261de",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
@@ -442,7 +442,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "d9faeb4d239a43e5410faaa60bddbeb438ee5369"
+        "fixup": "34608597c4501ca049236df2b769e9a8d65a9b72"
       },
       {
         "name": "feat/device-data",
@@ -475,7 +475,8 @@
         "name": "fix/pointing-mode-event-priority",
         "oid": "b4e07f36905aa6dea326932085dbfac14c25379e",
         "status": "merged",
-        "conflicted": false,
+        "conflicted": true,
+        "resolution": "rerere:c6323925a146d9a6148ee4e500366f646975269d",
         "fixup": "ac42e95524e0c48cd3385eb2f80432347e853d84"
       },
       {

@@ -1064,6 +1064,12 @@ paths = ["rmk/src/split/mod.rs"]
 recorded = "2026-08-08T02:07:39.683650282+00:00"
 
 [[resolution]]
+entry = "fix/pointing-mode-event-priority"
+hash = "c6323925a146d9a6148ee4e500366f646975269d"
+paths = ["rmk/src/input_device/pointing.rs"]
+recorded = "2026-08-18T19:58:27.350804557+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]
@@ -1200,6 +1206,12 @@ entry = "fold/pointing-runtime-config-pinned"
 hash = "7fe55477f4a19835ddf3ae7ca005bb3f47cd3018"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-08-17T19:03:26.512798823+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "87fc56368d4f48d0588f6f4e69d79de4956d4587"
+paths = ["rmk/src/input_device/pointing.rs"]
+recorded = "2026-08-18T19:57:53.669078665+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
