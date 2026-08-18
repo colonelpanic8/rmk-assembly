@@ -19,7 +19,7 @@
       "feat/persistent-layer-metadata": "1c24ffd75a89c543160307f20f6fcb937baf3a24",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "c85e3860da7c0e2d3992c1aa7e45fd5445037388",
-      "feat/position-combos": "d7ddc06d6da3051256bf2e87eccbcdee86b132ca",
+      "feat/position-combos": "074dfa0ff99045eee1b57b8a1b56f3d46e003c42",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
@@ -30,7 +30,7 @@
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/opposite-hand-hold": "61f8171a2694ff1e55393ce0fb5ac20f3aea7bf8",
       "fold/pointing-runtime-config-pinned": "88b845b9d2e9bc33764041916b194f2756a261de",
-      "fold/runtime-behavior-parity": "b8d17e85b007f912f1a4b63542b13c65def28f08",
+      "fold/runtime-behavior-parity": "e5536349a33379b94f7f140c1ccf704d531189fd",
       "fold/split-reliability": "2c87f4aa34b7b6803fb4c45e4b0b2b193d1177f5",
       "fold/unicode-input": "2c04fa74bfd4670002721770b19546552899739a",
       "pr-1031": "735d1392b7b04a37761e64a44b047dad339d4eba",
@@ -39,13 +39,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-18T19:58:27.386380585+00:00",
+    "generated": "2026-08-18T20:04:23.564638716+00:00",
     "base": "0909421ff95ff1819145dc704a794f1be22cac9c",
-    "commit": "82ca2ca28f6b80cf782d52439e23a846b378bdbd",
-    "pre_provenance_commit": "82ca2ca28f6b80cf782d52439e23a846b378bdbd",
-    "tree": "d9d8c01ffcf989505692b47f5de4bfd4a4dddadc",
-    "built_tree": "d9d8c01ffcf989505692b47f5de4bfd4a4dddadc",
-    "previous_tree": "5d1411d57718d5efc18b697613577f79ad1a4c84",
+    "commit": "c50d1ba8669c36283b445974185abd0a6f420712",
+    "pre_provenance_commit": "c50d1ba8669c36283b445974185abd0a6f420712",
+    "tree": "8324b12ef96ab0097eab5cd766b587b83af76ef4",
+    "built_tree": "8324b12ef96ab0097eab5cd766b587b83af76ef4",
+    "previous_tree": "d9d8c01ffcf989505692b47f5de4bfd4a4dddadc",
     "tree_changed": true,
     "conflicts": 20,
     "manifest_entries": [
@@ -162,7 +162,7 @@
         "name": "fold/runtime-behavior-parity",
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
-        "pin": "b8d17e85b007f912f1a4b63542b13c65def28f08",
+        "pin": "e5536349a33379b94f7f140c1ccf704d531189fd",
         "fixup": "91eb0c1471929f9d461773ba674ac4fc29bd889c"
       },
       {
@@ -208,7 +208,7 @@
         "name": "feat/position-combos",
         "kind": "branch",
         "source": "fork:feat/position-combos",
-        "pin": "d7ddc06d6da3051256bf2e87eccbcdee86b132ca",
+        "pin": "074dfa0ff99045eee1b57b8a1b56f3d46e003c42",
         "fixup": "221955adfa264819ea5e67fd4c66b7dd47cf001a"
       },
       {
@@ -379,7 +379,7 @@
       },
       {
         "name": "fold/runtime-behavior-parity",
-        "oid": "b8d17e85b007f912f1a4b63542b13c65def28f08",
+        "oid": "e5536349a33379b94f7f140c1ccf704d531189fd",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -430,7 +430,7 @@
       },
       {
         "name": "feat/position-combos",
-        "oid": "d7ddc06d6da3051256bf2e87eccbcdee86b132ca",
+        "oid": "074dfa0ff99045eee1b57b8a1b56f3d46e003c42",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -476,7 +476,7 @@
         "oid": "b4e07f36905aa6dea326932085dbfac14c25379e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:c6323925a146d9a6148ee4e500366f646975269d",
+        "resolution": "rerere",
         "fixup": "ac42e95524e0c48cd3385eb2f80432347e853d84"
       },
       {
