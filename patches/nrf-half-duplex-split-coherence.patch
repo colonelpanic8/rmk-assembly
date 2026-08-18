@@ -1,9 +1,9 @@
 diff --git a/rmk/src/ble/mod.rs b/rmk/src/ble/mod.rs
-index 177fedfd..2792d74c 100644
+index 0beb2df7..7af3f0eb 100644
 --- a/rmk/src/ble/mod.rs
 +++ b/rmk/src/ble/mod.rs
-@@ -164,6 +164,7 @@ where
-             serve(
+@@ -173,6 +173,7 @@ where
+             run_ble_keyboard(
                  &stack,
                  &self.device_config,
 +                self.ble_name,
