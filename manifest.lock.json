@@ -39,13 +39,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-18T23:59:29.751452282+00:00",
+    "generated": "2026-08-19T00:01:39.078924412+00:00",
     "base": "0909421ff95ff1819145dc704a794f1be22cac9c",
-    "commit": "91e147261ab292b4b1daade54d1137c16e3d9559",
-    "pre_provenance_commit": "91e147261ab292b4b1daade54d1137c16e3d9559",
-    "tree": "f406f6f8320901dceda8951eb2191ce81e915d20",
-    "built_tree": "f406f6f8320901dceda8951eb2191ce81e915d20",
-    "previous_tree": "d79d545428af5225d9d5d31685595319f8ff8428",
+    "commit": "d6a550f4f1edf979514e99af84703775501d50e6",
+    "pre_provenance_commit": "d6a550f4f1edf979514e99af84703775501d50e6",
+    "tree": "4b0e94e14820f9ad1589fc4c81d9901caf7db35a",
+    "built_tree": "4b0e94e14820f9ad1589fc4c81d9901caf7db35a",
+    "previous_tree": "f406f6f8320901dceda8951eb2191ce81e915d20",
     "tree_changed": true,
     "conflicts": 20,
     "manifest_entries": [
@@ -289,7 +289,7 @@
         "oid": "68390bff6f5d140bf6d1f6fbb21d42cf950b74e8",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:82cf3440954336b278152c0d74aa7b47483fef2e"
+        "resolution": "rerere"
       },
       {
         "name": "feat/single-pass-storage-read",
