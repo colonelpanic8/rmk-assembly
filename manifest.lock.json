@@ -22,7 +22,7 @@
       "feat/position-combos": "1a1ebf19d33fd7e48b7f083e1bf1e0ffa6d8881c",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "final-formatting-coherence": "18b7edff5c1c00eef6dd79b09e36f28753b804cd",
-      "fix/battery-power-transitions": "2360bc99b47264ee90f06039ea10d70b22218d6b",
+      "fix/battery-power-transitions": "2ee03c2bda4cdde25db634f38be4871874c22e8f",
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
       "fix/pointing-mode-event-priority": "b4e07f36905aa6dea326932085dbfac14c25379e",
@@ -40,13 +40,13 @@
     }
   },
   "build": {
-    "generated": "2026-08-20T09:30:39.476157003+00:00",
+    "generated": "2026-08-20T09:39:38.854999320+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "e1e40869e0b9f201fe455d2209cd986967096a79",
-    "pre_provenance_commit": "e1e40869e0b9f201fe455d2209cd986967096a79",
-    "tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
-    "built_tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
-    "previous_tree": "d5cc32131755138a8b00af8e83d4c1aee80b8ada",
+    "commit": "ee4402398741e4d1abf1abaac4e4774948b7d259",
+    "pre_provenance_commit": "ee4402398741e4d1abf1abaac4e4774948b7d259",
+    "tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
+    "built_tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
+    "previous_tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
     "tree_changed": true,
     "conflicts": 19,
     "manifest_entries": [
@@ -177,7 +177,7 @@
         "name": "fix/battery-power-transitions",
         "kind": "branch",
         "source": "fork:fix/battery-power-transitions",
-        "pin": "2360bc99b47264ee90f06039ea10d70b22218d6b"
+        "pin": "2ee03c2bda4cdde25db634f38be4871874c22e8f"
       },
       {
         "name": "feat/ble-name-template",
@@ -400,7 +400,7 @@
       },
       {
         "name": "fix/battery-power-transitions",
-        "oid": "2360bc99b47264ee90f06039ea10d70b22218d6b",
+        "oid": "2ee03c2bda4cdde25db634f38be4871874c22e8f",
         "status": "merged",
         "conflicted": false
       },
