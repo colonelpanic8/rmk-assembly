@@ -35,20 +35,20 @@
       "fold/split-reliability": "859a18e43e96598f2a7d42200b0c3e4f27affa09",
       "fold/unicode-input": "2c04fa74bfd4670002721770b19546552899739a",
       "pr-1031": "b20d64db43ce38b7237834ab0e4336151709135d",
-      "pr-984": "0f5121095338dcb7fc88b7583bed6d03827231b1",
+      "pr-984": "db53d6ec00e418f7b9dfc51091192541287f3aa5",
       "runtime-lighting-wake-layers": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
     }
   },
   "build": {
-    "generated": "2026-08-20T09:23:24.907635636+00:00",
+    "generated": "2026-08-20T09:30:39.476157003+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "6f664e4390a13c74aa5618253ac6d0d5b32929fe",
-    "pre_provenance_commit": "6f664e4390a13c74aa5618253ac6d0d5b32929fe",
-    "tree": "d5cc32131755138a8b00af8e83d4c1aee80b8ada",
-    "built_tree": "d5cc32131755138a8b00af8e83d4c1aee80b8ada",
-    "previous_tree": "bb02288f944f1b956681fff0e0047db121b34663",
+    "commit": "e1e40869e0b9f201fe455d2209cd986967096a79",
+    "pre_provenance_commit": "e1e40869e0b9f201fe455d2209cd986967096a79",
+    "tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
+    "built_tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
+    "previous_tree": "d5cc32131755138a8b00af8e83d4c1aee80b8ada",
     "tree_changed": true,
-    "conflicts": 0,
+    "conflicts": 19,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -79,7 +79,7 @@
         "name": "pr-984",
         "kind": "pr",
         "source": "upstream#984",
-        "pin": "0f5121095338dcb7fc88b7583bed6d03827231b1"
+        "pin": "db53d6ec00e418f7b9dfc51091192541287f3aa5"
       },
       {
         "name": "feat/single-pass-storage-read",
@@ -291,7 +291,7 @@
       },
       {
         "name": "pr-984",
-        "oid": "0f5121095338dcb7fc88b7583bed6d03827231b1",
+        "oid": "db53d6ec00e418f7b9dfc51091192541287f3aa5",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
