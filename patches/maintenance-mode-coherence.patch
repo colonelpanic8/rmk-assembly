@@ -512,3 +512,15 @@ index 8ed28b177..3af0920e5 100644
      /// A read carrying more than one frame serves them all, in order: the
      /// pipelined tail is parked out of each reply's way, never dropped.
      #[test]
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -240,7 +240,7 @@ impl RynkService<'_> {
+         let cmd = msg.header().cmd;
+ 
+         if Self::requires_maintenance_mode(cmd) && !crate::state::maintenance_mode_enabled() {
+-            return Err(RynkError::Locked);
++            return Err(RynkError::NotReady);
+         }
+ 
+         match cmd {

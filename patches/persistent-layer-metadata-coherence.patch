@@ -10,3 +10,51 @@ index 409b8b79e..52858f5bc 100644
              keymap: Vec::new(),
              encoder_map: Vec::new(),
              key_info: Vec::new(),
+diff --git a/rmk-macro/src/codegen/orchestrator.rs b/rmk-macro/src/codegen/orchestrator.rs
+index 29a5b069a..5801b9cc8 100644
+--- a/rmk-macro/src/codegen/orchestrator.rs
++++ b/rmk-macro/src/codegen/orchestrator.rs
+@@ -413,17 +413,18 @@ fn expand_main(
+ 
+     // Rynk-only: bake the physical-layout blob as a compile-time const and enable
+     // the lock gate. Both fields land adjacently in the `RmkConfig` literal below.
+-    let (layout_blob_static, rynk_layout_field, layer_names_field, lock_config) = if host.rynk_enabled {
+-        let blob_lit = proc_macro2::Literal::byte_string(&layout.blob);
+-        (
+-            quote! { static LAYOUT_BLOB: &[u8] = #blob_lit; },
+-            quote! { layout_blob: LAYOUT_BLOB, },
+-            quote! { layer_names: LAYER_NAMES, },
+-            quote! { lock_config: LOCK_CONFIG, },
+-        )
+-    } else {
+-        (quote! {}, quote! {}, quote! {}, quote! {})
+-    };
++    let (layout_blob_static, rynk_layout_field, layer_names_field, lock_config) =
++        if host.rynk_enabled {
++            let blob_lit = proc_macro2::Literal::byte_string(&layout.blob);
++            (
++                quote! { static LAYOUT_BLOB: &[u8] = #blob_lit; },
++                quote! { layout_blob: LAYOUT_BLOB, },
++                quote! { layer_names: LAYER_NAMES, },
++                quote! { lock_config: LOCK_CONFIG, },
++            )
++        } else {
++            (quote! {}, quote! {}, quote! {}, quote! {})
++        };
+ 
+     let host_service_init = if host.rynk_enabled || host.vial_enabled {
+         item_mod
+diff --git a/rmk-types/src/protocol/rynk/command.rs b/rmk-types/src/protocol/rynk/command.rs
+index 582c826dc..30d3681d9 100644
+--- a/rmk-types/src/protocol/rynk/command.rs
++++ b/rmk-types/src/protocol/rynk/command.rs
+@@ -21,8 +21,7 @@ use super::{
+     GetEncoderRequest, GetKeymapBulkRequest, GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest,
+     GetMorseBulkResponse, GetMorseProfileBulkRequest, GetMorseProfileBulkResponse, GetMorseProfileStateRequest,
+     KeyPosition, LayerMetadata, LayerState, LayoutChunk, LockStatus, MacroData, MaintenanceMode, MatrixState,
+-    MorseHoldTriggerPositionState, MorseProfileState, PointingCapabilities, PointingConfig, ProtocolVersion,
+-    RynkError,
++    MorseHoldTriggerPositionState, MorseProfileState, PointingCapabilities, PointingConfig, ProtocolVersion, RynkError,
+     SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboDefinitionBulkRequest, SetComboDefinitionRequest,
+     SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetLayerMetadataRequest,
+     SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,

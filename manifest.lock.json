@@ -1,27 +1,28 @@
 {
   "version": 1,
   "pins": {
-    "base": "0909421ff95ff1819145dc704a794f1be22cac9c",
+    "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
     "entries": {
       "feat/ble-name-template": "168f75362c8e32ccb414e4ebd8f3e2c64e935e10",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "26ea43515b5fcb41eeb230454be7e81f78173da8",
-      "feat/maintenance-mode": "014550372ed58e4a3b116108bf6cdbc88d92b260",
+      "feat/maintenance-mode": "311b7714073ac3c34a91949f83ba3afb2f2a43aa",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "a4f5bcdf97620d2eb9e27aa00e1eca8fc12cf82a",
       "feat/morse-per-profile-prior-idle": "fc965ba81a486194fe4026ee9573d929e529e12f",
       "feat/morse-retro-tap": "4ada295c929a64ba62e9bffc8e97a552f82796ce",
       "feat/morse-tap-unless-interrupted": "94608c590429d4e04e9b2b32bed198a729cb8475",
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
-      "feat/nrf-half-duplex-split": "b9b97cd9aad00aa74f553e7891bb7d3ceff60ec2",
+      "feat/nrf-half-duplex-split": "572e4b0c0856cad62d2cec95744d268bf00f2afc",
       "feat/persistent-layer-metadata": "1c24ffd75a89c543160307f20f6fcb937baf3a24",
       "feat/pointer-layer-scaling": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb",
       "feat/pointing-drag-mode": "c85e3860da7c0e2d3992c1aa7e45fd5445037388",
-      "feat/position-combos": "074dfa0ff99045eee1b57b8a1b56f3d46e003c42",
+      "feat/position-combos": "1a1ebf19d33fd7e48b7f083e1bf1e0ffa6d8881c",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
-      "fix/battery-power-transitions": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+      "final-formatting-coherence": "18b7edff5c1c00eef6dd79b09e36f28753b804cd",
+      "fix/battery-power-transitions": "2360bc99b47264ee90f06039ea10d70b22218d6b",
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
       "fix/pointing-mode-event-priority": "b4e07f36905aa6dea326932085dbfac14c25379e",
@@ -30,24 +31,24 @@
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/opposite-hand-hold": "61f8171a2694ff1e55393ce0fb5ac20f3aea7bf8",
       "fold/pointing-runtime-config-pinned": "88b845b9d2e9bc33764041916b194f2756a261de",
-      "fold/runtime-behavior-parity": "e5536349a33379b94f7f140c1ccf704d531189fd",
-      "fold/split-reliability": "2c87f4aa34b7b6803fb4c45e4b0b2b193d1177f5",
+      "fold/runtime-behavior-parity": "5e63d4a717840d83c165294fa643cb0c13c49265",
+      "fold/split-reliability": "859a18e43e96598f2a7d42200b0c3e4f27affa09",
       "fold/unicode-input": "2c04fa74bfd4670002721770b19546552899739a",
-      "pr-1031": "735d1392b7b04a37761e64a44b047dad339d4eba",
-      "pr-984": "68390bff6f5d140bf6d1f6fbb21d42cf950b74e8",
+      "pr-1031": "b20d64db43ce38b7237834ab0e4336151709135d",
+      "pr-984": "0f5121095338dcb7fc88b7583bed6d03827231b1",
       "runtime-lighting-wake-layers": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
     }
   },
   "build": {
-    "generated": "2026-08-19T19:54:53.429013455+00:00",
-    "base": "0909421ff95ff1819145dc704a794f1be22cac9c",
-    "commit": "dff8ddf6a53882f46f6728c6e9a647a252d67d27",
-    "pre_provenance_commit": "dff8ddf6a53882f46f6728c6e9a647a252d67d27",
-    "tree": "400ea8770bd4b360bab56fce63d91a07b54dfaa2",
-    "built_tree": "400ea8770bd4b360bab56fce63d91a07b54dfaa2",
-    "previous_tree": "d504e7a581af4d7f6e6850769d3232821adc570c",
+    "generated": "2026-08-20T09:23:24.907635636+00:00",
+    "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
+    "commit": "6f664e4390a13c74aa5618253ac6d0d5b32929fe",
+    "pre_provenance_commit": "6f664e4390a13c74aa5618253ac6d0d5b32929fe",
+    "tree": "d5cc32131755138a8b00af8e83d4c1aee80b8ada",
+    "built_tree": "d5cc32131755138a8b00af8e83d4c1aee80b8ada",
+    "previous_tree": "bb02288f944f1b956681fff0e0047db121b34663",
     "tree_changed": true,
-    "conflicts": 20,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -59,13 +60,13 @@
         "name": "fold/split-reliability",
         "kind": "branch",
         "source": "fork:fold/split-reliability",
-        "pin": "2c87f4aa34b7b6803fb4c45e4b0b2b193d1177f5"
+        "pin": "859a18e43e96598f2a7d42200b0c3e4f27affa09"
       },
       {
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "735d1392b7b04a37761e64a44b047dad339d4eba",
+        "pin": "b20d64db43ce38b7237834ab0e4336151709135d",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -78,7 +79,7 @@
         "name": "pr-984",
         "kind": "pr",
         "source": "upstream#984",
-        "pin": "68390bff6f5d140bf6d1f6fbb21d42cf950b74e8"
+        "pin": "0f5121095338dcb7fc88b7583bed6d03827231b1"
       },
       {
         "name": "feat/single-pass-storage-read",
@@ -162,29 +163,28 @@
         "name": "fold/runtime-behavior-parity",
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
-        "pin": "e5536349a33379b94f7f140c1ccf704d531189fd",
-        "fixup": "91eb0c1471929f9d461773ba674ac4fc29bd889c"
+        "pin": "5e63d4a717840d83c165294fa643cb0c13c49265",
+        "fixup": "af8c2651804d1c208ccbcb3d47f7ded299e3efc3"
       },
       {
         "name": "feat/maintenance-mode",
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
-        "pin": "014550372ed58e4a3b116108bf6cdbc88d92b260",
-        "fixup": "57d213842970e35a8e345ce0950ea10c668f77ee"
+        "pin": "311b7714073ac3c34a91949f83ba3afb2f2a43aa",
+        "fixup": "5a4f9f7bef3785d0389e56363473c904b9e846c8"
       },
       {
         "name": "fix/battery-power-transitions",
         "kind": "branch",
         "source": "fork:fix/battery-power-transitions",
-        "pin": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
-        "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
+        "pin": "2360bc99b47264ee90f06039ea10d70b22218d6b"
       },
       {
         "name": "feat/ble-name-template",
         "kind": "branch",
         "source": "fork:feat/ble-name-template",
         "pin": "168f75362c8e32ccb414e4ebd8f3e2c64e935e10",
-        "fixup": "7d1dfdce65a54e3a4692966ee1d5c7f3d30198af"
+        "fixup": "a3b11ff716abe9ee7e8430d9d746bc36a20cc339"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
@@ -208,14 +208,14 @@
         "name": "feat/position-combos",
         "kind": "branch",
         "source": "fork:feat/position-combos",
-        "pin": "074dfa0ff99045eee1b57b8a1b56f3d46e003c42",
+        "pin": "1a1ebf19d33fd7e48b7f083e1bf1e0ffa6d8881c",
         "fixup": "221955adfa264819ea5e67fd4c66b7dd47cf001a"
       },
       {
         "name": "feat/nrf-half-duplex-split",
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
-        "pin": "b9b97cd9aad00aa74f553e7891bb7d3ceff60ec2",
+        "pin": "572e4b0c0856cad62d2cec95744d268bf00f2afc",
         "fixup": "34608597c4501ca049236df2b769e9a8d65a9b72"
       },
       {
@@ -235,7 +235,7 @@
         "kind": "branch",
         "source": "fork:feat/persistent-layer-metadata",
         "pin": "1c24ffd75a89c543160307f20f6fcb937baf3a24",
-        "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
+        "fixup": "dff620a61611986bb0dc4a6b010933356ad4ff5d"
       },
       {
         "name": "fix/mpsl-interrupt-priorities",
@@ -255,6 +255,12 @@
         "kind": "branch",
         "source": "fork:feat/deterministic-build-hash",
         "pin": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b"
+      },
+      {
+        "name": "final-formatting-coherence",
+        "kind": "patch",
+        "source": "patches/final-formatting-coherence.patch",
+        "pin": "18b7edff5c1c00eef6dd79b09e36f28753b804cd"
       }
     ],
     "results": [
@@ -266,16 +272,15 @@
       },
       {
         "name": "fold/split-reliability",
-        "oid": "2c87f4aa34b7b6803fb4c45e4b0b2b193d1177f5",
+        "oid": "859a18e43e96598f2a7d42200b0c3e4f27affa09",
         "status": "merged",
         "conflicted": false
       },
       {
         "name": "pr-1031",
-        "oid": "735d1392b7b04a37761e64a44b047dad339d4eba",
+        "oid": "b20d64db43ce38b7237834ab0e4336151709135d",
         "status": "merged",
-        "conflicted": true,
-        "resolution": "rerere",
+        "conflicted": false,
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -286,7 +291,7 @@
       },
       {
         "name": "pr-984",
-        "oid": "68390bff6f5d140bf6d1f6fbb21d42cf950b74e8",
+        "oid": "0f5121095338dcb7fc88b7583bed6d03827231b1",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
@@ -379,26 +384,25 @@
       },
       {
         "name": "fold/runtime-behavior-parity",
-        "oid": "e5536349a33379b94f7f140c1ccf704d531189fd",
+        "oid": "5e63d4a717840d83c165294fa643cb0c13c49265",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "91eb0c1471929f9d461773ba674ac4fc29bd889c"
+        "fixup": "af8c2651804d1c208ccbcb3d47f7ded299e3efc3"
       },
       {
         "name": "feat/maintenance-mode",
-        "oid": "014550372ed58e4a3b116108bf6cdbc88d92b260",
+        "oid": "311b7714073ac3c34a91949f83ba3afb2f2a43aa",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "57d213842970e35a8e345ce0950ea10c668f77ee"
+        "fixup": "5a4f9f7bef3785d0389e56363473c904b9e846c8"
       },
       {
         "name": "fix/battery-power-transitions",
-        "oid": "c3acef0a19b541dcb7449aa792bd9ce328c3817d",
+        "oid": "2360bc99b47264ee90f06039ea10d70b22218d6b",
         "status": "merged",
-        "conflicted": false,
-        "fixup": "30569c8fcf21e350f2c22c6607b038a7dfea4ff8"
+        "conflicted": false
       },
       {
         "name": "feat/ble-name-template",
@@ -406,7 +410,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "7d1dfdce65a54e3a4692966ee1d5c7f3d30198af"
+        "fixup": "a3b11ff716abe9ee7e8430d9d746bc36a20cc339"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
@@ -430,7 +434,7 @@
       },
       {
         "name": "feat/position-combos",
-        "oid": "074dfa0ff99045eee1b57b8a1b56f3d46e003c42",
+        "oid": "1a1ebf19d33fd7e48b7f083e1bf1e0ffa6d8881c",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -438,7 +442,7 @@
       },
       {
         "name": "feat/nrf-half-duplex-split",
-        "oid": "b9b97cd9aad00aa74f553e7891bb7d3ceff60ec2",
+        "oid": "572e4b0c0856cad62d2cec95744d268bf00f2afc",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
@@ -463,7 +467,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "2589adfd2feb3f2b9db7b6bdb98eeca10c7debfd"
+        "fixup": "dff620a61611986bb0dc4a6b010933356ad4ff5d"
       },
       {
         "name": "fix/mpsl-interrupt-priorities",
@@ -483,6 +487,12 @@
         "name": "feat/deterministic-build-hash",
         "oid": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
         "status": "merged",
+        "conflicted": false
+      },
+      {
+        "name": "final-formatting-coherence",
+        "oid": "18b7edff5c1c00eef6dd79b09e36f28753b804cd",
+        "status": "applied",
         "conflicted": false
       }
     ]

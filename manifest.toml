@@ -90,7 +90,6 @@ fixup = "patches/maintenance-mode-coherence.patch"
 [[entry]]
 branch = "fork:fix/battery-power-transitions"
 summary = "Preserve measured battery levels across power changes and clear disconnected peripheral state"
-fixup = "patches/battery-power-transitions-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ble-name-template"
@@ -133,6 +132,9 @@ fixup = "patches/pointing-mode-event-priority-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/deterministic-build-hash"
+
+[[entry]]
+patch = "patches/final-formatting-coherence.patch"
 
 [[exclude]]
 pr = 999

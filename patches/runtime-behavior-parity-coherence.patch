@@ -1,8 +1,26 @@
+diff --git a/rmk/src/config/mod.rs b/rmk/src/config/mod.rs
+index ac3ded4b7..6803d1e30 100644
+--- a/rmk/src/config/mod.rs
++++ b/rmk/src/config/mod.rs
+@@ -9,10 +9,9 @@ mod storage;
+ mod vial;
+ 
+ pub use behavior::{
+-    AutoMouseLayerConfig, BehaviorConfig, CombosConfig, ForksConfig, HOLD_TRIGGER_DEFAULT_PROFILE, HoldTriggerPositions,
+-    KeyboardMacrosConfig, MorsesConfig, MouseKeyConfig, MouseLayerScaleConfig, OneShotConfig, OneShotModifiersConfig,
+-    TapConfig,
+-    UnicodeConfig,
++    AutoMouseLayerConfig, BehaviorConfig, CombosConfig, ForksConfig, HOLD_TRIGGER_DEFAULT_PROFILE,
++    HoldTriggerPositions, KeyboardMacrosConfig, MorsesConfig, MouseKeyConfig, MouseLayerScaleConfig, OneShotConfig,
++    OneShotModifiersConfig, TapConfig, UnicodeConfig,
+ };
+ #[cfg(feature = "_ble")]
+ pub use ble_battery::BleBatteryConfig;
 diff --git a/rmk/src/host/context.rs b/rmk/src/host/context.rs
-index ee566f8b..2e9a4956 100644
+index 753672b16..845de6248 100644
 --- a/rmk/src/host/context.rs
 +++ b/rmk/src/host/context.rs
-@@ -348,6 +348,8 @@ impl<'a> KeyboardContext<'a> {
+@@ -349,6 +349,8 @@ impl<'a> KeyboardContext<'a> {
              return false;
          }
          #[cfg(feature = "storage")]
@@ -11,7 +29,7 @@ index ee566f8b..2e9a4956 100644
          {
              FLASH_CHANNEL
                  .send(FlashOperationMessage::MorseProfile {
-@@ -361,6 +363,9 @@ impl<'a> KeyboardContext<'a> {
+@@ -362,6 +364,9 @@ impl<'a> KeyboardContext<'a> {
                      name: MorseProfileName::new(),
                  })
                  .await;
@@ -22,7 +40,7 @@ index ee566f8b..2e9a4956 100644
          true
      }
 diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
-index 4e5957db..32dbb903 100644
+index 687f811ad..68acc22ae 100644
 --- a/rmk/src/host/storage.rs
 +++ b/rmk/src/host/storage.rs
 @@ -1,7 +1,6 @@
@@ -33,17 +51,17 @@ index 4e5957db..32dbb903 100644
 +use rmk_types::morse::{MorseProfile, MorseProfileName};
  use serde::de::{Error as DeError, SeqAccess, Visitor};
  use serde::{Deserializer, Serializer};
-
+ 
 @@ -83,6 +82,8 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
              .map_err(|e| print_storage_error::<F>(e))?;
-
+ 
          let mut records_read = 0;
 +        let mut stored_profiles = [false; MORSE_PROFILE_MAX_NUM];
 +        let mut stored_profile_names = [false; MORSE_PROFILE_MAX_NUM];
          while let Some((key, item)) = key_iterator
              .next::<StorageData>(&mut self.buffer)
              .await
-@@ -142,9 +143,50 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+@@ -144,9 +145,50 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
                          *item = morse;
                      }
                  }
@@ -95,10 +113,10 @@ index 4e5957db..32dbb903 100644
              records_read += 1;
              if records_read % 32 == 0 {
                  // Memory-mapped flash can keep every read ready, so let other tasks run.
-@@ -152,52 +194,21 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+@@ -154,52 +196,21 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
              }
          }
-
+ 
 -        Ok(())
 -    }
 -
@@ -160,12 +178,12 @@ index 4e5957db..32dbb903 100644
 +                behavior.morse.profile_names[idx] = name;
              }
          }
-
+ 
 diff --git a/rmk/src/keymap.rs b/rmk/src/keymap.rs
-index 752c7cc7..01378110 100644
+index 0c45cda1a..41f00f272 100644
 --- a/rmk/src/keymap.rs
 +++ b/rmk/src/keymap.rs
-@@ -768,6 +768,9 @@ impl<'a> KeyMap<'a> {
+@@ -783,6 +783,9 @@ impl<'a> KeyMap<'a> {
          if let Some(name) = morse.profile_names.get_mut(idx) {
              name.clear();
          }
@@ -174,71 +192,9 @@ index 752c7cc7..01378110 100644
 +            .retain(|(profile, _, _)| *profile != idx as u8);
          true
      }
-
-diff --git a/rmk/tests/scenarios/rynk_morse_profile.toml b/rmk/tests/scenarios/rynk_morse_profile.toml
-index b670372a..c5cf40e0 100644
---- a/rmk/tests/scenarios/rynk_morse_profile.toml
-+++ b/rmk/tests/scenarios/rynk_morse_profile.toml
-@@ -121,9 +121,16 @@ steps = [
- [[test]]
- name = "deleting_a_profile_vacates_without_compacting"
- steps = [
-+  { rynk = { cmd = "SetMorseHoldTriggerPositions", payload = { positions = [
-+    { profile = 0, row = 0, col = 0 },
-+    { profile = 1, row = 0, col = 1 },
-+  ] } } },
-   { rynk = { cmd = "DeleteMorseProfile", payload = 0 } },
-   { rynk = { cmd = "GetMorseProfileState", payload = { offset = 0 }, reply = { capacity = 16, total = 1, entries = [
-     { index = 1, name = "pinky", profile = { mode = "Normal", hold_timeout_ms = 300, gap_timeout_ms = 300 } },
-   ] } } },
-   { rynk = { cmd = "GetMorseProfile", payload = 0, reply = { hold_timeout_ms = 250, gap_timeout_ms = 250 } } },
-+  { rynk = { cmd = "GetMorseHoldTriggerPositions", reply = { capacity = 16, positions = [
-+    { profile = 1, row = 0, col = 1 },
-+  ] } } },
- ]
-diff --git a/rmk/src/config/mod.rs b/rmk/src/config/mod.rs
---- a/rmk/src/config/mod.rs
-+++ b/rmk/src/config/mod.rs
-@@ -9,10 +9,9 @@ mod storage;
- mod vial;
  
- pub use behavior::{
--    AutoMouseLayerConfig, BehaviorConfig, CombosConfig, ForksConfig, HOLD_TRIGGER_DEFAULT_PROFILE, HoldTriggerPositions,
--    KeyboardMacrosConfig, MorsesConfig, MouseKeyConfig, MouseLayerScaleConfig, OneShotConfig, OneShotModifiersConfig,
--    TapConfig,
--    UnicodeConfig,
-+    AutoMouseLayerConfig, BehaviorConfig, CombosConfig, ForksConfig, HOLD_TRIGGER_DEFAULT_PROFILE,
-+    HoldTriggerPositions, KeyboardMacrosConfig, MorsesConfig, MouseKeyConfig, MouseLayerScaleConfig, OneShotConfig,
-+    OneShotModifiersConfig, TapConfig, UnicodeConfig,
- };
- #[cfg(feature = "_ble")]
- pub use ble_battery::BleBatteryConfig;
-diff --git a/rmk/src/host/context.rs b/rmk/src/host/context.rs
---- a/rmk/src/host/context.rs
-+++ b/rmk/src/host/context.rs
-@@ -13,17 +13,16 @@ use rmk_types::led_indicator::LedIndicator;
- use rmk_types::morse::{Morse, MorseProfile, MorseProfileName};
- #[cfg(feature = "rynk")]
- use rmk_types::protocol::rynk::{
--    BehaviorConfig, BehaviorOptions, MORSE_PROFILE_ENTRY_CHUNK, MorseHoldTriggerPosition,
--    MorseHoldTriggerPositionState, MorseHoldTriggerPositions, MorseProfileEntry, MorseProfileState,
--    SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest, LAYER_STATE_BITMAP_SIZE,
--    LAYER_STATE_CAPACITY, LayerState,
-+    BehaviorConfig, BehaviorOptions, LAYER_STATE_BITMAP_SIZE, LAYER_STATE_CAPACITY, LayerState,
-+    MORSE_PROFILE_ENTRY_CHUNK, MorseHoldTriggerPosition, MorseHoldTriggerPositionState, MorseHoldTriggerPositions,
-+    MorseProfileEntry, MorseProfileState, SetMorseHoldTriggerPositionsRequest, SetMorseProfileEntryRequest,
- };
- 
- #[cfg(feature = "rynk")]
- use crate::config::{HoldTriggerPositions, OneShotModifiersConfig};
-+use crate::event::KeyboardEventPos;
- #[cfg(feature = "rynk")]
- use crate::event::{AutoMouseLayerConfigChangeEvent, publish_event};
--use crate::event::KeyboardEventPos;
- use crate::keyboard::combo::Combo;
- use crate::keymap::KeyMap;
- #[cfg(feature = "storage")]
 diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+index 40ea94838..547ed2ef0 100644
 --- a/rmk/src/storage/mod.rs
 +++ b/rmk/src/storage/mod.rs
 @@ -9,6 +9,8 @@ use postcard::experimental::max_size::MaxSize;
@@ -259,3 +215,24 @@ diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
  use sequential_storage::Error as SSError;
  use sequential_storage::cache::{Cache, Uncached};
  use sequential_storage::map::{Key, MapConfig, MapStorage, PostcardValue, SerializationError};
+diff --git a/rmk/tests/scenarios/rynk_morse_profile.toml b/rmk/tests/scenarios/rynk_morse_profile.toml
+index 8a3ceda75..30b264918 100644
+--- a/rmk/tests/scenarios/rynk_morse_profile.toml
++++ b/rmk/tests/scenarios/rynk_morse_profile.toml
+@@ -121,9 +121,16 @@ steps = [
+ [[test]]
+ name = "deleting_a_profile_vacates_without_compacting"
+ steps = [
++  { rynk = { cmd = "SetMorseHoldTriggerPositions", payload = { positions = [
++    { profile = 0, row = 0, col = 0 },
++    { profile = 1, row = 0, col = 1 },
++  ] } } },
+   { rynk = { cmd = "DeleteMorseProfile", payload = 0 } },
+   { rynk = { cmd = "GetMorseProfileState", payload = { offset = 0 }, reply = { capacity = 16, total = 1, entries = [
+     { index = 1, name = "pinky", profile = { mode = "Normal", hold_timeout_ms = 300, gap_timeout_ms = 300 } },
+   ] } } },
+   { rynk = { cmd = "GetMorseProfile", payload = 0, reply = { enable_flow_tap = false, hold_timeout_ms = 250, gap_timeout_ms = 250 } } },
++  { rynk = { cmd = "GetMorseHoldTriggerPositions", reply = { capacity = 16, positions = [
++    { profile = 1, row = 0, col = 1 },
++  ] } } },
+ ]
