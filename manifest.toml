@@ -9,7 +9,7 @@ fork = "https://github.com/colonelpanic8/rmk"
 
 [publish]
 remote = "fork"
-branch = "assembled"
+branch = "assembled-ble-advertising-backoff"
 
 [base]
 remote = "upstream"
@@ -138,6 +138,9 @@ patch = "patches/final-formatting-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ctrl-gui-swap"
+
+[[entry]]
+branch = "fork:feat/ble-advertising-backoff"
 
 [[exclude]]
 pr = 999
