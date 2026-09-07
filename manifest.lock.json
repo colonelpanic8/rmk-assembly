@@ -8,6 +8,7 @@
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "26ea43515b5fcb41eeb230454be7e81f78173da8",
+      "feat/lighting-layer-indicator-conditions": "a0f2ae50e5e1dc5ad7697e25822c73602b9c92a3",
       "feat/maintenance-mode": "311b7714073ac3c34a91949f83ba3afb2f2a43aa",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "a4f5bcdf97620d2eb9e27aa00e1eca8fc12cf82a",
@@ -21,7 +22,7 @@
       "feat/pointing-drag-mode": "c85e3860da7c0e2d3992c1aa7e45fd5445037388",
       "feat/position-combos": "1a1ebf19d33fd7e48b7f083e1bf1e0ffa6d8881c",
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
-      "final-formatting-coherence": "18b7edff5c1c00eef6dd79b09e36f28753b804cd",
+      "final-formatting-coherence": "4db91e095c80db3f67db893f76f03d4ba4d0a653",
       "fix/battery-power-transitions": "2ee03c2bda4cdde25db634f38be4871874c22e8f",
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
@@ -40,15 +41,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-20T09:39:38.854999320+00:00",
+    "generated": "2026-09-07T20:30:15.665397059+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "ee4402398741e4d1abf1abaac4e4774948b7d259",
-    "pre_provenance_commit": "ee4402398741e4d1abf1abaac4e4774948b7d259",
-    "tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
-    "built_tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
-    "previous_tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
+    "commit": "ce1e22e39ab7d7798a8a12f3a09836b07c6e9a86",
+    "pre_provenance_commit": "ce1e22e39ab7d7798a8a12f3a09836b07c6e9a86",
+    "tree": "d5738325e57b68a32b3b939b9397a23c3fc1bbd2",
+    "built_tree": "d5738325e57b68a32b3b939b9397a23c3fc1bbd2",
+    "previous_tree": "51e1e2eee9905a98db9f37612ae6c49c46fef449",
     "tree_changed": true,
-    "conflicts": 19,
+    "conflicts": 20,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -257,10 +258,16 @@
         "pin": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b"
       },
       {
+        "name": "feat/lighting-layer-indicator-conditions",
+        "kind": "branch",
+        "source": "fork:feat/lighting-layer-indicator-conditions",
+        "pin": "a0f2ae50e5e1dc5ad7697e25822c73602b9c92a3"
+      },
+      {
         "name": "final-formatting-coherence",
         "kind": "patch",
         "source": "patches/final-formatting-coherence.patch",
-        "pin": "18b7edff5c1c00eef6dd79b09e36f28753b804cd"
+        "pin": "4db91e095c80db3f67db893f76f03d4ba4d0a653"
       }
     ],
     "results": [
@@ -490,8 +497,15 @@
         "conflicted": false
       },
       {
+        "name": "feat/lighting-layer-indicator-conditions",
+        "oid": "a0f2ae50e5e1dc5ad7697e25822c73602b9c92a3",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:b6f7a3f2a2353f087eb2593662ca7a9feb4c6be0"
+      },
+      {
         "name": "final-formatting-coherence",
-        "oid": "18b7edff5c1c00eef6dd79b09e36f28753b804cd",
+        "oid": "4db91e095c80db3f67db893f76f03d4ba4d0a653",
         "status": "applied",
         "conflicted": false
       }

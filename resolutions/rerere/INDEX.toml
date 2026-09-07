@@ -254,6 +254,36 @@ paths = ["rynk/src/api.rs"]
 recorded = "2026-08-18T09:33:00.104925685+00:00"
 
 [[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "73cb09870288b756c51d1a65564b7b8b1bd5c2eb"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-09-07T20:28:59.560935674+00:00"
+
+[[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "7c68201083044a8aac0d6e7874056d9fd49cc26e"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-09-07T20:28:59.560938510+00:00"
+
+[[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "b6f7a3f2a2353f087eb2593662ca7a9feb4c6be0"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-09-07T20:30:15.599453548+00:00"
+
+[[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "d0e1cbf801d0d1fc887ae3c012e26074f025591b"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-09-07T20:28:59.560939021+00:00"
+
+[[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "e42bd37e309a3d98cdc18234f0ef366c45d2615f"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-09-07T20:28:59.560939271+00:00"
+
+[[resolution]]
 entry = "feat/maintenance-mode"
 hash = "03db6fecebc57eecba8c562ea7d973e80b958e35"
 paths = ["rmk/src/host/rynk/mod.rs"]
