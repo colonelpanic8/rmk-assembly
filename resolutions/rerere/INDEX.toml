@@ -146,6 +146,24 @@ paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-08-18T08:56:41.442769319+00:00"
 
 [[resolution]]
+entry = "feat/ctrl-gui-swap"
+hash = "2f44f4fba92bc24004123d5ad723589fc32ec7ff"
+paths = ["rmk/src/keyboard.rs"]
+recorded = "2026-09-07T20:34:09.478465584+00:00"
+
+[[resolution]]
+entry = "feat/ctrl-gui-swap"
+hash = "35814815acf46bdf2e4ce9e204da92321b8e265f"
+paths = ["rmk-types/src/action/keyboard.rs"]
+recorded = "2026-09-07T20:34:09.478470162+00:00"
+
+[[resolution]]
+entry = "feat/ctrl-gui-swap"
+hash = "b91ddc40950e6e5a83964ec60dba756f3553fb3b"
+paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
+recorded = "2026-09-07T20:34:09.478470533+00:00"
+
+[[resolution]]
 entry = "feat/device-data"
 hash = "1085de6362de94b32237a37c3363a14544a5b6b0"
 paths = ["rynk/src/api.rs"]
