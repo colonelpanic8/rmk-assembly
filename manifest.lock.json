@@ -25,6 +25,7 @@
       "feat/single-pass-storage-read": "fe61e8a28f79b4229fd1da17a8b7416450d0973b",
       "final-formatting-coherence": "4db91e095c80db3f67db893f76f03d4ba4d0a653",
       "fix/battery-power-transitions": "2ee03c2bda4cdde25db634f38be4871874c22e8f",
+      "fix/cooperative-storage": "3abef32c5bfab2a07df8850a71971944c7f31a97",
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
       "fix/pointing-mode-event-priority": "b4e07f36905aa6dea326932085dbfac14c25379e",
@@ -42,15 +43,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-07T20:34:09.507094279+00:00",
+    "generated": "2026-09-07T21:21:16.301458720+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "9a88399366a01b344cf90fb3723cae68dc4dc949",
-    "pre_provenance_commit": "9a88399366a01b344cf90fb3723cae68dc4dc949",
-    "tree": "ad36ded1d782d52aed0c5924569993f37ca91362",
-    "built_tree": "ad36ded1d782d52aed0c5924569993f37ca91362",
-    "previous_tree": "d5738325e57b68a32b3b939b9397a23c3fc1bbd2",
+    "commit": "c4c2286dc54db639708c22a71b5379a2620ae8d5",
+    "pre_provenance_commit": "c4c2286dc54db639708c22a71b5379a2620ae8d5",
+    "tree": "6af1700c3fb2dd2b32b02cd7bf6a4396c78a58eb",
+    "built_tree": "6af1700c3fb2dd2b32b02cd7bf6a4396c78a58eb",
+    "previous_tree": "0938274f498e946598c4c69dea62daaf945eacea",
     "tree_changed": true,
-    "conflicts": 1,
+    "conflicts": 21,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -275,6 +276,13 @@
         "kind": "branch",
         "source": "fork:feat/ctrl-gui-swap",
         "pin": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e"
+      },
+      {
+        "name": "fix/cooperative-storage",
+        "kind": "branch",
+        "source": "fork:fix/cooperative-storage",
+        "pin": "3abef32c5bfab2a07df8850a71971944c7f31a97",
+        "fixup": "c6d5020d46757978dcde5d661f99467c4afa226f"
       }
     ],
     "results": [
@@ -508,7 +516,7 @@
         "oid": "a0f2ae50e5e1dc5ad7697e25822c73602b9c92a3",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:b6f7a3f2a2353f087eb2593662ca7a9feb4c6be0"
+        "resolution": "rerere"
       },
       {
         "name": "final-formatting-coherence",
@@ -521,7 +529,14 @@
         "oid": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:2f44f4fba92bc24004123d5ad723589fc32ec7ff,35814815acf46bdf2e4ce9e204da92321b8e265f,b91ddc40950e6e5a83964ec60dba756f3553fb3b"
+        "resolution": "rerere"
+      },
+      {
+        "name": "fix/cooperative-storage",
+        "oid": "3abef32c5bfab2a07df8850a71971944c7f31a97",
+        "status": "merged",
+        "conflicted": false,
+        "fixup": "c6d5020d46757978dcde5d661f99467c4afa226f"
       }
     ]
   }

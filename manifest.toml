@@ -9,7 +9,7 @@ fork = "https://github.com/colonelpanic8/rmk"
 
 [publish]
 remote = "fork"
-branch = "assembled"
+branch = "candidate/magic-runtime-crash"
 
 [base]
 remote = "upstream"
@@ -142,6 +142,10 @@ patch = "patches/final-formatting-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ctrl-gui-swap"
+
+[[entry]]
+branch = "fork:fix/cooperative-storage"
+fixup = "patches/cooperative-storage-coherence.patch"
 
 [[exclude]]
 pr = 999
