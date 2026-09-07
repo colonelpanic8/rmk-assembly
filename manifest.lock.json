@@ -6,6 +6,7 @@
       "feat/ble-name-template": "168f75362c8e32ccb414e4ebd8f3e2c64e935e10",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
+      "feat/ctrl-gui-swap": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e",
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "26ea43515b5fcb41eeb230454be7e81f78173da8",
       "feat/maintenance-mode": "311b7714073ac3c34a91949f83ba3afb2f2a43aa",
@@ -40,15 +41,15 @@
     }
   },
   "build": {
-    "generated": "2026-08-20T09:39:38.854999320+00:00",
+    "generated": "2026-09-07T20:10:46.880587023+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "ee4402398741e4d1abf1abaac4e4774948b7d259",
-    "pre_provenance_commit": "ee4402398741e4d1abf1abaac4e4774948b7d259",
-    "tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
-    "built_tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
-    "previous_tree": "a6319805d0e5fec14364977c9a5f522c8d530ae6",
+    "commit": "498389ebbacae1a6f8e52d1628b95231482ca14f",
+    "pre_provenance_commit": "498389ebbacae1a6f8e52d1628b95231482ca14f",
+    "tree": "0e72b8f39fa84aaa7b30d8a7ef6fdda1db9b08a2",
+    "built_tree": "0e72b8f39fa84aaa7b30d8a7ef6fdda1db9b08a2",
+    "previous_tree": "df74b635c4154313b2603fe43b21e5f81b70480f",
     "tree_changed": true,
-    "conflicts": 19,
+    "conflicts": 1,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -261,6 +262,12 @@
         "kind": "patch",
         "source": "patches/final-formatting-coherence.patch",
         "pin": "18b7edff5c1c00eef6dd79b09e36f28753b804cd"
+      },
+      {
+        "name": "feat/ctrl-gui-swap",
+        "kind": "branch",
+        "source": "fork:feat/ctrl-gui-swap",
+        "pin": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e"
       }
     ],
     "results": [
@@ -494,6 +501,13 @@
         "oid": "18b7edff5c1c00eef6dd79b09e36f28753b804cd",
         "status": "applied",
         "conflicted": false
+      },
+      {
+        "name": "feat/ctrl-gui-swap",
+        "oid": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:2f44f4fba92bc24004123d5ad723589fc32ec7ff,35814815acf46bdf2e4ce9e204da92321b8e265f,b91ddc40950e6e5a83964ec60dba756f3553fb3b"
       }
     ]
   }

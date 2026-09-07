@@ -136,6 +136,9 @@ branch = "fork:feat/deterministic-build-hash"
 [[entry]]
 patch = "patches/final-formatting-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/ctrl-gui-swap"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
