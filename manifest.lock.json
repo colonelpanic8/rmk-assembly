@@ -3,6 +3,7 @@
   "pins": {
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
     "entries": {
+      "feat/ble-advertising-backoff": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
       "feat/ble-name-template": "168f75362c8e32ccb414e4ebd8f3e2c64e935e10",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "1373e2533443e044305328df85336ab766ab03a9",
@@ -42,15 +43,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-07T20:34:09.507094279+00:00",
+    "generated": "2026-09-08T03:36:54.450443440+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "9a88399366a01b344cf90fb3723cae68dc4dc949",
-    "pre_provenance_commit": "9a88399366a01b344cf90fb3723cae68dc4dc949",
-    "tree": "ad36ded1d782d52aed0c5924569993f37ca91362",
-    "built_tree": "ad36ded1d782d52aed0c5924569993f37ca91362",
-    "previous_tree": "d5738325e57b68a32b3b939b9397a23c3fc1bbd2",
+    "commit": "dc6a8fc72a5c8bf9b8c61e02b4766b92cbc256f4",
+    "pre_provenance_commit": "dc6a8fc72a5c8bf9b8c61e02b4766b92cbc256f4",
+    "tree": "6cda8c2767d8d5a14ffbe299eade1277c88ae7b6",
+    "built_tree": "6cda8c2767d8d5a14ffbe299eade1277c88ae7b6",
+    "previous_tree": "ad36ded1d782d52aed0c5924569993f37ca91362",
     "tree_changed": true,
-    "conflicts": 1,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -275,6 +276,12 @@
         "kind": "branch",
         "source": "fork:feat/ctrl-gui-swap",
         "pin": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e"
+      },
+      {
+        "name": "feat/ble-advertising-backoff",
+        "kind": "branch",
+        "source": "fork:feat/ble-advertising-backoff",
+        "pin": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34"
       }
     ],
     "results": [
@@ -522,6 +529,12 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere:2f44f4fba92bc24004123d5ad723589fc32ec7ff,35814815acf46bdf2e4ce9e204da92321b8e265f,b91ddc40950e6e5a83964ec60dba756f3553fb3b"
+      },
+      {
+        "name": "feat/ble-advertising-backoff",
+        "oid": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }
