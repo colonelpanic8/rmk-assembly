@@ -3,6 +3,7 @@
   "pins": {
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
     "entries": {
+      "feat/ble-advertising-backoff": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
       "feat/ble-name-template": "ba90faee22e679ccade2d55a985079c6da826a40",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "26a1399d287f33e6ab1492a971dfaf148dff8bc8",
@@ -41,15 +42,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-08T04:10:12.489708645+00:00",
+    "generated": "2026-09-08T04:25:35.617183065+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "56927cd1bb6492d2b8138e8f56fc1a60522364e8",
-    "pre_provenance_commit": "56927cd1bb6492d2b8138e8f56fc1a60522364e8",
-    "tree": "fc0b328b46250c10babc83c3f59b00db0b656725",
-    "built_tree": "fc0b328b46250c10babc83c3f59b00db0b656725",
-    "previous_tree": "886c6f1dd84a300ec7e701a164df3b004edf1728",
+    "commit": "2feb4f5989bccbb36343feca87891e3564e877cb",
+    "pre_provenance_commit": "2feb4f5989bccbb36343feca87891e3564e877cb",
+    "tree": "4214a34135b38865b3e0477294942c928c5ad37d",
+    "built_tree": "4214a34135b38865b3e0477294942c928c5ad37d",
+    "previous_tree": "fc0b328b46250c10babc83c3f59b00db0b656725",
     "tree_changed": true,
-    "conflicts": 21,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -269,6 +270,12 @@
         "kind": "branch",
         "source": "fork:feat/ctrl-gui-swap",
         "pin": "2ecacafb40824df06c00397326cc4ee207721b88"
+      },
+      {
+        "name": "feat/ble-advertising-backoff",
+        "kind": "branch",
+        "source": "fork:feat/ble-advertising-backoff",
+        "pin": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34"
       }
     ],
     "results": [
@@ -511,6 +518,12 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
+      },
+      {
+        "name": "feat/ble-advertising-backoff",
+        "oid": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }

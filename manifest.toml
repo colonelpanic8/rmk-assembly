@@ -141,6 +141,9 @@ fixup = "patches/lighting-layer-indicator-conditions-coherence.patch"
 [[entry]]
 branch = "fork:feat/ctrl-gui-swap"
 
+[[entry]]
+branch = "fork:feat/ble-advertising-backoff"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
