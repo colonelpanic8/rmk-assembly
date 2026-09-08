@@ -58,3 +58,15 @@ index 582c826dc..30d3681d9 100644
      SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboDefinitionBulkRequest, SetComboDefinitionRequest,
      SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetLayerMetadataRequest,
      SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 79b1b4d79..ecb656ca1 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -280,6 +280,7 @@ impl<'a> RynkService<'a> {
+             | Cmd::GetSleepState
+             | Cmd::GetLedIndicator
+             | Cmd::GetLayerState
++            | Cmd::GetLayerMetadata
+             | Cmd::GetModifierState
+             | Cmd::GetPointingConfig
+             | Cmd::GetPointingCapabilities => Some(false),

@@ -68,6 +68,7 @@ branch = "fork:feat/consumer-keycodes"
 
 [[entry]]
 branch = "fork:fold/unicode-input"
+fixup = "patches/unicode-input-coherence.patch"
 
 [[entry]]
 branch = "fork:fold/cirque-pinnacle"
@@ -94,7 +95,6 @@ summary = "Preserve measured battery levels across power changes and clear disco
 [[entry]]
 branch = "fork:feat/ble-name-template"
 summary = "Persistent runtime BLE advertising-name templates with per-profile slot expansion"
-fixup = "patches/ble-name-template-coherence.patch"
 
 [[entry]]
 branch = "fork:fix/ephemeral-split-layer-state"
@@ -136,9 +136,7 @@ branch = "fork:feat/deterministic-build-hash"
 [[entry]]
 branch = "fork:feat/lighting-layer-indicator-conditions"
 summary = "Conditional lighting rules gated on layer sets and host lock indicators; feature flags widen to u32"
-
-[[entry]]
-patch = "patches/final-formatting-coherence.patch"
+fixup = "patches/lighting-layer-indicator-conditions-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ctrl-gui-swap"

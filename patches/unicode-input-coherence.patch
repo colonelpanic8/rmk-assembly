@@ -1,0 +1,14 @@
+diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
+index 2dab427b8..919bb99ff 100644
+--- a/rmk/src/host/storage.rs
++++ b/rmk/src/host/storage.rs
+@@ -142,6 +142,9 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+                         *item = morse;
+                     }
+                 }
++                (StorageKey::UnicodeMode, StorageData::UnicodeMode(mode)) => {
++                    behavior.unicode.mode = mode;
++                }
+                 _ => {}
+             }
+ 

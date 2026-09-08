@@ -1,8 +1,37 @@
+diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
+index 81795d7be..9db8f5088 100644
+--- a/rmk/src/host/storage.rs
++++ b/rmk/src/host/storage.rs
+@@ -1,5 +1,6 @@
+ use embassy_futures::yield_now;
+ use embedded_storage_async::nor_flash::NorFlash as AsyncNorFlash;
++use rmk_types::action::KeyAction;
+ use rmk_types::morse::{MorseProfile, MorseProfileName};
+ use serde::de::{Error as DeError, SeqAccess, Visitor};
+ use serde::{Deserializer, Serializer};
+@@ -126,7 +127,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+                     let idx = idx as usize;
+                     if idx < COMBO_MAX_NUM {
+                         debug!("Read combo config: {:?}", config);
+-                        behavior.combo.combos[idx] = Some(Combo::new(config));
++                        behavior.combo.combos[idx] =
++                            (!config.actions.is_empty() || config.output != KeyAction::No).then(|| Combo::new(config));
++                    }
++                }
++                (StorageKey::Combo(idx), StorageData::PositionCombo(config)) => {
++                    let idx = idx as usize;
++                    if idx < COMBO_MAX_NUM {
++                        debug!("Read position combo config: {:?}", config);
++                        behavior.combo.combos[idx] = (!config.positions.is_empty() || config.output != KeyAction::No)
++                            .then(|| Combo::new_positions(config));
+                     }
+                 }
+                 (StorageKey::Fork(idx), StorageData::Fork(fork)) => {
 diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
-index e719ae1d..a7a95cf8 100644
+index d11302b92..f876e8a5e 100644
 --- a/rmk/src/storage/mod.rs
 +++ b/rmk/src/storage/mod.rs
-@@ -1903,7 +1903,10 @@ mod tests {
+@@ -2474,7 +2474,10 @@ mod tests {
  
              storage.read_boot_data(&mut keymap, &mut behavior).await.unwrap();
  
@@ -14,11 +43,27 @@ index e719ae1d..a7a95cf8 100644
              assert_eq!(behavior.fork.forks[0], fork);
              assert_eq!(behavior.morse.morses[0], morse);
          });
+@@ -2570,10 +2573,11 @@ mod tests {
+                 .await
+                 .unwrap();
+ 
+-            let mut combos = core::array::from_fn(|_| None);
+-            storage.read_combos(&mut combos).await.unwrap();
+-            assert!(combos[0].is_none());
+-            assert!(combos[1].is_none());
++            let mut data = KeymapData::new([[[KeyAction::No]]]);
++            let mut behavior = RuntimeBehaviorConfig::default();
++            storage.read_boot_data(&mut data, &mut behavior).await.unwrap();
++            assert!(behavior.combo.combos[0].is_none());
++            assert!(behavior.combo.combos[1].is_none());
+         });
+     }
+ 
 diff --git a/rmk/tests/scenarios/rynk_behavior.toml b/rmk/tests/scenarios/rynk_behavior.toml
-index 3b2803a1..5989b47a 100644
+index c3721e46a..a77e352db 100644
 --- a/rmk/tests/scenarios/rynk_behavior.toml
 +++ b/rmk/tests/scenarios/rynk_behavior.toml
-@@ -87,7 +87,7 @@ steps = [
+@@ -88,7 +88,7 @@ steps = [
    ], output = { Single = { Key = { Hid = "D" } } } } } }, error = "Invalid" } },
    { rynk = { cmd = "SetComboDefinition", payload = { index = 0, definition = { Positions = { positions = [
      { row = 0, col = 0 },
@@ -28,7 +73,7 @@ index 3b2803a1..5989b47a 100644
  
  # Two different writes, each read back: the read follows the write instead of
 diff --git a/rynk/rynk-wasm/src/client.rs b/rynk/rynk-wasm/src/client.rs
-index d35e32bc..f5f9ae57 100644
+index d35e32bc1..f5f9ae577 100644
 --- a/rynk/rynk-wasm/src/client.rs
 +++ b/rynk/rynk-wasm/src/client.rs
 @@ -46,8 +46,9 @@ use rynk::rmk_types::protocol::rynk::{
@@ -82,3 +127,14 @@ index d35e32bc..f5f9ae57 100644
      // status
      get_current_layer() -> u8,
      get_layer_state() -> LayerState,
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -191,7 +191,6 @@
+             | Cmd::SetBehaviorOptions
+             | Cmd::SetAutoMouseLayerConfigs
+             | Cmd::SetPointingConfig
+-            | Cmd::SetComboDefinition
+             | Cmd::SetComboDefinitionBulk => Some(true),
+             #[cfg(feature = "lighting")]
+             Cmd::SetLightingState
