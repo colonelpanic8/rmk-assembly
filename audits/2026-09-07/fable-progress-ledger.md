@@ -172,3 +172,47 @@ correction, base bump, prune, build, locked reproduction, commits.
   regression): `host::rynk::handlers::lighting::tests::scene_endpoints_flow_through_adapter_and_engine`
   fails with `InvalidRequest` on the extended-conditional commit when `_ble`
   is enabled; passes on the lighting agent's `rynk,storage,lighting` set.
+
+## Propagation to moergo-rmk and the config (2026-09-07, final)
+
+Reconciliation first: `origin/master` had gained
+`fork:feat/ble-advertising-backoff` and published `assembled` from the old
+base while this refresh was in flight. That entry is merged into the
+refreshed stack (0 conflicts) rather than overwritten, so nothing regressed.
+
+| Repo | Commit | Note |
+|---|---|---|
+| rmk-assembly master | `cf5082e` | 36 entries, base 8b4d1b31 |
+| rmk `assembled` | `ef9787302` | tree `63685eca`, reproduced with `build --locked` |
+| moergo-rmk master | `02b82f1` | API adaptation + assembly pin |
+| moergo-config master | `3b605fd4` | firmware pin |
+| nrf-sdc `bt-hci-0.10-timeslot-flash` | `2dfeabc` | fork's 0.10 branch + the timeslot flash fix cherry-picked |
+
+Downstream work the refresh required:
+
+- `bt-hci` 0.9 → 0.10 on both board crates. The old `nrf-sdc` fork rev
+  implements the 0.9 traits, which is why ~30 `ControllerCmdSync` bounds
+  failed; the fork's `bt-hci-0.10` branch lacked the timeslot flash overstay
+  fix, so that commit was cherry-picked onto it and both boards repinned.
+- `LightingContext.local_powered`: the peripheral now reports its own VBUS
+  there and leaves `powered` as the authority's replicated value, so the
+  engine selects per `powered_only_scope`. This closes the F15 caveat the
+  lighting agent flagged (the replica renderer had been overwriting
+  `powered` itself).
+- `ConditionSet` gained `layers`/`indicators`; the split conditional-cell
+  wire form predates both and decodes them absent.
+- Persisted runtime conditional scenes are now
+  `LightingAdvancedConditionalSceneCell`.
+- The dev shell gained `gcc-arm-embedded` plus `CC_thumbv7em_none_eabihf`,
+  because trouble's `security` feature pulls in `p256-cortex-m4-sys`, which
+  compiles C for the firmware target.
+
+Verification: `just firmware` builds left and right on two machines with
+identical address ranges (`0x26000-0xd9300` / `0x26000-0x8a200`); the image
+hashes differ between machines, so the build is not bit-reproducible across
+hosts. No hardware was flashed or exercised.
+
+Open, handed to jay-lenovo (`audits/2026-09-07/jay-lenovo-handoff.md`):
+hardware qualification of the Glove80, and the **go60 no longer fits flash**
+(`.data` overflows by 11,900 bytes) with upstream's larger BLE stack. The
+go60 needs a feature trim or a partition change; the Glove80 is unaffected.
