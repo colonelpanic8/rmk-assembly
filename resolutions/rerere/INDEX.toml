@@ -357,6 +357,12 @@ recorded = "2026-09-08T06:05:25.314242526+00:00"
 
 [[resolution]]
 entry = "feat/lighting-layer-indicator-conditions"
+hash = "b56a47a7e2bf949807445a56e117314f0157c07f"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-09-08T08:00:29.500903741+00:00"
+
+[[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
 hash = "b6f7a3f2a2353f087eb2593662ca7a9feb4c6be0"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-09-07T20:30:15.599453548+00:00"
