@@ -10,7 +10,7 @@
       "feat/ctrl-gui-swap": "2ecacafb40824df06c00397326cc4ee207721b88",
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "bb4e94249340480c7108c5a4d6e5e42b69dc49e4",
-      "feat/lighting-layer-indicator-conditions": "a7708fbe7f0cf379d7c6a5dc16c2c3175ae6448b",
+      "feat/lighting-layer-indicator-conditions": "94684603bf9329800a49e62aabba99668db310dd",
       "feat/maintenance-mode": "ae81411c1ada22ac373ad2f95f7aa5c8adeeb0b8",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
@@ -42,13 +42,13 @@
     }
   },
   "build": {
-    "generated": "2026-09-08T08:16:32.736062292+00:00",
+    "generated": "2026-09-08T09:00:38.332108182+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "f2db506c672d787ec91b285bb0b1daceb9da5803",
-    "pre_provenance_commit": "f2db506c672d787ec91b285bb0b1daceb9da5803",
-    "tree": "0e982d205b292240c067838bb336f70a68ec29fc",
-    "built_tree": "0e982d205b292240c067838bb336f70a68ec29fc",
-    "previous_tree": "fe5631b41d05bfb12e30c06fb6de6a13423f0b89",
+    "commit": "faf205899e20f489fe31f66eb03b2a6362c417eb",
+    "pre_provenance_commit": "faf205899e20f489fe31f66eb03b2a6362c417eb",
+    "tree": "e03778ad017e56833010f3a01e39a91be108c53a",
+    "built_tree": "e03778ad017e56833010f3a01e39a91be108c53a",
+    "previous_tree": "80f88be020f4df9b4ac412ed8f0b160a5a26e69f",
     "tree_changed": true,
     "conflicts": 21,
     "manifest_entries": [
@@ -262,7 +262,7 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "a7708fbe7f0cf379d7c6a5dc16c2c3175ae6448b",
+        "pin": "94684603bf9329800a49e62aabba99668db310dd",
         "fixup": "3424fd99dc94bbf7eadac0e90f9367d77b97793b"
       },
       {
@@ -506,7 +506,7 @@
       },
       {
         "name": "feat/lighting-layer-indicator-conditions",
-        "oid": "a7708fbe7f0cf379d7c6a5dc16c2c3175ae6448b",
+        "oid": "94684603bf9329800a49e62aabba99668db310dd",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
