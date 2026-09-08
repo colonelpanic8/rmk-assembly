@@ -29,6 +29,7 @@
       "fix/ephemeral-split-layer-state": "003b180bf0de0655e58256098d6f164d0fae9761",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
       "fix/pointing-mode-event-priority": "b4e07f36905aa6dea326932085dbfac14c25379e",
+      "fix/storage-read-replies": "5e3eaeb9fbcf78cf780f35958dba9e328fed2b2d",
       "fold/cirque-pinnacle": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b",
       "fold/connection-selection": "c52fba62db0c402764b51d813aff4adfaeb971db",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -43,15 +44,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-07T21:21:16.301458720+00:00",
+    "generated": "2026-09-08T04:40:28.041972360+00:00",
     "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
-    "commit": "c4c2286dc54db639708c22a71b5379a2620ae8d5",
-    "pre_provenance_commit": "c4c2286dc54db639708c22a71b5379a2620ae8d5",
-    "tree": "6af1700c3fb2dd2b32b02cd7bf6a4396c78a58eb",
-    "built_tree": "6af1700c3fb2dd2b32b02cd7bf6a4396c78a58eb",
-    "previous_tree": "0938274f498e946598c4c69dea62daaf945eacea",
+    "commit": "18eb611ef3e5fc1b13e06367251c9d16c9467d66",
+    "pre_provenance_commit": "18eb611ef3e5fc1b13e06367251c9d16c9467d66",
+    "tree": "66381c90e1ce6a0adfd5c5298abcbaeb44d227e2",
+    "built_tree": "66381c90e1ce6a0adfd5c5298abcbaeb44d227e2",
+    "previous_tree": "f15ce4562143f1c0d88666825a60506d8bc27e95",
     "tree_changed": true,
-    "conflicts": 21,
+    "conflicts": 22,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -283,6 +284,13 @@
         "source": "fork:fix/cooperative-storage",
         "pin": "3abef32c5bfab2a07df8850a71971944c7f31a97",
         "fixup": "c6d5020d46757978dcde5d661f99467c4afa226f"
+      },
+      {
+        "name": "fix/storage-read-replies",
+        "kind": "branch",
+        "source": "fork:fix/storage-read-replies",
+        "pin": "5e3eaeb9fbcf78cf780f35958dba9e328fed2b2d",
+        "fixup": "d72913a7f0ca9fc8d4ec96bbce6cf6e08e84a06e"
       }
     ],
     "results": [
@@ -537,6 +545,14 @@
         "status": "merged",
         "conflicted": false,
         "fixup": "c6d5020d46757978dcde5d661f99467c4afa226f"
+      },
+      {
+        "name": "fix/storage-read-replies",
+        "oid": "5e3eaeb9fbcf78cf780f35958dba9e328fed2b2d",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "d72913a7f0ca9fc8d4ec96bbce6cf6e08e84a06e"
       }
     ]
   }

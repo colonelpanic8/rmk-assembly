@@ -147,6 +147,10 @@ branch = "fork:feat/ctrl-gui-swap"
 branch = "fork:fix/cooperative-storage"
 fixup = "patches/cooperative-storage-coherence.patch"
 
+[[entry]]
+branch = "fork:fix/storage-read-replies"
+fixup = "patches/storage-read-replies-coherence.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

@@ -1136,6 +1136,12 @@ paths = ["rmk/src/input_device/pointing.rs"]
 recorded = "2026-08-18T19:58:27.350804557+00:00"
 
 [[resolution]]
+entry = "fix/storage-read-replies"
+hash = "05efef8e85d58748f582112e3c6ffbc1a646ce4b"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-09-08T04:39:59.834531647+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]
