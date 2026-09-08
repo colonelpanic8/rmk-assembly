@@ -10,7 +10,7 @@
       "feat/ctrl-gui-swap": "2ecacafb40824df06c00397326cc4ee207721b88",
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "bb4e94249340480c7108c5a4d6e5e42b69dc49e4",
-      "feat/lighting-layer-indicator-conditions": "f6a9f405266d4e38588b6a9ee0b44304720a11d6",
+      "feat/lighting-layer-indicator-conditions": "7dbe32098d5d773068349f83ddb412eed91b12d2",
       "feat/maintenance-mode": "ae81411c1ada22ac373ad2f95f7aa5c8adeeb0b8",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
@@ -42,13 +42,13 @@
     }
   },
   "build": {
-    "generated": "2026-09-08T04:29:21.061538348+00:00",
+    "generated": "2026-09-08T06:10:56.083550405+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "ef9787302c52fe8a550f4d41b788602e63b73ad8",
-    "pre_provenance_commit": "ef9787302c52fe8a550f4d41b788602e63b73ad8",
-    "tree": "63685ecaf24ff135801c03ccf94e9cc7777e06e9",
-    "built_tree": "63685ecaf24ff135801c03ccf94e9cc7777e06e9",
-    "previous_tree": "4214a34135b38865b3e0477294942c928c5ad37d",
+    "commit": "c58577d40ae48dabf4110ae3edeff902b3fe404e",
+    "pre_provenance_commit": "c58577d40ae48dabf4110ae3edeff902b3fe404e",
+    "tree": "42013d8bab7b94129c781a39b8a9a5854037d971",
+    "built_tree": "42013d8bab7b94129c781a39b8a9a5854037d971",
+    "previous_tree": "ee5f3a431e2fcfde15f390606e854621bdd775d9",
     "tree_changed": true,
     "conflicts": 21,
     "manifest_entries": [
@@ -237,7 +237,7 @@
         "kind": "branch",
         "source": "fork:feat/persistent-layer-metadata",
         "pin": "48947f8d468914f56c04465d1cf7f2fb67411c17",
-        "fixup": "7dff20f1c6923142ab177e7ca712662eb47e6e00"
+        "fixup": "81468fd9506ce22f3790610e3b34bc9d747e31b1"
       },
       {
         "name": "fix/mpsl-interrupt-priorities",
@@ -262,8 +262,8 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "f6a9f405266d4e38588b6a9ee0b44304720a11d6",
-        "fixup": "9d4a0093177ed04250fe86f6606c60e1eeec8b89"
+        "pin": "7dbe32098d5d773068349f83ddb412eed91b12d2",
+        "fixup": "3424fd99dc94bbf7eadac0e90f9367d77b97793b"
       },
       {
         "name": "feat/ctrl-gui-swap",
@@ -482,7 +482,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "7dff20f1c6923142ab177e7ca712662eb47e6e00"
+        "fixup": "81468fd9506ce22f3790610e3b34bc9d747e31b1"
       },
       {
         "name": "fix/mpsl-interrupt-priorities",
@@ -506,11 +506,11 @@
       },
       {
         "name": "feat/lighting-layer-indicator-conditions",
-        "oid": "f6a9f405266d4e38588b6a9ee0b44304720a11d6",
+        "oid": "7dbe32098d5d773068349f83ddb412eed91b12d2",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "9d4a0093177ed04250fe86f6606c60e1eeec8b89"
+        "fixup": "3424fd99dc94bbf7eadac0e90f9367d77b97793b"
       },
       {
         "name": "feat/ctrl-gui-swap",

@@ -1,8 +1,8 @@
 diff --git a/rmk-config/src/resolved/lighting.rs b/rmk-config/src/resolved/lighting.rs
-index 409b8b79e..52858f5bc 100644
+index e73581c6..b07abf49 100644
 --- a/rmk-config/src/resolved/lighting.rs
 +++ b/rmk-config/src/resolved/lighting.rs
-@@ -207,6 +207,7 @@ impl crate::KeyboardTomlConfig {
+@@ -210,6 +210,7 @@ impl crate::KeyboardTomlConfig {
              rows: layout.rows,
              cols: layout.cols,
              layers,
@@ -10,42 +10,8 @@ index 409b8b79e..52858f5bc 100644
              keymap: Vec::new(),
              encoder_map: Vec::new(),
              key_info: Vec::new(),
-diff --git a/rmk-macro/src/codegen/orchestrator.rs b/rmk-macro/src/codegen/orchestrator.rs
-index 29a5b069a..5801b9cc8 100644
---- a/rmk-macro/src/codegen/orchestrator.rs
-+++ b/rmk-macro/src/codegen/orchestrator.rs
-@@ -413,17 +413,18 @@ fn expand_main(
- 
-     // Rynk-only: bake the physical-layout blob as a compile-time const and enable
-     // the lock gate. Both fields land adjacently in the `RmkConfig` literal below.
--    let (layout_blob_static, rynk_layout_field, layer_names_field, lock_config) = if host.rynk_enabled {
--        let blob_lit = proc_macro2::Literal::byte_string(&layout.blob);
--        (
--            quote! { static LAYOUT_BLOB: &[u8] = #blob_lit; },
--            quote! { layout_blob: LAYOUT_BLOB, },
--            quote! { layer_names: LAYER_NAMES, },
--            quote! { lock_config: LOCK_CONFIG, },
--        )
--    } else {
--        (quote! {}, quote! {}, quote! {}, quote! {})
--    };
-+    let (layout_blob_static, rynk_layout_field, layer_names_field, lock_config) =
-+        if host.rynk_enabled {
-+            let blob_lit = proc_macro2::Literal::byte_string(&layout.blob);
-+            (
-+                quote! { static LAYOUT_BLOB: &[u8] = #blob_lit; },
-+                quote! { layout_blob: LAYOUT_BLOB, },
-+                quote! { layer_names: LAYER_NAMES, },
-+                quote! { lock_config: LOCK_CONFIG, },
-+            )
-+        } else {
-+            (quote! {}, quote! {}, quote! {}, quote! {})
-+        };
- 
-     let host_service_init = if host.rynk_enabled || host.vial_enabled {
-         item_mod
 diff --git a/rmk-types/src/protocol/rynk/command.rs b/rmk-types/src/protocol/rynk/command.rs
-index 582c826dc..30d3681d9 100644
+index efc1d50d..8365cfb8 100644
 --- a/rmk-types/src/protocol/rynk/command.rs
 +++ b/rmk-types/src/protocol/rynk/command.rs
 @@ -21,8 +21,7 @@ use super::{
@@ -59,10 +25,10 @@ index 582c826dc..30d3681d9 100644
      SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetLayerMetadataRequest,
      SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 79b1b4d79..ecb656ca1 100644
+index 805ebae5..472bc74f 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -280,6 +280,7 @@ impl<'a> RynkService<'a> {
+@@ -281,6 +281,7 @@ impl<'a> RynkService<'a> {
              | Cmd::GetSleepState
              | Cmd::GetLedIndicator
              | Cmd::GetLayerState
