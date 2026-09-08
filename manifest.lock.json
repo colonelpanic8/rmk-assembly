@@ -10,7 +10,7 @@
       "feat/ctrl-gui-swap": "2ecacafb40824df06c00397326cc4ee207721b88",
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "bb4e94249340480c7108c5a4d6e5e42b69dc49e4",
-      "feat/lighting-layer-indicator-conditions": "632e7521e95629e00795b84e62559430a6495d00",
+      "feat/lighting-layer-indicator-conditions": "f6a9f405266d4e38588b6a9ee0b44304720a11d6",
       "feat/maintenance-mode": "ae81411c1ada22ac373ad2f95f7aa5c8adeeb0b8",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
@@ -36,21 +36,21 @@
       "fold/runtime-behavior-parity": "ac491eff2752ea7797d7628d01afffb0e6d74bd3",
       "fold/split-reliability": "8158777f54ebd92a2cdd3157e52465a8b6e338eb",
       "fold/unicode-input": "9547159112c403a22b4088aecb81ad280faf89fc",
-      "pr-1031": "82064a6052ffc0a1012fa497b91b455a51f3c8f1",
+      "pr-1031": "9ed152c66ab10ce24608c29a7de63ed9605e8531",
       "pr-984": "768fb809142062e44678caa553d639b860db7140",
       "runtime-lighting-wake-layers": "2ff50f68d8f7b95f5972e599ae0174ee79a9f8c2"
     }
   },
   "build": {
-    "generated": "2026-09-08T04:25:35.617183065+00:00",
+    "generated": "2026-09-08T04:29:21.061538348+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "2feb4f5989bccbb36343feca87891e3564e877cb",
-    "pre_provenance_commit": "2feb4f5989bccbb36343feca87891e3564e877cb",
-    "tree": "4214a34135b38865b3e0477294942c928c5ad37d",
-    "built_tree": "4214a34135b38865b3e0477294942c928c5ad37d",
-    "previous_tree": "fc0b328b46250c10babc83c3f59b00db0b656725",
+    "commit": "ef9787302c52fe8a550f4d41b788602e63b73ad8",
+    "pre_provenance_commit": "ef9787302c52fe8a550f4d41b788602e63b73ad8",
+    "tree": "63685ecaf24ff135801c03ccf94e9cc7777e06e9",
+    "built_tree": "63685ecaf24ff135801c03ccf94e9cc7777e06e9",
+    "previous_tree": "4214a34135b38865b3e0477294942c928c5ad37d",
     "tree_changed": true,
-    "conflicts": 0,
+    "conflicts": 21,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -68,7 +68,7 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "82064a6052ffc0a1012fa497b91b455a51f3c8f1",
+        "pin": "9ed152c66ab10ce24608c29a7de63ed9605e8531",
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
       },
       {
@@ -262,7 +262,7 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "632e7521e95629e00795b84e62559430a6495d00",
+        "pin": "f6a9f405266d4e38588b6a9ee0b44304720a11d6",
         "fixup": "9d4a0093177ed04250fe86f6606c60e1eeec8b89"
       },
       {
@@ -293,7 +293,7 @@
       },
       {
         "name": "pr-1031",
-        "oid": "82064a6052ffc0a1012fa497b91b455a51f3c8f1",
+        "oid": "9ed152c66ab10ce24608c29a7de63ed9605e8531",
         "status": "merged",
         "conflicted": false,
         "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
@@ -468,7 +468,7 @@
         "oid": "bb4e94249340480c7108c5a4d6e5e42b69dc49e4",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:28ceb6a235cdf3515a899f63a8b3cbd087d9d010"
+        "resolution": "rerere"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -481,7 +481,7 @@
         "oid": "48947f8d468914f56c04465d1cf7f2fb67411c17",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:4bccfeaf8474b97221cd76443f448a3d2703b3d6",
+        "resolution": "rerere",
         "fixup": "7dff20f1c6923142ab177e7ca712662eb47e6e00"
       },
       {
@@ -506,7 +506,7 @@
       },
       {
         "name": "feat/lighting-layer-indicator-conditions",
-        "oid": "632e7521e95629e00795b84e62559430a6495d00",
+        "oid": "f6a9f405266d4e38588b6a9ee0b44304720a11d6",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
