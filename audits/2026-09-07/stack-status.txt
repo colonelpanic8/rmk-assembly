@@ -1,0 +1,45 @@
+base: f8da2742971d (upstream:main)
+  fold/macro-hooks         7c59e5e7bb21 (fork:fold/macro-hooks)
+  fold/split-reliability   859a18e43e96 (fork:fold/split-reliability)
+  pr-1031                  b20d64db43ce (upstream#1031)  [rerere resolution; fixup patches/lighting-rynk-coherence.patch]
+  fold/connection-selection c52fba62db0c (fork:fold/connection-selection)
+  pr-984                   db53d6ec00e4 (upstream#984)  [rerere resolution]
+  feat/single-pass-storage-read fe61e8a28f79 (fork:feat/single-pass-storage-read)  [rerere resolution]
+  feat/pointer-layer-scaling 2adf2ab4492a (fork:feat/pointer-layer-scaling)
+  feat/combo-hold-output   cce7d99c94d9 (fork:feat/combo-hold-output)  [rerere resolution]
+  feat/morse-retro-tap     4ada295c929a (fork:feat/morse-retro-tap)
+  feat/morse-per-profile-prior-idle fc965ba81a48 (fork:feat/morse-per-profile-prior-idle)  [rerere resolution]
+  feat/morse-tap-unless-interrupted 94608c590429 (fork:feat/morse-tap-unless-interrupted)  [rerere resolution]
+  feat/morse-hold-trigger-positions a4f5bcdf9762 (fork:feat/morse-hold-trigger-positions)  [rerere resolution]
+  feat/morse-hold-trigger-on-release 61b860e5bb6d (fork:feat/morse-hold-trigger-on-release)  [rerere resolution]
+  feat/consumer-keycodes   1373e2533443 (fork:feat/consumer-keycodes)
+  fold/unicode-input       2c04fa74bfd4 (fork:fold/unicode-input)  [rerere resolution]
+  fold/cirque-pinnacle     1d7236047b6b (fork:fold/cirque-pinnacle)
+  feat/pointing-drag-mode  c85e3860da7c (fork:feat/pointing-drag-mode)
+  fold/pointing-runtime-config-pinned 88b845b9d2e9 (fork:fold/pointing-runtime-config-pinned)  [rerere resolution]
+  fold/runtime-behavior-parity 5e63d4a71784 (fork:fold/runtime-behavior-parity)  [rerere resolution; fixup patches/runtime-behavior-parity-coherence.patch]
+  feat/maintenance-mode    311b7714073a (fork:feat/maintenance-mode)  [rerere resolution; fixup patches/maintenance-mode-coherence.patch]
+  fix/battery-power-transitions 2ee03c2bda4c (fork:fix/battery-power-transitions)
+  feat/ble-name-template   168f75362c8e (fork:feat/ble-name-template)  [rerere resolution; fixup patches/ble-name-template-coherence.patch]
+  fix/ephemeral-split-layer-state 003b180bf0de (fork:fix/ephemeral-split-layer-state)  [rerere resolution]
+  feat/morse-unilateral-mod-chording a2df0ec69dae (fork:feat/morse-unilateral-mod-chording)
+  fold/opposite-hand-hold  61f8171a2694 (fork:fold/opposite-hand-hold)  [rerere resolution]
+  feat/position-combos     1a1ebf19d33f (fork:feat/position-combos)  [rerere resolution; fixup patches/position-combos-coherence.patch]
+  feat/nrf-half-duplex-split 572e4b0c0856 (fork:feat/nrf-half-duplex-split)  [rerere resolution; fixup patches/nrf-half-duplex-split-coherence.patch]
+  feat/device-data         26ea43515b5f (fork:feat/device-data)  [rerere resolution]
+  runtime-lighting-wake-layers bfd70525d74b (patches/runtime-lighting-wake-layers.patch)
+  feat/persistent-layer-metadata 1c24ffd75a89 (fork:feat/persistent-layer-metadata)  [rerere resolution; fixup patches/persistent-layer-metadata-coherence.patch]
+  fix/mpsl-interrupt-priorities 143c8b26d320 (fork:fix/mpsl-interrupt-priorities)
+  fix/pointing-mode-event-priority b4e07f36905a (fork:fix/pointing-mode-event-priority)  [rerere resolution; fixup patches/pointing-mode-event-priority-coherence.patch]
+  feat/deterministic-build-hash 24ac5334c232 (fork:feat/deterministic-build-hash)
+  feat/lighting-layer-indicator-conditions a0f2ae50e5e1 (fork:feat/lighting-layer-indicator-conditions)  [rerere resolution]
+  final-formatting-coherence 4db91e095c80 (patches/final-formatting-coherence.patch)
+  feat/ctrl-gui-swap       7c6623be1cf8 (fork:feat/ctrl-gui-swap)  [rerere resolution]
+
+excluded:
+  pr 999 (held modifier combinations landed upstream in f91b22a0)
+  branch fork:feat/rynk (stale copy of the rynk stack; upstream rebased and merged its own feat/rynk into main at 9448f7a1, so the base carries it now)
+
+last build: commit 9a88399366a0
+  tree ad36ded1d782d52aed0c5924569993f37ca91362 (1 conflicts)
+  manifest matches the lock: `build` is a no-op

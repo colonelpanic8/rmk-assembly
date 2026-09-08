@@ -1,0 +1,284 @@
+   Compiling rmk-types v0.3.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-types)
+   Compiling rmk v0.9.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 31.00s
+────────────
+ Nextest run ID 95a28d4a-b303-4d52-b942-08edab2267f7 with nextest profile: ci
+    Starting 12 tests across 2 binaries (753 tests skipped)
+        FAIL [   0.006s] ( 1/12) rmk host::rynk::tests::audit_split_force_requires_maintenance
+  stdout ───
+
+    running 1 test
+    test host::rynk::tests::audit_split_force_requires_maintenance ... FAILED
+
+    failures:
+
+    failures:
+        host::rynk::tests::audit_split_force_requires_maintenance
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'host::rynk::tests::audit_split_force_requires_maintenance' (3837743) panicked at src/host/rynk/mod.rs:717:9:
+    assertion failed: RynkService::requires_maintenance_mode(Cmd::SetSplitTransportForce)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.007s] ( 2/12) rmk storage::tests::audit_boot_restores_saved_unicode_mode
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_boot_restores_saved_unicode_mode ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_boot_restores_saved_unicode_mode
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_boot_restores_saved_unicode_mode' (3837740) panicked at src/storage/mod.rs:2102:13:
+    assertion `left == right` failed
+      left: Linux
+     right: Windows
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        PASS [   0.007s] ( 3/12) rmk storage::tests::boot_read_restores_behavior_tables_and_skips_oversized_indices
+        FAIL [   0.007s] ( 4/12) rmk storage::tests::audit_concurrent_layer_reads_keep_their_own_response
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_concurrent_layer_reads_keep_their_own_response ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_concurrent_layer_reads_keep_their_own_response
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_concurrent_layer_reads_keep_their_own_response' (3837742) panicked at src/storage/mod.rs:2080:9:
+    layer 1 consumed the response belonging to layer 0
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.008s] ( 5/12) rmk host::rynk::tests::audit_profile_entry_write_requires_maintenance
+  stdout ───
+
+    running 1 test
+    test host::rynk::tests::audit_profile_entry_write_requires_maintenance ... FAILED
+
+    failures:
+
+    failures:
+        host::rynk::tests::audit_profile_entry_write_requires_maintenance
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'host::rynk::tests::audit_profile_entry_write_requires_maintenance' (3837738) panicked at src/host/rynk/mod.rs:706:9:
+    assertion failed: RynkService::requires_maintenance_mode(Cmd::SetMorseProfileEntry)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.008s] ( 6/12) rmk host::rynk::tests::audit_profile_delete_requires_maintenance
+  stdout ───
+
+    running 1 test
+    test host::rynk::tests::audit_profile_delete_requires_maintenance ... FAILED
+
+    failures:
+
+    failures:
+        host::rynk::tests::audit_profile_delete_requires_maintenance
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'host::rynk::tests::audit_profile_delete_requires_maintenance' (3837747) panicked at src/host/rynk/mod.rs:711:9:
+    assertion failed: RynkService::requires_maintenance_mode(Cmd::DeleteMorseProfile)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        PASS [   0.008s] ( 7/12) rmk storage::tests::layer_metadata_survives_flash_map_reopen
+        PASS [   0.012s] ( 8/12) rmk::integration rynk_maintenance_mode::legacy_lock_endpoints_are_inert_and_do_not_bypass_maintenance_mode
+        PASS [   0.012s] ( 9/12) rmk::integration rynk_maintenance_mode::disabled_default_blocks_every_maintenance_operation
+        PASS [   0.015s] (10/12) rmk::integration rynk_maintenance_mode::toggle_key_opens_the_complete_maintenance_gate
+        FAIL [   0.687s] (11/12) rmk::integration rynk_maintenance_mode::audit_locked_profile_delete_is_rejected
+  stdout ───
+
+    running 1 test
+    test rynk_maintenance_mode::audit_locked_profile_delete_is_rejected ... FAILED
+
+    failures:
+
+    failures:
+        rynk_maintenance_mode::audit_locked_profile_delete_is_rejected
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 351 filtered out; finished in 0.68s
+
+  stderr ───
+
+    thread 'rynk_maintenance_mode::audit_locked_profile_delete_is_rejected' (3837744) panicked at tests/integration/simulator/mod.rs:652:29:
+    reply[0]: no host reply within 5s, got 6 of 7 bytes: 04 0e 04 01 01 00
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.696s] (12/12) rmk::integration rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected
+  stdout ───
+
+    running 1 test
+    test rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected ... FAILED
+
+    failures:
+
+    failures:
+        rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 351 filtered out; finished in 0.69s
+
+  stderr ───
+
+    thread 'rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected' (3837745) panicked at tests/integration/simulator/mod.rs:652:29:
+    reply[0]: no host reply within 5s, got 6 of 7 bytes: 04 0d 04 01 01 00
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+────────────
+     Summary [   0.697s] 12 tests run: 5 passed, 7 failed, 753 skipped
+        FAIL [   0.006s] ( 1/12) rmk host::rynk::tests::audit_split_force_requires_maintenance
+  stdout ───
+
+    running 1 test
+    test host::rynk::tests::audit_split_force_requires_maintenance ... FAILED
+
+    failures:
+
+    failures:
+        host::rynk::tests::audit_split_force_requires_maintenance
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'host::rynk::tests::audit_split_force_requires_maintenance' (3837743) panicked at src/host/rynk/mod.rs:717:9:
+    assertion failed: RynkService::requires_maintenance_mode(Cmd::SetSplitTransportForce)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.007s] ( 2/12) rmk storage::tests::audit_boot_restores_saved_unicode_mode
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_boot_restores_saved_unicode_mode ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_boot_restores_saved_unicode_mode
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_boot_restores_saved_unicode_mode' (3837740) panicked at src/storage/mod.rs:2102:13:
+    assertion `left == right` failed
+      left: Linux
+     right: Windows
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.007s] ( 4/12) rmk storage::tests::audit_concurrent_layer_reads_keep_their_own_response
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_concurrent_layer_reads_keep_their_own_response ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_concurrent_layer_reads_keep_their_own_response
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_concurrent_layer_reads_keep_their_own_response' (3837742) panicked at src/storage/mod.rs:2080:9:
+    layer 1 consumed the response belonging to layer 0
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.008s] ( 5/12) rmk host::rynk::tests::audit_profile_entry_write_requires_maintenance
+  stdout ───
+
+    running 1 test
+    test host::rynk::tests::audit_profile_entry_write_requires_maintenance ... FAILED
+
+    failures:
+
+    failures:
+        host::rynk::tests::audit_profile_entry_write_requires_maintenance
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'host::rynk::tests::audit_profile_entry_write_requires_maintenance' (3837738) panicked at src/host/rynk/mod.rs:706:9:
+    assertion failed: RynkService::requires_maintenance_mode(Cmd::SetMorseProfileEntry)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.008s] ( 6/12) rmk host::rynk::tests::audit_profile_delete_requires_maintenance
+  stdout ───
+
+    running 1 test
+    test host::rynk::tests::audit_profile_delete_requires_maintenance ... FAILED
+
+    failures:
+
+    failures:
+        host::rynk::tests::audit_profile_delete_requires_maintenance
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 412 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'host::rynk::tests::audit_profile_delete_requires_maintenance' (3837747) panicked at src/host/rynk/mod.rs:711:9:
+    assertion failed: RynkService::requires_maintenance_mode(Cmd::DeleteMorseProfile)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.687s] (11/12) rmk::integration rynk_maintenance_mode::audit_locked_profile_delete_is_rejected
+  stdout ───
+
+    running 1 test
+    test rynk_maintenance_mode::audit_locked_profile_delete_is_rejected ... FAILED
+
+    failures:
+
+    failures:
+        rynk_maintenance_mode::audit_locked_profile_delete_is_rejected
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 351 filtered out; finished in 0.68s
+
+  stderr ───
+
+    thread 'rynk_maintenance_mode::audit_locked_profile_delete_is_rejected' (3837744) panicked at tests/integration/simulator/mod.rs:652:29:
+    reply[0]: no host reply within 5s, got 6 of 7 bytes: 04 0e 04 01 01 00
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.696s] (12/12) rmk::integration rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected
+  stdout ───
+
+    running 1 test
+    test rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected ... FAILED
+
+    failures:
+
+    failures:
+        rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 351 filtered out; finished in 0.69s
+
+  stderr ───
+
+    thread 'rynk_maintenance_mode::audit_locked_profile_entry_write_is_rejected' (3837745) panicked at tests/integration/simulator/mod.rs:652:29:
+    reply[0]: no host reply within 5s, got 6 of 7 bytes: 04 0d 04 01 01 00
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+error: test run failed

@@ -1,0 +1,4 @@
+[rmk]
+hold_trigger_key_position_max_num = 160
+macro_space_size = 256
+rynk_buffer_size = 1024

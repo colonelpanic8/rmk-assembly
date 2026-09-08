@@ -1,0 +1,48 @@
+   Compiling rmk-types v0.3.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-types)
+   Compiling rmk-macro v0.8.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-macro)
+   Compiling rmk v0.9.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.03s
+────────────
+ Nextest run ID ed2b8889-277a-426c-a92f-7143b7a704a4 with nextest profile: ci
+    Starting 1 test across 1 binary (392 tests skipped)
+        FAIL [   0.006s] (1/1) rmk storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 392 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer' (3844055) panicked at src/storage/mod.rs:2077:129:
+    called `Result::unwrap()` on an `Err` value: SerializationError(BufferTooSmall)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+────────────
+     Summary [   0.008s] 1 test run: 0 passed, 1 failed, 392 skipped
+        FAIL [   0.006s] (1/1) rmk storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 392 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_configured_hold_trigger_table_fits_flash_buffer' (3844055) panicked at src/storage/mod.rs:2077:129:
+    called `Result::unwrap()` on an `Err` value: SerializationError(BufferTooSmall)
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+error: test run failed

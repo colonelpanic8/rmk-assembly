@@ -1,0 +1,392 @@
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index d350ed0b9..243ea381b 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -701,6 +701,22 @@ mod tests {
+         out
+     }
+ 
++    #[test]
++    fn audit_profile_entry_write_requires_maintenance() {
++        assert!(RynkService::requires_maintenance_mode(Cmd::SetMorseProfileEntry));
++    }
++
++    #[test]
++    fn audit_profile_delete_requires_maintenance() {
++        assert!(RynkService::requires_maintenance_mode(Cmd::DeleteMorseProfile));
++    }
++
++    #[cfg(feature = "split")]
++    #[test]
++    fn audit_split_force_requires_maintenance() {
++        assert!(RynkService::requires_maintenance_mode(Cmd::SetSplitTransportForce));
++    }
++
+     /// A read carrying more than one frame serves them all, in order: the
+     /// pipelined tail is parked out of each reply's way, never dropped.
+     #[test]
+diff --git a/rmk/src/keyboard.rs b/rmk/src/keyboard.rs
+index 2e2538ba7..b201cb257 100644
+--- a/rmk/src/keyboard.rs
++++ b/rmk/src/keyboard.rs
+@@ -2459,6 +2459,17 @@ mod test {
+         create_test_keyboard_with_config(BehaviorConfig::default())
+     }
+ 
++    #[test]
++    fn audit_unicode_preserves_physically_held_alt() {
++        let mut config = BehaviorConfig::default();
++        config.unicode.codepoints = &[0x00e9];
++        config.unicode.mode = UnicodeMode::MacOs;
++        let mut keyboard = create_test_keyboard_with_config(config);
++        keyboard.register_modifier_key(HidKeyCode::LAlt);
++        block_on(keyboard.emit_unicode(0, KeyboardEvent::key(0, 0, true)));
++        assert_eq!(keyboard.held_modifiers, ModifierCombination::LALT);
++    }
++
+     #[test]
+     fn keyboard_report_snapshots_final_resolved_modifiers() {
+         let mut keyboard = create_test_keyboard();
+diff --git a/rmk/src/lighting/standard/tests.rs b/rmk/src/lighting/standard/tests.rs
+index 0aaef43ff..62c239cbf 100644
+--- a/rmk/src/lighting/standard/tests.rs
++++ b/rmk/src/lighting/standard/tests.rs
+@@ -2362,6 +2362,63 @@ fn output_mode_conditions_select_between_runtime_rules() {
+     assert_eq!(frame.as_slice()[0], RED);
+ }
+ 
++#[test]
++fn audit_compiled_conditional_scene_observes_output_mode() {
++    use rmk_types::battery::BatteryStatus;
++
++    use crate::lighting::{ConditionalSceneCell, ConditionalScenes};
++
++    struct NoBatteries;
++    impl BatteryStatusProvider for NoBatteries {
++        fn battery_status(&self, _: u8) -> BatteryStatus {
++            BatteryStatus::Unavailable
++        }
++    }
++    static BATTERIES: NoBatteries = NoBatteries;
++    static CELLS: [ConditionalSceneCell<BuiltinEffect>; 1] = [ConditionalSceneCell {
++        conditions: ConditionSet {
++            layer: None,
++            battery: None,
++            connection: None,
++            output_mode: Some(OutputMode::AlwaysOn),
++            effects: None,
++            layers: None,
++            indicators: None,
++        },
++        slot: LedSlot(0),
++        effect: BuiltinEffect::Solid { color: GREEN },
++    }];
++    let mut engine: StandardLightingEngine<
++        'static,
++        EmptySource,
++        ConditionalScenes<'static, BuiltinEffect, NoBatteries>,
++        2,
++        2,
++        4,
++    > = StandardLightingEngine::new(
++        BackgroundState::default(),
++        LayerScenes {
++            scenes: &[],
++            policy: LayerPolicy::EffectiveOnly,
++        },
++        EmptySource,
++        ConditionalScenes::new(&CELLS, &BATTERIES),
++    );
++    assert_eq!(engine.output_mode(), OutputMode::AlwaysOn);
++    let snapshot = context(0);
++    let mut frame = LogicalFrame::new(Rgb8::BLACK);
++    engine
++        .render(
++            RenderInput {
++                now_ms: 0,
++                snapshot: &snapshot,
++            },
++            &mut frame,
++        )
++        .unwrap();
++    assert_eq!(frame.as_slice()[0], GREEN);
++}
++
+ /// A status layer wants to show which other layers are held while it is:
+ /// one rule watching two layers at once, plus a lock indicator the host
+ /// reports. Both read the context directly, so no source has to answer.
+diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+index af0402eca..160b84b88 100644
+--- a/rmk/src/storage/mod.rs
++++ b/rmk/src/storage/mod.rs
+@@ -1,6 +1,4 @@
+ use core::fmt::Debug;
+-#[cfg(all(feature = "lighting", feature = "rynk"))]
+-use rmk_types::protocol::rynk::{LIGHTING_EXTENDED_CONDITIONAL_SCENE_CHUNK_SIZE, LightingExtendedConditionalSceneCell};
+ 
+ use embassy_embedded_hal::adapter::BlockingAsync;
+ use embassy_sync::signal::Signal;
+@@ -23,6 +21,8 @@ use rmk_types::protocol::rynk::{
+     LIGHTING_EXTENSION_PARAM_CHUNK, LIGHTING_SCENE_CHUNK_SIZE, LightingAdvancedConditionalSceneCell,
+     LightingConditionalSceneCell, LightingLayerPolicy, LightingSceneCell,
+ };
++#[cfg(all(feature = "lighting", feature = "rynk"))]
++use rmk_types::protocol::rynk::{LIGHTING_EXTENDED_CONDITIONAL_SCENE_CHUNK_SIZE, LightingExtendedConditionalSceneCell};
+ use rmk_types::unicode::UnicodeMode;
+ use sequential_storage::Error as SSError;
+ use sequential_storage::cache::{Cache, Uncached};
+@@ -2058,6 +2058,172 @@ mod tests {
+         });
+     }
+ 
++    #[cfg(feature = "host")]
++    #[test]
++    fn audit_deleted_position_combo_stays_vacant_after_boot() {
++        block_on(async {
++            type Flash = TestFlash<16_384, 4_096, 1>;
++            let mut storage = Storage::<Flash, 1, 1, 1, 0> {
++                flash: MapStorage::new(Flash::new(), MapConfig::new(8192..16384), Cache::new_uncached()),
++                buffer: [0; get_buffer_size()],
++            };
++            storage
++                .store_data(
++                    StorageKey::Combo(0),
++                    &StorageData::PositionCombo(PositionComboConfig::empty()),
++                )
++                .await
++                .unwrap();
++            let mut data = KeymapData::new([[[KeyAction::No]]]);
++            let mut behavior = RuntimeBehaviorConfig::default();
++            storage.read_boot_data(&mut data, &mut behavior).await.unwrap();
++            assert!(
++                behavior.combo.combos[0].is_none(),
++                "deleted position combo was restored as an occupied slot"
++            );
++        });
++    }
++
++    #[cfg(feature = "host")]
++    #[test]
++    fn audit_configured_hold_trigger_table_fits_flash_buffer() {
++        assert!(
++            crate::HOLD_TRIGGER_KEY_POSITION_MAX_NUM >= 160,
++            "requires audit config with 160 positions"
++        );
++        block_on(async {
++            type Flash = TestFlash<16_384, 4_096, 1>;
++            let mut storage = Storage::<Flash, 1, 40, 1, 0> {
++                flash: MapStorage::new(Flash::new(), MapConfig::new(8192..16384), Cache::new_uncached()),
++                buffer: [0; get_buffer_size()],
++            };
++            let mut positions = HoldTriggerPositions::new();
++            for profile in 0..4 {
++                for col in 0..40 {
++                    positions.push((profile, 0, col)).unwrap();
++                }
++            }
++            storage
++                .store_data(
++                    StorageKey::MorseHoldTriggerPositions,
++                    &StorageData::MorseHoldTriggerPositions(positions),
++                )
++                .await
++                .unwrap();
++        });
++    }
++
++    #[cfg(all(feature = "host", feature = "rynk"))]
++    #[test]
++    fn audit_concurrent_layer_reads_keep_their_own_response() {
++        use core::future::Future;
++        use core::task::{Context, Poll, Waker};
++        while FLASH_CHANNEL.try_receive().is_ok() {}
++        let mut cx = Context::from_waker(Waker::noop());
++        let mut first = core::pin::pin!(read_layer_metadata(0));
++        let mut second = core::pin::pin!(read_layer_metadata(1));
++        assert!(first.as_mut().poll(&mut cx).is_pending());
++        assert!(second.as_mut().poll(&mut cx).is_pending());
++        assert!(matches!(
++            FLASH_CHANNEL.try_receive().unwrap(),
++            FlashOperationMessage::ReadLayerMetadata(0)
++        ));
++        LAYER_METADATA_RESPONSE.signal(Some(LayerMetadata {
++            occupied: true,
++            name: "layer zero".try_into().unwrap(),
++        }));
++        assert!(
++            matches!(second.as_mut().poll(&mut cx), Poll::Pending),
++            "layer 1 consumed the response belonging to layer 0"
++        );
++    }
++
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    #[test]
++    fn audit_scene_replacement_survives_interruption_without_mixed_generations() {
++        block_on(async {
++            use rmk_types::protocol::rynk::{LightingEffect, LightingLedId, LightingRgb8};
++            type Flash = TestFlash<16_384, 4_096, 1>;
++            let mut storage = Storage::<Flash, 1, 1, 1, 0> {
++                flash: MapStorage::new(Flash::new(), MapConfig::new(8192..16384), Cache::new_uncached()),
++                buffer: [0; get_buffer_size()],
++            };
++            let shard = |index: u8, value: u8| {
++                let mut cells = heapless::Vec::<LightingSceneCell, LIGHTING_SCENE_CHUNK_SIZE>::new();
++                for id in 0..LIGHTING_SCENE_CHUNK_SIZE {
++                    cells
++                        .push(LightingSceneCell {
++                            layer: 0,
++                            led_id: LightingLedId(index as u16 * LIGHTING_SCENE_CHUNK_SIZE as u16 + id as u16),
++                            effect: LightingEffect::Solid {
++                                color: LightingRgb8 { r: value, g: 0, b: 0 },
++                            },
++                        })
++                        .unwrap();
++                }
++                cells
++            };
++            for index in 0..2 {
++                storage
++                    .store_data(
++                        StorageKey::LightingSceneShard(index),
++                        &StorageData::LightingSceneShard(shard(index, 1)),
++                    )
++                    .await
++                    .unwrap();
++            }
++            storage
++                .store_data(
++                    StorageKey::LightingSceneTable,
++                    &StorageData::LightingSceneTable(LightingSceneTableRecord {
++                        len: (2 * LIGHTING_SCENE_CHUNK_SIZE) as u16,
++                        policy: LightingLayerPolicy::EffectiveOnly,
++                    }),
++                )
++                .await
++                .unwrap();
++            // Power is lost after the first replacement shard, before the second shard and header.
++            storage
++                .store_data(
++                    StorageKey::LightingSceneShard(0),
++                    &StorageData::LightingSceneShard(shard(0, 2)),
++                )
++                .await
++                .unwrap();
++            let mut restarted = Storage::<Flash, 1, 1, 1, 0> {
++                flash: storage.flash,
++                buffer: [0; get_buffer_size()],
++            };
++            let mut loaded = heapless::Vec::<LightingSceneCell, 16>::new();
++            restarted.read_lighting_scenes(&mut loaded).await;
++            assert_eq!(loaded.len(), 16);
++            assert!(
++                loaded.iter().all(|cell| cell.effect == loaded[0].effect),
++                "boot restored a mixture of old and new scene generations: {loaded:?}"
++            );
++        });
++    }
++
++    #[cfg(feature = "host")]
++    #[test]
++    fn audit_boot_restores_saved_unicode_mode() {
++        block_on(async {
++            type Flash = TestFlash<16_384, 4_096, 1>;
++            let mut storage = Storage::<Flash, 1, 1, 1, 0> {
++                flash: MapStorage::new(Flash::new(), MapConfig::new(8192..16384), Cache::new_uncached()),
++                buffer: [0; get_buffer_size()],
++            };
++            storage
++                .store_data(StorageKey::UnicodeMode, &StorageData::UnicodeMode(UnicodeMode::Windows))
++                .await
++                .unwrap();
++            let mut data = KeymapData::new([[[KeyAction::No]]]);
++            let mut behavior = RuntimeBehaviorConfig::default();
++            storage.read_boot_data(&mut data, &mut behavior).await.unwrap();
++            assert_eq!(behavior.unicode.mode, UnicodeMode::Windows);
++        });
++    }
++
+     #[cfg(feature = "host")]
+     #[test]
+     fn boot_read_restores_behavior_tables_and_skips_oversized_indices() {
+diff --git a/rmk/tests/scenarios/rynk_maintenance_mode.toml b/rmk/tests/scenarios/rynk_maintenance_mode.toml
+index 995b2ea43..07ab81a65 100644
+--- a/rmk/tests/scenarios/rynk_maintenance_mode.toml
++++ b/rmk/tests/scenarios/rynk_maintenance_mode.toml
+@@ -43,3 +43,15 @@ steps = [
+   { tap = { pos = [0, 1], duration = 10 } },
+ ]
+ expect = [["B"], []]
++
++[[test]]
++name = "audit_locked_profile_entry_write_is_rejected"
++steps = [
++  { rynk = { cmd = "SetMorseProfileEntry", payload = { entry = { index = 0, name = "bypass", profile = { hold_timeout_ms = 100 } } }, error = "NotReady" } },
++]
++
++[[test]]
++name = "audit_locked_profile_delete_is_rejected"
++steps = [
++  { rynk = { cmd = "DeleteMorseProfile", payload = 0, error = "NotReady" } },
++]
+diff --git a/rmk-types/tests/audit_morse_profile.rs b/rmk-types/tests/audit_morse_profile.rs
+new file mode 100644
+index 000000000..a4b369c70
+--- /dev/null
++++ b/rmk-types/tests/audit_morse_profile.rs
+@@ -0,0 +1,7 @@
++use rmk_types::morse::MorseProfile;
++
++#[test]
++fn audit_absent_opposite_hand_option_preserves_explicit_unilateral_false() {
++    let profile = MorseProfile::new(Some(false), None, None, None).with_opposite_hand_hold(None);
++    assert_eq!(profile.unilateral_tap(), Some(false));
++}
+diff --git a/rmk-types/tests/audit_wire_compatibility.rs b/rmk-types/tests/audit_wire_compatibility.rs
+new file mode 100644
+index 000000000..dbdc23c84
+--- /dev/null
++++ b/rmk-types/tests/audit_wire_compatibility.rs
+@@ -0,0 +1,14 @@
++use rmk_types::keycode::{ConsumerKey, HidKeyCode};
++
++#[test]
++fn audit_upstream_play_wire_value_still_means_play() {
++    assert_eq!(postcard::from_bytes::<ConsumerKey>(&[4]).unwrap(), ConsumerKey::Play);
++}
++
++#[test]
++fn audit_upstream_control_wire_value_still_means_control() {
++    assert_eq!(
++        postcard::from_bytes::<HidKeyCode>(&[0xd6, 0x01]).unwrap(),
++        HidKeyCode::LCtrl
++    );
++}
+diff --git a/rmk/tests/scenarios/audit_unicode_swap.toml b/rmk/tests/scenarios/audit_unicode_swap.toml
+new file mode 100644
+index 000000000..d72a6987b
+--- /dev/null
++++ b/rmk/tests/scenarios/audit_unicode_swap.toml
+@@ -0,0 +1,23 @@
++[layout]
++rows = 1
++cols = 2
++map = "(0,0) (0,1)"
++
++[[keymap.layer]]
++keys = "CtrlGuiSwapToggle UNICODE(0)"
++
++[behavior.unicode]
++codepoints = ["00E9"]
++default_mode = "linux"
++
++[[test]]
++name = "audit_unicode_linux_opener_is_independent_of_user_modifier_swap"
++steps = [
++  { tap = { pos = [0, 0], duration = 20 } },
++  { tap = { pos = [0, 1], duration = 100 } },
++]
++expect = [
++  ["LCtrl", "LShift", "U"], [],
++  ["Kc0"], [], ["Kc0"], [], ["E"], [], ["Kc9"], [],
++  ["Enter"], [],
++]

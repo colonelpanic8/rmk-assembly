@@ -1,0 +1,231 @@
+{
+  "base": "f8da2742971d048e0080e57d69d98f00a859e4e9",
+  "commit": "9a88399366a01b344cf90fb3723cae68dc4dc949",
+  "tree": "ad36ded1d782d52aed0c5924569993f37ca91362",
+  "entries": [
+    {
+      "name": "fold/macro-hooks",
+      "kind": "branch",
+      "source": "fork:fold/macro-hooks",
+      "pin": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee"
+    },
+    {
+      "name": "fold/split-reliability",
+      "kind": "branch",
+      "source": "fork:fold/split-reliability",
+      "pin": "859a18e43e96598f2a7d42200b0c3e4f27affa09"
+    },
+    {
+      "name": "pr-1031",
+      "kind": "pr",
+      "source": "upstream#1031",
+      "pin": "b20d64db43ce38b7237834ab0e4336151709135d",
+      "fixup": "13cd3441eb8b422888d93ca09ef819408cfcf982"
+    },
+    {
+      "name": "fold/connection-selection",
+      "kind": "branch",
+      "source": "fork:fold/connection-selection",
+      "pin": "c52fba62db0c402764b51d813aff4adfaeb971db"
+    },
+    {
+      "name": "pr-984",
+      "kind": "pr",
+      "source": "upstream#984",
+      "pin": "db53d6ec00e418f7b9dfc51091192541287f3aa5"
+    },
+    {
+      "name": "feat/single-pass-storage-read",
+      "kind": "branch",
+      "source": "fork:feat/single-pass-storage-read",
+      "pin": "fe61e8a28f79b4229fd1da17a8b7416450d0973b"
+    },
+    {
+      "name": "feat/pointer-layer-scaling",
+      "kind": "branch",
+      "source": "fork:feat/pointer-layer-scaling",
+      "pin": "2adf2ab4492a7aa9fe8c74f5b9d87563ccc28bcb"
+    },
+    {
+      "name": "feat/combo-hold-output",
+      "kind": "branch",
+      "source": "fork:feat/combo-hold-output",
+      "pin": "cce7d99c94d918e02442a15ead3a359f587fbaa1"
+    },
+    {
+      "name": "feat/morse-retro-tap",
+      "kind": "branch",
+      "source": "fork:feat/morse-retro-tap",
+      "pin": "4ada295c929a64ba62e9bffc8e97a552f82796ce"
+    },
+    {
+      "name": "feat/morse-per-profile-prior-idle",
+      "kind": "branch",
+      "source": "fork:feat/morse-per-profile-prior-idle",
+      "pin": "fc965ba81a486194fe4026ee9573d929e529e12f"
+    },
+    {
+      "name": "feat/morse-tap-unless-interrupted",
+      "kind": "branch",
+      "source": "fork:feat/morse-tap-unless-interrupted",
+      "pin": "94608c590429d4e04e9b2b32bed198a729cb8475"
+    },
+    {
+      "name": "feat/morse-hold-trigger-positions",
+      "kind": "branch",
+      "source": "fork:feat/morse-hold-trigger-positions",
+      "pin": "a4f5bcdf97620d2eb9e27aa00e1eca8fc12cf82a"
+    },
+    {
+      "name": "feat/morse-hold-trigger-on-release",
+      "kind": "branch",
+      "source": "fork:feat/morse-hold-trigger-on-release",
+      "pin": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a"
+    },
+    {
+      "name": "feat/consumer-keycodes",
+      "kind": "branch",
+      "source": "fork:feat/consumer-keycodes",
+      "pin": "1373e2533443e044305328df85336ab766ab03a9"
+    },
+    {
+      "name": "fold/unicode-input",
+      "kind": "branch",
+      "source": "fork:fold/unicode-input",
+      "pin": "2c04fa74bfd4670002721770b19546552899739a"
+    },
+    {
+      "name": "fold/cirque-pinnacle",
+      "kind": "branch",
+      "source": "fork:fold/cirque-pinnacle",
+      "pin": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b"
+    },
+    {
+      "name": "feat/pointing-drag-mode",
+      "kind": "branch",
+      "source": "fork:feat/pointing-drag-mode",
+      "pin": "c85e3860da7c0e2d3992c1aa7e45fd5445037388"
+    },
+    {
+      "name": "fold/pointing-runtime-config-pinned",
+      "kind": "branch",
+      "source": "fork:fold/pointing-runtime-config-pinned",
+      "pin": "88b845b9d2e9bc33764041916b194f2756a261de"
+    },
+    {
+      "name": "fold/runtime-behavior-parity",
+      "kind": "branch",
+      "source": "fork:fold/runtime-behavior-parity",
+      "pin": "5e63d4a717840d83c165294fa643cb0c13c49265",
+      "fixup": "af8c2651804d1c208ccbcb3d47f7ded299e3efc3"
+    },
+    {
+      "name": "feat/maintenance-mode",
+      "kind": "branch",
+      "source": "fork:feat/maintenance-mode",
+      "pin": "311b7714073ac3c34a91949f83ba3afb2f2a43aa",
+      "fixup": "5a4f9f7bef3785d0389e56363473c904b9e846c8"
+    },
+    {
+      "name": "fix/battery-power-transitions",
+      "kind": "branch",
+      "source": "fork:fix/battery-power-transitions",
+      "pin": "2ee03c2bda4cdde25db634f38be4871874c22e8f"
+    },
+    {
+      "name": "feat/ble-name-template",
+      "kind": "branch",
+      "source": "fork:feat/ble-name-template",
+      "pin": "168f75362c8e32ccb414e4ebd8f3e2c64e935e10",
+      "fixup": "a3b11ff716abe9ee7e8430d9d746bc36a20cc339"
+    },
+    {
+      "name": "fix/ephemeral-split-layer-state",
+      "kind": "branch",
+      "source": "fork:fix/ephemeral-split-layer-state",
+      "pin": "003b180bf0de0655e58256098d6f164d0fae9761"
+    },
+    {
+      "name": "feat/morse-unilateral-mod-chording",
+      "kind": "branch",
+      "source": "fork:feat/morse-unilateral-mod-chording",
+      "pin": "a2df0ec69daededb21a8ecf1540fa4d015797269"
+    },
+    {
+      "name": "fold/opposite-hand-hold",
+      "kind": "branch",
+      "source": "fork:fold/opposite-hand-hold",
+      "pin": "61f8171a2694ff1e55393ce0fb5ac20f3aea7bf8"
+    },
+    {
+      "name": "feat/position-combos",
+      "kind": "branch",
+      "source": "fork:feat/position-combos",
+      "pin": "1a1ebf19d33fd7e48b7f083e1bf1e0ffa6d8881c",
+      "fixup": "221955adfa264819ea5e67fd4c66b7dd47cf001a"
+    },
+    {
+      "name": "feat/nrf-half-duplex-split",
+      "kind": "branch",
+      "source": "fork:feat/nrf-half-duplex-split",
+      "pin": "572e4b0c0856cad62d2cec95744d268bf00f2afc",
+      "fixup": "34608597c4501ca049236df2b769e9a8d65a9b72"
+    },
+    {
+      "name": "feat/device-data",
+      "kind": "branch",
+      "source": "fork:feat/device-data",
+      "pin": "26ea43515b5fcb41eeb230454be7e81f78173da8"
+    },
+    {
+      "name": "runtime-lighting-wake-layers",
+      "kind": "patch",
+      "source": "patches/runtime-lighting-wake-layers.patch",
+      "pin": "bfd70525d74b021bedf721cb73ba3d0cce4fac0b"
+    },
+    {
+      "name": "feat/persistent-layer-metadata",
+      "kind": "branch",
+      "source": "fork:feat/persistent-layer-metadata",
+      "pin": "1c24ffd75a89c543160307f20f6fcb937baf3a24",
+      "fixup": "dff620a61611986bb0dc4a6b010933356ad4ff5d"
+    },
+    {
+      "name": "fix/mpsl-interrupt-priorities",
+      "kind": "branch",
+      "source": "fork:fix/mpsl-interrupt-priorities",
+      "pin": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c"
+    },
+    {
+      "name": "fix/pointing-mode-event-priority",
+      "kind": "branch",
+      "source": "fork:fix/pointing-mode-event-priority",
+      "pin": "b4e07f36905aa6dea326932085dbfac14c25379e",
+      "fixup": "ac42e95524e0c48cd3385eb2f80432347e853d84"
+    },
+    {
+      "name": "feat/deterministic-build-hash",
+      "kind": "branch",
+      "source": "fork:feat/deterministic-build-hash",
+      "pin": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b"
+    },
+    {
+      "name": "feat/lighting-layer-indicator-conditions",
+      "kind": "branch",
+      "source": "fork:feat/lighting-layer-indicator-conditions",
+      "pin": "a0f2ae50e5e1dc5ad7697e25822c73602b9c92a3"
+    },
+    {
+      "name": "final-formatting-coherence",
+      "kind": "patch",
+      "source": "patches/final-formatting-coherence.patch",
+      "pin": "4db91e095c80db3f67db893f76f03d4ba4d0a653"
+    },
+    {
+      "name": "feat/ctrl-gui-swap",
+      "kind": "branch",
+      "source": "fork:feat/ctrl-gui-swap",
+      "pin": "7c6623be1cf8b596f44b1c25a5fe2f9fd7730f5e"
+    }
+  ]
+}

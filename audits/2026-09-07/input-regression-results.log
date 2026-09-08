@@ -1,0 +1,90 @@
+   Compiling rmk-types v0.3.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-types)
+   Compiling rmk-macro v0.8.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-macro)
+   Compiling rmk v0.9.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.74s
+────────────
+ Nextest run ID 962f260c-0213-46ed-b9cb-321e1d4393e2 with nextest profile: ci
+    Starting 2 tests across 2 binaries (766 tests skipped)
+        FAIL [   0.006s] (1/2) rmk storage::tests::audit_deleted_position_combo_stays_vacant_after_boot
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_deleted_position_combo_stays_vacant_after_boot ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_deleted_position_combo_stays_vacant_after_boot
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 414 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_deleted_position_combo_stays_vacant_after_boot' (3925951) panicked at src/storage/mod.rs:2074:13:
+    deleted position combo was restored as an occupied slot
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.017s] (2/2) rmk::integration audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap
+  stdout ───
+
+    running 1 test
+    test audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap ... FAILED
+
+    failures:
+
+    failures:
+        audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 352 filtered out; finished in 0.01s
+
+  stderr ───
+
+    thread 'audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap' (3925950) panicked at tests/integration/simulator/mod.rs:444:21:
+    expect[0]: HID report mismatch
+      expected ["LCtrl", "LShift", "U"]
+        actual ["LShift", "LGui", "U"]
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+────────────
+     Summary [   0.018s] 2 tests run: 0 passed, 2 failed, 766 skipped
+        FAIL [   0.006s] (1/2) rmk storage::tests::audit_deleted_position_combo_stays_vacant_after_boot
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_deleted_position_combo_stays_vacant_after_boot ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_deleted_position_combo_stays_vacant_after_boot
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 414 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_deleted_position_combo_stays_vacant_after_boot' (3925951) panicked at src/storage/mod.rs:2074:13:
+    deleted position combo was restored as an occupied slot
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+        FAIL [   0.017s] (2/2) rmk::integration audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap
+  stdout ───
+
+    running 1 test
+    test audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap ... FAILED
+
+    failures:
+
+    failures:
+        audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 352 filtered out; finished in 0.01s
+
+  stderr ───
+
+    thread 'audit_unicode_swap::audit_unicode_linux_opener_is_independent_of_user_modifier_swap' (3925950) panicked at tests/integration/simulator/mod.rs:444:21:
+    expect[0]: HID report mismatch
+      expected ["LCtrl", "LShift", "U"]
+        actual ["LShift", "LGui", "U"]
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+error: test run failed

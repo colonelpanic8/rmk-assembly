@@ -1,0 +1,51 @@
+   Compiling rmk v0.9.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.26s
+────────────
+ Nextest run ID 1b664ca5-4d6f-491d-bb7e-9ac612f124f5 with nextest profile: ci
+    Starting 2 tests across 1 binary (416 tests skipped)
+        PASS [   0.007s] (1/2) rmk lighting::standard::tests::output_mode_conditions_select_between_runtime_rules
+        FAIL [   0.008s] (2/2) rmk lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode
+  stdout ───
+
+    running 1 test
+    test lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode ... FAILED
+
+    failures:
+
+    failures:
+        lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 417 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode' (4012293) panicked at src/lighting/standard/tests.rs:2419:5:
+    assertion `left == right` failed
+      left: Rgb8 { r: 32, g: 32, b: 32 }
+     right: Rgb8 { r: 0, g: 200, b: 0 }
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+────────────
+     Summary [   0.014s] 2 tests run: 1 passed, 1 failed, 416 skipped
+        FAIL [   0.008s] (2/2) rmk lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode
+  stdout ───
+
+    running 1 test
+    test lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode ... FAILED
+
+    failures:
+
+    failures:
+        lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 417 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'lighting::standard::tests::audit_compiled_conditional_scene_observes_output_mode' (4012293) panicked at src/lighting/standard/tests.rs:2419:5:
+    assertion `left == right` failed
+      left: Rgb8 { r: 32, g: 32, b: 32 }
+     right: Rgb8 { r: 0, g: 200, b: 0 }
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+error: test run failed

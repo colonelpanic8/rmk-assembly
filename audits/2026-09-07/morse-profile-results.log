@@ -1,0 +1,24 @@
+   Compiling rmk-types v0.3.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-types)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.12s
+     Running tests/audit_morse_profile.rs (/home/imalison/.cargo/build/a9/29a13dffb50de7/debug/deps/audit_morse_profile-1249a872650de883)
+
+running 1 test
+test audit_absent_opposite_hand_option_preserves_explicit_unilateral_false ... FAILED
+
+failures:
+
+---- audit_absent_opposite_hand_option_preserves_explicit_unilateral_false stdout ----
+
+thread 'audit_absent_opposite_hand_option_preserves_explicit_unilateral_false' (4031777) panicked at tests/audit_morse_profile.rs:6:5:
+assertion `left == right` failed
+  left: None
+ right: Some(false)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    audit_absent_opposite_hand_option_preserves_explicit_unilateral_false
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test audit_morse_profile`

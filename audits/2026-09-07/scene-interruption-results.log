@@ -1,0 +1,46 @@
+   Compiling rmk v0.9.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.04s
+────────────
+ Nextest run ID 590ecb66-632a-4511-b183-58ecb20cd2f5 with nextest profile: ci
+    Starting 1 test across 1 binary (416 tests skipped)
+        FAIL [   0.005s] (1/1) rmk storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 416 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations' (4001095) panicked at src/storage/mod.rs:2200:13:
+    boot restored a mixture of old and new scene generations: [LightingSceneCell { layer: 0, led_id: LightingLedId(0), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(1), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(2), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(3), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(4), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(5), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(6), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(7), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(8), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(9), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(10), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(11), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(12), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(13), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(14), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(15), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }]
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+────────────
+     Summary [   0.008s] 1 test run: 0 passed, 1 failed, 416 skipped
+        FAIL [   0.005s] (1/1) rmk storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations
+  stdout ───
+
+    running 1 test
+    test storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations ... FAILED
+
+    failures:
+
+    failures:
+        storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 416 filtered out; finished in 0.00s
+
+  stderr ───
+
+    thread 'storage::tests::audit_scene_replacement_survives_interruption_without_mixed_generations' (4001095) panicked at src/storage/mod.rs:2200:13:
+    boot restored a mixture of old and new scene generations: [LightingSceneCell { layer: 0, led_id: LightingLedId(0), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(1), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(2), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(3), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(4), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(5), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(6), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(7), effect: Solid { color: LightingRgb8 { r: 2, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(8), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(9), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(10), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(11), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(12), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(13), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(14), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }, LightingSceneCell { layer: 0, led_id: LightingLedId(15), effect: Solid { color: LightingRgb8 { r: 1, g: 0, b: 0 } } }]
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+error: test run failed

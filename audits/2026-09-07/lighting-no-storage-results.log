@@ -1,0 +1,45 @@
+   Compiling rmk-types v0.3.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk-types)
+   Compiling rmk v0.9.0 (/home/imalison/Projects/rmk-assembly/.worktrees/audit-astra-20260907/rmk)
+error[E0432]: unresolved import `crate::channel::FLASH_CHANNEL`
+  --> src/input_device/pointing_config.rs:14:5
+   |
+14 | use crate::channel::FLASH_CHANNEL;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `FLASH_CHANNEL` in `channel`
+   |
+note: found an item that was configured out
+  --> src/channel.rs:92:19
+   |
+91 | #[cfg(feature = "storage")]
+   |       ------------------- the item is gated behind the `storage` feature
+92 | pub(crate) static FLASH_CHANNEL: Channel<RawMutex, FlashOperationMessage, FLASH_CHANNEL_SIZE> = Channel::new();
+   |                   ^^^^^^^^^^^^^
+
+error[E0432]: unresolved import `crate::storage`
+   --> src/input_device/pointing_config.rs:16:12
+    |
+ 16 | use crate::storage::FlashOperationMessage;
+    |            ^^^^^^^ unresolved import
+    |
+note: found an item that was configured out
+   --> src/lib.rs:120:9
+    |
+119 | #[cfg(feature = "storage")]
+    |       ------------------- the item is gated behind the `storage` feature
+120 | pub mod storage;
+    |         ^^^^^^^
+help: a similar path exists
+    |
+ 16 | use crate::config::storage::FlashOperationMessage;
+    |            ++++++++
+
+warning: unused import: `MorseProfileName`
+  --> src/host/context.rs:12:45
+   |
+12 | use rmk_types::morse::{Morse, MorseProfile, MorseProfileName};
+   |                                             ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+For more information about this error, try `rustc --explain E0432`.
+warning: `rmk` (lib) generated 1 warning
+error: could not compile `rmk` (lib) due to 2 previous errors; 1 warning emitted
