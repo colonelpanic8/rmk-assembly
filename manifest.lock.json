@@ -28,6 +28,8 @@
       "fix/ephemeral-split-layer-state": "a28b33321d502d759a34942857d579f2a324a7ae",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
       "fix/pointing-mode-event-priority": "6d64cff130c39dee57263738bc6c49b67db3ca23",
+      "fix/rynk-flash-backpressure": "d3ab17edaf85f7a57075a574d4ca97fafa7c8bd5",
+      "fix/storage-sparse-keymap-init": "c098056a23f7858e2015191e51ffa288bfb036df",
       "fold/cirque-pinnacle": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b",
       "fold/connection-selection": "e2d265d37c6c8e4f8f43c79b2787294c44242b82",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
@@ -42,15 +44,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-08T09:00:38.332108182+00:00",
+    "generated": "2026-09-14T09:30:31.791358304+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "faf205899e20f489fe31f66eb03b2a6362c417eb",
-    "pre_provenance_commit": "faf205899e20f489fe31f66eb03b2a6362c417eb",
-    "tree": "e03778ad017e56833010f3a01e39a91be108c53a",
-    "built_tree": "e03778ad017e56833010f3a01e39a91be108c53a",
-    "previous_tree": "80f88be020f4df9b4ac412ed8f0b160a5a26e69f",
+    "commit": "01178c2f95fe024958abe18193921d3de881db87",
+    "pre_provenance_commit": "01178c2f95fe024958abe18193921d3de881db87",
+    "tree": "997ca98ec6cbfe9b438b6a31c989ec0c9f1209cb",
+    "built_tree": "997ca98ec6cbfe9b438b6a31c989ec0c9f1209cb",
+    "previous_tree": "e03778ad017e56833010f3a01e39a91be108c53a",
     "tree_changed": true,
-    "conflicts": 21,
+    "conflicts": 23,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -276,6 +278,18 @@
         "kind": "branch",
         "source": "fork:feat/ble-advertising-backoff",
         "pin": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34"
+      },
+      {
+        "name": "fix/rynk-flash-backpressure",
+        "kind": "branch",
+        "source": "fork:fix/rynk-flash-backpressure",
+        "pin": "d3ab17edaf85f7a57075a574d4ca97fafa7c8bd5"
+      },
+      {
+        "name": "fix/storage-sparse-keymap-init",
+        "kind": "branch",
+        "source": "fork:fix/storage-sparse-keymap-init",
+        "pin": "c098056a23f7858e2015191e51ffa288bfb036df"
       }
     ],
     "results": [
@@ -524,6 +538,20 @@
         "oid": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
         "status": "merged",
         "conflicted": false
+      },
+      {
+        "name": "fix/rynk-flash-backpressure",
+        "oid": "d3ab17edaf85f7a57075a574d4ca97fafa7c8bd5",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:12c446e140aba074df3c5a98c12f9dcc9e794e32,8a8f15cdbff4c39c643f5598e32a33406e21dc02"
+      },
+      {
+        "name": "fix/storage-sparse-keymap-init",
+        "oid": "c098056a23f7858e2015191e51ffa288bfb036df",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:6eacd4c1d82d4e3c73426bcb10bafa74a908490f"
       }
     ]
   }

@@ -1340,6 +1340,24 @@ paths = ["rmk/src/input_device/pointing.rs"]
 recorded = "2026-08-18T19:58:27.350804557+00:00"
 
 [[resolution]]
+entry = "fix/rynk-flash-backpressure"
+hash = "12c446e140aba074df3c5a98c12f9dcc9e794e32"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-09-14T09:29:43.283129030+00:00"
+
+[[resolution]]
+entry = "fix/rynk-flash-backpressure"
+hash = "8a8f15cdbff4c39c643f5598e32a33406e21dc02"
+paths = ["rmk/src/host/context.rs"]
+recorded = "2026-09-14T09:29:43.283130833+00:00"
+
+[[resolution]]
+entry = "fix/storage-sparse-keymap-init"
+hash = "6eacd4c1d82d4e3c73426bcb10bafa74a908490f"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-09-14T09:30:31.764168588+00:00"
+
+[[resolution]]
 entry = "fold/lighting-rynk"
 hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
 paths = ["rmk/src/split/peripheral.rs"]

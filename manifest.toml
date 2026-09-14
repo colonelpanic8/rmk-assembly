@@ -144,6 +144,14 @@ branch = "fork:feat/ctrl-gui-swap"
 [[entry]]
 branch = "fork:feat/ble-advertising-backoff"
 
+[[entry]]
+branch = "fork:fix/rynk-flash-backpressure"
+summary = "Keymap writes answer Busy instead of parking the Rynk session on a full flash queue; host caps pages and retries"
+
+[[entry]]
+branch = "fork:fix/storage-sparse-keymap-init"
+summary = "A fresh store seeds config records only; compiled keymap cells restore from the build, freeing ~22 KiB of the partition"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
