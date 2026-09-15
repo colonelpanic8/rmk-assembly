@@ -79,7 +79,7 @@ index 305360a80..0844b1e17 100644
                      },
                  )
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 5596cddab..be0dab35e 100644
+index 73e1f2426..2dab9fedd 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
 @@ -240,7 +240,7 @@ impl<'a> RynkService<'a> {
@@ -88,7 +88,7 @@ index 5596cddab..be0dab35e 100644
              | Cmd::CommitLightingRuleReplace
 -            | Cmd::AbortLightingRuleReplace => self.lock_config.write_requires_unlock,
 +            | Cmd::AbortLightingRuleReplace => Some(true),
-             #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
+             #[cfg(feature = "lighting")]
              Cmd::BeginLightingRuntimeConditionalSceneReplace
              | Cmd::PutLightingRuntimeConditionalSceneChunk
 @@ -322,15 +322,18 @@ impl<'a> RynkService<'a> {
@@ -102,7 +102,7 @@ index 5596cddab..be0dab35e 100644
 +            | Cmd::GetLightingRuleStatus
 +            | Cmd::GetLightingRules
 +            | Cmd::GetLightingReplicaStatus => Some(false),
-+            #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
++            #[cfg(feature = "lighting")]
 +            Cmd::GetLightingRuntimeConditionalSceneStatus
 +            | Cmd::GetLightingRuntimeConditionalScenes
              | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
