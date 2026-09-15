@@ -417,6 +417,12 @@ recorded = "2026-09-15T02:11:40.941414351+00:00"
 
 [[resolution]]
 entry = "feat/lighting-rules"
+hash = "73e05819022959f9b85427c52e57397582d14142"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-09-15T03:15:28.695171070+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
 hash = "7e4a03a060dc3f5d1fe3a9ae4d04d0684d6e67aa"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-09-15T02:11:40.941414562+00:00"
