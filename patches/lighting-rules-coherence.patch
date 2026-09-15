@@ -78,3 +78,74 @@ index 305360a80..0844b1e17 100644
                          layers: 1 << 2,
                      },
                  )
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 5596cddab..be0dab35e 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -240,7 +240,7 @@ impl<'a> RynkService<'a> {
+             | Cmd::BeginLightingRuleReplace
+             | Cmd::PutLightingRuleChunk
+             | Cmd::CommitLightingRuleReplace
+-            | Cmd::AbortLightingRuleReplace => self.lock_config.write_requires_unlock,
++            | Cmd::AbortLightingRuleReplace => Some(true),
+             #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
+             Cmd::BeginLightingRuntimeConditionalSceneReplace
+             | Cmd::PutLightingRuntimeConditionalSceneChunk
+@@ -322,15 +322,18 @@ impl<'a> RynkService<'a> {
+             | Cmd::GetLightingOutputMode
+             | Cmd::GetLightingExtension
+             | Cmd::GetLightingExtensionNames
+-            | Cmd::GetLightingRuntimeConditionalSceneStatus
+-            | Cmd::GetLightingRuntimeConditionalScenes
+             | Cmd::GetLightingExtensionParams
+             | Cmd::GetLightingExtensionLayers
++            | Cmd::GetLightingRuleStatus
++            | Cmd::GetLightingRules
++            | Cmd::GetLightingReplicaStatus => Some(false),
++            #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
++            Cmd::GetLightingRuntimeConditionalSceneStatus
++            | Cmd::GetLightingRuntimeConditionalScenes
+             | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
+             | Cmd::GetLightingExtendedRuntimeConditionalScenes
+             | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
+-            | Cmd::GetLightingAdvancedRuntimeConditionalScenes
+-            | Cmd::GetLightingReplicaStatus => Some(false),
++            | Cmd::GetLightingAdvancedRuntimeConditionalScenes => Some(false),
+             _ => None,
+         }
+     }
+diff --git a/rynk/tests/loopback.rs b/rynk/tests/loopback.rs
+index 043dddabd..7280cdfd1 100644
+--- a/rynk/tests/loopback.rs
++++ b/rynk/tests/loopback.rs
+@@ -28,7 +28,7 @@ use rynk::{Client, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
+ /// single legal frame fits without the writer blocking on an un-polled reader.
+ type Link = Pipe<NoopRawMutex, RYNK_BUFFER_SIZE>;
+ 
+-static MAINTENANCE_STATE_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
++static MAINTENANCE_STATE_TEST_LOCK: tokio::sync::Mutex<()> = tokio::sync::Mutex::const_new(());
+ 
+ /// The host side of the two pipes as a device — reads device→host, writes
+ /// host→device — so the test connects through [`RynkDevice::connect`]. `&Pipe`
+@@ -63,9 +63,7 @@ async fn with_session(device: DuplexDevice<'_>, script: impl AsyncFnOnce(&Client
+ 
+ #[tokio::test(flavor = "current_thread")]
+ async fn client_against_run_session() {
+-    let _state_guard = MAINTENANCE_STATE_TEST_LOCK
+-        .lock()
+-        .unwrap_or_else(|poisoned| poisoned.into_inner());
++    let _state_guard = MAINTENANCE_STATE_TEST_LOCK.lock().await;
+     // Firmware side.
+     let mut behavior = BehaviorConfig::default();
+     let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+@@ -219,9 +217,7 @@ async fn client_against_run_session() {
+ /// reports the live/default state, and leaves the legacy lock endpoints inert.
+ #[tokio::test(flavor = "current_thread")]
+ async fn maintenance_gate_rejects_and_reports() {
+-    let _state_guard = MAINTENANCE_STATE_TEST_LOCK
+-        .lock()
+-        .unwrap_or_else(|poisoned| poisoned.into_inner());
++    let _state_guard = MAINTENANCE_STATE_TEST_LOCK.lock().await;
+     let mut behavior = BehaviorConfig::default();
+     let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+     let mut data: KeymapData<2, 2, 1, 0> = KeymapData::new([[[KeyAction::No; 2]; 2]; 1]);

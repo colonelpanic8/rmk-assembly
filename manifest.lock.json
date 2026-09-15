@@ -45,12 +45,12 @@
     }
   },
   "build": {
-    "generated": "2026-09-15T03:26:54.407033048+00:00",
+    "generated": "2026-09-15T03:41:08.547275857+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "156c43161e6bda68759384d5bc9d86b9275e7fc8",
-    "pre_provenance_commit": "156c43161e6bda68759384d5bc9d86b9275e7fc8",
-    "tree": "d2952a256b22c5561feb44fd3fb0b9e147a05575",
-    "built_tree": "d2952a256b22c5561feb44fd3fb0b9e147a05575",
+    "commit": "909e367747824d3691b300fb256e0bf25210cf13",
+    "pre_provenance_commit": "909e367747824d3691b300fb256e0bf25210cf13",
+    "tree": "4a0a5d54ef3cf992c43779d37dba0e5123e880ec",
+    "built_tree": "4a0a5d54ef3cf992c43779d37dba0e5123e880ec",
     "previous_tree": "02f8eb6c4139a81586d6552db009823e116c97a1",
     "tree_changed": true,
     "conflicts": 24,
@@ -297,7 +297,7 @@
         "kind": "branch",
         "source": "fork:feat/lighting-rules",
         "pin": "329685d02181a74fba9f40cb451d0c8291995881",
-        "fixup": "b74151b07adab821cbdd2faf515eca4b87db1e75"
+        "fixup": "34dd4abb16f261c93b373f5025500d1cd147ba35"
       }
     ],
     "results": [
@@ -567,7 +567,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "b74151b07adab821cbdd2faf515eca4b87db1e75"
+        "fixup": "34dd4abb16f261c93b373f5025500d1cd147ba35"
       }
     ]
   }
