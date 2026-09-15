@@ -5,6 +5,7 @@
     "entries": {
       "feat/ble-advertising-backoff": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
       "feat/ble-name-template": "ba90faee22e679ccade2d55a985079c6da826a40",
+      "feat/ble-profile-clear-api": "73f9f8dd38d8e1c799d3a20f5739ff0abaf1cced",
       "feat/combo-hold-output": "cce7d99c94d918e02442a15ead3a359f587fbaa1",
       "feat/consumer-keycodes": "26a1399d287f33e6ab1492a971dfaf148dff8bc8",
       "feat/ctrl-gui-swap": "2ecacafb40824df06c00397326cc4ee207721b88",
@@ -45,15 +46,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-15T04:18:57.450316775+00:00",
+    "generated": "2026-09-15T06:22:42.277561342+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "2d8f2df5b84d3a7bd76613ab72c01a1048686987",
-    "pre_provenance_commit": "2d8f2df5b84d3a7bd76613ab72c01a1048686987",
-    "tree": "8e8915931be3e4d181b14e1cd6fdf36a32e2671b",
-    "built_tree": "8e8915931be3e4d181b14e1cd6fdf36a32e2671b",
-    "previous_tree": "ea7fe9e3ae65ceefb3d8a49832c43db18b4718fb",
+    "commit": "6b2e8eabbb7f0f6f7eb6935b0f1e37f81e58316d",
+    "pre_provenance_commit": "6b2e8eabbb7f0f6f7eb6935b0f1e37f81e58316d",
+    "tree": "ec8fc0e3edb1b1053e2ad8ca82f32a8663e35e3a",
+    "built_tree": "ec8fc0e3edb1b1053e2ad8ca82f32a8663e35e3a",
+    "previous_tree": "8e8915931be3e4d181b14e1cd6fdf36a32e2671b",
     "tree_changed": true,
-    "conflicts": 24,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -298,6 +299,12 @@
         "source": "fork:feat/lighting-rules",
         "pin": "4cd99a27321691d6b2526be73ce98cd4f646fcdf",
         "fixup": "10cb41251736c4e8da987036fc7d2115b6595291"
+      },
+      {
+        "name": "feat/ble-profile-clear-api",
+        "kind": "branch",
+        "source": "fork:feat/ble-profile-clear-api",
+        "pin": "73f9f8dd38d8e1c799d3a20f5739ff0abaf1cced"
       }
     ],
     "results": [
@@ -568,6 +575,12 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "10cb41251736c4e8da987036fc7d2115b6595291"
+      },
+      {
+        "name": "feat/ble-profile-clear-api",
+        "oid": "73f9f8dd38d8e1c799d3a20f5739ff0abaf1cced",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }

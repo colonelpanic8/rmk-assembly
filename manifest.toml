@@ -156,6 +156,9 @@ summary = "A fresh store seeds config records only; compiled keymap cells restor
 branch = "fork:feat/lighting-rules"
 fixup = "patches/lighting-rules-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/ble-profile-clear-api"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
