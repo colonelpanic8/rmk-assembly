@@ -11,6 +11,7 @@
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "bb4e94249340480c7108c5a4d6e5e42b69dc49e4",
       "feat/lighting-layer-indicator-conditions": "94684603bf9329800a49e62aabba99668db310dd",
+      "feat/lighting-rules": "ed399b4e958969b97b9000f231c0615c1ab9d4cd",
       "feat/maintenance-mode": "ae81411c1ada22ac373ad2f95f7aa5c8adeeb0b8",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
@@ -44,15 +45,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-14T09:30:31.791358304+00:00",
+    "generated": "2026-09-15T02:18:45.644018617+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "01178c2f95fe024958abe18193921d3de881db87",
-    "pre_provenance_commit": "01178c2f95fe024958abe18193921d3de881db87",
-    "tree": "997ca98ec6cbfe9b438b6a31c989ec0c9f1209cb",
-    "built_tree": "997ca98ec6cbfe9b438b6a31c989ec0c9f1209cb",
-    "previous_tree": "e03778ad017e56833010f3a01e39a91be108c53a",
+    "commit": "00dde6eada749ba9eab9b4ca08480ec3426c6d9c",
+    "pre_provenance_commit": "00dde6eada749ba9eab9b4ca08480ec3426c6d9c",
+    "tree": "98f65a920293187b6aab3000aa9d63c416096522",
+    "built_tree": "98f65a920293187b6aab3000aa9d63c416096522",
+    "previous_tree": "3198584dfec3bb12c53966c85c142002fc98eb6d",
     "tree_changed": true,
-    "conflicts": 23,
+    "conflicts": 24,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -290,6 +291,13 @@
         "kind": "branch",
         "source": "fork:fix/storage-sparse-keymap-init",
         "pin": "c098056a23f7858e2015191e51ffa288bfb036df"
+      },
+      {
+        "name": "feat/lighting-rules",
+        "kind": "branch",
+        "source": "fork:feat/lighting-rules",
+        "pin": "ed399b4e958969b97b9000f231c0615c1ab9d4cd",
+        "fixup": "d59c8203d904aefee65b8ba32b2767d963474d17"
       }
     ],
     "results": [
@@ -544,14 +552,22 @@
         "oid": "d3ab17edaf85f7a57075a574d4ca97fafa7c8bd5",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:12c446e140aba074df3c5a98c12f9dcc9e794e32,8a8f15cdbff4c39c643f5598e32a33406e21dc02"
+        "resolution": "rerere"
       },
       {
         "name": "fix/storage-sparse-keymap-init",
         "oid": "c098056a23f7858e2015191e51ffa288bfb036df",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:6eacd4c1d82d4e3c73426bcb10bafa74a908490f"
+        "resolution": "rerere"
+      },
+      {
+        "name": "feat/lighting-rules",
+        "oid": "ed399b4e958969b97b9000f231c0615c1ab9d4cd",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "d59c8203d904aefee65b8ba32b2767d963474d17"
       }
     ]
   }

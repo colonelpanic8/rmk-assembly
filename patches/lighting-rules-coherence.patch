@@ -1,0 +1,183 @@
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
+index 518bb3097..440e27490 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
+@@ -15,7 +15,7 @@ ClearBleProfile request 1
+ ConnectionChange topic ConnectionStatus{Configured,{1,Adv},Ble}                 03 03 80 03 02 01 02 01 00
+ DeleteMorseProfile reply Ok(())                                                 04 0e 04 01 01 00
+ DeleteMorseProfile request 3                                                    05 0e 04 01 03 00
+-GetAutoMouseLayerConfigs reply Ok(state)                                        04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d9 01 01 00
++GetAutoMouseLayerConfigs reply Ok(state)                                        04 05 06 01 0b 04 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
+ GetAutoMouseLayerConfigs request ()                                             04 05 06 01 00
+ GetBatteryStatus reply Ok(Available{Discharging,85})                            04 03 08 01 05 01 01 01 55 00
+ GetBatteryStatus request ()                                                     04 03 08 01 00
+@@ -101,7 +101,7 @@ PeripheralBootloaderJump request slot 1
+ Reboot reply Ok(())                                                             02 03 02 01 01 00
+ Reboot request ()                                                               02 03 02 01 00
+ SetAutoMouseLayerConfigs reply Ok(())                                           04 06 06 01 01 00
+-SetAutoMouseLayerConfigs request configs                                        0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d9 01 01 00
++SetAutoMouseLayerConfigs request configs                                        0d 06 06 01 01 01 01 02 f4 03 03 01 01 03 d6 01 01 00
+ SetBehaviorConfig reply Ok(())                                                  04 02 06 01 01 00
+ SetBehaviorConfig request BehaviorConfig{50..120}                               10 02 06 01 32 3c 46 50 da 80 a6 86 e8 8d 08 78 00
+ SetBehaviorOptions reply Ok(())                                                 04 04 06 01 01 00
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+index 02eed8555..776dbc801 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+@@ -10,7 +10,7 @@ Action::DefaultLayer(5)                                   08 05
+ Action::Key(Hid(A))                                       01 00 04
+ Action::KeyWithModifier(A,LShift)                         03 04 02
+ Action::KeyboardControl(Bootloader)                       11 00
+-Action::KeyboardControl(MaintenanceModeToggle)            11 0c
++Action::KeyboardControl(MaintenanceModeToggle)            11 0a
+ Action::LayerOff(3)                                       06 03
+ Action::LayerOn(1)                                        04 01
+ Action::LayerOnWithModifier(2,LCtrl)                      05 02 01
+@@ -27,7 +27,7 @@ Action::TriLayerLower                                     0a
+ Action::TriLayerUpper                                     0b
+ Action::TriggerMacro(7)                                   0c 07
+ Action::User(9)                                           13 09
+-AutoMouseLayerConfigState{4,[device1->layer2]}            04 01 01 01 02 f4 03 03 01 01 00 d9 01 00
++AutoMouseLayerConfigState{4,[device1->layer2]}            04 01 01 01 02 f4 03 03 01 01 00 d6 01 00
+ BatteryStatus::Available{Discharging,85}                  01 01 01 55
+ BatteryStatus::Unavailable                                00
+ BehaviorConfig{50..120}                                   32 3c 46 50 da 80 a6 86 e8 8d 08 78
+@@ -66,11 +66,11 @@ KeyAction::Single(Action::Key(Hid(A)))                    02 01 00 04
+ KeyAction::Tap(Action::No)                                03 00
+ KeyAction::TapHold(Key(A),LayerOn(3))                     04 01 00 04 04 03 ff
+ KeyAction::Transparent                                    01
+-KeyCode::Consumer(VolumeIncrement)                        01 15
++KeyCode::Consumer(VolumeIncrement)                        01 12
+ KeyCode::Hid(A)                                           00 04
+ KeyCode::SystemControl(Sleep)                             02 02
+ KeyPosition{layer:0,row:5,col:13}                         00 05 0d
+-KeyboardAction::CtrlGuiSwapToggle                         0d
++KeyboardAction::CtrlGuiSwapToggle                         0b
+ LayerMetadata{true,Navigation}                            01 0a 4e 61 76 69 67 61 74 69 6f 6e
+ LayerState{default:2,active:[0x05,..,0x80]}               02 05 00 00 00 00 00 00 80
+ LayoutChunk{300,[0x0a,0x0b,0x0c]}                         ac 02 03 0a 0b 0c
+@@ -108,7 +108,7 @@ RynkError::NotReady                                       01
+ RynkError::StorageFault                                   02
+ RynkError::Unimplemented                                  04
+ RynkError::UnknownCmd                                     06
+-SetAutoMouseLayerConfigsRequest{[device1->layer2]}        01 01 01 02 f4 03 03 01 01 00 d9 01 00
++SetAutoMouseLayerConfigsRequest{[device1->layer2]}        01 01 01 02 f4 03 03 01 01 00 d6 01 00
+ SetComboDefinitionRequest{3,positions}                    03 01 02 03 04 05 06 05 01 01 02
+ SetComboRequest{3,combo}                                  03 01 02 01 00 04 05 01 01 02
+ SetEncoderRequest{1,2,{Morse(3),No}}                      01 02 05 03 00
+diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
+index 58bd7ec0e..ca12e34c0 100644
+--- a/rmk/src/host/rynk/handlers/lighting.rs
++++ b/rmk/src/host/rynk/handlers/lighting.rs
+@@ -3300,7 +3300,7 @@ mod tests {
+                     &service,
+                     &session,
+                     &SetLightingWakeLayersRequest {
+-                        expected_revision: 8,
++                        expected_revision: 9,
+                         layers: 1 << 2,
+                     },
+                 )
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 2018e0c5e..5bf982c0f 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -240,20 +240,39 @@ impl<'a> RynkService<'a> {
+             | Cmd::BeginLightingRuleReplace
+             | Cmd::PutLightingRuleChunk
+             | Cmd::CommitLightingRuleReplace
+-            | Cmd::AbortLightingRuleReplace => self.lock_config.write_requires_unlock,
++            | Cmd::AbortLightingRuleReplace => Some(true),
+             #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
+             Cmd::BeginLightingRuntimeConditionalSceneReplace
+             | Cmd::PutLightingRuntimeConditionalSceneChunk
+             | Cmd::CommitLightingRuntimeConditionalSceneReplace
+             | Cmd::AbortLightingRuntimeConditionalSceneReplace
+             | Cmd::BeginLightingExtendedRuntimeConditionalSceneReplace
+             | Cmd::PutLightingExtendedRuntimeConditionalSceneChunk
+             | Cmd::CommitLightingExtendedRuntimeConditionalSceneReplace
+             | Cmd::AbortLightingExtendedRuntimeConditionalSceneReplace
+             | Cmd::BeginLightingAdvancedRuntimeConditionalSceneReplace
+             | Cmd::PutLightingAdvancedRuntimeConditionalSceneChunk
+             | Cmd::CommitLightingAdvancedRuntimeConditionalSceneReplace
+             | Cmd::AbortLightingAdvancedRuntimeConditionalSceneReplace => Some(true),
++            #[cfg(all(feature = "lighting", not(feature = "lighting_legacy_conditional_scenes")))]
++            Cmd::GetLightingRuntimeConditionalSceneStatus
++            | Cmd::GetLightingRuntimeConditionalScenes
++            | Cmd::BeginLightingRuntimeConditionalSceneReplace
++            | Cmd::PutLightingRuntimeConditionalSceneChunk
++            | Cmd::CommitLightingRuntimeConditionalSceneReplace
++            | Cmd::AbortLightingRuntimeConditionalSceneReplace
++            | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
++            | Cmd::GetLightingExtendedRuntimeConditionalScenes
++            | Cmd::BeginLightingExtendedRuntimeConditionalSceneReplace
++            | Cmd::PutLightingExtendedRuntimeConditionalSceneChunk
++            | Cmd::CommitLightingExtendedRuntimeConditionalSceneReplace
++            | Cmd::AbortLightingExtendedRuntimeConditionalSceneReplace
++            | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
++            | Cmd::GetLightingAdvancedRuntimeConditionalScenes
++            | Cmd::BeginLightingAdvancedRuntimeConditionalSceneReplace
++            | Cmd::PutLightingAdvancedRuntimeConditionalSceneChunk
++            | Cmd::CommitLightingAdvancedRuntimeConditionalSceneReplace
++            | Cmd::AbortLightingAdvancedRuntimeConditionalSceneReplace => Some(false),
+             Cmd::GetVersion
+             | Cmd::GetCapabilities
+             | Cmd::GetLockStatus
+@@ -322,15 +322,18 @@ impl<'a> RynkService<'a> {
+             | Cmd::GetLightingOutputMode
+             | Cmd::GetLightingExtension
+             | Cmd::GetLightingExtensionNames
+-            | Cmd::GetLightingRuntimeConditionalSceneStatus
+-            | Cmd::GetLightingRuntimeConditionalScenes
+             | Cmd::GetLightingExtensionParams
+             | Cmd::GetLightingExtensionLayers
++            | Cmd::GetLightingRuleStatus
++            | Cmd::GetLightingRules
++            | Cmd::GetLightingReplicaStatus => Some(false),
++            #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
++            Cmd::GetLightingRuntimeConditionalSceneStatus
++            | Cmd::GetLightingRuntimeConditionalScenes
+             | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
+             | Cmd::GetLightingExtendedRuntimeConditionalScenes
+             | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
+-            | Cmd::GetLightingAdvancedRuntimeConditionalScenes
+-            | Cmd::GetLightingReplicaStatus => Some(false),
++            | Cmd::GetLightingAdvancedRuntimeConditionalScenes => Some(false),
+             _ => None,
+         }
+     }
+diff --git a/rynk/tests/loopback.rs b/rynk/tests/loopback.rs
+index 043dddabd..7280cdfd1 100644
+--- a/rynk/tests/loopback.rs
++++ b/rynk/tests/loopback.rs
+@@ -28,7 +28,7 @@ use rynk::{Client, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
+ /// single legal frame fits without the writer blocking on an un-polled reader.
+ type Link = Pipe<NoopRawMutex, RYNK_BUFFER_SIZE>;
+ 
+-static MAINTENANCE_STATE_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
++static MAINTENANCE_STATE_TEST_LOCK: tokio::sync::Mutex<()> = tokio::sync::Mutex::const_new(());
+ 
+ /// The host side of the two pipes as a device — reads device→host, writes
+ /// host→device — so the test connects through [`RynkDevice::connect`]. `&Pipe`
+@@ -63,9 +63,7 @@ async fn with_session(device: DuplexDevice<'_>, script: impl AsyncFnOnce(&Client
+ 
+ #[tokio::test(flavor = "current_thread")]
+ async fn client_against_run_session() {
+-    let _state_guard = MAINTENANCE_STATE_TEST_LOCK
+-        .lock()
+-        .unwrap_or_else(|poisoned| poisoned.into_inner());
++    let _state_guard = MAINTENANCE_STATE_TEST_LOCK.lock().await;
+     // Firmware side.
+     let mut behavior = BehaviorConfig::default();
+     let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+@@ -219,9 +217,7 @@ async fn client_against_run_session() {
+ /// reports the live/default state, and leaves the legacy lock endpoints inert.
+ #[tokio::test(flavor = "current_thread")]
+ async fn maintenance_gate_rejects_and_reports() {
+-    let _state_guard = MAINTENANCE_STATE_TEST_LOCK
+-        .lock()
+-        .unwrap_or_else(|poisoned| poisoned.into_inner());
++    let _state_guard = MAINTENANCE_STATE_TEST_LOCK.lock().await;
+     let mut behavior = BehaviorConfig::default();
+     let positional: PositionalConfig<2, 2> = PositionalConfig::default();
+     let mut data: KeymapData<2, 2, 1, 0> = KeymapData::new([[[KeyAction::No; 2]; 2]; 1]);

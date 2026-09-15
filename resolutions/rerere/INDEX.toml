@@ -386,6 +386,48 @@ paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-09-08T04:03:56.680280269+00:00"
 
 [[resolution]]
+entry = "feat/lighting-rules"
+hash = "0c7015ac459bc273dc4b1889126e6c9f57c03594"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-09-15T02:11:40.941411766+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
+hash = "44349387d50004eb159361daa3d6ba079c2c16b9"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-09-15T02:11:40.941413420+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
+hash = "48706e1e2fd702c0179edd6a975eaba4d00b005b"
+paths = ["rmk/src/host/rynk/handlers/lighting.rs"]
+recorded = "2026-09-15T02:11:40.941413720+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
+hash = "4c03a1550ac6c64869471c1d4254b07e22041f42"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-09-15T02:11:40.941414001+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
+hash = "5e66e3f6bd3da44ee35558b9d27077d0481ae01f"
+paths = ["rynk/src/driver/tests.rs"]
+recorded = "2026-09-15T02:11:40.941414351+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
+hash = "7e4a03a060dc3f5d1fe3a9ae4d04d0684d6e67aa"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-09-15T02:11:40.941414562+00:00"
+
+[[resolution]]
+entry = "feat/lighting-rules"
+hash = "a49de7cf4425d55d5aed3694fccf2caddf4b0043"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-09-15T02:11:40.941414862+00:00"
+
+[[resolution]]
 entry = "feat/maintenance-mode"
 hash = "03db6fecebc57eecba8c562ea7d973e80b958e35"
 paths = ["rmk/src/host/rynk/mod.rs"]

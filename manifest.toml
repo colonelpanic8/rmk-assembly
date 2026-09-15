@@ -152,6 +152,10 @@ summary = "Keymap writes answer Busy instead of parking the Rynk session on a fu
 branch = "fork:fix/storage-sparse-keymap-init"
 summary = "A fresh store seeds config records only; compiled keymap cells restore from the build, freeing ~22 KiB of the partition"
 
+[[entry]]
+branch = "fork:feat/lighting-rules"
+fixup = "patches/lighting-rules-coherence.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
