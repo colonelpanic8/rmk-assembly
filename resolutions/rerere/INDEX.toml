@@ -183,6 +183,12 @@ recorded = "2026-09-15T07:02:49.921888579+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
+hash = "889d3caf81b762a016cad45456dcbdb45e087a57"
+paths = ["rmk/src/keyboard.rs"]
+recorded = "2026-09-15T07:28:13.187836675+00:00"
+
+[[resolution]]
+entry = "feat/ble-profile-clear-api"
 hash = "94bc04fa7dcb652aeda2c15262a0f1a7e8760e22"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-09-15T07:02:49.921888770+00:00"
