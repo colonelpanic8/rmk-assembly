@@ -158,6 +158,7 @@ fixup = "patches/lighting-rules-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ble-profile-clear-api"
+fixup = "patches/ble-profile-clear-coherence.patch"
 
 [[exclude]]
 pr = 999
