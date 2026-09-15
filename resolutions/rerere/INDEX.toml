@@ -434,6 +434,12 @@ paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
 recorded = "2026-09-15T02:11:40.941414862+00:00"
 
 [[resolution]]
+entry = "feat/lighting-rules"
+hash = "bb923eb3eb1b4aeb34874a5bc80d988dbd0b161d"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-09-15T03:22:01.906753666+00:00"
+
+[[resolution]]
 entry = "feat/maintenance-mode"
 hash = "03db6fecebc57eecba8c562ea7d973e80b958e35"
 paths = ["rmk/src/host/rynk/mod.rs"]

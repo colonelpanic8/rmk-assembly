@@ -11,7 +11,7 @@
       "feat/deterministic-build-hash": "24ac5334c2325ce9be4cd0eb6a9245ed4ef6737b",
       "feat/device-data": "bb4e94249340480c7108c5a4d6e5e42b69dc49e4",
       "feat/lighting-layer-indicator-conditions": "94684603bf9329800a49e62aabba99668db310dd",
-      "feat/lighting-rules": "a549607116ca9064e9ae8a0290b8f1ff7829b0af",
+      "feat/lighting-rules": "329685d02181a74fba9f40cb451d0c8291995881",
       "feat/maintenance-mode": "ae81411c1ada22ac373ad2f95f7aa5c8adeeb0b8",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
       "feat/morse-hold-trigger-positions": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
@@ -45,13 +45,13 @@
     }
   },
   "build": {
-    "generated": "2026-09-15T03:15:28.757414735+00:00",
+    "generated": "2026-09-15T03:26:54.407033048+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "6798bffce0e58d234e7503e263fb7db00f72938c",
-    "pre_provenance_commit": "6798bffce0e58d234e7503e263fb7db00f72938c",
-    "tree": "2b3185e6b93730dba487e87f28fe753a6e720423",
-    "built_tree": "2b3185e6b93730dba487e87f28fe753a6e720423",
-    "previous_tree": "98f65a920293187b6aab3000aa9d63c416096522",
+    "commit": "156c43161e6bda68759384d5bc9d86b9275e7fc8",
+    "pre_provenance_commit": "156c43161e6bda68759384d5bc9d86b9275e7fc8",
+    "tree": "d2952a256b22c5561feb44fd3fb0b9e147a05575",
+    "built_tree": "d2952a256b22c5561feb44fd3fb0b9e147a05575",
+    "previous_tree": "02f8eb6c4139a81586d6552db009823e116c97a1",
     "tree_changed": true,
     "conflicts": 24,
     "manifest_entries": [
@@ -296,8 +296,8 @@
         "name": "feat/lighting-rules",
         "kind": "branch",
         "source": "fork:feat/lighting-rules",
-        "pin": "a549607116ca9064e9ae8a0290b8f1ff7829b0af",
-        "fixup": "d59c8203d904aefee65b8ba32b2767d963474d17"
+        "pin": "329685d02181a74fba9f40cb451d0c8291995881",
+        "fixup": "b74151b07adab821cbdd2faf515eca4b87db1e75"
       }
     ],
     "results": [
@@ -563,11 +563,11 @@
       },
       {
         "name": "feat/lighting-rules",
-        "oid": "a549607116ca9064e9ae8a0290b8f1ff7829b0af",
+        "oid": "329685d02181a74fba9f40cb451d0c8291995881",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:73e05819022959f9b85427c52e57397582d14142",
-        "fixup": "d59c8203d904aefee65b8ba32b2767d963474d17"
+        "resolution": "rerere",
+        "fixup": "b74151b07adab821cbdd2faf515eca4b87db1e75"
       }
     ]
   }

@@ -66,10 +66,10 @@ index 02eed8555..776dbc801 100644
  SetComboRequest{3,combo}                                  03 01 02 01 00 04 05 01 01 02
  SetEncoderRequest{1,2,{Morse(3),No}}                      01 02 05 03 00
 diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
-index 58bd7ec0e..ca12e34c0 100644
+index 305360a80..0844b1e17 100644
 --- a/rmk/src/host/rynk/handlers/lighting.rs
 +++ b/rmk/src/host/rynk/handlers/lighting.rs
-@@ -3300,7 +3300,7 @@ mod tests {
+@@ -3298,7 +3298,7 @@ mod tests {
                      &service,
                      &session,
                      &SetLightingWakeLayersRequest {
@@ -78,106 +78,3 @@ index 58bd7ec0e..ca12e34c0 100644
                          layers: 1 << 2,
                      },
                  )
-diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 2018e0c5e..5bf982c0f 100644
---- a/rmk/src/host/rynk/mod.rs
-+++ b/rmk/src/host/rynk/mod.rs
-@@ -240,20 +240,39 @@ impl<'a> RynkService<'a> {
-             | Cmd::BeginLightingRuleReplace
-             | Cmd::PutLightingRuleChunk
-             | Cmd::CommitLightingRuleReplace
--            | Cmd::AbortLightingRuleReplace => self.lock_config.write_requires_unlock,
-+            | Cmd::AbortLightingRuleReplace => Some(true),
-             #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
-             Cmd::BeginLightingRuntimeConditionalSceneReplace
-             | Cmd::PutLightingRuntimeConditionalSceneChunk
-             | Cmd::CommitLightingRuntimeConditionalSceneReplace
-             | Cmd::AbortLightingRuntimeConditionalSceneReplace
-             | Cmd::BeginLightingExtendedRuntimeConditionalSceneReplace
-             | Cmd::PutLightingExtendedRuntimeConditionalSceneChunk
-             | Cmd::CommitLightingExtendedRuntimeConditionalSceneReplace
-             | Cmd::AbortLightingExtendedRuntimeConditionalSceneReplace
-             | Cmd::BeginLightingAdvancedRuntimeConditionalSceneReplace
-             | Cmd::PutLightingAdvancedRuntimeConditionalSceneChunk
-             | Cmd::CommitLightingAdvancedRuntimeConditionalSceneReplace
-             | Cmd::AbortLightingAdvancedRuntimeConditionalSceneReplace => Some(true),
-+            #[cfg(all(feature = "lighting", not(feature = "lighting_legacy_conditional_scenes")))]
-+            Cmd::GetLightingRuntimeConditionalSceneStatus
-+            | Cmd::GetLightingRuntimeConditionalScenes
-+            | Cmd::BeginLightingRuntimeConditionalSceneReplace
-+            | Cmd::PutLightingRuntimeConditionalSceneChunk
-+            | Cmd::CommitLightingRuntimeConditionalSceneReplace
-+            | Cmd::AbortLightingRuntimeConditionalSceneReplace
-+            | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
-+            | Cmd::GetLightingExtendedRuntimeConditionalScenes
-+            | Cmd::BeginLightingExtendedRuntimeConditionalSceneReplace
-+            | Cmd::PutLightingExtendedRuntimeConditionalSceneChunk
-+            | Cmd::CommitLightingExtendedRuntimeConditionalSceneReplace
-+            | Cmd::AbortLightingExtendedRuntimeConditionalSceneReplace
-+            | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
-+            | Cmd::GetLightingAdvancedRuntimeConditionalScenes
-+            | Cmd::BeginLightingAdvancedRuntimeConditionalSceneReplace
-+            | Cmd::PutLightingAdvancedRuntimeConditionalSceneChunk
-+            | Cmd::CommitLightingAdvancedRuntimeConditionalSceneReplace
-+            | Cmd::AbortLightingAdvancedRuntimeConditionalSceneReplace => Some(false),
-             Cmd::GetVersion
-             | Cmd::GetCapabilities
-             | Cmd::GetLockStatus
-@@ -322,15 +322,18 @@ impl<'a> RynkService<'a> {
-             | Cmd::GetLightingOutputMode
-             | Cmd::GetLightingExtension
-             | Cmd::GetLightingExtensionNames
--            | Cmd::GetLightingRuntimeConditionalSceneStatus
--            | Cmd::GetLightingRuntimeConditionalScenes
-             | Cmd::GetLightingExtensionParams
-             | Cmd::GetLightingExtensionLayers
-+            | Cmd::GetLightingRuleStatus
-+            | Cmd::GetLightingRules
-+            | Cmd::GetLightingReplicaStatus => Some(false),
-+            #[cfg(all(feature = "lighting", feature = "lighting_legacy_conditional_scenes"))]
-+            Cmd::GetLightingRuntimeConditionalSceneStatus
-+            | Cmd::GetLightingRuntimeConditionalScenes
-             | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
-             | Cmd::GetLightingExtendedRuntimeConditionalScenes
-             | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
--            | Cmd::GetLightingAdvancedRuntimeConditionalScenes
--            | Cmd::GetLightingReplicaStatus => Some(false),
-+            | Cmd::GetLightingAdvancedRuntimeConditionalScenes => Some(false),
-             _ => None,
-         }
-     }
-diff --git a/rynk/tests/loopback.rs b/rynk/tests/loopback.rs
-index 043dddabd..7280cdfd1 100644
---- a/rynk/tests/loopback.rs
-+++ b/rynk/tests/loopback.rs
-@@ -28,7 +28,7 @@ use rynk::{Client, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
- /// single legal frame fits without the writer blocking on an un-polled reader.
- type Link = Pipe<NoopRawMutex, RYNK_BUFFER_SIZE>;
- 
--static MAINTENANCE_STATE_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
-+static MAINTENANCE_STATE_TEST_LOCK: tokio::sync::Mutex<()> = tokio::sync::Mutex::const_new(());
- 
- /// The host side of the two pipes as a device — reads device→host, writes
- /// host→device — so the test connects through [`RynkDevice::connect`]. `&Pipe`
-@@ -63,9 +63,7 @@ async fn with_session(device: DuplexDevice<'_>, script: impl AsyncFnOnce(&Client
- 
- #[tokio::test(flavor = "current_thread")]
- async fn client_against_run_session() {
--    let _state_guard = MAINTENANCE_STATE_TEST_LOCK
--        .lock()
--        .unwrap_or_else(|poisoned| poisoned.into_inner());
-+    let _state_guard = MAINTENANCE_STATE_TEST_LOCK.lock().await;
-     // Firmware side.
-     let mut behavior = BehaviorConfig::default();
-     let positional: PositionalConfig<2, 2> = PositionalConfig::default();
-@@ -219,9 +217,7 @@ async fn client_against_run_session() {
- /// reports the live/default state, and leaves the legacy lock endpoints inert.
- #[tokio::test(flavor = "current_thread")]
- async fn maintenance_gate_rejects_and_reports() {
--    let _state_guard = MAINTENANCE_STATE_TEST_LOCK
--        .lock()
--        .unwrap_or_else(|poisoned| poisoned.into_inner());
-+    let _state_guard = MAINTENANCE_STATE_TEST_LOCK.lock().await;
-     let mut behavior = BehaviorConfig::default();
-     let positional: PositionalConfig<2, 2> = PositionalConfig::default();
-     let mut data: KeymapData<2, 2, 1, 0> = KeymapData::new([[[KeyAction::No; 2]; 2]; 1]);
