@@ -160,6 +160,10 @@ fixup = "patches/lighting-rules-coherence.patch"
 branch = "fork:feat/ble-profile-clear-api"
 fixup = "patches/ble-profile-clear-coherence.patch"
 
+[[entry]]
+branch = "fork:feat/morse-default-permissive-hold"
+summary = "Tap-hold keys that configure no resolution mode default to PermissiveHold instead of Normal"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

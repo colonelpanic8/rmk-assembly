@@ -14,10 +14,11 @@
       "feat/lighting-layer-indicator-conditions": "94684603bf9329800a49e62aabba99668db310dd",
       "feat/lighting-rules": "4cd99a27321691d6b2526be73ce98cd4f646fcdf",
       "feat/maintenance-mode": "ae81411c1ada22ac373ad2f95f7aa5c8adeeb0b8",
+      "feat/morse-default-permissive-hold": "8bba533c2ab56278aec98daf3d6769d2c1c778ed",
       "feat/morse-hold-trigger-on-release": "61b860e5bb6d7ee3e42b8a1e7cd913f711515e5a",
-      "feat/morse-hold-trigger-positions": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
+      "feat/morse-hold-trigger-positions": "f3667b87f371b71a7bc0ee266ae3c776b7d22506",
       "feat/morse-per-profile-prior-idle": "fc965ba81a486194fe4026ee9573d929e529e12f",
-      "feat/morse-retro-tap": "797aa2a6129f081ac82fd955c635ab4f73fa320f",
+      "feat/morse-retro-tap": "8b1b6c9393771aeb44e6f821aa5a5935ff963110",
       "feat/morse-tap-unless-interrupted": "94608c590429d4e04e9b2b32bed198a729cb8475",
       "feat/morse-unilateral-mod-chording": "a2df0ec69daededb21a8ecf1540fa4d015797269",
       "feat/nrf-half-duplex-split": "f46e7337daa0443a3c5120db75cf393c2794a310",
@@ -46,15 +47,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-15T07:28:13.246570637+00:00",
+    "generated": "2026-09-16T18:40:16.589704018+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "f878c047f74c87844ba7eb66f7f10aa401ae1086",
-    "pre_provenance_commit": "f878c047f74c87844ba7eb66f7f10aa401ae1086",
-    "tree": "4228de9f439ccf53e8bf35e939a9e063ba6cfd18",
-    "built_tree": "4228de9f439ccf53e8bf35e939a9e063ba6cfd18",
-    "previous_tree": "44a66e2df36845dbbad9ad3141f286706188c4a5",
+    "commit": "5841d1b44ce81536d05ccaea9174d287d3ac3e86",
+    "pre_provenance_commit": "5841d1b44ce81536d05ccaea9174d287d3ac3e86",
+    "tree": "d13fdbd4e07b292311048e01654015a6b6f5c11c",
+    "built_tree": "d13fdbd4e07b292311048e01654015a6b6f5c11c",
+    "previous_tree": "4228de9f439ccf53e8bf35e939a9e063ba6cfd18",
     "tree_changed": true,
-    "conflicts": 25,
+    "conflicts": 26,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -109,7 +110,7 @@
         "name": "feat/morse-retro-tap",
         "kind": "branch",
         "source": "fork:feat/morse-retro-tap",
-        "pin": "797aa2a6129f081ac82fd955c635ab4f73fa320f"
+        "pin": "8b1b6c9393771aeb44e6f821aa5a5935ff963110"
       },
       {
         "name": "feat/morse-per-profile-prior-idle",
@@ -127,7 +128,7 @@
         "name": "feat/morse-hold-trigger-positions",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-positions",
-        "pin": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4"
+        "pin": "f3667b87f371b71a7bc0ee266ae3c776b7d22506"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
@@ -306,6 +307,12 @@
         "source": "fork:feat/ble-profile-clear-api",
         "pin": "f937b3b3ab06595e098212af73e51ba4a3887067",
         "fixup": "98c8a201564f14c4e985a248cca8f1a083af2ca0"
+      },
+      {
+        "name": "feat/morse-default-permissive-hold",
+        "kind": "branch",
+        "source": "fork:feat/morse-default-permissive-hold",
+        "pin": "8bba533c2ab56278aec98daf3d6769d2c1c778ed"
       }
     ],
     "results": [
@@ -363,7 +370,7 @@
       },
       {
         "name": "feat/morse-retro-tap",
-        "oid": "797aa2a6129f081ac82fd955c635ab4f73fa320f",
+        "oid": "8b1b6c9393771aeb44e6f821aa5a5935ff963110",
         "status": "merged",
         "conflicted": false
       },
@@ -383,7 +390,7 @@
       },
       {
         "name": "feat/morse-hold-trigger-positions",
-        "oid": "9a850ef9d5d60844c2e8782c39434dd02be8f8e4",
+        "oid": "f3667b87f371b71a7bc0ee266ae3c776b7d22506",
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere"
@@ -582,8 +589,15 @@
         "oid": "f937b3b3ab06595e098212af73e51ba4a3887067",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:889d3caf81b762a016cad45456dcbdb45e087a57",
+        "resolution": "rerere",
         "fixup": "98c8a201564f14c4e985a248cca8f1a083af2ca0"
+      },
+      {
+        "name": "feat/morse-default-permissive-hold",
+        "oid": "8bba533c2ab56278aec98daf3d6769d2c1c778ed",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere:6755e88bef0074c3ddb05b3dc5f1c039eef3b367,7bf584528fdcb1ae7557d79957adee23e23fc64b"
       }
     ]
   }

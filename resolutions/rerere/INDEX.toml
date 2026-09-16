@@ -746,6 +746,18 @@ paths = ["rmk-config/src/lib.rs"]
 recorded = "2026-08-07T01:06:45.896135568+00:00"
 
 [[resolution]]
+entry = "feat/morse-default-permissive-hold"
+hash = "6755e88bef0074c3ddb05b3dc5f1c039eef3b367"
+paths = ["rmk-config/src/lib.rs"]
+recorded = "2026-09-16T18:40:16.560263077+00:00"
+
+[[resolution]]
+entry = "feat/morse-default-permissive-hold"
+hash = "7bf584528fdcb1ae7557d79957adee23e23fc64b"
+paths = ["docs/docs/main/docs/configuration/behavior.md"]
+recorded = "2026-09-16T18:40:16.560264811+00:00"
+
+[[resolution]]
 entry = "feat/morse-hold-trigger-on-release"
 hash = "16a5bc11050695d24583bde2f2df6f718ba82d88"
 paths = ["rmk-macro/src/codegen/action_parser.rs"]
