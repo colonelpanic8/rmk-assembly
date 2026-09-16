@@ -3,6 +3,7 @@
   "pins": {
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
     "entries": {
+      "feat/auto-switch-transport": "bd308bfaed995874d85e5ffcc36234a985d1118f",
       "feat/ble-advertising-backoff": "2a7cd01cb25a429e1c8f7b7dd0eee8d218be1d34",
       "feat/ble-name-template": "ba90faee22e679ccade2d55a985079c6da826a40",
       "feat/ble-profile-clear-api": "f937b3b3ab06595e098212af73e51ba4a3887067",
@@ -47,15 +48,15 @@
     }
   },
   "build": {
-    "generated": "2026-09-16T18:40:16.589704018+00:00",
+    "generated": "2026-09-16T20:07:23.963245006+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "5841d1b44ce81536d05ccaea9174d287d3ac3e86",
-    "pre_provenance_commit": "5841d1b44ce81536d05ccaea9174d287d3ac3e86",
-    "tree": "d13fdbd4e07b292311048e01654015a6b6f5c11c",
-    "built_tree": "d13fdbd4e07b292311048e01654015a6b6f5c11c",
-    "previous_tree": "4228de9f439ccf53e8bf35e939a9e063ba6cfd18",
+    "commit": "b2cf27f56eea6ce5a479f8e9aad5c0d74601f5f9",
+    "pre_provenance_commit": "b2cf27f56eea6ce5a479f8e9aad5c0d74601f5f9",
+    "tree": "1de6174659c3878a69e30b876c44d378d2bb12ff",
+    "built_tree": "1de6174659c3878a69e30b876c44d378d2bb12ff",
+    "previous_tree": "8ddc0ade3719d0c38a4d32f00a84a1b808fd6b60",
     "tree_changed": true,
-    "conflicts": 26,
+    "conflicts": 27,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -313,6 +314,13 @@
         "kind": "branch",
         "source": "fork:feat/morse-default-permissive-hold",
         "pin": "8bba533c2ab56278aec98daf3d6769d2c1c778ed"
+      },
+      {
+        "name": "feat/auto-switch-transport",
+        "kind": "branch",
+        "source": "fork:feat/auto-switch-transport",
+        "pin": "bd308bfaed995874d85e5ffcc36234a985d1118f",
+        "fixup": "6768061d9745af45cd6c0598b64199c4eed8f484"
       }
     ],
     "results": [
@@ -597,7 +605,15 @@
         "oid": "8bba533c2ab56278aec98daf3d6769d2c1c778ed",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:6755e88bef0074c3ddb05b3dc5f1c039eef3b367,7bf584528fdcb1ae7557d79957adee23e23fc64b"
+        "resolution": "rerere"
+      },
+      {
+        "name": "feat/auto-switch-transport",
+        "oid": "bd308bfaed995874d85e5ffcc36234a985d1118f",
+        "status": "merged",
+        "conflicted": true,
+        "resolution": "rerere",
+        "fixup": "6768061d9745af45cd6c0598b64199c4eed8f484"
       }
     ]
   }

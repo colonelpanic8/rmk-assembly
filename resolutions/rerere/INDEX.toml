@@ -2,6 +2,54 @@
 # produced which conflict hash. Auditability only, never load-bearing;
 # replay uses the pair directories, verification uses the lock tree.
 [[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "090067a519bbdb68d6b1a2ff630e95bd13b560f4"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-09-16T20:06:22.941614082+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "111dff855d85b86e55936152e8ba00fc847ececf"
+paths = ["rmk/src/host/rynk/handlers/connection.rs"]
+recorded = "2026-09-16T20:06:22.941615806+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "22fd62ac7c377fe0275afafc056e4a7a5e2d680c"
+paths = ["rmk-types/src/protocol/rynk/command.rs"]
+recorded = "2026-09-16T20:06:22.941616347+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "2e26e0f7701c311c040229e210bc0b5cf81a7750"
+paths = ["rmk/src/state.rs"]
+recorded = "2026-09-16T20:06:22.941616637+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "5081f3f2be92f5adae3e44723adc34889fbb4bcc"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-09-16T20:06:22.941616928+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "59d8ebe63fcb291bdd77b9ec176968696c33ab70"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-09-16T20:06:22.941617188+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "c45802cbad9280162ca99aeb16a3d84a426c8831"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-09-16T20:06:22.941617439+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
+hash = "fe9b23f31df1e684ed78640be0d677a227452c79"
+paths = ["rynk/rynk-wasm/src/client.rs"]
+recorded = "2026-09-16T20:06:22.941617649+00:00"
+
+[[resolution]]
 entry = "feat/ble-name-template"
 hash = "049e327ebd487538e91000a6bf08e550e9763845"
 paths = ["rmk/src/host/rynk/mod.rs"]

@@ -1,0 +1,17 @@
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index eb9131d66..bc3e3745d 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -299,7 +299,11 @@ impl<'a> RynkService<'a> {
+             | Cmd::GetPointingConfig
+             | Cmd::GetPointingCapabilities => Some(false),
+             #[cfg(feature = "_ble")]
+-            Cmd::GetBleStatus | Cmd::SwitchBleProfile | Cmd::GetBatteryStatus | Cmd::GetBleName => Some(false),
++            Cmd::GetBleStatus
++            | Cmd::SwitchBleProfile
++            | Cmd::GetBatteryStatus
++            | Cmd::GetBleName
++            | Cmd::GetAutoSwitchTransport => Some(false),
+             #[cfg(feature = "split")]
+             Cmd::GetPeripheralStatus | Cmd::GetSplitTransport => Some(false),
+             #[cfg(all(feature = "_ble", feature = "split"))]

@@ -164,6 +164,11 @@ fixup = "patches/ble-profile-clear-coherence.patch"
 branch = "fork:feat/morse-default-permissive-hold"
 summary = "Tap-hold keys that configure no resolution mode default to PermissiveHold instead of Normal"
 
+[[entry]]
+branch = "fork:feat/auto-switch-transport"
+summary = "Persisted auto-switch policy: a USB plug or unplug retargets the preferred transport; Rynk 0x070D/0x070E"
+fixup = "patches/auto-switch-transport-coherence.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
