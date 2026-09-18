@@ -34,7 +34,7 @@
       "fix/pointing-mode-event-priority": "6d64cff130c39dee57263738bc6c49b67db3ca23",
       "fix/rynk-flash-backpressure": "d3ab17edaf85f7a57075a574d4ca97fafa7c8bd5",
       "fix/storage-sparse-keymap-init": "c098056a23f7858e2015191e51ffa288bfb036df",
-      "fold/cirque-pinnacle": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b",
+      "fold/cirque-pinnacle": "9cf2a826a7711990da9868b9372dc016551add1b",
       "fold/connection-selection": "e2d265d37c6c8e4f8f43c79b2787294c44242b82",
       "fold/macro-hooks": "7c59e5e7bb2177ef0e85f8d5165e5a763c40c7ee",
       "fold/opposite-hand-hold": "37d88e42f4a321b56d5ebbaf681ff61e19c4d177",
@@ -48,13 +48,13 @@
     }
   },
   "build": {
-    "generated": "2026-09-16T20:07:23.963245006+00:00",
+    "generated": "2026-09-18T03:02:05.124773005+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "b2cf27f56eea6ce5a479f8e9aad5c0d74601f5f9",
-    "pre_provenance_commit": "b2cf27f56eea6ce5a479f8e9aad5c0d74601f5f9",
-    "tree": "1de6174659c3878a69e30b876c44d378d2bb12ff",
-    "built_tree": "1de6174659c3878a69e30b876c44d378d2bb12ff",
-    "previous_tree": "8ddc0ade3719d0c38a4d32f00a84a1b808fd6b60",
+    "commit": "997b62f54dd29fe7c82f23a2c5b0a18816b4c5ae",
+    "pre_provenance_commit": "997b62f54dd29fe7c82f23a2c5b0a18816b4c5ae",
+    "tree": "61edaaf0faa07d177b41154fdc89fd33652155f0",
+    "built_tree": "61edaaf0faa07d177b41154fdc89fd33652155f0",
+    "previous_tree": "1de6174659c3878a69e30b876c44d378d2bb12ff",
     "tree_changed": true,
     "conflicts": 27,
     "manifest_entries": [
@@ -154,7 +154,7 @@
         "name": "fold/cirque-pinnacle",
         "kind": "branch",
         "source": "fork:fold/cirque-pinnacle",
-        "pin": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b"
+        "pin": "9cf2a826a7711990da9868b9372dc016551add1b"
       },
       {
         "name": "feat/pointing-drag-mode",
@@ -426,7 +426,7 @@
       },
       {
         "name": "fold/cirque-pinnacle",
-        "oid": "1d7236047b6bc13f00a00a348858bbfddc6c3b6b",
+        "oid": "9cf2a826a7711990da9868b9372dc016551add1b",
         "status": "merged",
         "conflicted": false
       },
