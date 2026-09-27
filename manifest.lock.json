@@ -28,6 +28,7 @@
       "feat/pointing-drag-mode": "c85e3860da7c0e2d3992c1aa7e45fd5445037388",
       "feat/position-combos": "cd4c6bf7f444102817eead366f1c4a4a41ba4bb7",
       "feat/single-pass-storage-read": "a231d03b60201847dc4430d3137cfd93ade7ffb1",
+      "fix/battery-level-while-charging": "65321859c91870d0e4cebd7f8cb6ecfe597426ae",
       "fix/battery-power-transitions": "3fecb54c08271f07098f2717bd35a7cb0bff0add",
       "fix/ephemeral-split-layer-state": "a28b33321d502d759a34942857d579f2a324a7ae",
       "fix/mpsl-interrupt-priorities": "143c8b26d3201b18cbca2f80fcfbdb6fa774bb8c",
@@ -48,13 +49,13 @@
     }
   },
   "build": {
-    "generated": "2026-09-18T03:02:05.124773005+00:00",
+    "generated": "2026-09-27T08:58:16.075700590+00:00",
     "base": "8b4d1b312d8ef2eeed55705a5f33977ab13f0a55",
-    "commit": "997b62f54dd29fe7c82f23a2c5b0a18816b4c5ae",
-    "pre_provenance_commit": "997b62f54dd29fe7c82f23a2c5b0a18816b4c5ae",
-    "tree": "61edaaf0faa07d177b41154fdc89fd33652155f0",
-    "built_tree": "61edaaf0faa07d177b41154fdc89fd33652155f0",
-    "previous_tree": "1de6174659c3878a69e30b876c44d378d2bb12ff",
+    "commit": "8687a5ae310422bae5583a1c74a2f9ed845aa7d0",
+    "pre_provenance_commit": "8687a5ae310422bae5583a1c74a2f9ed845aa7d0",
+    "tree": "2b8674cbc5a754628a0c999bd7a4529de8071652",
+    "built_tree": "2b8674cbc5a754628a0c999bd7a4529de8071652",
+    "previous_tree": "61edaaf0faa07d177b41154fdc89fd33652155f0",
     "tree_changed": true,
     "conflicts": 27,
     "manifest_entries": [
@@ -321,6 +322,12 @@
         "source": "fork:feat/auto-switch-transport",
         "pin": "bd308bfaed995874d85e5ffcc36234a985d1118f",
         "fixup": "6768061d9745af45cd6c0598b64199c4eed8f484"
+      },
+      {
+        "name": "fix/battery-level-while-charging",
+        "kind": "branch",
+        "source": "fork:fix/battery-level-while-charging",
+        "pin": "65321859c91870d0e4cebd7f8cb6ecfe597426ae"
       }
     ],
     "results": [
@@ -614,6 +621,12 @@
         "conflicted": true,
         "resolution": "rerere",
         "fixup": "6768061d9745af45cd6c0598b64199c4eed8f484"
+      },
+      {
+        "name": "fix/battery-level-while-charging",
+        "oid": "65321859c91870d0e4cebd7f8cb6ecfe597426ae",
+        "status": "merged",
+        "conflicted": false
       }
     ]
   }

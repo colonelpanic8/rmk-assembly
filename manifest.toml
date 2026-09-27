@@ -169,6 +169,9 @@ branch = "fork:feat/auto-switch-transport"
 summary = "Persisted auto-switch policy: a USB plug or unplug retargets the preferred transport; Rynk 0x070D/0x070E"
 fixup = "patches/auto-switch-transport-coherence.patch"
 
+[[entry]]
+branch = "fork:fix/battery-level-while-charging"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
