@@ -172,6 +172,10 @@ fixup = "patches/auto-switch-transport-coherence.patch"
 [[entry]]
 branch = "fork:fix/battery-level-while-charging"
 
+[[entry]]
+branch = "fork:feat/persist-key-lighting"
+summary = "Lighting keys persist the output mode and extension selection once presses settle"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
