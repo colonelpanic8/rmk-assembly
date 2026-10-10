@@ -1,8 +1,8 @@
 diff --git a/rmk/src/ble/mod.rs b/rmk/src/ble/mod.rs
-index aa98c87a1..0193da9df 100644
+index 840e749a7..4a01f99dd 100644
 --- a/rmk/src/ble/mod.rs
 +++ b/rmk/src/ble/mod.rs
-@@ -186,6 +186,7 @@ impl<
+@@ -201,6 +201,7 @@ impl<
              run_ble_keyboard(
                  &stack,
                  &self.device_config,
@@ -11,24 +11,17 @@ index aa98c87a1..0193da9df 100644
                  #[cfg(feature = "host")]
                  self.host_service,
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 857d7165a..620736c13 100644
+index 710ae8edc..468d52217 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -169,6 +169,8 @@ impl<'a> RynkService<'a> {
-             Cmd::ClearBleProfile => Some(true),
-             #[cfg(all(feature = "_ble", feature = "split"))]
-             Cmd::SetSplitCentralLatency => Some(true),
-+            #[cfg(feature = "split")]
-+            Cmd::SetSplitTransportForce => Some(true),
+@@ -257,7 +257,9 @@ impl<'a> RynkService<'a> {
              #[cfg(feature = "_ble")]
-             Cmd::SetBleName => Some(true),
-             Cmd::SetKeyAction
-@@ -265,7 +267,7 @@ impl<'a> RynkService<'a> {
-             #[cfg(feature = "_ble")]
-             Cmd::GetBleStatus | Cmd::SwitchBleProfile | Cmd::GetBatteryStatus | Cmd::GetBleName => Some(false),
+             Cmd::GetBleStatus | Cmd::SwitchBleProfile | Cmd::GetBatteryStatus => Some(false),
              #[cfg(feature = "split")]
 -            Cmd::GetPeripheralStatus => Some(false),
 +            Cmd::GetPeripheralStatus | Cmd::GetSplitTransport => Some(false),
-             #[cfg(all(feature = "_ble", feature = "split"))]
-             Cmd::GetSplitCentralLatency => Some(false),
-             #[cfg(feature = "lighting")]
++            #[cfg(feature = "split")]
++            Cmd::SetSplitTransportForce => Some(true),
+             Cmd::SetMorseProfileEntry | Cmd::DeleteMorseProfile => Some(true),
+             Cmd::GetBuildInfo
+             | Cmd::GetMorseHoldTriggerPositions

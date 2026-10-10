@@ -1,5 +1,5 @@
 diff --git a/docs/docs/main/docs/configuration/appendix.md b/docs/docs/main/docs/configuration/appendix.md
-index 23cd82a00..e85d9c3f0 100644
+index be4e2ba18..23ad01953 100644
 --- a/docs/docs/main/docs/configuration/appendix.md
 +++ b/docs/docs/main/docs/configuration/appendix.md
 @@ -583,14 +583,12 @@ vial_enabled = true
@@ -54,10 +54,10 @@ index 3b6300018..9fe800e3a 100644
  
  ## Common Setups
 diff --git a/docs/docs/main/docs/features/rynk.md b/docs/docs/main/docs/features/rynk.md
-index 862db6e60..28d525c7b 100644
+index 862633753..7fbbdf9c0 100644
 --- a/docs/docs/main/docs/features/rynk.md
 +++ b/docs/docs/main/docs/features/rynk.md
-@@ -101,76 +101,39 @@ and
+@@ -102,76 +102,39 @@ and
  
  A ready-made desktop app is not available yet.
  
@@ -154,10 +154,10 @@ index 862db6e60..28d525c7b 100644
  ## Advanced tuning
  
 diff --git a/rmk-config/src/lib.rs b/rmk-config/src/lib.rs
-index 67bc28d87..9fc118c45 100644
+index 1a4e0c9ff..ad98572cd 100644
 --- a/rmk-config/src/lib.rs
 +++ b/rmk-config/src/lib.rs
-@@ -1474,8 +1474,7 @@ pub(crate) struct HostConfig {
+@@ -1577,8 +1577,7 @@ pub(crate) struct HostConfig {
      /// with `vial_enabled` (the underlying Cargo features conflict).
      #[serde_inline_default(false)]
      pub rynk_enabled: bool,
@@ -187,10 +187,10 @@ index 1d54ddf07..1bbe627f3 100644
          };
      }
 diff --git a/rmk-macro/src/codegen/simulator.rs b/rmk-macro/src/codegen/simulator.rs
-index 7c9f1144f..0355c08d4 100644
+index 6af002b60..01fbae455 100644
 --- a/rmk-macro/src/codegen/simulator.rs
 +++ b/rmk-macro/src/codegen/simulator.rs
-@@ -316,7 +316,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
+@@ -321,7 +321,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
          quote! { (#row, #col) }
      });
      let (insecure, write_requires_unlock) = (host.insecure, host.write_requires_unlock);
@@ -198,7 +198,7 @@ index 7c9f1144f..0355c08d4 100644
      let maintenance_mode_default = host.maintenance_mode_default;
      let blob = proc_macro2::Literal::byte_string(layout_blob);
      quote! {
-@@ -325,7 +324,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
+@@ -330,7 +329,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
                  unlock_keys: &[#(#keys),*],
                  insecure: #insecure,
                  write_requires_unlock: #write_requires_unlock,
@@ -207,10 +207,10 @@ index 7c9f1144f..0355c08d4 100644
              },
              layout_blob: #blob,
 diff --git a/rmk/CHANGELOG.md b/rmk/CHANGELOG.md
-index b23b20708..a2fd7e0d4 100644
+index f25e5a8f7..3ac329ea6 100644
 --- a/rmk/CHANGELOG.md
 +++ b/rmk/CHANGELOG.md
-@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
+@@ -105,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  
  #### Experimental
  
@@ -243,7 +243,7 @@ index 94946ad15..50f5a4392 100644
          }
      }
 diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
-index 09251d4ff..5e0e146cc 100644
+index d65962dd5..9a718cdf0 100644
 --- a/rmk/src/host/rynk/handlers/lighting.rs
 +++ b/rmk/src/host/rynk/handlers/lighting.rs
 @@ -1810,15 +1810,7 @@ mod tests {
@@ -344,13 +344,55 @@ index 09251d4ff..5e0e146cc 100644
              let controls = LightingControls {
                  output_toggle_user_action: Some(13),
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 4e3f8e3ee..d5a6ac966 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -175,7 +175,6 @@
-             | Cmd::SetMorse
-             | Cmd::SetFork
-             | Cmd::SetBehaviorConfig
--            | Cmd::SetPointingConfig
-             | Cmd::SetKeymapBulk
-             | Cmd::SetComboBulk
-             | Cmd::SetMorseBulk
+@@ -250,6 +250,48 @@ impl<'a> RynkService<'a> {
+             Cmd::GetBleStatus | Cmd::SwitchBleProfile | Cmd::GetBatteryStatus => Some(false),
+             #[cfg(feature = "split")]
+             Cmd::GetPeripheralStatus => Some(false),
++            Cmd::SetMorseProfileEntry | Cmd::DeleteMorseProfile => Some(true),
++            Cmd::GetBuildInfo
++            | Cmd::GetMorseHoldTriggerPositions
++            | Cmd::GetMorseProfileCount
++            | Cmd::GetMorseProfile
++            | Cmd::GetMorseProfileBulk
++            | Cmd::GetMorseProfileState
++            | Cmd::GetBehaviorOptions
++            | Cmd::GetAutoMouseLayerConfigs
++            | Cmd::GetLayerState
++            | Cmd::GetModifierState
++            | Cmd::GetPointingConfig
++            | Cmd::GetPointingCapabilities => Some(false),
++            #[cfg(all(feature = "_ble", feature = "split"))]
++            Cmd::GetSplitCentralLatency => Some(false),
++            #[cfg(feature = "lighting")]
++            Cmd::GetLightingCapabilities
++            | Cmd::GetLightingState
++            | Cmd::GetLightingPhysicalKeys
++            | Cmd::GetLightingLeds
++            | Cmd::GetLightingZones
++            | Cmd::GetLightingZoneMemberships
++            | Cmd::GetLightingOutputs
++            | Cmd::GetLightingRoutes
++            | Cmd::GetLightingKeys
++            | Cmd::GetLightingSceneStatus
++            | Cmd::GetLightingScenes
++            | Cmd::GetLightingOverlay
++            | Cmd::GetLightingCompiledSceneStatus
++            | Cmd::GetLightingCompiledScenes
++            | Cmd::GetLightingConditionalSceneStatus
++            | Cmd::GetLightingConditionalScenes
++            | Cmd::GetLightingOutputMode
++            | Cmd::GetLightingExtension
++            | Cmd::GetLightingExtensionNames
++            | Cmd::GetLightingExtensionParams
++            | Cmd::GetLightingExtensionLayers
++            | Cmd::GetLightingReplicaStatus
++            | Cmd::GetLightingRuntimeConditionalSceneStatus
++            | Cmd::GetLightingRuntimeConditionalScenes
++            | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
++            | Cmd::GetLightingExtendedRuntimeConditionalScenes => Some(false),
+             _ => None,
+         }
+     }

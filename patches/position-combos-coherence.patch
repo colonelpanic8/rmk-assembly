@@ -1,64 +1,15 @@
-diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
-index 81795d7be..9db8f5088 100644
---- a/rmk/src/host/storage.rs
-+++ b/rmk/src/host/storage.rs
-@@ -1,5 +1,6 @@
- use embassy_futures::yield_now;
- use embedded_storage_async::nor_flash::NorFlash as AsyncNorFlash;
-+use rmk_types::action::KeyAction;
- use rmk_types::morse::{MorseProfile, MorseProfileName};
- use serde::de::{Error as DeError, SeqAccess, Visitor};
- use serde::{Deserializer, Serializer};
-@@ -126,7 +127,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
-                     let idx = idx as usize;
-                     if idx < COMBO_MAX_NUM {
-                         debug!("Read combo config: {:?}", config);
--                        behavior.combo.combos[idx] = Some(Combo::new(config));
-+                        behavior.combo.combos[idx] =
-+                            (!config.actions.is_empty() || config.output != KeyAction::No).then(|| Combo::new(config));
-+                    }
-+                }
-+                (StorageKey::Combo(idx), StorageData::PositionCombo(config)) => {
-+                    let idx = idx as usize;
-+                    if idx < COMBO_MAX_NUM {
-+                        debug!("Read position combo config: {:?}", config);
-+                        behavior.combo.combos[idx] = (!config.positions.is_empty() || config.output != KeyAction::No)
-+                            .then(|| Combo::new_positions(config));
-                     }
-                 }
-                 (StorageKey::Fork(idx), StorageData::Fork(fork)) => {
-diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
-index d11302b92..f876e8a5e 100644
---- a/rmk/src/storage/mod.rs
-+++ b/rmk/src/storage/mod.rs
-@@ -2474,7 +2474,10 @@ mod tests {
- 
-             storage.read_boot_data(&mut keymap, &mut behavior).await.unwrap();
- 
--            assert_eq!(behavior.combo.combos[0].as_ref().unwrap().config, combo);
-+            assert_eq!(
-+                behavior.combo.combos[0].as_ref().unwrap().definition,
-+                rmk_types::combo::ComboDefinition::Actions(combo)
-+            );
-             assert_eq!(behavior.fork.forks[0], fork);
-             assert_eq!(behavior.morse.morses[0], morse);
-         });
-@@ -2570,10 +2573,11 @@ mod tests {
-                 .await
-                 .unwrap();
- 
--            let mut combos = core::array::from_fn(|_| None);
--            storage.read_combos(&mut combos).await.unwrap();
--            assert!(combos[0].is_none());
--            assert!(combos[1].is_none());
-+            let mut data = KeymapData::new([[[KeyAction::No]]]);
-+            let mut behavior = RuntimeBehaviorConfig::default();
-+            storage.read_boot_data(&mut data, &mut behavior).await.unwrap();
-+            assert!(behavior.combo.combos[0].is_none());
-+            assert!(behavior.combo.combos[1].is_none());
-         });
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index cabe9a240..225d81dde 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -302,6 +302,7 @@ impl<'a> RynkService<'a> {
+             | Cmd::GetLightingExtendedRuntimeConditionalScenes => Some(false),
+             #[cfg(feature = "_ble")]
+             Cmd::GetBleName => Some(false),
++            Cmd::GetComboDefinition | Cmd::GetComboDefinitionBulk => Some(false),
+             _ => None,
+         }
      }
- 
 diff --git a/rmk/tests/scenarios/rynk_behavior.toml b/rmk/tests/scenarios/rynk_behavior.toml
 index c3721e46a..a77e352db 100644
 --- a/rmk/tests/scenarios/rynk_behavior.toml
@@ -72,69 +23,3 @@ index c3721e46a..a77e352db 100644
  ]
  
  # Two different writes, each read back: the read follows the write instead of
-diff --git a/rynk/rynk-wasm/src/client.rs b/rynk/rynk-wasm/src/client.rs
-index d35e32bc1..f5f9ae577 100644
---- a/rynk/rynk-wasm/src/client.rs
-+++ b/rynk/rynk-wasm/src/client.rs
-@@ -46,8 +46,9 @@ use rynk::rmk_types::protocol::rynk::{
-     SetComboBulkRequest, SetComboDefinitionBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest,
-     SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
-     SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
--    SetMorseBulkRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest, SplitCentralLatencyPolicy,
--    SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
-+    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
-+    SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
-+    UnsetLightingSceneCellRequest,
- };
- use rynk::{Client, Driver, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
- use wasm_bindgen::prelude::*;
-@@ -112,11 +113,6 @@ impl RynkClient {
-         let state = self.drive(self.client.read_morse_profile_state()).await?;
-         serde_wasm_bindgen::to_value(&state).map_err(|error| JsValue::from_str(&error.to_string()))
-     }
--    #[wasm_bindgen(unchecked_return_type = "MorseProfileState")]
--    pub async fn read_morse_profile_state(&self) -> Result<JsValue, JsValue> {
--        let state = self.drive(self.client.read_morse_profile_state()).await?;
--        serde_wasm_bindgen::to_value(&state).map_err(|error| JsValue::from_str(&error.to_string()))
--    }
- 
-     #[wasm_bindgen(unchecked_return_type = "MorseProfile[]")]
-     pub async fn read_all_morse_profiles(&self) -> Result<JsValue, JsValue> {
-@@ -217,12 +213,6 @@ endpoints! {
-     set_morse_bulk(request: SetMorseBulkRequest) -> (),
-     get_morse_hold_trigger_positions() -> MorseHoldTriggerPositionState,
-     set_morse_hold_trigger_positions(request: SetMorseHoldTriggerPositionsRequest) -> (),
--    get_pointing_capabilities() -> PointingCapabilities,
--    get_pointing_config() -> PointingConfig,
--    set_pointing_config(config: PointingConfig) -> PointingConfig,
--    get_morse_profile_count() -> u8,
--    get_morse_profile_bulk(start_index: u8) -> GetMorseProfileBulkResponse,
--    set_morse_profile_bulk(request: SetMorseProfileBulkRequest) -> (),
-     get_morse_profile_count() -> u8,
-     get_morse_profile_bulk(start_index: u8) -> GetMorseProfileBulkResponse,
-     set_morse_profile_bulk(request: SetMorseProfileBulkRequest) -> (),
-@@ -236,6 +226,13 @@ endpoints! {
-     set_behavior(config: BehaviorConfig) -> (),
-     get_split_central_latency() -> SplitCentralLatencyState,
-     set_split_central_latency(policy: SplitCentralLatencyPolicy) -> SplitCentralLatencyState,
-+    get_behavior_options() -> BehaviorOptions,
-+    set_behavior_options(options: BehaviorOptions) -> (),
-+    get_auto_mouse_layer_configs() -> AutoMouseLayerConfigState,
-+    set_auto_mouse_layer_configs(request: SetAutoMouseLayerConfigsRequest) -> (),
-+    get_pointing_capabilities() -> PointingCapabilities,
-+    get_pointing_config() -> PointingConfig,
-+    set_pointing_config(config: PointingConfig) -> PointingConfig,
-     // status
-     get_current_layer() -> u8,
-     get_layer_state() -> LayerState,
-diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
---- a/rmk/src/host/rynk/mod.rs
-+++ b/rmk/src/host/rynk/mod.rs
-@@ -191,7 +191,6 @@
-             | Cmd::SetBehaviorOptions
-             | Cmd::SetAutoMouseLayerConfigs
-             | Cmd::SetPointingConfig
--            | Cmd::SetComboDefinition
-             | Cmd::SetComboDefinitionBulk => Some(true),
-             #[cfg(feature = "lighting")]
-             Cmd::SetLightingState

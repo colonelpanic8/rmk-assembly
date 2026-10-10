@@ -1,5 +1,5 @@
 diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
-index 5e0e146cc..90119dcb8 100644
+index 9a718cdf0..484f17dca 100644
 --- a/rmk/src/host/rynk/handlers/lighting.rs
 +++ b/rmk/src/host/rynk/handlers/lighting.rs
 @@ -363,12 +363,23 @@ impl Handle<GetLightingCompiledScenes> for RynkService<'_> {
@@ -84,7 +84,7 @@ index 5e0e146cc..90119dcb8 100644
          });
      }
 diff --git a/rmk/src/host/rynk/lighting.rs b/rmk/src/host/rynk/lighting.rs
-index 6df5afbc8..14ca3c136 100644
+index 32c752591..b4e49534c 100644
 --- a/rmk/src/host/rynk/lighting.rs
 +++ b/rmk/src/host/rynk/lighting.rs
 @@ -403,10 +403,10 @@ impl<'a> RynkLightingController<'a> {
@@ -109,19 +109,12 @@ index 6df5afbc8..14ca3c136 100644
              indicator: self.controls.output_mode_indicator.and_then(|indicator| {
                  self.descriptor
                      .topology
-@@ -1095,6 +1095,15 @@ impl<'a, const OVERLAY_CAPACITY: usize, const CORE_COMMAND_CAPACITY: usize, cons
+@@ -1087,6 +1087,8 @@ impl<'a, const OVERLAY_CAPACITY: usize, const CORE_COMMAND_CAPACITY: usize, cons
                          layers,
                      })
                      .await?;
 +                #[cfg(feature = "storage")]
-+                {
-+                    use crate::channel::FLASH_CHANNEL;
-+                    use crate::storage::FlashOperationMessage;
-+
-+                    FLASH_CHANNEL
-+                        .send(FlashOperationMessage::LightingWakeLayers(layers))
-+                        .await;
-+                }
++                crate::storage::send_unchecked(crate::storage::FlashOperationMessage::LightingWakeLayers(layers)).await;
                  return Ok(RynkLightingReadback::OutputMode(state));
              }
              RynkLightingCommand::ReadOverlay {
@@ -202,37 +195,56 @@ index 0c678d817..ea62df346 100644
          scenes: SceneTable::new(),
          runtime_conditional_scenes: RuntimeConditionalSceneTable::new(),
 diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
-index f876e8a5e..b4b2f714d 100644
+index 8a2b3c24b..f6c4d0c25 100644
 --- a/rmk/src/storage/mod.rs
 +++ b/rmk/src/storage/mod.rs
-@@ -259,6 +259,8 @@ pub(crate) enum FlashOperationMessage {
+@@ -83,6 +83,9 @@ pub(crate) enum FlashOperationMessage {
+     LightingExtensionState(LightingExtensionRecord),
+     #[cfg(all(feature = "lighting", feature = "rynk"))]
+     LightingExtensionOverlay(LightingExtensionOverlayRecord),
++    /// Layers that temporarily wake otherwise-disabled lighting.
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    LightingWakeLayers(u64),
+ }
+ 
+ // Requests to the storage task, handled in order (FIFO). Each carries the id `REPLY` answers it
+@@ -245,6 +248,8 @@ pub(crate) enum StorageKey {
+     MorseProfileName(u8),
      #[cfg(feature = "_ble")]
-     // Persist the BLE advertising-name template.
+     BleName,
++    #[cfg(all(feature = "lighting", feature = "rynk"))]
++    LightingWakeLayers,
+ }
+ 
+ /// A Storage item is actually a storage (key, value) pair.
+@@ -353,6 +358,8 @@ pub(crate) enum StorageItem {
+     },
+     #[cfg(feature = "_ble")]
      BleName(BleName),
 +    #[cfg(all(feature = "lighting", feature = "rynk"))]
 +    LightingWakeLayers(u64),
  }
  
- #[derive(Clone, Copy, Debug, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
-@@ -330,6 +332,8 @@ pub(crate) enum StorageKey {
-     #[cfg(feature = "_ble")]
-     BleName,
-     #[cfg(all(feature = "lighting", feature = "rynk"))]
-+    LightingWakeLayers,
-+    #[cfg(all(feature = "lighting", feature = "rynk"))]
-     LightingSceneCommit,
-     #[cfg(all(feature = "lighting", feature = "rynk"))]
-     LightingSceneShardB(u8),
-@@ -469,6 +473,8 @@ pub(crate) enum StorageData {
+ impl StorageItem {
+@@ -392,6 +399,8 @@ impl StorageItem {
+             Self::ActiveBleProfile(v) => (StorageKey::ActiveBleProfile, StorageValue::ActiveBleProfile(v)),
+             #[cfg(feature = "_ble")]
+             Self::BleName(v) => (StorageKey::BleName, StorageValue::BleName(v)),
++            #[cfg(all(feature = "lighting", feature = "rynk"))]
++            Self::LightingWakeLayers(v) => (StorageKey::LightingWakeLayers, StorageValue::LightingWakeLayers(v)),
+             Self::UserData { slot, data } => (StorageKey::UserData(slot), StorageValue::UserData(data)),
+             #[cfg(all(feature = "lighting", feature = "rynk"))]
+             Self::LightingSceneTable(v) => (StorageKey::LightingSceneTable, StorageValue::LightingSceneTable(v)),
+@@ -552,6 +561,8 @@ pub(crate) enum StorageValue {
+     /// Appended to preserve every existing postcard enum discriminant.
      #[cfg(feature = "host")]
      PositionCombo(PositionComboConfig),
-     #[cfg(all(feature = "lighting", feature = "rynk"))]
-+    LightingWakeLayers(u64),
 +    #[cfg(all(feature = "lighting", feature = "rynk"))]
-     LightingSceneCommit(LightingSceneCommitRecord),
-     #[cfg(all(feature = "lighting", feature = "rynk"))]
-     LightingRuntimeConditionalSceneCommit(LightingRuntimeConditionalSceneCommitRecord),
-@@ -965,6 +971,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
++    LightingWakeLayers(u64),
+ }
+ 
+ impl<'a> PostcardValue<'a> for StorageValue {}
+@@ -1105,6 +1116,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
          }
      }
  
@@ -240,56 +252,60 @@ index f876e8a5e..b4b2f714d 100644
 +    /// compiled fallback on keyboards that have never configured it.
 +    #[cfg(all(feature = "lighting", feature = "rynk"))]
 +    pub async fn read_lighting_wake_layers(&mut self) -> Option<u64> {
-+        match self.fetch_data(StorageKey::LightingWakeLayers).await {
-+            Some(StorageData::LightingWakeLayers(layers)) => Some(layers),
++        match self.fetch(StorageKey::LightingWakeLayers).await {
++            Ok(Some(StorageValue::LightingWakeLayers(layers))) => Some(layers),
 +            _ => None,
 +        }
 +    }
 +
-     /// Read the persisted lighting scene configuration at startup, before the
-     /// storage task takes ownership. Returns the persisted layer policy, if
-     /// any, and appends up to `CAP` stored cells to `cells`.
-@@ -1719,6 +1735,16 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
+     #[cfg(all(feature = "lighting", feature = "rynk"))]
+     pub async fn read_lighting_extension_overlay(&mut self) -> Option<LightingExtensionOverlayRecord> {
+         match self.fetch(StorageKey::LightingExtensionOverlay).await {
+@@ -1499,6 +1520,17 @@ impl<F: AsyncNorFlash, const ROW: usize, const COL: usize, const NUM_LAYER: usiz
                      }
                  }
                  #[cfg(all(feature = "lighting", feature = "rynk"))]
 +                FlashOperationMessage::LightingWakeLayers(layers) => {
-+                    match self.fetch_data(StorageKey::LightingWakeLayers).await {
-+                        Some(StorageData::LightingWakeLayers(saved)) if saved == layers => Ok(()),
-+                        _ => {
-+                            self.store_data(StorageKey::LightingWakeLayers, &StorageData::LightingWakeLayers(layers))
-+                                .await
-+                        }
++                    match self.fetch(StorageKey::LightingWakeLayers).await {
++                        Ok(Some(StorageValue::LightingWakeLayers(saved))) if saved == layers => Ok(None),
++                        _ => self
++                            .put(StorageItem::LightingWakeLayers(layers))
++                            .await
++                            .map(|_| None)
++                            .map_err(print_storage_error::<F>),
 +                    }
 +                }
 +                #[cfg(all(feature = "lighting", feature = "rynk"))]
-                 FlashOperationMessage::LightingSceneCommit { len, policy } => {
-                     self.commit_lighting_scenes(&mut scene_write, len, policy).await
-                 }
+                 FlashOperationMessage::LightingExtensionOverlay(record) => {
+                     match self.fetch(StorageKey::LightingExtensionOverlay).await {
+                         Ok(Some(StorageValue::LightingExtensionOverlay(saved))) if saved == record => Ok(None),
+@@ -2082,6 +2114,8 @@ mod tests {
+             StorageKey::MorseProfileName(12),
+             #[cfg(feature = "_ble")]
+             StorageKey::BleName,
++            #[cfg(all(feature = "lighting", feature = "rynk"))]
++            StorageKey::LightingWakeLayers,
+         ];
+         let mut buffer = [0u8; 64];
+         for (tag, key) in keys.iter().enumerate() {
 diff --git a/rynk/rynk-wasm/src/client.rs b/rynk/rynk-wasm/src/client.rs
-index f5f9ae577..a262b0733 100644
+index 765348d4b..9352c4381 100644
 --- a/rynk/rynk-wasm/src/client.rs
 +++ b/rynk/rynk-wasm/src/client.rs
-@@ -41,12 +41,12 @@ use rynk::rmk_types::protocol::rynk::{
-     LightingScenesPage, LightingState, LightingZoneMembershipsPage, LightingZonesPage, LockStatus, MacroData,
-     MatrixState, MorseHoldTriggerPositionState, MorseProfileState, PeripheralStatus, PointingCapabilities,
-     PointingConfig, ProtocolVersion, PutLightingExtendedRuntimeConditionalSceneChunkRequest,
--    PutLightingOverlayChunkRequest,
--    PutLightingRuntimeConditionalSceneChunkRequest, PutLightingSceneChunkRequest, SetAutoMouseLayerConfigsRequest,
--    SetComboBulkRequest, SetComboDefinitionBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest,
--    SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
--    SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
+@@ -46,9 +46,9 @@ use rynk::rmk_types::protocol::rynk::{
+     SetComboBulkRequest, SetComboDefinitionBulkRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest,
+     SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
+     SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
 -    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
-+    PutLightingOverlayChunkRequest, PutLightingRuntimeConditionalSceneChunkRequest, PutLightingSceneChunkRequest,
-+    SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboDefinitionBulkRequest, SetKeymapBulkRequest,
-+    SetLightingExtensionLayersRequest, SetLightingExtensionParamRequest, SetLightingExtensionStateRequest,
-+    SetLightingLayerPolicyRequest, SetLightingOutputModeRequest, SetLightingOverlayRequest,
-+    SetLightingSceneCellRequest, SetLightingStateRequest, SetLightingWakeLayersRequest, SetMorseBulkRequest,
-+    SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
-     SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
-     UnsetLightingSceneCellRequest,
+-    SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode, UnsetLightingOverlayRequest,
+-    UnsetLightingSceneCellRequest,
++    SetLightingWakeLayersRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
++    SetMorseProfileEntryRequest, SplitCentralLatencyPolicy, SplitCentralLatencyState, StorageResetMode,
++    UnsetLightingOverlayRequest, UnsetLightingSceneCellRequest,
  };
-@@ -248,6 +248,7 @@ endpoints! {
+ use rynk::{Client, Driver, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
+ use wasm_bindgen::prelude::*;
+@@ -263,6 +263,7 @@ endpoints! {
      get_lighting_state() -> LightingState,
      get_lighting_output_mode() -> LightingOutputModeState,
      set_lighting_output_mode(request: SetLightingOutputModeRequest) -> LightingOutputModeState,
@@ -298,21 +314,25 @@ index f5f9ae577..a262b0733 100644
      get_lighting_keys(request: LightingPageRequest) -> LightingKeysPage,
      get_lighting_physical_keys(request: LightingPageRequest) -> LightingPhysicalKeysPage,
 diff --git a/rynk/src/api.rs b/rynk/src/api.rs
-index e3950208c..0ec1750ff 100644
+index a66800039..d0ef35e30 100644
 --- a/rynk/src/api.rs
 +++ b/rynk/src/api.rs
-@@ -48,8 +48,8 @@ use rmk_types::protocol::rynk::{
-     SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest,
-     SetLightingExtensionLayersRequest, SetLightingExtensionParamRequest, SetLightingExtensionStateRequest,
-     SetLightingLayerPolicyRequest, SetLightingOutputModeRequest, SetLightingOverlayRequest,
--    SetLightingSceneCellRequest, SetLightingStateRequest, SetMacroRequest, SetMorseBulkRequest,
--    SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
-+    SetLightingSceneCellRequest, SetLightingStateRequest, SetLightingWakeLayersRequest, SetMacroRequest,
-+    SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest, SetMorseProfileEntryRequest,
-     SetMorseProfileRequest, SetMorseRequest, SetPointingConfigRequest, SplitCentralLatencyPolicy,
-     SplitCentralLatencyState, SplitTransportForce, SplitTransportState, StorageResetMode, UnsetLightingOverlayRequest,
-     UnsetLightingSceneCellRequest, command,
-@@ -644,6 +644,15 @@ impl Client {
+@@ -50,10 +50,10 @@ use rmk_types::protocol::rynk::{
+     SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetLightingExtensionLayersRequest,
+     SetLightingExtensionParamRequest, SetLightingExtensionStateRequest, SetLightingLayerPolicyRequest,
+     SetLightingOutputModeRequest, SetLightingOverlayRequest, SetLightingSceneCellRequest, SetLightingStateRequest,
+-    SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
+-    SetMorseProfileEntryRequest, SetMorseProfileRequest, SetMorseRequest, SetPointingConfigRequest,
+-    SplitCentralLatencyPolicy, SplitCentralLatencyState, SplitTransportForce, SplitTransportState, StorageResetMode,
+-    UnsetLightingOverlayRequest, UnsetLightingSceneCellRequest, command,
++    SetLightingWakeLayersRequest, SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest,
++    SetMorseProfileBulkRequest, SetMorseProfileEntryRequest, SetMorseProfileRequest, SetMorseRequest,
++    SetPointingConfigRequest, SplitCentralLatencyPolicy, SplitCentralLatencyState, SplitTransportForce,
++    SplitTransportState, StorageResetMode, UnsetLightingOverlayRequest, UnsetLightingSceneCellRequest, command,
+ };
+ #[cfg(feature = "alloc")]
+ use rmk_types::protocol::rynk::{RYNK_HEADER_SIZE, RynkError, max_wire_size};
+@@ -648,6 +648,15 @@ impl Client {
          Self::flatten_lighting(self.request::<command::SetLightingOutputMode>(&request).await?)
      }
  

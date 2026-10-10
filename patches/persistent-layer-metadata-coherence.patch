@@ -1,5 +1,5 @@
 diff --git a/rmk-config/src/resolved/lighting.rs b/rmk-config/src/resolved/lighting.rs
-index e73581c6..b07abf49 100644
+index e73581c6f..b07abf49a 100644
 --- a/rmk-config/src/resolved/lighting.rs
 +++ b/rmk-config/src/resolved/lighting.rs
 @@ -210,6 +210,7 @@ impl crate::KeyboardTomlConfig {
@@ -10,29 +10,42 @@ index e73581c6..b07abf49 100644
              keymap: Vec::new(),
              encoder_map: Vec::new(),
              key_info: Vec::new(),
-diff --git a/rmk-types/src/protocol/rynk/command.rs b/rmk-types/src/protocol/rynk/command.rs
-index efc1d50d..8365cfb8 100644
---- a/rmk-types/src/protocol/rynk/command.rs
-+++ b/rmk-types/src/protocol/rynk/command.rs
-@@ -21,8 +21,7 @@ use super::{
-     GetEncoderRequest, GetKeymapBulkRequest, GetKeymapBulkResponse, GetMacroRequest, GetMorseBulkRequest,
-     GetMorseBulkResponse, GetMorseProfileBulkRequest, GetMorseProfileBulkResponse, GetMorseProfileStateRequest,
-     KeyPosition, LayerMetadata, LayerState, LayoutChunk, LockStatus, MacroData, MaintenanceMode, MatrixState,
--    MorseHoldTriggerPositionState, MorseProfileState, PointingCapabilities, PointingConfig, ProtocolVersion,
--    RynkError,
-+    MorseHoldTriggerPositionState, MorseProfileState, PointingCapabilities, PointingConfig, ProtocolVersion, RynkError,
-     SetAutoMouseLayerConfigsRequest, SetComboBulkRequest, SetComboDefinitionBulkRequest, SetComboDefinitionRequest,
-     SetComboRequest, SetEncoderRequest, SetForkRequest, SetKeyRequest, SetKeymapBulkRequest, SetLayerMetadataRequest,
-     SetMacroRequest, SetMorseBulkRequest, SetMorseHoldTriggerPositionsRequest, SetMorseProfileBulkRequest,
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 805ebae5..472bc74f 100644
+index 0226cd1c4..68ae938d1 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -281,6 +281,7 @@ impl<'a> RynkService<'a> {
-             | Cmd::GetSleepState
-             | Cmd::GetLedIndicator
+@@ -290,6 +290,7 @@ impl<'a> RynkService<'a> {
+             | Cmd::GetBehaviorOptions
+             | Cmd::GetAutoMouseLayerConfigs
              | Cmd::GetLayerState
 +            | Cmd::GetLayerMetadata
              | Cmd::GetModifierState
              | Cmd::GetPointingConfig
              | Cmd::GetPointingCapabilities => Some(false),
+diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+index 0d4156d96..05c8c6cb1 100644
+--- a/rmk/src/storage/mod.rs
++++ b/rmk/src/storage/mod.rs
+@@ -2165,7 +2165,6 @@ mod tests {
+             StorageKey::BleName,
+             #[cfg(all(feature = "lighting", feature = "rynk"))]
+             StorageKey::LightingWakeLayers,
+-            StorageKey::UserData(0),
+             #[cfg(feature = "rynk")]
+             StorageKey::LayerMetadata(9),
+         ];
+@@ -2261,6 +2260,14 @@
+             StorageValue::BleName(BleName {
+                 template: heapless::String::new(),
+             }),
++            #[cfg(feature = "host")]
++            StorageValue::PositionCombo(rmk_types::combo::PositionCombo::new(
++                core::iter::empty(),
++                rmk_types::action::KeyAction::No,
++                None,
++            )),
++            #[cfg(all(feature = "lighting", feature = "rynk"))]
++            StorageValue::LightingWakeLayers(0),
+             #[cfg(feature = "rynk")]
+             StorageValue::LayerMetadata(LayerMetadata::vacant()),
+         ];

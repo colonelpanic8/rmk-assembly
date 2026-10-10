@@ -1,17 +1,11 @@
-diff --git a/rmk-macro/src/codegen/chip/ble.rs b/rmk-macro/src/codegen/chip/ble.rs
-index a4643c449..ec2ae38ef 100644
---- a/rmk-macro/src/codegen/chip/ble.rs
-+++ b/rmk-macro/src/codegen/chip/ble.rs
-@@ -10,7 +10,11 @@ pub(crate) fn expand_ble_config(hardware: &Hardware) -> (TokenStream2, TokenStre
-     if !hardware.communication.ble_enabled() {
-         return (quote! {}, quote! {});
-     }
--    let ble_name = match hardware.communication.get_ble_config().and_then(|ble| ble.name) {
-+    let ble_name = match hardware
-+        .communication
-+        .get_ble_config()
-+        .and_then(|ble| ble.name)
-+    {
-         Some(name) => quote! { ::core::option::Option::Some(#name) },
-         None => quote! { ::core::option::Option::None },
-     };
+diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
+--- a/rmk/src/storage/mod.rs
++++ b/rmk/src/storage/mod.rs
+@@ -2080,7 +2080,6 @@
+             StorageKey::AutoMouseLayerConfigs,
+             #[cfg(feature = "host")]
+             StorageKey::MorseProfileName(12),
+-            StorageKey::UserData(0),
+             #[cfg(feature = "_ble")]
+             StorageKey::BleName,
+         ];
