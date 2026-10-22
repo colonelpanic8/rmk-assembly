@@ -11,10 +11,10 @@ index e73581c6f..b07abf49a 100644
              encoder_map: Vec::new(),
              key_info: Vec::new(),
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 0226cd1c4..68ae938d1 100644
+index 92a43eb72..7c9e230a9 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -290,6 +290,7 @@ impl<'a> RynkService<'a> {
+@@ -284,6 +284,7 @@ impl<'a> RynkService<'a> {
              | Cmd::GetBehaviorOptions
              | Cmd::GetAutoMouseLayerConfigs
              | Cmd::GetLayerState
@@ -23,18 +23,10 @@ index 0226cd1c4..68ae938d1 100644
              | Cmd::GetPointingConfig
              | Cmd::GetPointingCapabilities => Some(false),
 diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
-index 0d4156d96..05c8c6cb1 100644
+index 2dfff0646..29b7c01cc 100644
 --- a/rmk/src/storage/mod.rs
 +++ b/rmk/src/storage/mod.rs
-@@ -2165,7 +2165,6 @@ mod tests {
-             StorageKey::BleName,
-             #[cfg(all(feature = "lighting", feature = "rynk"))]
-             StorageKey::LightingWakeLayers,
--            StorageKey::UserData(0),
-             #[cfg(feature = "rynk")]
-             StorageKey::LayerMetadata(9),
-         ];
-@@ -2261,6 +2260,14 @@
+@@ -2240,6 +2240,14 @@ mod tests {
              StorageValue::BleName(BleName {
                  template: heapless::String::new(),
              }),

@@ -29,10 +29,10 @@ index 5a32f8952..c24d2788f 100644
                      },
                  )
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 2e4fc4702..b653ed9cb 100644
+index 23df7c63a..d708b767c 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -245,7 +245,7 @@ impl<'a> RynkService<'a> {
+@@ -239,7 +239,7 @@ impl<'a> RynkService<'a> {
              | Cmd::BeginLightingRuleReplace
              | Cmd::PutLightingRuleChunk
              | Cmd::CommitLightingRuleReplace
@@ -41,7 +41,7 @@ index 2e4fc4702..b653ed9cb 100644
              #[cfg(feature = "lighting")]
              Cmd::BeginLightingRuntimeConditionalSceneReplace
              | Cmd::PutLightingRuntimeConditionalSceneChunk
-@@ -330,6 +330,8 @@ impl<'a> RynkService<'a> {
+@@ -324,6 +324,8 @@ impl<'a> RynkService<'a> {
              | Cmd::GetLightingExtensionParams
              | Cmd::GetLightingExtensionLayers
              | Cmd::GetLightingReplicaStatus
@@ -50,8 +50,101 @@ index 2e4fc4702..b653ed9cb 100644
              | Cmd::GetLightingRuntimeConditionalSceneStatus
              | Cmd::GetLightingRuntimeConditionalScenes
              | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
+diff --git a/rmk/src/lighting/rmk_state.rs b/rmk/src/lighting/rmk_state.rs
+index 73f62f8dc..16153029f 100644
+--- a/rmk/src/lighting/rmk_state.rs
++++ b/rmk/src/lighting/rmk_state.rs
+@@ -1,5 +1,7 @@
+ //! Adapters from authoritative RMK state to lighting snapshots.
+ 
++#[cfg(feature = "split")]
++use super::SplitForce;
+ use super::{IndicatorState, LayerState, LightingContext, SnapshotProvider, SplitTransportState};
+ use crate::keymap::KeyMap;
+ 
+@@ -57,12 +59,34 @@ impl SnapshotProvider for KeymapLightingState<'_, '_> {
+             local_powered: powered,
+             connection,
+             bonded_slots: bonded_slots(),
+-            maintenance_unlocked: false,
+-            split_transport: SplitTransportState::default(),
++            maintenance_unlocked: crate::state::maintenance_mode_enabled(),
++            split_transport: split_transport_state(),
+         }
+     }
+ }
+ 
++fn split_transport_state() -> SplitTransportState {
++    #[cfg(feature = "split")]
++    {
++        use crate::split::selector;
++
++        let auto = selector::auto_enabled();
++        SplitTransportState {
++            auto,
++            force: match selector::forced_mode() {
++                selector::FORCE_WIRED => SplitForce::Wired,
++                selector::FORCE_BLE => SplitForce::Ble,
++                _ => SplitForce::Auto,
++            },
++            wired: auto && selector::wired_selected(),
++        }
++    }
++    #[cfg(not(feature = "split"))]
++    {
++        SplitTransportState::default()
++    }
++}
++
+ /// Bonded-slot bitmap, or zero on builds with no BLE stack to bond with.
+ fn bonded_slots() -> u8 {
+     #[cfg(feature = "_ble")]
+@@ -85,3 +109,43 @@ fn indicator_state() -> IndicatorState {
+         kana: indicator.kana(),
+     }
+ }
++
++#[cfg(all(test, feature = "split"))]
++mod tests {
++    use rmk_types::action::KeyAction;
++
++    use super::*;
++    use crate::config::{BehaviorConfig, PositionalConfig};
++    use crate::keymap::KeymapData;
++    use crate::test_support::test_block_on as block_on;
++
++    #[test]
++    fn snapshot_reads_live_maintenance_and_split_transport_state() {
++        let mut behavior = BehaviorConfig::default();
++        let positional: PositionalConfig<1, 1> = PositionalConfig::default();
++        let mut data: KeymapData<1, 1, 1, 0> = KeymapData::new([[[KeyAction::No]]]);
++        let keymap = block_on(KeyMap::new(&mut data, &mut behavior, &positional));
++        let provider = KeymapLightingState::new(&keymap).unwrap();
++
++        crate::state::set_maintenance_mode(false);
++        crate::split::selector::initialize(true);
++        crate::split::selector::set_forced(crate::split::selector::FORCE_BLE);
++        let snapshot = provider.snapshot();
++        assert!(!snapshot.maintenance_unlocked);
++        assert_eq!(
++            snapshot.split_transport,
++            SplitTransportState {
++                auto: true,
++                force: SplitForce::Ble,
++                wired: false,
++            }
++        );
++
++        crate::state::set_maintenance_mode(true);
++        crate::split::selector::set_forced(crate::split::selector::FORCE_WIRED);
++        let snapshot = provider.snapshot();
++        assert!(snapshot.maintenance_unlocked);
++        assert_eq!(snapshot.split_transport.force, SplitForce::Wired);
++        assert!(snapshot.split_transport.wired);
++    }
++}
 diff --git a/rynk/tests/loopback.rs b/rynk/tests/loopback.rs
-index 2ea70dc1e..bf6bdb5cc 100644
+index cf923bc21..463bc5337 100644
 --- a/rynk/tests/loopback.rs
 +++ b/rynk/tests/loopback.rs
 @@ -31,7 +31,7 @@ use rynk::{Client, LayoutInfo, RynkDevice, RynkHostError, TopicEvent};
