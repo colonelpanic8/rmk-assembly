@@ -1,8 +1,8 @@
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index cabe9a240..225d81dde 100644
+index 08313457a..2c7db12bd 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -302,6 +302,7 @@ impl<'a> RynkService<'a> {
+@@ -300,6 +300,7 @@ impl<'a> RynkService<'a> {
              | Cmd::GetLightingExtendedRuntimeConditionalScenes => Some(false),
              #[cfg(feature = "_ble")]
              Cmd::GetBleName => Some(false),
@@ -11,7 +11,7 @@ index cabe9a240..225d81dde 100644
          }
      }
 diff --git a/rmk/tests/scenarios/rynk_behavior.toml b/rmk/tests/scenarios/rynk_behavior.toml
-index c3721e46a..a77e352db 100644
+index 9aee5abab..9e2f9d5ce 100644
 --- a/rmk/tests/scenarios/rynk_behavior.toml
 +++ b/rmk/tests/scenarios/rynk_behavior.toml
 @@ -88,7 +88,7 @@ steps = [

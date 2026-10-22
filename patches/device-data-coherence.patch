@@ -1,0 +1,36 @@
+diff --git a/rmk/src/host/rynk/handlers/system.rs b/rmk/src/host/rynk/handlers/system.rs
+index ca2b0d0e6..0688806cf 100644
+--- a/rmk/src/host/rynk/handlers/system.rs
++++ b/rmk/src/host/rynk/handlers/system.rs
+@@ -2,12 +2,12 @@
+ 
+ use rmk_types::constants;
+ use rmk_types::protocol::rynk::command::{
+-    BootloaderJump, GetBuildInfo, GetCapabilities, GetDeviceInfo, GetDeviceDataDescriptor, GetDeviceDataRecord, GetLockStatus, GetMaintenanceMode, GetVersion, Lock,
+-    PeripheralBootloaderJump, Reboot, StorageReset, UnlockPoll,
++    BootloaderJump, GetBuildInfo, GetCapabilities, GetDeviceDataDescriptor, GetDeviceDataRecord, GetDeviceInfo,
++    GetLockStatus, GetMaintenanceMode, GetVersion, Lock, PeripheralBootloaderJump, Reboot, StorageReset, UnlockPoll,
+ };
+ use rmk_types::protocol::rynk::{
+-    BuildInfo, DeviceCapabilities, DeviceInfo, DeviceDataDescriptor, DeviceDataRecord, LockStatus, MaintenanceMode, MAX_BULK_ITEMS, MAX_BULK_KEYS, ProtocolVersion,
+-    RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
++    BuildInfo, DeviceCapabilities, DeviceDataDescriptor, DeviceDataRecord, DeviceInfo, LockStatus, MAX_BULK_ITEMS,
++    MAX_BULK_KEYS, MaintenanceMode, ProtocolVersion, RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
+ };
+ 
+ use super::super::{RMK_VERSION, RynkService, truncated};
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+index 9d084d47a..a18fc068a 100644
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -21,8 +21,8 @@ pub use lighting::{
+ use postcard::experimental::max_size::MaxSize;
+ use rmk_types::constants::RYNK_BUFFER_SIZE;
+ use rmk_types::protocol::rynk::{
+-    BuildInfo, Cmd, DeviceDataDescriptor, DeviceDataRecord, Deframer, FirmwareVersion, RYNK_HEADER_SIZE, RynkError, RynkMessage, command, encode_frame,
+-    max_wire_size,
++    BuildInfo, Cmd, Deframer, DeviceDataDescriptor, DeviceDataRecord, FirmwareVersion, RYNK_HEADER_SIZE, RynkError,
++    RynkMessage, command, encode_frame, max_wire_size,
+ };
+ 
+ use self::handlers::{serve, serve_bulk};

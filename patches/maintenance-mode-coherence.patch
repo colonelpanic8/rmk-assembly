@@ -396,3 +396,45 @@ index 4e3f8e3ee..d5a6ac966 100644
              _ => None,
          }
      }
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -177,7 +177,11 @@
+     /// `every_endpoint_has_a_maintenance_policy` test keeps that set empty).
+     fn maintenance_policy(cmd: Cmd) -> Option<bool> {
+         match cmd {
+-            Cmd::Reboot | Cmd::BootloaderJump | Cmd::PeripheralBootloaderJump | Cmd::StorageReset | Cmd::GetMatrixState => Some(true),
++            Cmd::Reboot
++            | Cmd::BootloaderJump
++            | Cmd::PeripheralBootloaderJump
++            | Cmd::StorageReset
++            | Cmd::GetMatrixState => Some(true),
+             #[cfg(feature = "lighting")]
+             Cmd::GetLightingFrame => Some(true),
+             // Deleting a bond opens a re-pair hijack window; BLE-only command.
+diff --git a/rmk/src/host/rynk/handlers/system.rs b/rmk/src/host/rynk/handlers/system.rs
+--- a/rmk/src/host/rynk/handlers/system.rs
++++ b/rmk/src/host/rynk/handlers/system.rs
+@@ -6,8 +6,8 @@
+     PeripheralBootloaderJump, Reboot, StorageReset, UnlockPoll,
+ };
+ use rmk_types::protocol::rynk::{
+-    BuildInfo, DeviceCapabilities, DeviceInfo, LockStatus, MaintenanceMode, MAX_BULK_ITEMS, MAX_BULK_KEYS, ProtocolVersion,
+-    RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
++    BuildInfo, DeviceCapabilities, DeviceInfo, LockStatus, MAX_BULK_ITEMS, MAX_BULK_KEYS, MaintenanceMode,
++    ProtocolVersion, RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
+ };
+ 
+ use super::super::{RMK_VERSION, RynkService, truncated};
+diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+--- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
+@@ -10,7 +10,7 @@
+ Action::Key(Hid(A))                                     01 00 04
+ Action::KeyWithModifier(A,LShift)                       03 04 02
+ Action::KeyboardControl(Bootloader)                     11 00
+-Action::KeyboardControl(MaintenanceModeToggle)          11 07
++Action::KeyboardControl(MaintenanceModeToggle)          11 0a
+ Action::LayerOff(3)                                     06 03
+ Action::LayerOn(1)                                      04 01
+ Action::LayerOnWithModifier(2,LCtrl)                    05 02 01

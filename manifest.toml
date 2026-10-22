@@ -77,6 +77,7 @@ branch = "fork:feat/pointing-drag-mode"
 
 [[entry]]
 branch = "fork:fold/pointing-runtime-config-pinned"
+fixup = "patches/pointing-runtime-config-coherence.patch"
 
 [[entry]]
 branch = "fork:fold/runtime-behavior-parity"
@@ -115,6 +116,7 @@ fixup = "patches/nrf-half-duplex-split-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/device-data"
+fixup = "patches/device-data-coherence.patch"
 
 [[entry]]
 patch = "patches/runtime-lighting-wake-layers.patch"
@@ -133,9 +135,11 @@ fixup = "patches/pointing-mode-event-priority-coherence.patch"
 [[entry]]
 branch = "fork:feat/lighting-layer-indicator-conditions"
 summary = "Conditional lighting rules gated on layer sets and host lock indicators; feature flags widen to u32"
+fixup = "patches/lighting-layer-indicator-conditions-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ctrl-gui-swap"
+fixup = "patches/ctrl-gui-swap-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/ble-advertising-backoff"

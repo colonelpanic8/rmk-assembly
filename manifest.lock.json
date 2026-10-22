@@ -6,8 +6,8 @@
       "feat/auto-switch-transport": "0548239dc50ca64562a38d750357ff37e3e3f50d",
       "feat/ble-advertising-backoff": "84a2999769e5e9058bb42fb7d64edd6fc43ff516",
       "feat/ble-name-template": "917943bca94e88af517cb229fcd8d3cb8f6b9d5a",
-      "feat/ble-profile-clear-api": "34b22c9c54b86e2aa31ab2676b0fd4beaffa3584",
-      "feat/combo-hold-output": "86c7bc877799e0c2f79bff3560c38c0ec8364004",
+      "feat/ble-profile-clear-api": "e29366c1b8b09c77d8a10f617f0d513d95710b58",
+      "feat/combo-hold-output": "f7559a38f14dd1e6a7453dc54400003cc6b451b3",
       "feat/consumer-keycodes": "4bc821226ed1e217820295a62572f7f96bf79840",
       "feat/ctrl-gui-swap": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
       "feat/device-data": "9390b56b75d75d10e29b4b232abc56e10024e21e",
@@ -48,13 +48,13 @@
     }
   },
   "build": {
-    "generated": "2026-10-22T19:03:32.380442437+00:00",
+    "generated": "2026-10-22T19:08:10.320736349+00:00",
     "base": "80c0bda72fee2fc75e1d27d08012435e71983247",
-    "commit": "fbade675bd4bd279a7ccde41fcd9730ac1051aed",
-    "pre_provenance_commit": "fbade675bd4bd279a7ccde41fcd9730ac1051aed",
-    "tree": "b413e14d838c55d73bf4d7ce2d9fb537d00f00d5",
-    "built_tree": "b413e14d838c55d73bf4d7ce2d9fb537d00f00d5",
-    "previous_tree": "33ea00935c66503f8e8859f6879bb61d755f3f63",
+    "commit": "72a955c7c8a6a2bd0264d3f1d507d16d6ebb8698",
+    "pre_provenance_commit": "72a955c7c8a6a2bd0264d3f1d507d16d6ebb8698",
+    "tree": "71cfcb45ccda708b9a21025a854ef4c4c9dec132",
+    "built_tree": "71cfcb45ccda708b9a21025a854ef4c4c9dec132",
+    "previous_tree": "b413e14d838c55d73bf4d7ce2d9fb537d00f00d5",
     "tree_changed": true,
     "conflicts": 25,
     "manifest_entries": [
@@ -105,7 +105,7 @@
         "name": "feat/combo-hold-output",
         "kind": "branch",
         "source": "fork:feat/combo-hold-output",
-        "pin": "86c7bc877799e0c2f79bff3560c38c0ec8364004"
+        "pin": "f7559a38f14dd1e6a7453dc54400003cc6b451b3"
       },
       {
         "name": "feat/morse-retro-tap",
@@ -165,7 +165,8 @@
         "name": "fold/pointing-runtime-config-pinned",
         "kind": "branch",
         "source": "fork:fold/pointing-runtime-config-pinned",
-        "pin": "4b29490f877fdb7f117e2b18c7f954e37d8e8491"
+        "pin": "4b29490f877fdb7f117e2b18c7f954e37d8e8491",
+        "fixup": "018c1ffb9252d1f283c3a1fef237e95db1e61628"
       },
       {
         "name": "fold/runtime-behavior-parity",
@@ -179,7 +180,7 @@
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
         "pin": "45a31bb8e66bd874507ad824dd54ca3284df6a99",
-        "fixup": "43e4056566217ce2753ff8e54f937b0986bdfb1b"
+        "fixup": "9156a64f3703738b6abdf26a5116b6a73c6f2cc4"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -217,7 +218,7 @@
         "kind": "branch",
         "source": "fork:feat/position-combos",
         "pin": "e1fa683ba52339fb8e82f54e3ba6d4710163fdd8",
-        "fixup": "0f2e94fd3bebc720adba8315bb68e9f4123abbc0"
+        "fixup": "b8e34725cc4d52d203cd786ac0ac227a82a54548"
       },
       {
         "name": "feat/nrf-half-duplex-split",
@@ -230,7 +231,8 @@
         "name": "feat/device-data",
         "kind": "branch",
         "source": "fork:feat/device-data",
-        "pin": "9390b56b75d75d10e29b4b232abc56e10024e21e"
+        "pin": "9390b56b75d75d10e29b4b232abc56e10024e21e",
+        "fixup": "6ca2dbb21d0519a883c855b4f6997fd9be772d44"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -262,13 +264,15 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "c2586bf799f31fa625816773aaceaf55321f4430"
+        "pin": "c2586bf799f31fa625816773aaceaf55321f4430",
+        "fixup": "72e05f79025e5c18d2755be1f1e7023d9e37ed24"
       },
       {
         "name": "feat/ctrl-gui-swap",
         "kind": "branch",
         "source": "fork:feat/ctrl-gui-swap",
-        "pin": "707a58692734cb5a14d9a6af94f1fd66d29ae04b"
+        "pin": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
+        "fixup": "143454090103fb7e1d347d0c178dfeea6688c05f"
       },
       {
         "name": "feat/ble-advertising-backoff",
@@ -293,7 +297,7 @@
         "name": "feat/ble-profile-clear-api",
         "kind": "branch",
         "source": "fork:feat/ble-profile-clear-api",
-        "pin": "34b22c9c54b86e2aa31ab2676b0fd4beaffa3584"
+        "pin": "e29366c1b8b09c77d8a10f617f0d513d95710b58"
       },
       {
         "name": "feat/morse-default-permissive-hold",
@@ -367,7 +371,7 @@
       },
       {
         "name": "feat/combo-hold-output",
-        "oid": "86c7bc877799e0c2f79bff3560c38c0ec8364004",
+        "oid": "f7559a38f14dd1e6a7453dc54400003cc6b451b3",
         "status": "merged",
         "conflicted": false
       },
@@ -436,7 +440,8 @@
         "oid": "4b29490f877fdb7f117e2b18c7f954e37d8e8491",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere",
+        "fixup": "018c1ffb9252d1f283c3a1fef237e95db1e61628"
       },
       {
         "name": "fold/runtime-behavior-parity",
@@ -452,7 +457,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "43e4056566217ce2753ff8e54f937b0986bdfb1b"
+        "fixup": "9156a64f3703738b6abdf26a5116b6a73c6f2cc4"
       },
       {
         "name": "fix/battery-power-transitions",
@@ -494,7 +499,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "0f2e94fd3bebc720adba8315bb68e9f4123abbc0"
+        "fixup": "b8e34725cc4d52d203cd786ac0ac227a82a54548"
       },
       {
         "name": "feat/nrf-half-duplex-split",
@@ -509,7 +514,8 @@
         "oid": "9390b56b75d75d10e29b4b232abc56e10024e21e",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere",
+        "fixup": "6ca2dbb21d0519a883c855b4f6997fd9be772d44"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -522,7 +528,7 @@
         "oid": "5c86495309aeeefd0d29a871556aef6ee4a8b365",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere",
+        "resolution": "rerere:dee8a7c23ea94c4c8a9af6339d1e1f47c895701f",
         "fixup": "55e060e88b46a1070f17340e880f71f2c5bd4bc4"
       },
       {
@@ -544,14 +550,16 @@
         "oid": "c2586bf799f31fa625816773aaceaf55321f4430",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere",
+        "fixup": "72e05f79025e5c18d2755be1f1e7023d9e37ed24"
       },
       {
         "name": "feat/ctrl-gui-swap",
         "oid": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere:5b7b563b63864b143ac4155b0de0aea57b7c96cb",
+        "fixup": "143454090103fb7e1d347d0c178dfeea6688c05f"
       },
       {
         "name": "feat/ble-advertising-backoff",
@@ -576,10 +584,10 @@
       },
       {
         "name": "feat/ble-profile-clear-api",
-        "oid": "34b22c9c54b86e2aa31ab2676b0fd4beaffa3584",
+        "oid": "e29366c1b8b09c77d8a10f617f0d513d95710b58",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:acec522f694fcb2a9a233316f097632f0db29e16"
+        "resolution": "rerere"
       },
       {
         "name": "feat/morse-default-permissive-hold",
