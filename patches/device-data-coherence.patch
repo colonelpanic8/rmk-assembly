@@ -34,3 +34,17 @@ index 9d084d47a..a18fc068a 100644
  };
  
  use self::handlers::{serve, serve_bulk};
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -286,7 +286,9 @@
+             | Cmd::GetLayerState
+             | Cmd::GetModifierState
+             | Cmd::GetPointingConfig
+-            | Cmd::GetPointingCapabilities => Some(false),
++            | Cmd::GetPointingCapabilities
++            | Cmd::GetDeviceDataDescriptor
++            | Cmd::GetDeviceDataRecord => Some(false),
+             #[cfg(all(feature = "_ble", feature = "split"))]
+             Cmd::GetSplitCentralLatency => Some(false),
+             #[cfg(feature = "lighting")]

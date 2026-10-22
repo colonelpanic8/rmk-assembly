@@ -350,6 +350,12 @@ paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-10-10T02:31:46.034555253+00:00"
 
 [[resolution]]
+entry = "feat/ble-profile-clear-api"
+hash = "e5035e00aa149bd674d65d22ef7cedd9373aa56d"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-10-22T19:10:06.519877433+00:00"
+
+[[resolution]]
 entry = "feat/combo-hold-output"
 hash = "abe16d48b427f477e581df0b767dd49d56dc7c11"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
@@ -708,6 +714,12 @@ entry = "feat/lighting-layer-indicator-conditions"
 hash = "e666fc6df67fc7eca516c68ce523a7bdcfaf8fe5"
 paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-09-08T04:03:56.680280269+00:00"
+
+[[resolution]]
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "f88e02dea60246e2608b878bd0a74af965a68eb5"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-10-22T19:09:55.712362469+00:00"
 
 [[resolution]]
 entry = "feat/lighting-rules"

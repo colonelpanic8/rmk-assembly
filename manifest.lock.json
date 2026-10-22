@@ -48,13 +48,13 @@
     }
   },
   "build": {
-    "generated": "2026-10-22T19:08:10.320736349+00:00",
+    "generated": "2026-10-22T19:10:06.755140059+00:00",
     "base": "80c0bda72fee2fc75e1d27d08012435e71983247",
-    "commit": "72a955c7c8a6a2bd0264d3f1d507d16d6ebb8698",
-    "pre_provenance_commit": "72a955c7c8a6a2bd0264d3f1d507d16d6ebb8698",
-    "tree": "71cfcb45ccda708b9a21025a854ef4c4c9dec132",
-    "built_tree": "71cfcb45ccda708b9a21025a854ef4c4c9dec132",
-    "previous_tree": "b413e14d838c55d73bf4d7ce2d9fb537d00f00d5",
+    "commit": "ce8667385daba02fb8ce4b987156ee7e5a02c74e",
+    "pre_provenance_commit": "ce8667385daba02fb8ce4b987156ee7e5a02c74e",
+    "tree": "8dfadc9859a75942bb442d3a9bfcb302bddb61f3",
+    "built_tree": "8dfadc9859a75942bb442d3a9bfcb302bddb61f3",
+    "previous_tree": "71cfcb45ccda708b9a21025a854ef4c4c9dec132",
     "tree_changed": true,
     "conflicts": 25,
     "manifest_entries": [
@@ -232,7 +232,7 @@
         "kind": "branch",
         "source": "fork:feat/device-data",
         "pin": "9390b56b75d75d10e29b4b232abc56e10024e21e",
-        "fixup": "6ca2dbb21d0519a883c855b4f6997fd9be772d44"
+        "fixup": "32700c9917b525973c75b650e86538fa2ae461e6"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -265,7 +265,7 @@
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
         "pin": "c2586bf799f31fa625816773aaceaf55321f4430",
-        "fixup": "72e05f79025e5c18d2755be1f1e7023d9e37ed24"
+        "fixup": "3b3f5d194d29550e50afd5072da12043df6c2dab"
       },
       {
         "name": "feat/ctrl-gui-swap",
@@ -515,7 +515,7 @@
         "status": "merged",
         "conflicted": true,
         "resolution": "rerere",
-        "fixup": "6ca2dbb21d0519a883c855b4f6997fd9be772d44"
+        "fixup": "32700c9917b525973c75b650e86538fa2ae461e6"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -528,7 +528,7 @@
         "oid": "5c86495309aeeefd0d29a871556aef6ee4a8b365",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:dee8a7c23ea94c4c8a9af6339d1e1f47c895701f",
+        "resolution": "rerere",
         "fixup": "55e060e88b46a1070f17340e880f71f2c5bd4bc4"
       },
       {
@@ -550,15 +550,15 @@
         "oid": "c2586bf799f31fa625816773aaceaf55321f4430",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere",
-        "fixup": "72e05f79025e5c18d2755be1f1e7023d9e37ed24"
+        "resolution": "rerere:f88e02dea60246e2608b878bd0a74af965a68eb5",
+        "fixup": "3b3f5d194d29550e50afd5072da12043df6c2dab"
       },
       {
         "name": "feat/ctrl-gui-swap",
         "oid": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere:5b7b563b63864b143ac4155b0de0aea57b7c96cb",
+        "resolution": "rerere",
         "fixup": "143454090103fb7e1d347d0c178dfeea6688c05f"
       },
       {
@@ -587,7 +587,7 @@
         "oid": "e29366c1b8b09c77d8a10f617f0d513d95710b58",
         "status": "merged",
         "conflicted": true,
-        "resolution": "rerere"
+        "resolution": "rerere:e5035e00aa149bd674d65d22ef7cedd9373aa56d"
       },
       {
         "name": "feat/morse-default-permissive-hold",

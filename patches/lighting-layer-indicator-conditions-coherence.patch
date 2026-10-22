@@ -23,3 +23,17 @@ diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
  use sequential_storage::Error as SSError;
  use sequential_storage::cache::Cache;
  use sequential_storage::cache::key_pointers::ArrayKeyPointers;
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -324,7 +324,9 @@
+             | Cmd::GetLightingRuntimeConditionalSceneStatus
+             | Cmd::GetLightingRuntimeConditionalScenes
+             | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
+-            | Cmd::GetLightingExtendedRuntimeConditionalScenes => Some(false),
++            | Cmd::GetLightingExtendedRuntimeConditionalScenes
++            | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
++            | Cmd::GetLightingAdvancedRuntimeConditionalScenes => Some(false),
+             #[cfg(feature = "_ble")]
+             Cmd::GetBleName => Some(false),
+             Cmd::GetComboDefinition | Cmd::GetComboDefinitionBulk => Some(false),
