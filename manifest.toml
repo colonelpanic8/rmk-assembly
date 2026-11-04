@@ -170,6 +170,9 @@ branch = "fork:fix/battery-level-while-charging"
 branch = "fork:feat/persist-key-lighting"
 summary = "Lighting keys persist the output mode and extension selection once presses settle"
 
+[[entry]]
+branch = "fork:feat/lighting-table-capacity"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

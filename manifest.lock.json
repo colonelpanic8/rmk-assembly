@@ -13,6 +13,7 @@
       "feat/device-data": "9390b56b75d75d10e29b4b232abc56e10024e21e",
       "feat/lighting-layer-indicator-conditions": "c2586bf799f31fa625816773aaceaf55321f4430",
       "feat/lighting-rules": "6c6cdf95b212caf045270fcf3b6b14b50203dac0",
+      "feat/lighting-table-capacity": "6918991bb372657eb9aef57410a803c92798aaef",
       "feat/maintenance-mode": "45a31bb8e66bd874507ad824dd54ca3284df6a99",
       "feat/morse-default-permissive-hold": "261d0eb2f19a641991c9b383d2a98fb3d776b518",
       "feat/morse-hold-trigger-on-release": "b699772ae401c06bbe09e49e25418886e8f7037d",
@@ -48,15 +49,15 @@
     }
   },
   "build": {
-    "generated": "2026-10-22T19:10:06.755140059+00:00",
+    "generated": "2026-11-04T20:24:55.148115530+00:00",
     "base": "80c0bda72fee2fc75e1d27d08012435e71983247",
-    "commit": "ce8667385daba02fb8ce4b987156ee7e5a02c74e",
-    "pre_provenance_commit": "ce8667385daba02fb8ce4b987156ee7e5a02c74e",
-    "tree": "8dfadc9859a75942bb442d3a9bfcb302bddb61f3",
-    "built_tree": "8dfadc9859a75942bb442d3a9bfcb302bddb61f3",
-    "previous_tree": "71cfcb45ccda708b9a21025a854ef4c4c9dec132",
+    "commit": "3a4f89f07dfb9089309bd11d1235b7da9dfc26ac",
+    "pre_provenance_commit": "3a4f89f07dfb9089309bd11d1235b7da9dfc26ac",
+    "tree": "43868953c182481834220fe9b2d14ba0647eef34",
+    "built_tree": "43868953c182481834220fe9b2d14ba0647eef34",
+    "previous_tree": "8dfadc9859a75942bb442d3a9bfcb302bddb61f3",
     "tree_changed": true,
-    "conflicts": 25,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -322,6 +323,12 @@
         "kind": "branch",
         "source": "fork:feat/persist-key-lighting",
         "pin": "8618c83b4a66cf4a657a087da08b46496dbcc7bd"
+      },
+      {
+        "name": "feat/lighting-table-capacity",
+        "kind": "branch",
+        "source": "fork:feat/lighting-table-capacity",
+        "pin": "6918991bb372657eb9aef57410a803c92798aaef"
       }
     ],
     "results": [
@@ -612,6 +619,12 @@
       {
         "name": "feat/persist-key-lighting",
         "oid": "8618c83b4a66cf4a657a087da08b46496dbcc7bd",
+        "status": "merged",
+        "conflicted": false
+      },
+      {
+        "name": "feat/lighting-table-capacity",
+        "oid": "6918991bb372657eb9aef57410a803c92798aaef",
         "status": "merged",
         "conflicted": false
       }
