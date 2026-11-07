@@ -11,17 +11,17 @@ index e73581c6f..b07abf49a 100644
              encoder_map: Vec::new(),
              key_info: Vec::new(),
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 92a43eb72..7c9e230a9 100644
+index 7e7a26522..df171f6f2 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -284,6 +284,7 @@ impl<'a> RynkService<'a> {
+@@ -288,6 +288,7 @@ impl<'a> RynkService<'a> {
              | Cmd::GetBehaviorOptions
              | Cmd::GetAutoMouseLayerConfigs
              | Cmd::GetLayerState
 +            | Cmd::GetLayerMetadata
              | Cmd::GetModifierState
              | Cmd::GetPointingConfig
-             | Cmd::GetPointingCapabilities => Some(false),
+             | Cmd::GetPointingCapabilities
 diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
 index 2dfff0646..29b7c01cc 100644
 --- a/rmk/src/storage/mod.rs
