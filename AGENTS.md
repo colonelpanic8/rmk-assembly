@@ -1,6 +1,6 @@
-# fork-fold maintenance repository
+# fork-assembler maintenance repository
 
-This repository is a [fork-fold](https://github.com/colonelpanic8/fork-fold)
+This repository is a [fork-assembler](https://github.com/colonelpanic8/fork-assembler)
 stack: a build recipe assembling an upstream base plus an ordered set of live
 topic branches into a single branch, with tracked conflict resolutions.
 
@@ -9,8 +9,9 @@ topic branches into a single branch, with tracked conflict resolutions.
 - `manifest.toml` is INTENT: named remotes, the base, and the ordered entries
   (branches, PRs, patch files).
 - `manifest.lock.json` is FACT: the OIDs the last build used, the assembled
-  commit, and its tree hash. The tree hash is the reproducibility invariant;
-  commit IDs are not.
+  commit, and its tree hash. Generated commits are deterministic, so the same
+  recipe reproduces the same assembled commit OID anywhere; `build --locked`
+  verifies the commit, not just the tree.
 - `resolutions/rerere/<hash>/{preimage,postimage}` are tracked git-rerere
   pairs replaying each conflicted merge's hunks. Every build seeds the build
   worktree's rr-cache exclusively from them (wiped first, so nothing ambient
@@ -39,7 +40,7 @@ topic branches into a single branch, with tracked conflict resolutions.
 - Rerere pairs capture only conflicted-hunk resolutions. If a correct
   resolution also needs edits outside the conflict hunks, put those edits in
   the entry's coherence fixup — a rebuild will otherwise surface them as a
-  tree mismatch. The lock's tree hash is the sole verification invariant.
+  tree mismatch.
 - Every entry boundary should be a coherent tree. A cross-entry repair
   belongs on the entry that made it necessary (its `fixup`), not in a patch
   entry parked at the end of the stack.
@@ -54,18 +55,21 @@ topic branches into a single branch, with tracked conflict resolutions.
 ## Operations
 
 ```sh
-fork-fold status                 # lock vs. manifest vs. live refs; flags merged entries
-fork-fold add REMOTE:BRANCH      # append a topic branch entry
-fork-fold add --pr N             # append a PR entry
-fork-fold add --patch FILE       # append a standalone patch entry
-fork-fold add --prs-from USER    # append USER's open PRs not already carried (idempotent)
-fork-fold fixup ENTRY FILE       # attach a coherence fixup to ENTRY's own step
-fork-fold fixup ENTRY FILE --capture   # ...writing FILE from the build worktree
-fork-fold fixup ENTRY --remove   # detach it (the patch file stays on disk)
-fork-fold build                  # assemble from lock pins; incremental for appends
-fork-fold build --locked         # reproduce exactly; no network, no new pins
-fork-fold update [ENTRY...]      # batch bump: repin base + entries to live heads
-fork-fold prune [--dry-run]      # drop entries whose changes landed in the base
+fork-assembler status                 # lock vs. manifest vs. live refs; flags merged entries
+fork-assembler add REMOTE:BRANCH      # append a topic branch entry
+fork-assembler add --pr N             # append a PR entry
+fork-assembler add --patch FILE       # append a standalone patch entry
+fork-assembler add --prs-from USER    # append USER's open PRs not already carried (idempotent)
+fork-assembler fixup ENTRY FILE       # attach a coherence fixup to ENTRY's own step
+fork-assembler fixup ENTRY FILE --capture   # ...writing FILE from the build worktree
+fork-assembler fixup ENTRY --remove   # detach it (the patch file stays on disk)
+fork-assembler build                  # assemble from lock pins; incremental for appends
+fork-assembler build --locked         # reproduce exactly; no network, no new pins
+fork-assembler update [ENTRY...]      # batch bump: repin base + entries to live heads
+fork-assembler prune [--dry-run]      # drop entries whose changes landed in the base
+fork-assembler gc [--dry-run]         # remove tracked pairs the last build did not use
+fork-assembler assembled [REV] [--checkout DIR]  # REV's assembled commit, regenerated if gone
+fork-assembler diff [FROM] [TO] [--carried]      # git diff between two revs' assembled branches
 ```
 
 `build` never moves existing pins; `update` is the only verb that does. The
@@ -79,17 +83,17 @@ When a build stops on a conflict:
 1. Resolve the conflicted files in the build worktree it reports (under
    `.worktrees/`).
 2. Stage the resolutions with `git add`.
-3. Run `fork-fold continue` — it harvests the conflict's preimage/postimage
+3. Run `fork-assembler continue` — it harvests the conflict's preimage/postimage
    pair into `resolutions/rerere/`, updates the informational index, and runs
    that entry's fixup if it has one.
-4. Run `fork-fold build --locked` after the repair completes to prove the
+4. Run `fork-assembler build --locked` after the repair completes to prove the
    tracked pairs reproduce the lock's tree.
 5. Commit the manifest, lock, and tracked pairs together.
 
 When a build stops on a fixup that no longer applies, the entry's merge is
 already committed and only the fixup is owed. Repair the worktree, then
-`fork-fold fixup ENTRY FILE --capture` and rebuild, so the patch file matches
-what ships. `git add` plus `fork-fold continue` commits the resolution once
+`fork-assembler fixup ENTRY FILE --capture` and rebuild, so the patch file matches
+what ships. `git add` plus `fork-assembler continue` commits the resolution once
 but leaves the patch stale, and the next rebuild stops in the same place.
 
 ## Skills
@@ -102,7 +106,7 @@ mechanism should read `.agents/skills/*/SKILL.md` directly.
 
 The checked-in skill is deliberately only a stable discovery stub. It tells
 the agent to load `lib.forkFoldAgentGuide`, which this repository's flake
-re-exports directly from its pinned `fork-fold` input. The full instructions
+re-exports directly from its pinned `fork-assembler` input. The full instructions
 therefore change with `flake.lock`; do not copy their output into this
 repository.
 
