@@ -25,7 +25,7 @@
       "feat/morse-unilateral-mod-chording": "87b74005308050a62e9de99a70a1fe59f8e389ef",
       "feat/nrf-half-duplex-split": "58070245ab6562189f46f767aec93035aaf53b07",
       "feat/persist-key-lighting": "55dc118a2eb1ed147e995af9268dfae53f38e13f",
-      "feat/persist-lighting-output": "0892f341674184e7aa7ed69c445ad9fab60a99de",
+      "feat/persist-lighting-output": "9461ff8d68269e5215ea82920e746861c2af70e2",
       "feat/persistent-layer-metadata": "eebcb9211223447bb8e42e884c657744bb294a77",
       "feat/pointer-layer-scaling": "c9fd2fd0935aed30d06e5a931b6268670e50a108",
       "feat/pointing-drag-mode": "554fbc13addd6375063b3a8dc18d5709430bc3ed",
@@ -52,15 +52,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-16T23:18:57.026459050+00:00",
+    "generated": "2026-11-16T23:57:31.761203682+00:00",
     "base": "f7f088e844ff994b6770432f44972dc5ffe0604e",
-    "commit": "04026845f170487743be289580cba4c71c115c5c",
-    "pre_provenance_commit": "04026845f170487743be289580cba4c71c115c5c",
-    "tree": "8aa10a89a3481c4631b4926667baf47cb842e6f2",
-    "built_tree": "8aa10a89a3481c4631b4926667baf47cb842e6f2",
-    "previous_tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
+    "commit": "6b1ac3dd72cd7cfafbe7cbd67b0a7525d48116bb",
+    "pre_provenance_commit": "6b1ac3dd72cd7cfafbe7cbd67b0a7525d48116bb",
+    "tree": "5e884dc23291aef9895f7c712007b5a1b3f996de",
+    "built_tree": "5e884dc23291aef9895f7c712007b5a1b3f996de",
+    "previous_tree": "8aa10a89a3481c4631b4926667baf47cb842e6f2",
     "tree_changed": true,
-    "conflicts": 26,
+    "conflicts": 25,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -345,7 +345,7 @@
         "name": "feat/persist-lighting-output",
         "kind": "branch",
         "source": "fork:feat/persist-lighting-output",
-        "pin": "0892f341674184e7aa7ed69c445ad9fab60a99de"
+        "pin": "9461ff8d68269e5215ea82920e746861c2af70e2"
       }
     ],
     "results": [
@@ -881,12 +881,10 @@
       },
       {
         "name": "feat/persist-lighting-output",
-        "oid": "0892f341674184e7aa7ed69c445ad9fab60a99de",
+        "oid": "9461ff8d68269e5215ea82920e746861c2af70e2",
         "status": "merged",
-        "conflicted": true,
-        "resolutions": [
-          "075eecc8d2249ecc6ae5264253b9f537996f6c40"
-        ]
+        "conflicted": false,
+        "resolutions": []
       }
     ]
   }
