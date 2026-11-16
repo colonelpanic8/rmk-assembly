@@ -11,7 +11,7 @@
       "feat/consumer-keycodes": "d04e31e16e1b2daf801675fbd698b19533d0d89c",
       "feat/ctrl-gui-swap": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
       "feat/device-data": "4c81e834593fb8aded978946795292d39853e28c",
-      "feat/keymap-row-storage": "2237304be8b7185699191c0fccac5c3382e13e5b",
+      "feat/keymap-row-storage": "7da7fc9b52fdd4e2e73dc850f5977c2599590132",
       "feat/lighting-layer-indicator-conditions": "841c4bb8f5bd590ce56942b12186e2c7f4964c9b",
       "feat/lighting-rules": "b7c9e4d43c34bc47e632a00b144fd1b5390dc787",
       "feat/lighting-table-capacity": "28d610e25bf217933f77abaf9a9ba20ab8342ace",
@@ -51,13 +51,13 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-16T19:39:47.435711815+00:00",
+    "generated": "2026-11-16T19:46:53.307827603+00:00",
     "base": "f7f088e844ff994b6770432f44972dc5ffe0604e",
-    "commit": "57c729add15dab7b81ee3b500d2d4319cea821a4",
-    "pre_provenance_commit": "57c729add15dab7b81ee3b500d2d4319cea821a4",
-    "tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
-    "built_tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
-    "previous_tree": "297722323ead39f46154cc53d308769d8b57abaf",
+    "commit": "0142f0347ba4aad38a53818a6dfdb3faedd7e823",
+    "pre_provenance_commit": "0142f0347ba4aad38a53818a6dfdb3faedd7e823",
+    "tree": "f107d19ffcca29c3bb2b2c9820160e6d07234096",
+    "built_tree": "f107d19ffcca29c3bb2b2c9820160e6d07234096",
+    "previous_tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
     "tree_changed": true,
     "conflicts": 25,
     "manifest_entries": [
@@ -338,7 +338,7 @@
         "name": "feat/keymap-row-storage",
         "kind": "branch",
         "source": "fork:feat/keymap-row-storage",
-        "pin": "2237304be8b7185699191c0fccac5c3382e13e5b"
+        "pin": "7da7fc9b52fdd4e2e73dc850f5977c2599590132"
       }
     ],
     "results": [
@@ -867,7 +867,7 @@
       },
       {
         "name": "feat/keymap-row-storage",
-        "oid": "2237304be8b7185699191c0fccac5c3382e13e5b",
+        "oid": "7da7fc9b52fdd4e2e73dc850f5977c2599590132",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
