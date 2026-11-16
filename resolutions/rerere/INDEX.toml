@@ -638,6 +638,12 @@ paths = ["rmk-types/src/protocol/rynk/payload/mod.rs"]
 recorded = "2026-08-18T09:30:19.211713621+00:00"
 
 [[resolution]]
+entry = "feat/persist-lighting-output"
+hash = "075eecc8d2249ecc6ae5264253b9f537996f6c40"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-11-16T23:18:56.994070315+00:00"
+
+[[resolution]]
 entry = "feat/persistent-layer-metadata"
 hash = "3b4dba5ac303ebc73c6ae6507af0aed6616ced00"
 paths = ["rmk/src/storage/mod.rs"]

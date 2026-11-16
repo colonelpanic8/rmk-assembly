@@ -11,7 +11,7 @@
       "feat/consumer-keycodes": "d04e31e16e1b2daf801675fbd698b19533d0d89c",
       "feat/ctrl-gui-swap": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
       "feat/device-data": "4c81e834593fb8aded978946795292d39853e28c",
-      "feat/keymap-row-storage": "a9db2c95e984ea5d37a441245f00d22d3e53473f",
+      "feat/keymap-row-storage": "bb9fc32b245d30e9aa8f902f25b8ed7305e9458c",
       "feat/lighting-layer-indicator-conditions": "841c4bb8f5bd590ce56942b12186e2c7f4964c9b",
       "feat/lighting-rules": "b7c9e4d43c34bc47e632a00b144fd1b5390dc787",
       "feat/lighting-table-capacity": "28d610e25bf217933f77abaf9a9ba20ab8342ace",
@@ -25,6 +25,7 @@
       "feat/morse-unilateral-mod-chording": "87b74005308050a62e9de99a70a1fe59f8e389ef",
       "feat/nrf-half-duplex-split": "58070245ab6562189f46f767aec93035aaf53b07",
       "feat/persist-key-lighting": "55dc118a2eb1ed147e995af9268dfae53f38e13f",
+      "feat/persist-lighting-output": "0892f341674184e7aa7ed69c445ad9fab60a99de",
       "feat/persistent-layer-metadata": "eebcb9211223447bb8e42e884c657744bb294a77",
       "feat/pointer-layer-scaling": "c9fd2fd0935aed30d06e5a931b6268670e50a108",
       "feat/pointing-drag-mode": "554fbc13addd6375063b3a8dc18d5709430bc3ed",
@@ -51,15 +52,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-16T19:49:29.137723148+00:00",
+    "generated": "2026-11-16T23:18:57.026459050+00:00",
     "base": "f7f088e844ff994b6770432f44972dc5ffe0604e",
-    "commit": "23caf06d7999b7e5a3733b2cfeb58f2732765bec",
-    "pre_provenance_commit": "23caf06d7999b7e5a3733b2cfeb58f2732765bec",
-    "tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
-    "built_tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
-    "previous_tree": "f107d19ffcca29c3bb2b2c9820160e6d07234096",
+    "commit": "04026845f170487743be289580cba4c71c115c5c",
+    "pre_provenance_commit": "04026845f170487743be289580cba4c71c115c5c",
+    "tree": "8aa10a89a3481c4631b4926667baf47cb842e6f2",
+    "built_tree": "8aa10a89a3481c4631b4926667baf47cb842e6f2",
+    "previous_tree": "547f692a2c9fa0ae7bf285250f653f3a1a64a7a1",
     "tree_changed": true,
-    "conflicts": 25,
+    "conflicts": 26,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -338,7 +339,13 @@
         "name": "feat/keymap-row-storage",
         "kind": "branch",
         "source": "fork:feat/keymap-row-storage",
-        "pin": "a9db2c95e984ea5d37a441245f00d22d3e53473f"
+        "pin": "bb9fc32b245d30e9aa8f902f25b8ed7305e9458c"
+      },
+      {
+        "name": "feat/persist-lighting-output",
+        "kind": "branch",
+        "source": "fork:feat/persist-lighting-output",
+        "pin": "0892f341674184e7aa7ed69c445ad9fab60a99de"
       }
     ],
     "results": [
@@ -867,10 +874,19 @@
       },
       {
         "name": "feat/keymap-row-storage",
-        "oid": "a9db2c95e984ea5d37a441245f00d22d3e53473f",
+        "oid": "bb9fc32b245d30e9aa8f902f25b8ed7305e9458c",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
+      },
+      {
+        "name": "feat/persist-lighting-output",
+        "oid": "0892f341674184e7aa7ed69c445ad9fab60a99de",
+        "status": "merged",
+        "conflicted": true,
+        "resolutions": [
+          "075eecc8d2249ecc6ae5264253b9f537996f6c40"
+        ]
       }
     ]
   }

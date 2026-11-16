@@ -179,6 +179,10 @@ branch = "fork:feat/lighting-table-capacity"
 branch = "fork:feat/keymap-row-storage"
 summary = "Keymap persists one flash item per 16-cell row segment instead of per key; stacked on fix/rynk-flash-backpressure"
 
+[[entry]]
+branch = "fork:feat/persist-lighting-output"
+summary = "Output brightness, background and the effects' on-brightness persist across restarts (from moosylog/rynkbench docs/firmware/rmk-persist-lighting)"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"
