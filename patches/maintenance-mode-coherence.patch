@@ -348,7 +348,7 @@ index 4e3f8e3ee..d5a6ac966 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
 @@ -250,6 +250,48 @@ impl<'a> RynkService<'a> {
-             Cmd::GetBleStatus | Cmd::SwitchBleProfile | Cmd::GetBatteryStatus => Some(false),
+             Cmd::GetBleStatus | Cmd::SwitchBleProfile => Some(false),
              #[cfg(feature = "split")]
              Cmd::GetPeripheralStatus => Some(false),
 +            Cmd::SetMorseProfileEntry | Cmd::DeleteMorseProfile => Some(true),

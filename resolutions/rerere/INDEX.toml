@@ -9,33 +9,9 @@ recorded = "2026-10-10T02:34:04.587441697+00:00"
 
 [[resolution]]
 entry = "feat/auto-switch-transport"
-hash = "090067a519bbdb68d6b1a2ff630e95bd13b560f4"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-09-16T20:06:22.941614082+00:00"
-
-[[resolution]]
-entry = "feat/auto-switch-transport"
-hash = "0ef330fef2a87d5c0a525a9327073bc3f7f952f7"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:34:04.587444445+00:00"
-
-[[resolution]]
-entry = "feat/auto-switch-transport"
-hash = "111dff855d85b86e55936152e8ba00fc847ececf"
-paths = ["rmk/src/host/rynk/handlers/connection.rs"]
-recorded = "2026-09-16T20:06:22.941615806+00:00"
-
-[[resolution]]
-entry = "feat/auto-switch-transport"
 hash = "22fd62ac7c377fe0275afafc056e4a7a5e2d680c"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-09-16T20:06:22.941616347+00:00"
-
-[[resolution]]
-entry = "feat/auto-switch-transport"
-hash = "2e26e0f7701c311c040229e210bc0b5cf81a7750"
-paths = ["rmk/src/state.rs"]
-recorded = "2026-09-16T20:06:22.941616637+00:00"
 
 [[resolution]]
 entry = "feat/auto-switch-transport"
@@ -57,39 +33,21 @@ recorded = "2026-09-16T20:06:22.941616928+00:00"
 
 [[resolution]]
 entry = "feat/auto-switch-transport"
-hash = "59d8ebe63fcb291bdd77b9ec176968696c33ab70"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-16T20:06:22.941617188+00:00"
-
-[[resolution]]
-entry = "feat/auto-switch-transport"
-hash = "c45802cbad9280162ca99aeb16a3d84a426c8831"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-16T20:06:22.941617439+00:00"
-
-[[resolution]]
-entry = "feat/auto-switch-transport"
 hash = "daf896619df0dbb418b94aa0b2aca0464ae2a5a5"
 paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-10-10T02:34:04.587445677+00:00"
 
 [[resolution]]
 entry = "feat/auto-switch-transport"
+hash = "eaffb6b03214d82d79cf075e943ef3acd5e2212a"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:56:56.981209363+00:00"
+
+[[resolution]]
+entry = "feat/auto-switch-transport"
 hash = "fe9b23f31df1e684ed78640be0d677a227452c79"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-09-16T20:06:22.941617649+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "049e327ebd487538e91000a6bf08e550e9763845"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-07T22:21:43.855605861+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "07d39c42d985bdb7cfa1ce040c9ad54062181dfb"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T12:14:35.967296002+00:00"
 
 [[resolution]]
 entry = "feat/ble-name-template"
@@ -105,99 +63,9 @@ recorded = "2026-10-10T02:13:14.651373163+00:00"
 
 [[resolution]]
 entry = "feat/ble-name-template"
-hash = "21a8e60b51f38d07a03564c05a7d8f01a347c843"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:13:14.651375542+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "21c0b038519284cb861272287fc2d935aafefc13"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:07:12.507437086+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "261a54074c9d937b302fd7c7da06408d3d640037"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-07T23:57:08.786193929+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "2cdebec52f5be332b805b5171c6c8d665545d617"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-08T12:14:35.967297896+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "3297a9680cfb138b6c11a936f3ed0c6d963180f3"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:01:34.430199945+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "3bcfedf01fbd4a535422d2e50cbd235c8055a906"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-07T23:57:08.786197004+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "5c353b11bbd49044c1188c5e911ac3624695db85"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:07:12.507439054+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "5fa01d41717729e48fceeaba0279a5a3a6630e48"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-07T22:21:43.855608636+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "6408e29fe6f742e5de05767930a175956a57168b"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T12:14:35.967298306+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "6dc3c37891dba90234d061cbdf4ec3031352d5ed"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-07T22:21:43.855609187+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
 hash = "72cee2aa48e4069319a51fae6859767b786c927c"
 paths = ["rmk-types/src/protocol/rynk/tests.rs"]
 recorded = "2026-08-07T22:21:43.855609658+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "7372f2a2823e23d31142358ec80944bc3753a201"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:19:18.485962321+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "76941204b9b996125a4e4d260a58c65b4b590f60"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-07T22:21:43.855610069+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "771f26af670b72743c826847de5aad8d1b71cdaa"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-22T19:06:09.460872129+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "77c0ba2e2ad9bb9e7ef5a163bacd880d3d3123e1"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:13:14.651375790+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "781cd057284b59af034dbc4e99894e595e56fea4"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:14:14.120159609+00:00"
 
 [[resolution]]
 entry = "feat/ble-name-template"
@@ -207,45 +75,9 @@ recorded = "2026-10-10T02:13:14.651375975+00:00"
 
 [[resolution]]
 entry = "feat/ble-name-template"
-hash = "84a428e2ec58617f1238e62fc0c518a80569d52b"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-08T19:18:51.159795779+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "85d20eabd7b3d45565ff0ce3e319eb663bec3c22"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T23:57:08.786197886+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "9117040c6fb896739878edf70be5c49f0f40f82d"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T22:21:43.855610359+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "97e60ef0f1c86c5ebbbeb4d8c81f12d346f00dae"
+hash = "8209d8a8948810b8a3ecbe9f75fec28d4d00209e"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T19:18:51.159797773+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "9faf157c60a5c473aa6962a34230a4202d2a3957"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T19:18:51.159798023+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "b37ba107c360c4b768897132cae8e45f6a13b22a"
-paths = ["rmk-types/src/protocol/rynk/tests.rs"]
-recorded = "2026-08-08T12:14:35.967298747+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "bdc3a01981905b4e113bc060518689222ed40084"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T12:14:35.967300380+00:00"
+recorded = "2026-11-16T10:55:14.514865343+00:00"
 
 [[resolution]]
 entry = "feat/ble-name-template"
@@ -255,39 +87,9 @@ recorded = "2026-10-22T19:06:09.460874193+00:00"
 
 [[resolution]]
 entry = "feat/ble-name-template"
-hash = "d45136d79bd693419f6057cffa7d9ad5f0fc30d2"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-18T09:19:18.485964034+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
 hash = "d727964388ecd77e205b67408cc819adf4101236"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-10-10T02:13:14.651376323+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "dab0b6a3c74e72c1c225d6c9b53e1b40fd33d239"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:07:12.507439224+00:00"
-
-[[resolution]]
-entry = "feat/ble-name-template"
-hash = "f653e2f4a8868ee616dc5f6a70e9879c7a738469"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T19:18:51.159798274+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
-hash = "16c2be8b47c829233a8631dfdf51294da25cdefd"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:31:46.034552993+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
-hash = "26b4a0bde9d59c2c9ecddfc300e62d18d32ea9ac"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-09-15T07:02:49.921886065+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
@@ -297,21 +99,9 @@ recorded = "2026-09-15T07:02:49.921887698+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
-hash = "38bcc2a45fadb4f42fa5f7272cb2286248752c8d"
-paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
-recorded = "2026-09-15T07:02:49.921887998+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
 hash = "4f308c8fdb0f5b4395842b32bcb5ae44edc9f47b"
 paths = ["rynk/src/api.rs"]
 recorded = "2026-09-15T07:02:49.921888289+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
-hash = "5c5012036fd2097e7e1c5506d6f60011ecdd5254"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-09-15T07:02:49.921888579+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
@@ -321,51 +111,21 @@ recorded = "2026-10-10T02:31:46.034554835+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
-hash = "889d3caf81b762a016cad45456dcbdb45e087a57"
-paths = ["rmk/src/keyboard.rs"]
-recorded = "2026-09-15T07:28:13.187836675+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
 hash = "94bc04fa7dcb652aeda2c15262a0f1a7e8760e22"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-09-15T07:02:49.921888770+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
-hash = "acec522f694fcb2a9a233316f097632f0db29e16"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-22T19:03:32.079893612+00:00"
+hash = "c036c22c09268d0555ea7d385d2cdfa8a55ee1ef"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:56:50.771597814+00:00"
 
 [[resolution]]
 entry = "feat/ble-profile-clear-api"
-hash = "cc13dce080e81dae6262f474030dedd501c04254"
+hash = "ef20aee0d9495eccae846a4144e88c69fdcc19cd"
 paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-15T07:02:49.921892246+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
-hash = "e01c01defbe9600b550aa72bd42a00b4a43ab30f"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-10T02:31:46.034555253+00:00"
-
-[[resolution]]
-entry = "feat/ble-profile-clear-api"
-hash = "e5035e00aa149bd674d65d22ef7cedd9373aa56d"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-22T19:10:06.519877433+00:00"
-
-[[resolution]]
-entry = "feat/combo-hold-output"
-hash = "abe16d48b427f477e581df0b767dd49d56dc7c11"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-05T15:53:01.664787136+00:00"
-
-[[resolution]]
-entry = "feat/combo-hold-output"
-hash = "be1f3ec3e099e631d230857ae2d76b03b2facbba"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T08:56:41.442769319+00:00"
+recorded = "2026-11-16T11:10:23.460385102+00:00"
 
 [[resolution]]
 entry = "feat/ctrl-gui-swap"
@@ -375,39 +135,9 @@ recorded = "2026-09-08T04:04:06.315291663+00:00"
 
 [[resolution]]
 entry = "feat/ctrl-gui-swap"
-hash = "2f44f4fba92bc24004123d5ad723589fc32ec7ff"
-paths = ["rmk/src/keyboard.rs"]
-recorded = "2026-09-07T20:34:09.478465584+00:00"
-
-[[resolution]]
-entry = "feat/ctrl-gui-swap"
-hash = "35814815acf46bdf2e4ce9e204da92321b8e265f"
-paths = ["rmk-types/src/action/keyboard.rs"]
-recorded = "2026-09-07T20:34:09.478470162+00:00"
-
-[[resolution]]
-entry = "feat/ctrl-gui-swap"
 hash = "5b7b563b63864b143ac4155b0de0aea57b7c96cb"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-10-22T19:08:09.661622607+00:00"
-
-[[resolution]]
-entry = "feat/ctrl-gui-swap"
-hash = "b91ddc40950e6e5a83964ec60dba756f3553fb3b"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-09-07T20:34:09.478470533+00:00"
-
-[[resolution]]
-entry = "feat/ctrl-gui-swap"
-hash = "be30774b15cbced7e06b49539ea6355f19b3ea36"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:27:39.678158720+00:00"
-
-[[resolution]]
-entry = "feat/ctrl-gui-swap"
-hash = "cb64fecd7248d56ca7e6c8198b8d1db4d6c32592"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:03:02.469728944+00:00"
 
 [[resolution]]
 entry = "feat/ctrl-gui-swap"
@@ -417,57 +147,9 @@ recorded = "2026-10-10T02:27:39.678160303+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
-hash = "05a63bf78e788357a801dde8bfe45b207548bace"
-paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
-recorded = "2026-10-10T02:19:37.303603795+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "1085de6362de94b32237a37c3363a14544a5b6b0"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:10:25.593807745+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "13ee9f5bd0546a315d04820e6fd8cd1ffb40ae47"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-11T20:02:16.238403677+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "1c8dddd7c1dbaba8028863ee9c257f9675a7cd04"
-paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
-recorded = "2026-08-11T20:02:16.238405801+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "2761cf44fc6bc931dfc7911d2f58c88a00ec0c0b"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-17T19:10:25.593810190+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "28ceb6a235cdf3515a899f63a8b3cbd087d9d010"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T04:09:57.157356492+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
 hash = "2dcde52e8c257d513a30876f9d1881048ebd457c"
 paths = ["rmk/src/host/rynk/handlers/system.rs"]
 recorded = "2026-10-22T19:07:45.419790484+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "359ae5ff233bc09f36e0739007a75c8ec2ec64bd"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-11T20:02:16.238406262+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "3906d6574c4d3c5bdd098579a1b1d5ce5be8dd95"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:10:25.593810483+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
@@ -477,51 +159,15 @@ recorded = "2026-10-22T19:07:45.419792698+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
-hash = "51202b8e247f6998f265032c0b554911797d4205"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:02:21.526446264+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
 hash = "51d63bd5386e54a737a9b6f86d33c8d4ac5da27b"
 paths = ["rynk/src/driver/tests.rs"]
 recorded = "2026-08-11T20:02:16.238406582+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
-hash = "6102e7d8d0048921e4d01ab25afa377dd73d8f9e"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:33:00.104923450+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "7a199d1b5133fc5e9df1475d9b833df6ea234d13"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T20:02:16.238406873+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "7a90ee2f95a56e9d96c535150ffd0aa5fc89ad87"
-paths = ["rmk-types/src/protocol/rynk/tests.rs"]
-recorded = "2026-08-11T20:02:16.238407173+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "7abd1490130f2b8b3b5f877a26ca7d5b0eb5129d"
+hash = "6a15b19a2e8c70eac08af61d07a053b48b87f74c"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-18T09:33:00.104925104+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "7d1109d7a82c819e050cf6c4a430187c2841787d"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:10:25.593810797+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "834557ccfaefcd50bbaaf4db881dbfd1815ff972"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T03:50:07.651503932+00:00"
+recorded = "2026-11-16T10:56:33.477980897+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
@@ -531,39 +177,9 @@ recorded = "2026-10-22T19:02:21.526463526+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
-hash = "998ab8b814737500ba724748095d8884cecdc1ca"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:23:06.164682980+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
 hash = "9d1f4eb67c8add9676a9b10e0225fc29116400e8"
 paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-10-22T19:02:21.526464027+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "9e46e0d4704b08bd710ae4ddd861c49af56bca79"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:19:37.303609630+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "a3eaf7cda4d9aa52da6e6be9defc866ac97496bc"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-11T20:02:16.238407364+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "a47a0ce0782c19f4f8a18b76eb4c822c0d532f4e"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:19:37.303610962+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "a5b332a9a51bea9ee77817b607b7db3845768ee2"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-08T03:50:07.651506857+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
@@ -579,57 +195,15 @@ recorded = "2026-08-18T09:33:00.104925384+00:00"
 
 [[resolution]]
 entry = "feat/device-data"
-hash = "bc9c1d70225143a27f3c60d259e0fdb937f9041a"
-paths = ["rmk/src/host/rynk/handlers/system.rs"]
-recorded = "2026-08-11T20:02:16.238407614+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
 hash = "ccd661bd9c5ce2657cc0f6f053b87184ec9e43d3"
 paths = ["rynk/src/api.rs"]
 recorded = "2026-10-10T02:19:37.303613497+00:00"
 
 [[resolution]]
-entry = "feat/device-data"
-hash = "d76f5e954f2943a359c41c1b70ff1b8861cb03ee"
+entry = "feat/lighting-layer-indicator-conditions"
+hash = "36a68a2401a93087db8fe36b2dba19bc16104e3c"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-11T20:02:16.238408005+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "d83d656e8626eaa3303bf5301144ae06b69d3e75"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-18T09:33:00.104925685+00:00"
-
-[[resolution]]
-entry = "feat/device-data"
-hash = "f320abc09f0dba79e8ccaf58bb60eb5dc4d4d7a6"
-paths = ["rmk/src/host/rynk/handlers/system.rs"]
-recorded = "2026-10-22T19:02:21.526464397+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "1809ec2127d4e57f2c48ff6c0a4312ccf1dc5d4d"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-08T04:01:03.958175186+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "45f3e80af0efe0b0ef6245014401f0ae2fa4c97f"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T04:01:03.958177501+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "4fc2da8ad84609e4a8310fa652438deaa4d77cc8"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-10-10T02:26:45.025511016+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "552e0709c01c961152c8c2f235d8046457775970"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-08T04:01:03.958177961+00:00"
+recorded = "2026-11-16T10:56:42.638219375+00:00"
 
 [[resolution]]
 entry = "feat/lighting-layer-indicator-conditions"
@@ -639,63 +213,15 @@ recorded = "2026-10-22T19:02:55.204708767+00:00"
 
 [[resolution]]
 entry = "feat/lighting-layer-indicator-conditions"
-hash = "693d627ded69e17f61db87af1ca27a4e836aad6d"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-08T04:01:03.958178242+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
 hash = "7240a148c3c9654c54b87452f3800fbcfe4f5dfb"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-10-10T02:26:45.025514115+00:00"
 
 [[resolution]]
 entry = "feat/lighting-layer-indicator-conditions"
-hash = "73cb09870288b756c51d1a65564b7b8b1bd5c2eb"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-07T20:28:59.560935674+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "7c68201083044a8aac0d6e7874056d9fd49cc26e"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T20:28:59.560938510+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "7f70ce8284e18f307193a6e557a3cd9907210351"
+hash = "7c34c448a4751f4862fd9554d8e03c8620ab48c4"
 paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-22T19:02:55.204710791+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "858282e5dd77a9e840b4b4d63ffb8e3ea0b20f39"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-08T06:05:25.314242526+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "b56a47a7e2bf949807445a56e117314f0157c07f"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-08T08:00:29.500903741+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "b6f7a3f2a2353f087eb2593662ca7a9feb4c6be0"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-07T20:30:15.599453548+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "ba1125ed1eda3e599323e4f08aff7ce4a0e15424"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-10T02:26:45.025515004+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "d0e1cbf801d0d1fc887ae3c012e26074f025591b"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-07T20:28:59.560939021+00:00"
+recorded = "2026-11-16T11:10:15.650860542+00:00"
 
 [[resolution]]
 entry = "feat/lighting-layer-indicator-conditions"
@@ -704,40 +230,10 @@ paths = ["rynk/src/api.rs"]
 recorded = "2026-10-10T02:26:45.025515502+00:00"
 
 [[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "e42bd37e309a3d98cdc18234f0ef366c45d2615f"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-07T20:28:59.560939271+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "e666fc6df67fc7eca516c68ce523a7bdcfaf8fe5"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T04:03:56.680280269+00:00"
-
-[[resolution]]
-entry = "feat/lighting-layer-indicator-conditions"
-hash = "f88e02dea60246e2608b878bd0a74af965a68eb5"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-22T19:09:55.712362469+00:00"
-
-[[resolution]]
-entry = "feat/lighting-rules"
-hash = "0c7015ac459bc273dc4b1889126e6c9f57c03594"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-15T02:11:40.941411766+00:00"
-
-[[resolution]]
 entry = "feat/lighting-rules"
 hash = "22d4df8d086133cf5c88e04c8c1d82a5b154b44c"
 paths = ["rynk/src/api.rs"]
 recorded = "2026-10-10T02:28:58.367215866+00:00"
-
-[[resolution]]
-entry = "feat/lighting-rules"
-hash = "44349387d50004eb159361daa3d6ba079c2c16b9"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-15T02:11:40.941413420+00:00"
 
 [[resolution]]
 entry = "feat/lighting-rules"
@@ -759,33 +255,9 @@ recorded = "2026-09-15T02:11:40.941414351+00:00"
 
 [[resolution]]
 entry = "feat/lighting-rules"
-hash = "709d8a351659fec70f6dc7ecf89e3f907940883b"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-10-10T02:28:58.367217973+00:00"
-
-[[resolution]]
-entry = "feat/lighting-rules"
-hash = "73e05819022959f9b85427c52e57397582d14142"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-15T03:15:28.695171070+00:00"
-
-[[resolution]]
-entry = "feat/lighting-rules"
-hash = "7e4a03a060dc3f5d1fe3a9ae4d04d0684d6e67aa"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-15T02:11:40.941414562+00:00"
-
-[[resolution]]
-entry = "feat/lighting-rules"
 hash = "a49de7cf4425d55d5aed3694fccf2caddf4b0043"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
 recorded = "2026-09-15T02:11:40.941414862+00:00"
-
-[[resolution]]
-entry = "feat/lighting-rules"
-hash = "bb923eb3eb1b4aeb34874a5bc80d988dbd0b161d"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-15T03:22:01.906753666+00:00"
 
 [[resolution]]
 entry = "feat/lighting-rules"
@@ -795,99 +267,15 @@ recorded = "2026-10-10T02:28:58.367218258+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
-hash = "03db6fecebc57eecba8c562ea7d973e80b958e35"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-07T20:14:44.100426358+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "086ea8f30a1f324d8eb1a0801e11134e151a601a"
+hash = "1a599574b81c83bcf61b3fb66be8fcdec41bd7ac"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T19:17:12.699086599+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "0ac503f5dc43cc4441969c3586c2d767985e5ac9"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T19:17:12.699088141+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "1a9aceeba331ecf9ebd3a715c49d0e38fe099fda"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-08T19:17:12.699088522+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "1e2700e10cc23f7fc9e197b1255ca8a0bde2e291"
-paths = ["rmk/src/host/rynk/handlers/system.rs"]
-recorded = "2026-08-07T01:06:45.896127913+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "25fbc126ba05c564697d76681a9666cdd855fd72"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-07T01:06:45.896130157+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "2d0a3aa1b8ac616f5c557b1732668d7019e32d54"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:09:44.871178062+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "2f8420dacfed5ccf8ad303f17deca6f5bcdf06df"
-paths = ["rmk-config/src/resolved/host.rs"]
-recorded = "2026-08-07T01:06:45.896130528+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "34acb28a4b31f755443fefe5db68c2bd5f629fb8"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T01:06:45.896130839+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "36c951c976b68725fba7d927bf3602d49cdfeb69"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:09:44.871179679+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "373c8c6021b27dc0f060f047fd7998b1d1effa69"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-07T01:06:45.896131239+00:00"
+recorded = "2026-11-16T11:09:56.145421710+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
 hash = "3a8b01da6778279a16d61d2a9dcc690d26082145"
 paths = ["rmk-types/src/action/keyboard.rs"]
 recorded = "2026-09-07T23:55:19.688188122+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "3e46c2451544a049d406777a2c719854cbb6f970"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-07T01:06:45.896131600+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "4075f28a0f7afc7a2f315d784248d1151dcb78c6"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-08T12:10:58.075211845+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "4613ec1bbe5af114376df7e63196cf33a7bfe16e"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-10-22T19:01:29.458761493+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "55079e889bd93e351b6d7c29089c9d4f017d402b"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:06:21.278911173+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
@@ -906,12 +294,6 @@ entry = "feat/maintenance-mode"
 hash = "5e026d4ac94c59bde04772fa9ee7998b91a10414"
 paths = ["rynk/src/api.rs"]
 recorded = "2026-10-10T02:09:44.871180150+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "64324ad9bbed3188eba29d71925a9f723e6857b8"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-07T01:06:45.896132251+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
@@ -939,57 +321,21 @@ recorded = "2026-08-07T02:01:38.174049870+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
-hash = "6daa287bc26b0a8fc90c1cb834247b646b6e8929"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:06:21.278913474+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "745fc83f27699094b22d601139c2da61401b761d"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-07T23:55:19.688190016+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "85440d25fbbde25144919e544010e80c98735cbb"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-07T20:14:44.100428131+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
 hash = "8611aefee6faa28a60ec2b46d1436293a136fb8d"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-10-10T02:09:44.871180524+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
-hash = "86bfaa39b8aa4946dc781fb44d6daa023cda53ba"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:06:21.278914026+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "8a2bef087e71af1ad4b4b77abc3b3e80a097a0c3"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T20:14:44.100428622+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "8a6d7a9e94daf9a8d4e9506b53780f2fc448ab8d"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:15:50.099394101+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "90f8a70dcc2458b1803a38f9870cffd03b66d444"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:13:47.759025702+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
 hash = "96254faffd7e69dbb440035d8d6eafb30e39594f"
 paths = ["rmk-config/src/resolved/build_constants.rs"]
 recorded = "2026-08-07T01:06:45.896132853+00:00"
+
+[[resolution]]
+entry = "feat/maintenance-mode"
+hash = "96624384e89d49b8a0ec6d3f71a133c08e8cb618"
+paths = ["rmk/src/host/rynk/mod.rs"]
+recorded = "2026-11-16T11:09:56.145423454+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
@@ -1011,45 +357,9 @@ recorded = "2026-08-07T01:06:45.896133864+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
-hash = "c11b3785caf1b4179ab1f5ccd22c5544fe1b935f"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T12:10:58.075213718+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "c855e2e47fab97a6bb4691d090b39cda2d196e1a"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T01:30:07.207460230+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "c8843591ac0907d27acfbb385de1cbfd26caa4bb"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T12:10:58.075214019+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "d0fd5eb81bd83f2d9b154404d7b532e151e5d7a9"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-08T12:10:58.075214309+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "d518f853a38cc8a10559529a8cbe8797b59dcc77"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T19:17:12.699090245+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
 hash = "d686d7144b35d480305cc1e5eb3337290da50c91"
 paths = ["rmk-config/src/default_config/event_default.toml"]
 recorded = "2026-08-07T01:06:45.896134155+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "d77f23abb5b2ea0e32e78d7e26f4d1754fd9bfa5"
-paths = ["rmk-types/src/action/keyboard.rs"]
-recorded = "2026-08-07T01:06:45.896134415+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
@@ -1059,39 +369,9 @@ recorded = "2026-08-07T01:06:45.896134656+00:00"
 
 [[resolution]]
 entry = "feat/maintenance-mode"
-hash = "df18c33dfbeee495a6a0542193aa7e5d7ae06fa5"
-paths = ["rmk/src/event/mod.rs"]
-recorded = "2026-08-07T01:06:45.896134936+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
 hash = "df77f70803d54ed03b665a6d1fc3d6bf2aeb895f"
 paths = ["rmk-macro/src/codegen/keyboard_config.rs"]
 recorded = "2026-08-07T01:06:45.896135317+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "f12e69fd15c30001e2d2cc7b959bba3400e0d789"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T12:10:58.075214540+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "f24b6e19ec56d3cab40222b94dcdee8f1d218626"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-07T01:30:07.207462063+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "fd2b2b1e203a9a2a782bee77cf638d3cd23d7299"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-17T19:06:21.278914449+00:00"
-
-[[resolution]]
-entry = "feat/maintenance-mode"
-hash = "ff816c961ec991d11756828c5bde6b24b9564ff0"
-paths = ["rmk-config/src/lib.rs"]
-recorded = "2026-08-07T01:06:45.896135568+00:00"
 
 [[resolution]]
 entry = "feat/morse-default-permissive-hold"
@@ -1113,9 +393,9 @@ recorded = "2026-08-05T09:48:21.226888993+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-on-release"
-hash = "3bd0d826d0def97ae45e95bed5624e94c62cea7d"
-paths = ["rmk/src/keyboard/morse.rs"]
-recorded = "2026-08-05T09:48:21.226891487+00:00"
+hash = "6a3cebae588b31ff88a295a118c84969c5693e90"
+paths = ["rmk-config/src/behavior.rs"]
+recorded = "2026-11-16T10:51:49.860633134+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-on-release"
@@ -1131,27 +411,15 @@ recorded = "2026-08-08T06:51:15.178385347+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-on-release"
+hash = "a5f4751f095eff23302524214e953e57fb6e3639"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:51:49.860635137+00:00"
+
+[[resolution]]
+entry = "feat/morse-hold-trigger-on-release"
 hash = "b5a57c365eb6baade0b4c2e618fd339dcac7be3e"
 paths = ["rmk/src/keyboard.rs"]
 recorded = "2026-10-22T18:56:30.765974787+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "0079240228a0343132f9594c8810d013595e06db"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T11:58:30.762531066+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "0d7f522eda4f44f32bbe4ddce097f01472de8d23"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-08T11:58:30.762532729+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "0d95aa07487e9bca982610154775ef5ac6717864"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T11:58:30.762533050+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
@@ -1161,21 +429,9 @@ recorded = "2026-10-09T07:12:26.833198167+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
-hash = "13bf19fb4f83db553ba83c6aad9d8ec58128a4c0"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T11:58:30.762533360+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
 hash = "13c7818e7f40aa5dddb1a2aeb6af0ddae31e13b3"
 paths = ["rmk-config/src/resolved/behavior.rs"]
 recorded = "2026-08-05T09:43:23.694012358+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "16d13eb659d2c317dbdb8717c9710a190cc8b4d3"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T23:46:48.209763662+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
@@ -1185,27 +441,15 @@ recorded = "2026-08-18T09:01:22.292560829+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
-hash = "17a384d83ac08791debfa4aa23ad302c584e5195"
-paths = ["rmk/src/config/behavior.rs"]
-recorded = "2026-08-05T15:53:36.021937119+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "2d5237a51e4c179d53542f13ff9c3f04e12f6696"
-paths = ["rmk/src/keymap.rs"]
-recorded = "2026-08-05T15:53:36.021939073+00:00"
+hash = "1e84fd5c4dd8a4aff9fc5bf37004cb6cc178914f"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:51:33.732980443+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
 hash = "2fa73a7e21eb988557bfc02ff5c62116affbfeed"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-10-09T07:12:26.833202753+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "361bd82b4a1fe68cb57d52c41baa27600fbba15e"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:12:07.832234208+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
@@ -1218,12 +462,6 @@ entry = "feat/morse-hold-trigger-positions"
 hash = "449cdda205197ee874fdb1ad8b5a1e0b9a8fcfe9"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-10-09T07:12:26.833203166+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "5c36805ac9f930e073cb73d6f2b6a6d46ad6c045"
-paths = ["rmk/src/config/mod.rs"]
-recorded = "2026-08-05T15:53:36.021939484+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
@@ -1257,12 +495,6 @@ recorded = "2026-10-22T18:56:17.359183882+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
-hash = "a10f05af70dd66bc0498189a612184ea224fd5df"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:01:22.292562773+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
 hash = "aad388f11f9ffbe2ced74c840844f6720fdc3326"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-10-09T07:12:26.833205621+00:00"
@@ -1275,51 +507,15 @@ recorded = "2026-10-09T07:12:26.833205862+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
-hash = "b6fc87403d6740a123b04a6f0fab0b3ce2aa77d0"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-08-08T11:58:30.762533901+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "d3491817567220e4c28ab128e55113e340d19259"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-09T07:12:26.833206183+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "df5540291864d0c8a0190c7a9c9582dec08db2a8"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-08T11:58:30.762534212+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "e0dc01e29a7fc00eb5f7a3294872740f44fe444a"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-08T11:58:30.762534552+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "e47d870242bdb2b2e77b2e97fb9005058db29adc"
-paths = ["rmk-config/src/lib.rs"]
-recorded = "2026-08-05T09:43:23.694015103+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
-hash = "e489de37e1024d3dcec35016044e6f2c8687f4f7"
-paths = ["rmk/src/keyboard/morse.rs"]
-recorded = "2026-08-05T09:43:23.694015444+00:00"
-
-[[resolution]]
-entry = "feat/morse-hold-trigger-positions"
 hash = "f646652829475ac4b68b8022c0b336f9320ff879"
 paths = ["rmk/src/keyboard/morse.rs"]
 recorded = "2026-10-22T18:56:17.359190384+00:00"
 
 [[resolution]]
 entry = "feat/morse-hold-trigger-positions"
-hash = "fe6952d1e08b018db2473a1583f71e6c1105e163"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-08T11:58:30.762534853+00:00"
+hash = "f93b000df07101eeb0ba41267269d131f9562e78"
+paths = ["rmk-config/src/behavior.rs"]
+recorded = "2026-11-16T10:51:33.732982257+00:00"
 
 [[resolution]]
 entry = "feat/morse-per-profile-prior-idle"
@@ -1371,27 +567,9 @@ recorded = "2026-10-22T19:02:11.890678999+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
-hash = "0ec0f7d1a975d718dee7233daefbc0bfd0979d9a"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-08-18T09:30:19.211709383+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
 hash = "27b5dfe79000752981392ba5cd5e399342f4c944"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
 recorded = "2026-10-10T02:17:54.177213922+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "4013afe55dd8a9a385cd06309233a04047c33825"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-20T08:51:36.810608973+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "43561e715f5bcd28f762c5947304290f69adb6ea"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-08-11T02:58:26.460742233+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
@@ -1401,69 +579,15 @@ recorded = "2026-08-18T09:30:19.211711386+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
-hash = "52e715e06983f3f3bd78bae93b09d012296a37ce"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:17:54.177215838+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "6454a8a2082763b971bf21dcafa05abdd1bc96cc"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-18T09:30:19.211711707+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "8a684ac2fe5805b3726d1c4904bf4d5fef6b49ea"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:17:54.177216219+00:00"
+hash = "7c0498923c6fd0ceadd9015cdad8b0888a36ef27"
+paths = ["rmk/src/split/ble/central.rs"]
+recorded = "2026-11-16T10:56:29.708225206+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
 hash = "8e53fc76746599ab81c11815781ab6ecf12e0e83"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
 recorded = "2026-10-22T19:07:34.773347452+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "8fbc99abfd317a0a35125921216fdad9ab2ea9df"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-10-10T02:17:54.177216444+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "9828e841d6620b597ffeaf209ed92f01223bf8d0"
-paths = ["rmk/src/split/driver.rs"]
-recorded = "2026-08-20T08:51:36.810610606+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "9ee7a9a95cbc682e4db2f7f4a03920d412610e5d"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:02:11.890681093+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "a18f2e9dc921781b87146e0d047b1ef0580afb1b"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-18T09:30:19.211711988+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "aa05bac20ae3dc5f324c9004fdeed728ece7c62c"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-11T02:58:26.460745009+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "aaa38766e0b89688ac0a7cad1c877d454e1e3c3d"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-09-08T03:27:51.413128357+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "af5e1b154503a17b28446a1b1efde25588912f5b"
-paths = ["rmk/src/split/driver.rs"]
-recorded = "2026-09-08T03:27:51.413130340+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
@@ -1479,27 +603,9 @@ recorded = "2026-08-18T09:30:19.211712248+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
-hash = "b3dda73005624ced463e75d6e7bd193ba2d27062"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-08T03:27:51.413131012+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "bc32686773425bdbb5c4d26ac089c030cdbb0334"
-paths = ["rmk/src/split/ble/central.rs"]
-recorded = "2026-08-18T09:30:19.211712599+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "c0cfbd68c2bac0c67fa08e6c8640dd830d1c5b26"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-09-08T03:27:51.413131232+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "cf5b11a6a31160511f95d86dd5efda4b4acaf6fc"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-18T09:30:19.211712819+00:00"
+hash = "d17203840f77423aac5ea4531f6546c13a49a6ac"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:56:29.708227100+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
@@ -1509,27 +615,9 @@ recorded = "2026-10-10T02:17:54.177216649+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
-hash = "d492f003bd09ec56d1f39ac8ff5d7677cc01656f"
-paths = ["rmk/src/split/driver.rs"]
-recorded = "2026-08-18T09:30:19.211713030+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
 hash = "d4e443eece99bb1583e7a553fe3c0517771059df"
 paths = ["rmk-types/src/protocol/rynk/tests.rs"]
 recorded = "2026-10-10T02:17:54.177217040+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "d7a0f29c04463fa818053c7953a14fa8af44da95"
-paths = ["rmk/src/split/ble/central.rs"]
-recorded = "2026-09-08T03:27:51.413134458+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "db238bbb67a5640435ba7ec126b24a7ef08ccb87"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-18T09:30:19.211713330+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
@@ -1539,39 +627,15 @@ recorded = "2026-10-10T02:17:54.177217210+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
+hash = "e176d2ab336fe5b7a4559425c0402065fea3cf00"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-11-16T10:56:29.708227981+00:00"
+
+[[resolution]]
+entry = "feat/nrf-half-duplex-split"
 hash = "ed0b42dd422b962986c0e1abc219b64394c7bf4a"
 paths = ["rmk-types/src/protocol/rynk/payload/mod.rs"]
 recorded = "2026-08-18T09:30:19.211713621+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "06a8cec86d290a1632c2e5de8057c49b3e527711"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-18T09:35:17.847664883+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "07d90bf2d479e7a023aa4ac75271882526c206b9"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-17T19:11:46.229519570+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "0be0b8ad58ba9a3628194a7a4e56f62def3c23b4"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-10-10T02:22:16.039880988+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "17d100df383db12425096a159e159b5597c221d0"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-12T22:16:33.666800305+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "22baf9d0aa4e859a742f62b6d9f23859d6acbd8c"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-18T09:35:17.847666486+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
@@ -1581,51 +645,21 @@ recorded = "2026-10-22T19:02:29.479340072+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
-hash = "3c2fd1727b68a7406f0e7e0af50ec2cfb804fe70"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-08T03:53:54.921863042+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
 hash = "3f13e976aeaf42269bbd07a05a5b8848d8580797"
 paths = ["rmk-macro/src/codegen/orchestrator.rs"]
 recorded = "2026-10-10T02:22:16.039888028+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
-hash = "4bccfeaf8474b97221cd76443f448a3d2703b3d6"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T04:10:12.149692300+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "5253e89ef2c9641d4a4df9657be0f4fcd94a560a"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-08T03:53:54.921865386+00:00"
+hash = "3f810370a99cd21e555f27727100fa8fc314f923"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:56:35.302998073+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
 hash = "57b5277a6a43ab695e6b1d9a9751eb7cedc5148c"
 paths = ["rmk-types/src/protocol/rynk/tests.rs"]
 recorded = "2026-10-10T02:22:16.039888819+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "58f8921927c1d59bd90f6049123c1f7ae9c30263"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-12T22:16:33.666802770+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "5b1ba50ed5f6e3a583a2bbf18d89a3f034e8ed5b"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-17T19:11:46.229523267+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "5f0f88cf113ea8025faa8c08c097663e2bd9c282"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-12T22:16:33.666802980+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
@@ -1647,75 +681,9 @@ recorded = "2026-08-18T09:35:17.847666827+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
-hash = "8860aad2ac07e395234f820953d6ebb789a2c461"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:02:29.479342356+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "8e1f79c473297a6d91ba56fbe51238a05333a83e"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:22:16.039889861+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "930c55d3c8f054d7e0ea6bce8cfb7b9cedecb2ea"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
-recorded = "2026-08-12T22:16:33.666803411+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "94882e3a95b5e4bc13c620f967ce760b35e7540a"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:11:46.229523789+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "96b2594f48a2b9bf4b1bfb60cbb7fd7eb2da3c36"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-12T22:16:33.666803661+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "97dd30da649a82bfd75b574d9c913fb86b10ef66"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-18T09:35:17.847667097+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "a249db561de11d75f8ef9b32fb440977ef7df1d0"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-09-08T03:53:54.921865807+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "a331ff673075c25e25baa4ebccc1d2e8d48d149c"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T04:03:43.447286775+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
 hash = "a998b77c91d8504ba4e860d163780718c8f49663"
 paths = ["rynk/rynk-wasm/src/client.rs"]
 recorded = "2026-10-10T02:22:16.039896597+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "ae495a14909b44a19363288596ef4feca3add5fd"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-12T22:16:33.666804152+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "be415d3b4d8fe301e5743b9a6d0b6512a945a958"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-12T22:16:33.666804403+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "c0e6d2c0edf8964a8ea36159a7c7692bdd36380d"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:35:17.847667448+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
@@ -1725,87 +693,15 @@ recorded = "2026-10-22T19:08:09.073955543+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
-hash = "df8c6f94dca391a8f2ece4ee6940ea9c5094ce4c"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:11:46.229524265+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "dfcd1287a6a2bb2f2e16dbd7989e82eadc65a76d"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:11:46.229526042+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
 hash = "ee9cec5fbf104b8c642d989df491fd271f7abee2"
 paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-10-22T19:02:29.479342857+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
-hash = "f0372eb145291fa413804ece4fabd1401409eefe"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:22:16.039897071+00:00"
 
 [[resolution]]
 entry = "feat/pointing-drag-mode"
 hash = "009a7c8546ac20732d2a04c5622bc04311cca3d2"
 paths = ["rmk/src/input_device/pointing.rs"]
 recorded = "2026-10-22T18:57:05.682617536+00:00"
-
-[[resolution]]
-entry = "feat/pointing-runtime-config"
-hash = "1019e6769ece248332673068d752dda8bc55e1f7"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-06T21:04:08.652704684+00:00"
-
-[[resolution]]
-entry = "feat/pointing-runtime-config"
-hash = "36d6b8f8ecb8a48a76d910064981b8ed371dec66"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-06T21:04:08.652706588+00:00"
-
-[[resolution]]
-entry = "feat/pointing-runtime-config"
-hash = "a2c5d46269fe5877ec60b4b90022b5aeed98f987"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-06T21:18:21.738512855+00:00"
-
-[[resolution]]
-entry = "feat/pointing-runtime-config"
-hash = "b4fc6fb1ab5f6f1be72d47420e97eac5388be1e7"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-06T21:04:08.652707119+00:00"
-
-[[resolution]]
-entry = "feat/pointing-runtime-config"
-hash = "ea6afea7daacc97bdac75fceb333411aea4918df"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-06T21:11:17.766407982+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "0d8147527677eba449e4651853352fd1baf8f60a"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-09T22:57:55.078092504+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "1977b750374b97b2a75647c65c74875525e32583"
-paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
-recorded = "2026-08-09T22:57:55.078094377+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "2a365c06bb3ce002c9655da79a9dba74297720b2"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:08:39.779422741+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "39846c3e8a6495a6688f9f6dc885bd01578c9242"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:08:39.779424981+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
@@ -1827,99 +723,9 @@ recorded = "2026-10-10T02:15:39.165252603+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
-hash = "57680ce3e761e24b96f5413af33f0cc2f0e0c009"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:23:20.065319246+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "5ac9efcd40137a977d98ab6702b511ed162fab0a"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-09T22:57:55.078094848+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "5ce7b24176e0d76181a7b56f765dbfaa9181e882"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:08:39.779425441+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "601c64a9137be4c647a62b35db59b9f5a9086e4a"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-09-08T03:25:03.723450141+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "65e0c2155a36f1a69c7780229ac12a7ae5308fc3"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:14:48.886360894+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "664933f7318759501fa039090fc5eeca66621370"
-paths = ["rmk/src/host/storage.rs"]
-recorded = "2026-08-09T22:57:55.078095149+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "664fbeab2efae3b7be322275436c56d243fbe1bc"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-09T22:57:55.078095419+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "7ff10354ad0d0b28f67b7ace174c1b87c3d2564c"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-08T03:25:03.723452856+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "8713d252e296d382b1e1da0927ce5d45cf3c9726"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-10T07:05:40.808525727+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "97b7a6a6e0bef293377e2e2c48321e3d1e42ef9d"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-09T22:57:55.078095810+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "99284fdaa1f88a4aafd416210d40575decb919a2"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-17T19:08:39.779425870+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "9cdc873293a7aee7c7cef271c19a007511559867"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:15:39.165253995+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "a553be936cdf7396caf57449583f26ea9699752b"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-09-08T03:25:03.723453127+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
 hash = "a60c173cb2783f42932efd8e186b0423ffe9aa2e"
 paths = ["rmk-macro/src/codegen/behavior.rs"]
 recorded = "2026-08-09T22:57:55.078096040+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "aaeb0e9180cb94130aabb90cbeb00c9251b1ad3e"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-09T22:57:55.078096281+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "b154128af03a3224a03e959a982a750ac70b627c"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:15:39.165254732+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
@@ -1935,9 +741,9 @@ recorded = "2026-10-10T02:15:39.165255878+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
-hash = "cb069fcbaa341ae7fc99c96ce2fc739c854b4e62"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-09T22:57:55.078096571+00:00"
+hash = "c74045b342ab994864dab670453f4db2544bf3e1"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:55:44.192720499+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
@@ -1947,63 +753,9 @@ recorded = "2026-08-09T22:57:55.078096812+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
-hash = "d66f4ed6101d2e7eb12dcf8e533e1eaf92a16136"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-09T22:57:55.078097142+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
 hash = "d7d2ded5d04a4b376f88c7e6764799188fd46d35"
 paths = ["rmk/tests/scenarios/combo.toml"]
 recorded = "2026-10-10T02:15:39.165256790+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "d876d9e0c0e5cd55804d9ce0bbf0b0d1332c9010"
-paths = ["rmk/src/host/storage.rs"]
-recorded = "2026-09-08T03:25:03.723453848+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "f1f957b7523ffb007fe737608bb872b619655663"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-17T19:08:39.779426269+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "f304cfd2a822f4f7f9bb4cedec04a21806de378e"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:02:00.439859697+00:00"
-
-[[resolution]]
-entry = "feat/single-pass-storage-read"
-hash = "45bb064485ff1fc0ae4dd79fbf31d4471b8436c6"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-05T15:52:38.662089025+00:00"
-
-[[resolution]]
-entry = "feat/single-pass-storage-read"
-hash = "636026e97da5290de55f9755de7b34f9e644250a"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T23:45:26.574151678+00:00"
-
-[[resolution]]
-entry = "feat/single-pass-storage-read"
-hash = "762ca3fd9b4b87aa96e28b1dd4435b39781f4ebd"
-paths = ["rmk/src/split/ble/central.rs"]
-recorded = "2026-08-05T15:52:38.662091129+00:00"
-
-[[resolution]]
-entry = "fix/ephemeral-split-layer-state"
-hash = "1478c16f9f49a57ed442b5f0cb860070b28555e3"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-08T02:46:57.393762143+00:00"
-
-[[resolution]]
-entry = "fix/ephemeral-split-layer-state"
-hash = "55c5681cf6b5816be2d6d984ccfe8d602c626851"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-08T02:07:39.683648338+00:00"
 
 [[resolution]]
 entry = "fix/ephemeral-split-layer-state"
@@ -2015,19 +767,7 @@ recorded = "2026-10-10T02:13:54.117834492+00:00"
 entry = "fix/ephemeral-split-layer-state"
 hash = "8ad1044121e92610b06fed694a1a977683820b38"
 paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-10-10T02:13:54.117839158+00:00"
-
-[[resolution]]
-entry = "fix/ephemeral-split-layer-state"
-hash = "965b55de9ed346a4af923db92dfaf791f5d493d9"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-09-07T23:57:47.205533+00:00"
-
-[[resolution]]
-entry = "fix/ephemeral-split-layer-state"
-hash = "9c8586fabc5d27f14c58584cc3855a9d5380c724"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-20T08:49:06.405573255+00:00"
+recorded = "2026-11-16T10:55:35.318271307+00:00"
 
 [[resolution]]
 entry = "fix/ephemeral-split-layer-state"
@@ -2036,28 +776,10 @@ paths = ["rmk/src/keymap.rs"]
 recorded = "2026-09-07T23:57:47.205538461+00:00"
 
 [[resolution]]
-entry = "fix/ephemeral-split-layer-state"
-hash = "f381175cb7e0aa51242449cdf4e0eb6ee01674ca"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-08-10T06:57:47.870782791+00:00"
-
-[[resolution]]
-entry = "fix/ephemeral-split-layer-state"
-hash = "f747d7cf62977d2df1d34211ea8b9c2a82b54f84"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-08-08T02:07:39.683650282+00:00"
-
-[[resolution]]
 entry = "fix/pointing-mode-event-priority"
 hash = "13884220c00f10b6426837c719fa87747ab0b3c4"
 paths = ["rmk/src/input_device/pointing.rs"]
 recorded = "2026-09-08T03:57:15.890438390+00:00"
-
-[[resolution]]
-entry = "fix/pointing-mode-event-priority"
-hash = "c6323925a146d9a6148ee4e500366f646975269d"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-08-18T19:58:27.350804557+00:00"
 
 [[resolution]]
 entry = "fix/rynk-flash-backpressure"
@@ -2067,45 +789,15 @@ recorded = "2026-09-14T09:29:43.283129030+00:00"
 
 [[resolution]]
 entry = "fix/rynk-flash-backpressure"
-hash = "8a8f15cdbff4c39c643f5598e32a33406e21dc02"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-09-14T09:29:43.283130833+00:00"
-
-[[resolution]]
-entry = "fix/rynk-flash-backpressure"
 hash = "c4b78c90ec18d804d760df40a6bce906010a6f3b"
 paths = ["rmk/src/host/context.rs"]
 recorded = "2026-10-10T02:28:38.462444267+00:00"
-
-[[resolution]]
-entry = "fix/storage-sparse-keymap-init"
-hash = "6eacd4c1d82d4e3c73426bcb10bafa74a908490f"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-14T09:30:31.764168588+00:00"
-
-[[resolution]]
-entry = "fold/lighting-rynk"
-hash = "3826c0850f4ce7d53799efadc16483db4bf6e039"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-05T08:06:30.042539671+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
-hash = "26e054424c2d130ff07d1b6c9cefeaee778ec433"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-09T05:53:43.512749535+00:00"
 
 [[resolution]]
 entry = "fold/opposite-hand-hold"
 hash = "2a4b3338553efab4d0103d176241b0edea04eaa6"
 paths = ["rmk-config/src/resolved/behavior.rs"]
 recorded = "2026-08-09T05:53:43.512751188+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
-hash = "37e1dbca0ade8677bca6ea8f06425a593ff1f2ad"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:21:52.171430724+00:00"
 
 [[resolution]]
 entry = "fold/opposite-hand-hold"
@@ -2127,36 +819,6 @@ recorded = "2026-08-09T05:53:43.512752049+00:00"
 
 [[resolution]]
 entry = "fold/opposite-hand-hold"
-hash = "8922311db28dce638f78cde360b7f086b2b69eaa"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-22T19:01:43.161666936+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
-hash = "8947c79dbb717293ffb4f3e4993e4ca612a7e2ed"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:14:32.909134993+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
-hash = "8f151f1c6f657789b5a9f57c9703317c0051a9a4"
-paths = ["rmk-config/src/lib.rs"]
-recorded = "2026-08-09T05:53:43.512752420+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
-hash = "b56f7f6567e434b343f8c2ff726a7d56e7172732"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:07:44.238552020+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
-hash = "d7f65e76e0f482472b2a32acbf34c67ad8353cf3"
-paths = ["rmk/src/keyboard/morse.rs"]
-recorded = "2026-08-09T05:53:43.512752791+00:00"
-
-[[resolution]]
-entry = "fold/opposite-hand-hold"
 hash = "e45ae7dca5ca4aa95deef0168b332bce0cd30dde"
 paths = ["rmk-config/src/lib.rs"]
 recorded = "2026-08-10T15:52:09.125626985+00:00"
@@ -2175,129 +837,15 @@ recorded = "2026-10-22T19:06:16.488058143+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
-hash = "0016205540f43ed79006f6eec4949c937cda1397"
-paths = ["rmk/src/keymap.rs"]
-recorded = "2026-09-07T23:51:09.815318150+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "0ae52f4a522bb6342d65472b9edbb9c9786c8b89"
-paths = ["rmk/src/keyboard/auto_mouse_layer.rs"]
-recorded = "2026-08-07T20:07:26.192849504+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "22c8a72ff819f7f1768abe1873feadf6508443b4"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T23:51:09.815320445+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "24ee0bd11a227ad299c332c73ba5be76554bd786"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-10-10T02:05:20.006017013+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "3b7be1c9d67b94719d666fe7ec85073e9f8c12a8"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T20:07:26.192851758+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "3e107758d7a3739c0d32a8783688c73fa5ed967e"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:12:30.752492061+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "4c77bc947a64804eb9aa959607f7c7dfe10308cd"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
-recorded = "2026-08-17T19:03:26.512796560+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "4cd331dc6a0d475a2b2c173e186c5c3cc1658125"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-09-07T23:51:09.815320876+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "56eb3bd485c9a94612b461d5d4a28837d9464f90"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:03:26.512798251+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "5a874edeff745e4c6c8f828a7ce9b53cbdd240e5"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:07:26.951981927+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "614a10cc8c77373c6d2762ac0cba6e9ec1f3d4dc"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-08-17T19:03:26.512798602+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "666fe985fd1856450c15e66ea3f1a6a8283c9bf5"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-08T12:00:25.314742070+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "6b8eecfaa447479c1b0de47f547f910282dff10e"
-paths = ["rmk/src/input_device/adc/nrf.rs"]
-recorded = "2026-08-07T20:07:26.192852350+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "785a9482fcbb89de5951a2dd6385dabb53bfffd0"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-08-16T04:42:51.805316547+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "78d16565c2d743e20d0c9870e85e61ba294cf0c3"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-08T12:00:25.314743613+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "7fe55477f4a19835ddf3ae7ca005bb3f47cd3018"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:03:26.512798823+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "87fc56368d4f48d0588f6f4e69d79de4956d4587"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-08-18T19:57:53.669078665+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
 hash = "8f976b3cc382c5c1870db0c134206fa079851f6b"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-10-22T18:57:29.803801429+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
-hash = "9685d2138b36a411e14e92fa06b347e9c3e168d4"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T12:00:25.314744024+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "97c7f399459e0731a54ae403a73838ae90b61a24"
-paths = ["rmk/src/keyboard.rs"]
-recorded = "2026-09-07T23:51:09.815321076+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "a10d16771e4ba31209bf2cf1c6b3151b8a54258d"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-08T12:00:25.314744304+00:00"
+hash = "9f53a97f3f3e6bcc6c7946b3a3ece1e89d2aac62"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:54:48.345835203+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
@@ -2313,75 +861,15 @@ recorded = "2026-10-10T02:05:20.006019619+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
-hash = "a5547f0fa956a3eac044352a45353beafcb05137"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T12:00:25.314744605+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "aac37af61d26ea19a8e1c438627cba7f026001ed"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:05:20.006019789+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "aacad688017ca50da63cf7f8cc5ff6e438059bc5"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-07T20:07:26.192852750+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
 hash = "affcf414ff083807dfc8acc212c988546531a26f"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-10-10T02:05:20.006020743+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
-hash = "b29f5c736d526f63c5e2a734958d259c82e6d945"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-07T20:07:26.192853061+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
 hash = "b308b47927c846b001ea54bfc98c4244b6b6b08a"
 paths = ["rmk/src/keyboard.rs"]
 recorded = "2026-10-22T18:57:29.803803684+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "bdfdf32af878c5d60ebe6a656990ea9eed0c52e8"
-paths = ["rmk-types/src/protocol/rynk/tests.rs"]
-recorded = "2026-08-17T19:03:26.512799065+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "beb771711051552da45aed1ab892fe170c04a21a"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-17T19:03:26.512799232+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "c650136263527245dc6faddbfffb125168fc6d93"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-17T19:03:26.512799430+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "c6624a5f68054501b85a361d8c92661524f01527"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-18T09:07:26.951983570+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "d6962b1d333b54f212f7f79aa9ce6c6e57c7dadb"
-paths = ["rmk/src/input_device/pointing.rs"]
-recorded = "2026-08-07T20:07:26.192853402+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "df68f8da5d1d5f90c614ef49997fda1ec68654fd"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-18T09:07:26.951983921+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
@@ -2397,99 +885,15 @@ recorded = "2026-10-22T18:57:29.803804144+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
-hash = "ea5387e3714a9267c83a1c953d3ec56a86f01edb"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:03:26.512799680+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
 hash = "fb5bd1b415c278b3c62cede91ffea2ec101e6056"
 paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-10-10T02:05:20.006024427+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
-hash = "ff26d1d53ffc182e23baf0494a2d421e6b33410c"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-10-10T02:05:20.006024670+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "06779dd01d8db7b8e65d74445c130d6fad5396a5"
-paths = ["rmk/tests/integration/rynk.rs"]
-recorded = "2026-08-08T12:05:27.633942498+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "087c6607e1d39672e048a7cc11324df36230acdf"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T20:10:21.386306021+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "0b00e7a57da4acd8a5ae7455eb7719222b13908e"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-07T07:53:05.299392295+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
 hash = "0cb303554daa2c69697caaa8ba21cd45cc188115"
 paths = ["rmk-config/src/resolved/behavior.rs"]
 recorded = "2026-08-07T07:53:05.299394038+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "165f4c27a9e5b9566ecb34f80b8bf5a921bca2e9"
-paths = ["rmk/src/host/storage.rs"]
-recorded = "2026-08-07T07:53:05.299394439+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "18001d637dc74da64360f3e071089a9ea1f2d3ee"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-10-10T02:07:53.848773620+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "198defdd78e3881936e3b6ef29e9ef1b67c76695"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-08T19:16:27.610948451+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "1c3d9d29d96eed22aee9d556a39ee5ab811badde"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
-recorded = "2026-08-08T19:16:27.610950344+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "1febbec3566f57202aff0d94dd88840a66438b7a"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-07T07:53:05.299395060+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "22867c333e3f517da472226a5fc4308661f37d3f"
-paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
-recorded = "2026-08-07T07:53:05.299395391+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "22d325189f22093a04ebc50bb76f82e7252d330e"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-17T19:05:17.258341239+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "25336606be2a804e063fa78662768ed235f91501"
-paths = ["rmk/src/host/storage.rs"]
-recorded = "2026-08-08T19:16:27.610950815+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "283e378d34409767f097f81a62f4d67f84681ab7"
-paths = ["rmk-types/src/protocol/rynk/tests.rs"]
-recorded = "2026-08-08T12:05:27.633944732+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2505,111 +909,9 @@ recorded = "2026-10-10T02:07:53.848775694+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "2c78eb7835fad326663d2bc2544fcc045568a831"
-paths = ["rmk/src/host/rynk/handlers/morse.rs"]
-recorded = "2026-08-08T12:05:27.633945062+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "2ea466ab6765d596756e2d34f8925ddba451f67e"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
-recorded = "2026-08-07T07:53:05.299395721+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "31263f1f275d4467e1ae8e89c9af303823d86c16"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
-recorded = "2026-08-17T19:05:17.258343566+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "324e6869a58307b020a7cbe380ca12dee8ccd6e7"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
 recorded = "2026-08-18T09:14:30.951169723+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "3437ec3e627c4b14a677cc9e8d50a37b1ef952aa"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T12:05:27.633945363+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "36218e9ac084610089a9c89862df11b40c0a2404"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-08T19:16:27.610951136+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "36e281a2d504f7a6d8e4c6fa64eb3a5141381d83"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T19:16:27.610951356+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "413ab082cb347e6928f2892384b2293fe6f041e7"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-08-07T07:53:05.299396092+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "43957998ec0fc1e2e2b72a0a57aba07006281571"
-paths = ["rmk-types/src/protocol/rynk/payload/morse.rs"]
-recorded = "2026-08-08T12:05:27.633950713+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "44365bf32924b5be48154163802f0fd16b34ddc9"
-paths = ["rmk/src/keymap.rs"]
-recorded = "2026-08-07T07:53:05.299396353+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "46de5049579ff584519f4f3bcf7ddbfeacb666f7"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T19:16:27.610951757+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "4809b12ed5d1a4fe5cad40235a901501a4df5492"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-10-10T02:07:53.848775902+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "50f2c3c18aed9a1d71fa3405615178a22f3352a5"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-07T07:53:05.299396613+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "5156d7b88ed539be925cc7bddd88f1906c894985"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-07T20:10:21.386308235+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "5853492570f3674f98ef06f4d0733286e16c6cdd"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-08T12:05:27.633950953+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "5f6cb77aa241dae4dfe266aedbedddb7501ebb44"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-17T19:05:17.258343941+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "674f7ec949aecf718824500da89b94b0eb40ad7e"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-08T12:05:27.633951244+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "6944b3e2be1e5957d9c8ed2abc7cef546623d0b2"
-paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
-recorded = "2026-08-07T20:34:05.611787585+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2619,57 +921,15 @@ recorded = "2026-10-10T02:07:53.848776110+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "6e7ceba65770e9965f0b751e42cf85934525a1cc"
-paths = ["rmk/tests/integration/rynk.rs"]
-recorded = "2026-08-08T19:16:27.610952007+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "799442e8941bfcac0cf6748360d84ce614b1b5d6"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-08T12:05:27.633951454+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "7a5f134ce1ee482dbd532650a113462e9a1c8696"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-10-10T02:07:53.848780433+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "7ffd1728586aa6fa7db00a6f857143f15b724bce"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-08-08T12:05:27.633952005+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "82a57217bc5be0555332b944be79c0bcd327c533"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-17T19:05:17.258344115+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "84213c17550cb434ba2184478152d1caac8caac8"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-10-10T02:07:53.848780803+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "868dc1bde133579222e0db4bf634317ac2e2e441"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-08-20T09:12:26.478850090+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "8759cc905c857014162ce2a28d5658fc2aee4f3a"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-10-10T02:07:53.848781035+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "8edc106bb6f1c4260cb084292cb809ff34ae5286"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-17T19:05:17.258344416+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2685,39 +945,9 @@ recorded = "2026-10-22T18:58:26.129918511+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "972b115a3d2d026eee69d7f13d2246f02cd7b64e"
-paths = ["rmk/src/config/behavior.rs"]
-recorded = "2026-08-07T07:53:05.299396874+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "97e6323ae8b8b7b61ed5f2c46094c1bc82a54179"
-paths = ["rmk/src/keymap.rs"]
-recorded = "2026-08-08T19:16:27.610952328+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "97f8cb62b660b6b0ad931763798dab97c72ff73a"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-11T23:13:17.505560725+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "98300ad22cc7af1fd6fec7e4a97214bb31919a61"
 paths = ["rmk/src/host/rynk/mod.rs"]
 recorded = "2026-10-10T02:07:53.848781465+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "9e756af9611693ba1b7031f2d24c77c0d666651b"
-paths = ["rmk/src/host/rynk/handlers/morse.rs"]
-recorded = "2026-08-08T19:16:27.610952538+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "a08e1c0890eb6550c7a57272ff12cab0c7f16f19"
-paths = ["rynk/src/api.rs"]
-recorded = "2026-08-08T19:16:27.610952799+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2727,33 +957,15 @@ recorded = "2026-10-10T02:07:53.848781729+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "a6d32743107395e7087a037a6a0f56d4cc411011"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-07T10:37:20.646544762+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "a84cc4163a27ecdcf75945cb18c21628575e8e98"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-08T19:16:27.610953039+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "ab00c6493d8b2b19bcab7900b6e5e5f0f4a6fcfd"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
-recorded = "2026-08-08T12:05:27.633952356+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "ad1e6c6dee8242c866714a85ecbf6c5c8948c15f"
 paths = ["rmk-types/src/protocol/rynk/payload/morse.rs"]
 recorded = "2026-08-08T19:16:27.610953350+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "b2966c1edf8d1dc8afdec73da7317ec698a7cbb3"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-18T09:14:30.951174281+00:00"
+hash = "b94d466d5bee2bd9d88908d6d36a3502fdfd94b6"
+paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
+recorded = "2026-11-16T10:55:00.681653275+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2763,39 +975,9 @@ recorded = "2026-10-10T02:07:53.848781978+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "c08a16c89b7ac51cd3e2ac4d23cdff9e385f0589"
-paths = ["rmk/src/host/rynk/mod.rs"]
-recorded = "2026-08-07T07:53:05.299397094+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "c08d3e80fa1d1f2ae6169be0c7a11e0f00122225"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-07T07:53:05.299397324+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "c235b95588115803f5d8439bdd89dae9634c26a6"
-paths = ["rmk/src/keymap.rs"]
-recorded = "2026-09-07T23:52:42.030739388+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "cb22dba63bc2b04c7f9ca6b6b611a7dfd5f7e9f7"
 paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
 recorded = "2026-10-22T18:58:26.129920585+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "cc377943d83d6f43b7d2c031106787ca8ea84644"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-07T07:53:05.299397585+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "d0d28d36e7fefdccbe2b04d8104e09ffa5e44c1a"
-paths = ["rmk-types/src/protocol/rynk/snapshots/wire_values.snap"]
-recorded = "2026-08-18T09:14:30.951174732+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2805,87 +987,15 @@ recorded = "2026-10-10T02:07:53.848782148+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "d31d90282ca9a9534c7a33dd8a4b1f69b593a7e2"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-07T20:10:21.386308555+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "d4d08c49548a9a12eb16fa7b4b96e4283d4b63fe"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-08-08T19:16:27.610955083+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "d673c01523d47bc81cee5a44ebb224338c904148"
 paths = ["rmk/src/event/mod.rs"]
 recorded = "2026-08-07T07:53:05.299397865+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "daacc5717d25ee7d60b6dc48cd9dd72099035868"
-paths = ["rmk-types/src/protocol/rynk/tests.rs"]
-recorded = "2026-08-07T07:53:05.299398106+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "dbbc7060caeb4fe8409e581eb7d6479e463e4dd9"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-08-18T09:14:30.951174973+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "defd5db4cb3267df539f502e5e5db2a29cba43e0"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-08T19:16:27.610955394+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "e0593f465413ad42c46649932211fb58826353c6"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-07T07:53:05.299398396+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "e245bfcd6985aaac4e029e5378bead5060bc5647"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-08T12:05:27.633952667+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "e5d941077bbbc4504d92fa35fc638cf387816ef2"
-paths = ["rmk-types/src/protocol/rynk/command.rs"]
-recorded = "2026-08-08T12:05:27.633952897+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "e7c6ae65656644d8e06055c42937980840188a65"
-paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
-recorded = "2026-08-08T12:05:27.633953238+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "e9d8e368fa417a19e7c3e7d1e8d02af24eb2a3ec"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T23:52:42.030742023+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "f34c92908a7bb25193d2e0831b5561947d49813d"
-paths = ["rynk/rynk-wasm/src/client.rs"]
-recorded = "2026-08-17T19:05:17.258344646+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "f40fdd5141a608bcdf2150dd9fe89a931511aa4e"
 paths = ["rmk/src/config/behavior.rs"]
 recorded = "2026-08-08T19:16:27.610955634+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "f6153f24490440577976bd5c460b4738b1a2acaf"
-paths = ["rmk-types/src/protocol/rynk/tests.rs"]
-recorded = "2026-08-18T09:14:30.951175313+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
@@ -2907,24 +1017,6 @@ recorded = "2026-09-07T23:49:02.600106893+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
-hash = "1758be1e32db027e56cb3fc2e3e7c57cd9c610be"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-09-07T23:49:02.600109688+00:00"
-
-[[resolution]]
-entry = "fold/unicode-input"
-hash = "242912a446aa5391a9331fe0c2a1706d3f7a82b8"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-05T13:48:34.001725888+00:00"
-
-[[resolution]]
-entry = "fold/unicode-input"
-hash = "3e356e71d81632202653f3d10fdc629db554e319"
-paths = ["rmk/src/config/mod.rs"]
-recorded = "2026-08-05T15:54:07.074229354+00:00"
-
-[[resolution]]
-entry = "fold/unicode-input"
 hash = "6570e8805d2c1ac63b0f77502448529289f63b89"
 paths = ["rmk/src/keymap.rs"]
 recorded = "2026-08-05T13:48:34.001728022+00:00"
@@ -2940,12 +1032,6 @@ entry = "fold/unicode-input"
 hash = "829982a0c33dc6e5fa9ea8d3920b1b03d13f09ea"
 paths = ["rmk/src/config/behavior.rs"]
 recorded = "2026-08-05T15:54:07.074230075+00:00"
-
-[[resolution]]
-entry = "fold/unicode-input"
-hash = "a08b1e6997bdab13f2fe72fe166ded0b173f85ab"
-paths = ["rmk/src/config/mod.rs"]
-recorded = "2026-08-05T13:48:34.001728502+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
@@ -2972,58 +1058,10 @@ paths = ["rmk/src/keyboard.rs"]
 recorded = "2026-08-05T13:48:34.001728853+00:00"
 
 [[resolution]]
-entry = "fold/unicode-input"
-hash = "de49557afdc90343e1f7e249cb28638ae6a53c74"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-08-18T09:04:49.057711449+00:00"
-
-[[resolution]]
-entry = "pr-1031"
-hash = "14cee3eff788219a0428fc355ce8a88934fe22f8"
-paths = ["rmk/src/split/ble/central.rs"]
-recorded = "2026-08-07T20:01:55.782731201+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "1276c271e1e05241e1060ec2f990b7d48d0f62b5"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-09-07T23:44:24.597080768+00:00"
-
-[[resolution]]
 entry = "pr-984"
 hash = "15bb02f6f66eb04e21b98c8733cae2386ae3477c"
 paths = ["rmk/src/split/driver.rs"]
-recorded = "2026-10-22T18:51:02.069842646+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "3460c699e14e3a0ff69bf22012941b920d977cd4"
-paths = ["rmk/src/split_app.rs"]
-recorded = "2026-08-05T09:40:09.841077492+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "362cec65e8842a24db8b2c2fb70057fef64b4835"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-07T20:04:19.533551879+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "4a18ca7c086681228760d3f0266a74fba3353bdf"
-paths = ["rmk/src/split/driver.rs"]
-recorded = "2026-08-05T09:40:09.841079786+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "54988c0bb452bdbac671739a4e2d08a09154ebee"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-10-09T00:59:55.299358809+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "5b60e90a31b0692066f28e0fa9bc7f11aca356a6"
-paths = ["rmk/src/split/driver.rs"]
-recorded = "2026-08-07T20:04:19.533554715+00:00"
+recorded = "2026-11-16T10:50:42.137440698+00:00"
 
 [[resolution]]
 entry = "pr-984"
@@ -3033,33 +1071,9 @@ recorded = "2026-10-09T00:59:55.299360644+00:00"
 
 [[resolution]]
 entry = "pr-984"
-hash = "6dc90a015f557d440e01975b1a677435f688078d"
-paths = ["rmk/src/split_app.rs"]
-recorded = "2026-08-07T20:04:19.533555105+00:00"
-
-[[resolution]]
-entry = "pr-984"
 hash = "7c8abac46f99ede90c36232aeff4ad080ea0f454"
 paths = ["rmk/src/split_app.rs"]
 recorded = "2026-10-09T00:59:55.299360847+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "82cf3440954336b278152c0d74aa7b47483fef2e"
-paths = ["rmk/src/split_app.rs"]
-recorded = "2026-08-18T23:59:28.187006520+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "9ac39b7160674ec075935b89db9becbffd072cd3"
-paths = ["rmk/src/split/mod.rs"]
-recorded = "2026-08-07T20:04:19.533555546+00:00"
-
-[[resolution]]
-entry = "pr-984"
-hash = "a8333e2718122b22f86ceca97cfad64d3f98a9b8"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-05T09:40:09.841080267+00:00"
 
 [[resolution]]
 entry = "pr-984"
@@ -3069,6 +1083,6 @@ recorded = "2026-08-07T20:04:19.533555967+00:00"
 
 [[resolution]]
 entry = "pr-984"
-hash = "fa613174e9296e670398f07dd9c559098cf1f44f"
+hash = "eaf3db911b63995aef06bf9b614cac58b63c67ab"
 paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-08-20T08:47:19.849507492+00:00"
+recorded = "2026-11-16T10:50:42.137447772+00:00"

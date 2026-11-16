@@ -35,6 +35,7 @@ summary = "Key-selectable output transport: OutputUsb/OutputBluetooth set prefer
 
 [[entry]]
 pr = 984
+fixup = "patches/pr-984-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/single-pass-storage-read"
@@ -99,6 +100,7 @@ fixup = "patches/ble-name-template-coherence.patch"
 
 [[entry]]
 branch = "fork:fix/ephemeral-split-layer-state"
+fixup = "patches/ephemeral-split-layer-state-coherence.patch"
 
 [[entry]]
 branch = "fork:feat/morse-unilateral-mod-chording"
