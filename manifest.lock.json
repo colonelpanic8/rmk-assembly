@@ -42,7 +42,7 @@
       "fold/macro-hooks": "5c10b08da66e3486e22faefbeedad256e5207669",
       "fold/opposite-hand-hold": "aa87c053677587164265fc3a6fdb45f85920f8cb",
       "fold/pointing-runtime-config-pinned": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd",
-      "fold/runtime-behavior-parity": "be45435241ea4d5b7b22fff01f98ffa71b5f30b9",
+      "fold/runtime-behavior-parity": "ed46d6874560405d3275ac2e632cc10605ba190c",
       "fold/split-reliability": "78dfc67b909466381cfac0ae2f517db9f96ab55a",
       "fold/unicode-input": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc",
       "pr-1031": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
@@ -55,15 +55,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-25T17:49:59.253906866+00:00",
+    "generated": "2026-11-25T21:30:48.068341215+00:00",
     "base": "e4e11264216890f45fe4d4e1407c629ce0473894",
-    "commit": "633d6261c08074f3c822c9c897c3fd3808d76d19",
-    "pre_provenance_commit": "633d6261c08074f3c822c9c897c3fd3808d76d19",
-    "tree": "d7940a52a86f85c8bc65169314d9bde24404320e",
-    "built_tree": "d7940a52a86f85c8bc65169314d9bde24404320e",
-    "previous_tree": "f2ecbd9fc7b6ee717a155c113b72410b420a2810",
+    "commit": "1385c132d5c3f8c1b69c64058695ccc3ab15d2c8",
+    "pre_provenance_commit": "1385c132d5c3f8c1b69c64058695ccc3ab15d2c8",
+    "tree": "473199d4360c1868c40504e3bc4f6fa56b6476c1",
+    "built_tree": "473199d4360c1868c40504e3bc4f6fa56b6476c1",
+    "previous_tree": "d7940a52a86f85c8bc65169314d9bde24404320e",
     "tree_changed": true,
-    "conflicts": 0,
+    "conflicts": 26,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -179,7 +179,7 @@
         "name": "fold/runtime-behavior-parity",
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
-        "pin": "be45435241ea4d5b7b22fff01f98ffa71b5f30b9",
+        "pin": "ed46d6874560405d3275ac2e632cc10605ba190c",
         "fixup": "f8165da81a5700047fa1f43c1ae0c5d8076e2df9"
       },
       {
@@ -558,7 +558,7 @@
       },
       {
         "name": "fold/runtime-behavior-parity",
-        "oid": "be45435241ea4d5b7b22fff01f98ffa71b5f30b9",
+        "oid": "ed46d6874560405d3275ac2e632cc10605ba190c",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -568,7 +568,7 @@
           "2c161dc120656b701fe88e1e13b16f29f08d9349",
           "4cb086942708c2c4cca086518cd18497933a2f2c",
           "4f5655008a29b832a4c8dc31635d1b85d34f2ffb",
-          "63e70c54d4111acb674a56a2f08a4df02f346674",
+          "6a2655102b0d6d5872d84d4e0cc07834966a0c5e",
           "82299a07e7f892790bb8ddd973072c9b317822db",
           "8759cc905c857014162ce2a28d5658fc2aee4f3a",
           "9195cdff3c990b925cbc8c28474ea61bfcef965a",
@@ -576,11 +576,11 @@
           "a5748d2e5572cc61e970ade3f23bb2d2977b5358",
           "b450f5ceb402d73c22410de86b52d61bd7e10803",
           "b520fda10df57d21a58d7b3c225493e9930f1dc6",
+          "b7fe84d98ca5f3721c5aec5cbf02f94fab9c7087",
           "bb9331d3a432d988c6c63d375970caa0028de8b4",
           "bc0387a0749c40bf051e8f07547300ac4228ec02",
           "bfcaf9b5b01453693abaceebf9e257d9ad67998d",
-          "d673c01523d47bc81cee5a44ebb224338c904148",
-          "e9337aee6585fb15ec95663050b639dab19234e7"
+          "d673c01523d47bc81cee5a44ebb224338c904148"
         ],
         "fixup": "f8165da81a5700047fa1f43c1ae0c5d8076e2df9"
       },
@@ -742,7 +742,7 @@
         "resolutions": [
           "0c55428db4800a65282d49db8d5d6c64c6af324d",
           "0f7db594ff6217e54a6a89d4b94eb3405da7cbeb",
-          "299ebea3cfd4457252338631fc10b13198bc9717",
+          "1ecee8ff3a0de29eb27db1f0aacf7f443fe1c883",
           "3f13e976aeaf42269bbd07a05a5b8848d8580797",
           "57b5277a6a43ab695e6b1d9a9751eb7cedc5148c",
           "73083c44631e20fb8dcd886333e680645a8407f9",

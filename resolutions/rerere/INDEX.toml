@@ -645,6 +645,12 @@ recorded = "2026-11-25T08:51:03.335455274+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
+hash = "1ecee8ff3a0de29eb27db1f0aacf7f443fe1c883"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-11-25T21:30:46.100913953+00:00"
+
+[[resolution]]
+entry = "feat/persistent-layer-metadata"
 hash = "299ebea3cfd4457252338631fc10b13198bc9717"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-11-25T08:51:03.335458220+00:00"
@@ -933,6 +939,12 @@ recorded = "2026-11-25T08:40:40.617130683+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
+hash = "6a2655102b0d6d5872d84d4e0cc07834966a0c5e"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-11-25T21:30:16.209308291+00:00"
+
+[[resolution]]
+entry = "fold/runtime-behavior-parity"
 hash = "82299a07e7f892790bb8ddd973072c9b317822db"
 paths = ["rmk-types/src/protocol/rynk/payload/system.rs"]
 recorded = "2026-11-25T08:40:40.617130923+00:00"
@@ -972,6 +984,12 @@ entry = "fold/runtime-behavior-parity"
 hash = "b520fda10df57d21a58d7b3c225493e9930f1dc6"
 paths = ["rmk-types/src/protocol/rynk/snapshots/wire_frames.snap"]
 recorded = "2026-11-25T08:40:40.617131544+00:00"
+
+[[resolution]]
+entry = "fold/runtime-behavior-parity"
+hash = "b7fe84d98ca5f3721c5aec5cbf02f94fab9c7087"
+paths = ["rmk/src/host/context.rs"]
+recorded = "2026-11-25T21:30:16.209310224+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
