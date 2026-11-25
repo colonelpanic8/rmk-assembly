@@ -183,6 +183,12 @@ summary = "Keymap persists one flash item per 16-cell row segment instead of per
 branch = "fork:feat/persist-lighting-output"
 summary = "Output brightness, background and the effects' on-brightness persist across restarts (from moosylog/rynkbench docs/firmware/rmk-persist-lighting)"
 
+[[entry]]
+branch = "fork:fold/combo-layers"
+summary = "Combos valid on several layers: `layers = [..]` in keyboard.toml, `Combo` stores a layer bitmask"
+note = "Backport of upstream PR #1487 (fork:feat/combo-layers) onto base f7f088e, without its CHANGELOG hunk. Once the base reaches e4e112642, repoint this entry to pr = 1487: the backport's wire_values.snap hunk conflicts with that base."
+fixup = "patches/combo-layers-coherence.patch"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

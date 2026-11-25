@@ -38,6 +38,7 @@
       "fix/pointing-mode-event-priority": "0ae6b56429d823200665b6ddb3bd9ea6edb4b90d",
       "fix/rynk-flash-backpressure": "8f22eaded91fefd38a7d39f936df3517567466de",
       "fold/cirque-pinnacle": "80aab34ed3ae67d281c7c1e2102339c730422081",
+      "fold/combo-layers": "9f4d8c40af23b72621f02cf6430a19f48014eeb7",
       "fold/connection-selection": "6753c563d1e54da0d6abc0944eb74afbfea6e7cc",
       "fold/macro-hooks": "5c10b08da66e3486e22faefbeedad256e5207669",
       "fold/opposite-hand-hold": "12cc74eddb216dc20ad8168de3e910f34e145806",
@@ -52,15 +53,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-16T23:57:31.761203682+00:00",
+    "generated": "2026-11-25T07:38:54.934849962+00:00",
     "base": "f7f088e844ff994b6770432f44972dc5ffe0604e",
-    "commit": "6b1ac3dd72cd7cfafbe7cbd67b0a7525d48116bb",
-    "pre_provenance_commit": "6b1ac3dd72cd7cfafbe7cbd67b0a7525d48116bb",
-    "tree": "5e884dc23291aef9895f7c712007b5a1b3f996de",
-    "built_tree": "5e884dc23291aef9895f7c712007b5a1b3f996de",
-    "previous_tree": "8aa10a89a3481c4631b4926667baf47cb842e6f2",
+    "commit": "d3519f62ff38c1ded29b6137dfaa591327681c2c",
+    "pre_provenance_commit": "d3519f62ff38c1ded29b6137dfaa591327681c2c",
+    "tree": "ea8670554599fddbaf292489ddc7458ccfee53f7",
+    "built_tree": "ea8670554599fddbaf292489ddc7458ccfee53f7",
+    "previous_tree": "0a8452356957b38810b74e8e41e05141b9bd924a",
     "tree_changed": true,
-    "conflicts": 25,
+    "conflicts": 26,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -346,6 +347,13 @@
         "kind": "branch",
         "source": "fork:feat/persist-lighting-output",
         "pin": "9461ff8d68269e5215ea82920e746861c2af70e2"
+      },
+      {
+        "name": "fold/combo-layers",
+        "kind": "branch",
+        "source": "fork:fold/combo-layers",
+        "pin": "9f4d8c40af23b72621f02cf6430a19f48014eeb7",
+        "fixup": "d0ba91fbf850c7b231e8d3526965649868a58de9"
       }
     ],
     "results": [
@@ -885,6 +893,23 @@
         "status": "merged",
         "conflicted": false,
         "resolutions": []
+      },
+      {
+        "name": "fold/combo-layers",
+        "oid": "9f4d8c40af23b72621f02cf6430a19f48014eeb7",
+        "status": "merged",
+        "conflicted": true,
+        "resolutions": [
+          "07cbc201bd276e542fc6ac87c8c249638106ac36",
+          "1ba53feb92e00736da2806feb7a669e33b30915a",
+          "22f6a2a74345742aadb38ce70e51a6f0f0225351",
+          "231694f0b7f3bb4cbdbe6721aed2e8878a5bd0c3",
+          "93fe6c2da72781ef3ff7707edec8a64666ea0be0",
+          "a69eb12d226d8f6ea0f3ca1b42aedbb87d6e1095",
+          "d0f6ae112fca9bbb4b94ff1dd5b7a2dbbf4384f2",
+          "f6a2486696069a05bcc88d19227f258c50ac1d86"
+        ],
+        "fixup": "d0ba91fbf850c7b231e8d3526965649868a58de9"
       }
     ]
   }
