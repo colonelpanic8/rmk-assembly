@@ -1,5 +1,5 @@
 diff --git a/rmk/src/host/rynk/handlers/system.rs b/rmk/src/host/rynk/handlers/system.rs
-index ca2b0d0e6..0688806cf 100644
+index 17930721a..1712f9ae1 100644
 --- a/rmk/src/host/rynk/handlers/system.rs
 +++ b/rmk/src/host/rynk/handlers/system.rs
 @@ -2,12 +2,12 @@
@@ -20,24 +20,10 @@ index ca2b0d0e6..0688806cf 100644
  
  use super::super::{RMK_VERSION, RynkService, truncated};
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 9d084d47a..a18fc068a 100644
+index 01943910c..20bed0083 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -21,8 +21,8 @@ pub use lighting::{
- use postcard::experimental::max_size::MaxSize;
- use rmk_types::constants::RYNK_BUFFER_SIZE;
- use rmk_types::protocol::rynk::{
--    BuildInfo, Cmd, DeviceDataDescriptor, DeviceDataRecord, Deframer, FirmwareVersion, RYNK_HEADER_SIZE, RynkError, RynkMessage, command, encode_frame,
--    max_wire_size,
-+    BuildInfo, Cmd, Deframer, DeviceDataDescriptor, DeviceDataRecord, FirmwareVersion, RYNK_HEADER_SIZE, RynkError,
-+    RynkMessage, command, encode_frame, max_wire_size,
- };
- 
- use self::handlers::{serve, serve_bulk};
-diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
---- a/rmk/src/host/rynk/mod.rs
-+++ b/rmk/src/host/rynk/mod.rs
-@@ -286,7 +286,9 @@
+@@ -280,7 +280,9 @@ impl<'a> RynkService<'a> {
              | Cmd::GetLayerState
              | Cmd::GetModifierState
              | Cmd::GetPointingConfig
@@ -48,3 +34,23 @@ diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
              #[cfg(all(feature = "_ble", feature = "split"))]
              Cmd::GetSplitCentralLatency => Some(false),
              #[cfg(feature = "lighting")]
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -150,6 +150,16 @@
+         self
+     }
+ 
++    /// Attach one board-defined device-data namespace.
++    pub fn with_device_data(
++        mut self,
++        descriptor: DeviceDataDescriptor,
++        record: fn(u8) -> Option<DeviceDataRecord>,
++    ) -> Self {
++        self.device_data = Some((descriptor, record));
++        self
++    }
++
+     /// Whether `cmd` needs a storage write to persist its effect.
+     fn needs_storage_write(cmd: Cmd) -> bool {
+         #[cfg(feature = "_ble")]

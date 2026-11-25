@@ -1,11 +1,12 @@
-diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
---- a/rmk/src/storage/mod.rs
-+++ b/rmk/src/storage/mod.rs
-@@ -2080,7 +2080,6 @@
-             StorageKey::AutoMouseLayerConfigs,
-             #[cfg(feature = "host")]
-             StorageKey::MorseProfileName(12),
--            StorageKey::UserData(0),
-             #[cfg(feature = "_ble")]
-             StorageKey::BleName,
-         ];
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -300,6 +300,8 @@
+             | Cmd::GetLightingRuntimeConditionalScenes
+             | Cmd::GetLightingExtendedRuntimeConditionalSceneStatus
+             | Cmd::GetLightingExtendedRuntimeConditionalScenes => Some(false),
++            #[cfg(feature = "_ble")]
++            Cmd::GetBleName => Some(false),
+             _ => None,
+         }
+     }

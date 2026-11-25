@@ -1,65 +1,66 @@
 {
   "version": 1,
   "pins": {
-    "base": "f7f088e844ff994b6770432f44972dc5ffe0604e",
+    "base": "e4e11264216890f45fe4d4e1407c629ce0473894",
     "entries": {
-      "feat/auto-switch-transport": "71280a93ed689e4afeae5cd369fa618631c5b017",
-      "feat/ble-advertising-backoff": "aae5b5cf4707d8c8c88c80b26e4ae18f530e74cf",
-      "feat/ble-name-template": "b33f65cf0073e875966c7d386d313f877d7d67db",
-      "feat/ble-profile-clear-api": "2d7a646845559f7791959557ec2704e95dcf261f",
+      "feat/auto-switch-transport": "9a86ff854b8f3cdae8ef4d0a5b88d3a139e48b1a",
+      "feat/ble-advertising-backoff": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d",
+      "feat/ble-name-template": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
+      "feat/ble-profile-clear-api": "9f5cf3a0fdf2c665bb40715f46242241d3459826",
       "feat/combo-hold-output": "f7559a38f14dd1e6a7453dc54400003cc6b451b3",
       "feat/consumer-keycodes": "d04e31e16e1b2daf801675fbd698b19533d0d89c",
-      "feat/ctrl-gui-swap": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
-      "feat/device-data": "4c81e834593fb8aded978946795292d39853e28c",
+      "feat/ctrl-gui-swap": "57ad473451cc586c58368e0cc88d82c8a721feea",
+      "feat/device-data": "b5a3bb47e57fc7c790dea2d1a0bb43c5e7352575",
+      "feat/hid-hires-scroll": "95fa23e40b9d481d562d42b92e97905e8f98be67",
       "feat/keymap-row-storage": "bb9fc32b245d30e9aa8f902f25b8ed7305e9458c",
-      "feat/lighting-layer-indicator-conditions": "841c4bb8f5bd590ce56942b12186e2c7f4964c9b",
-      "feat/lighting-rules": "b7c9e4d43c34bc47e632a00b144fd1b5390dc787",
-      "feat/lighting-table-capacity": "28d610e25bf217933f77abaf9a9ba20ab8342ace",
-      "feat/maintenance-mode": "09d0b2a545ca0c974888d522571fdd46aefa8373",
+      "feat/lighting-layer-indicator-conditions": "1aaf5ecbf7c85914a871bf347a5dad13f4fe6396",
+      "feat/lighting-rules": "a1f77b7b7cbeeeb983bd86958a8997929dc9579f",
+      "feat/lighting-table-capacity": "5d84976c11935c85db8c3fcb3856c702b43dd8ce",
+      "feat/maintenance-mode": "faf7c795b5ecbc43ea0432efa85dc649e9468950",
       "feat/morse-default-permissive-hold": "261d0eb2f19a641991c9b383d2a98fb3d776b518",
-      "feat/morse-hold-trigger-on-release": "175dea01829fcc8022ba871222a30bf349e3cdbf",
-      "feat/morse-hold-trigger-positions": "c75e6c06150c3c2aa7fbf41063704cf44a0e3756",
+      "feat/morse-hold-trigger-on-release": "009296a252374897392ef8ebe50e856e47b90ac1",
+      "feat/morse-hold-trigger-positions": "37bff5bd0d964f80d49e372368b5ca100acade52",
       "feat/morse-per-profile-prior-idle": "ddd6a20fbd854d1c5fb3e7493359c8fce555070a",
       "feat/morse-retro-tap": "8dab9b5ee724701630c0259c034de108fe5136bc",
-      "feat/morse-tap-unless-interrupted": "5139dba360e9787512c084e6dede8aed51d8608f",
+      "feat/morse-tap-unless-interrupted": "8e1c1f9703e5add320d73a27ecc96fb9975ca6e8",
       "feat/morse-unilateral-mod-chording": "87b74005308050a62e9de99a70a1fe59f8e389ef",
-      "feat/nrf-half-duplex-split": "58070245ab6562189f46f767aec93035aaf53b07",
-      "feat/persist-key-lighting": "55dc118a2eb1ed147e995af9268dfae53f38e13f",
-      "feat/persist-lighting-output": "9461ff8d68269e5215ea82920e746861c2af70e2",
-      "feat/persistent-layer-metadata": "eebcb9211223447bb8e42e884c657744bb294a77",
-      "feat/pointer-layer-scaling": "c9fd2fd0935aed30d06e5a931b6268670e50a108",
-      "feat/pointing-drag-mode": "554fbc13addd6375063b3a8dc18d5709430bc3ed",
-      "feat/position-combos": "8246eb429d61dd0f96bfb1c74e6f6c01a0daffd8",
+      "feat/nrf-half-duplex-split": "66670bf9489805589a7c08ade264b3e98ba2dfac",
+      "feat/persist-key-lighting": "823ef7117e9466cb887995f3e479b98c0eaf90f6",
+      "feat/persist-lighting-output": "d08d80fbe4227ac1739adca690ef4fb85f16dbff",
+      "feat/persistent-layer-metadata": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
+      "feat/pointer-layer-scaling": "f03defe4288a6482eb74bf0b61e78b2810dc8c6b",
+      "feat/pointing-drag-mode": "76722741181e798842fb862d276a8f8128660f61",
       "feat/single-pass-storage-read": "42e042ccea2db91da6cd1d8dce87448e65f74cb3",
       "fix/battery-level-while-charging": "f5edf32945c4d55c479cf427e10d6c991a95c3dd",
-      "fix/battery-power-transitions": "ec5a9e601bfc565568675c76f79a9748f6c20b1c",
+      "fix/battery-power-transitions": "08e2883f189b8e9a7c82ff04a5b980be0bb11431",
       "fix/ephemeral-split-layer-state": "0d8b9d7240342087f23b4fed8a9ba9838bd58f2e",
       "fix/mpsl-interrupt-priorities": "084de8914ab17b00a1828c473f24491435529c20",
       "fix/pointing-mode-event-priority": "0ae6b56429d823200665b6ddb3bd9ea6edb4b90d",
       "fix/rynk-flash-backpressure": "8f22eaded91fefd38a7d39f936df3517567466de",
-      "fold/cirque-pinnacle": "80aab34ed3ae67d281c7c1e2102339c730422081",
-      "fold/combo-layers": "9f4d8c40af23b72621f02cf6430a19f48014eeb7",
-      "fold/connection-selection": "6753c563d1e54da0d6abc0944eb74afbfea6e7cc",
+      "fold/cirque-pinnacle": "53b7a40131d42f83657d7c7de627559d68316843",
+      "fold/connection-selection": "f0a989e66ffd16311be4e7023f3d2018abf5cb76",
       "fold/macro-hooks": "5c10b08da66e3486e22faefbeedad256e5207669",
-      "fold/opposite-hand-hold": "12cc74eddb216dc20ad8168de3e910f34e145806",
-      "fold/pointing-runtime-config-pinned": "da009928ee13839e3e367ce98eb75ad6ed984fb0",
-      "fold/runtime-behavior-parity": "8176d8ab9036b2debf02eb53451fcd7fbe89825e",
-      "fold/split-reliability": "cbc89e6f86eeac0f60a774434a271bc1bae9112b",
-      "fold/unicode-input": "0b681463937ae49f612febb800f018eba2a6b2aa",
-      "pr-1031": "06c9c8b737b279707c6f1d236768eac5838153af",
+      "fold/opposite-hand-hold": "aa87c053677587164265fc3a6fdb45f85920f8cb",
+      "fold/pointing-runtime-config-pinned": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd",
+      "fold/runtime-behavior-parity": "be45435241ea4d5b7b22fff01f98ffa71b5f30b9",
+      "fold/split-reliability": "78dfc67b909466381cfac0ae2f517db9f96ab55a",
+      "fold/unicode-input": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc",
+      "pr-1031": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
+      "pr-1487": "9c0cb48bc02d3e7688ae6d7c51f5cd33a11cc3bc",
+      "pr-1488": "3e793d62fbbed71d4bc0cce16279430bef61135e",
       "pr-984": "19000cd6d59a8a60d80058dd9d853c091d682c3f",
       "runtime-lighting-wake-layers": "7b868058a0f6b91a45e44d5f7420930bd64ff80e"
     }
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-25T07:38:54.934849962+00:00",
-    "base": "f7f088e844ff994b6770432f44972dc5ffe0604e",
-    "commit": "d3519f62ff38c1ded29b6137dfaa591327681c2c",
-    "pre_provenance_commit": "d3519f62ff38c1ded29b6137dfaa591327681c2c",
-    "tree": "ea8670554599fddbaf292489ddc7458ccfee53f7",
-    "built_tree": "ea8670554599fddbaf292489ddc7458ccfee53f7",
-    "previous_tree": "0a8452356957b38810b74e8e41e05141b9bd924a",
+    "generated": "2026-11-25T09:18:18.794435251+00:00",
+    "base": "e4e11264216890f45fe4d4e1407c629ce0473894",
+    "commit": "cee603a73b553a0b31d04fe86de14a157886fbb8",
+    "pre_provenance_commit": "cee603a73b553a0b31d04fe86de14a157886fbb8",
+    "tree": "f2ecbd9fc7b6ee717a155c113b72410b420a2810",
+    "built_tree": "f2ecbd9fc7b6ee717a155c113b72410b420a2810",
+    "previous_tree": "18f6252d913dc9702dc25f385e435cc3a5552446",
     "tree_changed": true,
     "conflicts": 26,
     "manifest_entries": [
@@ -73,20 +74,20 @@
         "name": "fold/split-reliability",
         "kind": "branch",
         "source": "fork:fold/split-reliability",
-        "pin": "cbc89e6f86eeac0f60a774434a271bc1bae9112b"
+        "pin": "78dfc67b909466381cfac0ae2f517db9f96ab55a"
       },
       {
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "06c9c8b737b279707c6f1d236768eac5838153af",
+        "pin": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
         "fixup": "97181240c08c1ef3ce89fbb8d0489000ba9028b8"
       },
       {
         "name": "fold/connection-selection",
         "kind": "branch",
         "source": "fork:fold/connection-selection",
-        "pin": "6753c563d1e54da0d6abc0944eb74afbfea6e7cc"
+        "pin": "f0a989e66ffd16311be4e7023f3d2018abf5cb76"
       },
       {
         "name": "pr-984",
@@ -105,7 +106,7 @@
         "name": "feat/pointer-layer-scaling",
         "kind": "branch",
         "source": "fork:feat/pointer-layer-scaling",
-        "pin": "c9fd2fd0935aed30d06e5a931b6268670e50a108"
+        "pin": "f03defe4288a6482eb74bf0b61e78b2810dc8c6b"
       },
       {
         "name": "feat/combo-hold-output",
@@ -129,19 +130,19 @@
         "name": "feat/morse-tap-unless-interrupted",
         "kind": "branch",
         "source": "fork:feat/morse-tap-unless-interrupted",
-        "pin": "5139dba360e9787512c084e6dede8aed51d8608f"
+        "pin": "8e1c1f9703e5add320d73a27ecc96fb9975ca6e8"
       },
       {
         "name": "feat/morse-hold-trigger-positions",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-positions",
-        "pin": "c75e6c06150c3c2aa7fbf41063704cf44a0e3756"
+        "pin": "37bff5bd0d964f80d49e372368b5ca100acade52"
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
         "kind": "branch",
         "source": "fork:feat/morse-hold-trigger-on-release",
-        "pin": "175dea01829fcc8022ba871222a30bf349e3cdbf"
+        "pin": "009296a252374897392ef8ebe50e856e47b90ac1"
       },
       {
         "name": "feat/consumer-keycodes",
@@ -153,53 +154,52 @@
         "name": "fold/unicode-input",
         "kind": "branch",
         "source": "fork:fold/unicode-input",
-        "pin": "0b681463937ae49f612febb800f018eba2a6b2aa"
+        "pin": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc"
       },
       {
         "name": "fold/cirque-pinnacle",
         "kind": "branch",
         "source": "fork:fold/cirque-pinnacle",
-        "pin": "80aab34ed3ae67d281c7c1e2102339c730422081"
+        "pin": "53b7a40131d42f83657d7c7de627559d68316843"
       },
       {
         "name": "feat/pointing-drag-mode",
         "kind": "branch",
         "source": "fork:feat/pointing-drag-mode",
-        "pin": "554fbc13addd6375063b3a8dc18d5709430bc3ed"
+        "pin": "76722741181e798842fb862d276a8f8128660f61"
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
         "kind": "branch",
         "source": "fork:fold/pointing-runtime-config-pinned",
-        "pin": "da009928ee13839e3e367ce98eb75ad6ed984fb0",
-        "fixup": "018c1ffb9252d1f283c3a1fef237e95db1e61628"
+        "pin": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd"
       },
       {
         "name": "fold/runtime-behavior-parity",
         "kind": "branch",
         "source": "fork:fold/runtime-behavior-parity",
-        "pin": "8176d8ab9036b2debf02eb53451fcd7fbe89825e",
+        "pin": "be45435241ea4d5b7b22fff01f98ffa71b5f30b9",
         "fixup": "f8165da81a5700047fa1f43c1ae0c5d8076e2df9"
       },
       {
         "name": "feat/maintenance-mode",
         "kind": "branch",
         "source": "fork:feat/maintenance-mode",
-        "pin": "09d0b2a545ca0c974888d522571fdd46aefa8373",
-        "fixup": "d8f63bdf1055a866636a18af711628a0039fea0e"
+        "pin": "faf7c795b5ecbc43ea0432efa85dc649e9468950",
+        "fixup": "804b6c82241711a7029eba038bb9ff1f258bd933"
       },
       {
         "name": "fix/battery-power-transitions",
         "kind": "branch",
         "source": "fork:fix/battery-power-transitions",
-        "pin": "ec5a9e601bfc565568675c76f79a9748f6c20b1c"
+        "pin": "08e2883f189b8e9a7c82ff04a5b980be0bb11431"
       },
       {
         "name": "feat/ble-name-template",
         "kind": "branch",
         "source": "fork:feat/ble-name-template",
-        "pin": "b33f65cf0073e875966c7d386d313f877d7d67db",
-        "fixup": "1806a75e2e65fd41e11216f22a706ace13f61199"
+        "pin": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
+        "fixup": "dd923620405ee3fae0387e02815e3fec6a18a2f8"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
@@ -218,28 +218,28 @@
         "name": "fold/opposite-hand-hold",
         "kind": "branch",
         "source": "fork:fold/opposite-hand-hold",
-        "pin": "12cc74eddb216dc20ad8168de3e910f34e145806"
+        "pin": "aa87c053677587164265fc3a6fdb45f85920f8cb"
       },
       {
-        "name": "feat/position-combos",
-        "kind": "branch",
-        "source": "fork:feat/position-combos",
-        "pin": "8246eb429d61dd0f96bfb1c74e6f6c01a0daffd8",
+        "name": "pr-1488",
+        "kind": "pr",
+        "source": "upstream#1488",
+        "pin": "3e793d62fbbed71d4bc0cce16279430bef61135e",
         "fixup": "b8e34725cc4d52d203cd786ac0ac227a82a54548"
       },
       {
         "name": "feat/nrf-half-duplex-split",
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
-        "pin": "58070245ab6562189f46f767aec93035aaf53b07",
-        "fixup": "924540bc5c9a6d7ac09c07517641fdf273a0c752"
+        "pin": "66670bf9489805589a7c08ade264b3e98ba2dfac",
+        "fixup": "ec20c73bb5f80eaaf4fe897e9f85120ab5529037"
       },
       {
         "name": "feat/device-data",
         "kind": "branch",
         "source": "fork:feat/device-data",
-        "pin": "4c81e834593fb8aded978946795292d39853e28c",
-        "fixup": "32700c9917b525973c75b650e86538fa2ae461e6"
+        "pin": "b5a3bb47e57fc7c790dea2d1a0bb43c5e7352575",
+        "fixup": "23ca4257ff072786b9bf8e1d81bcbc1312201fdf"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -251,7 +251,7 @@
         "name": "feat/persistent-layer-metadata",
         "kind": "branch",
         "source": "fork:feat/persistent-layer-metadata",
-        "pin": "eebcb9211223447bb8e42e884c657744bb294a77",
+        "pin": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
         "fixup": "2d875a39f60861106aec26236dc441b30701f11a"
       },
       {
@@ -271,21 +271,21 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "841c4bb8f5bd590ce56942b12186e2c7f4964c9b",
-        "fixup": "3b3f5d194d29550e50afd5072da12043df6c2dab"
+        "pin": "1aaf5ecbf7c85914a871bf347a5dad13f4fe6396",
+        "fixup": "442942504285e8c6a43e0a686e2417ac93320810"
       },
       {
         "name": "feat/ctrl-gui-swap",
         "kind": "branch",
         "source": "fork:feat/ctrl-gui-swap",
-        "pin": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
+        "pin": "57ad473451cc586c58368e0cc88d82c8a721feea",
         "fixup": "143454090103fb7e1d347d0c178dfeea6688c05f"
       },
       {
         "name": "feat/ble-advertising-backoff",
         "kind": "branch",
         "source": "fork:feat/ble-advertising-backoff",
-        "pin": "aae5b5cf4707d8c8c88c80b26e4ae18f530e74cf"
+        "pin": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d"
       },
       {
         "name": "fix/rynk-flash-backpressure",
@@ -297,14 +297,14 @@
         "name": "feat/lighting-rules",
         "kind": "branch",
         "source": "fork:feat/lighting-rules",
-        "pin": "b7c9e4d43c34bc47e632a00b144fd1b5390dc787",
-        "fixup": "fbd00dbcc985fc7a5c1774eece12a9246d45ac20"
+        "pin": "a1f77b7b7cbeeeb983bd86958a8997929dc9579f",
+        "fixup": "e0014734ae29f3f181d516b5553c94d1461685aa"
       },
       {
         "name": "feat/ble-profile-clear-api",
         "kind": "branch",
         "source": "fork:feat/ble-profile-clear-api",
-        "pin": "2d7a646845559f7791959557ec2704e95dcf261f"
+        "pin": "9f5cf3a0fdf2c665bb40715f46242241d3459826"
       },
       {
         "name": "feat/morse-default-permissive-hold",
@@ -316,7 +316,8 @@
         "name": "feat/auto-switch-transport",
         "kind": "branch",
         "source": "fork:feat/auto-switch-transport",
-        "pin": "71280a93ed689e4afeae5cd369fa618631c5b017"
+        "pin": "9a86ff854b8f3cdae8ef4d0a5b88d3a139e48b1a",
+        "fixup": "b9aa120c6c142d7a19be61a5bce13b0a48a43331"
       },
       {
         "name": "fix/battery-level-while-charging",
@@ -328,13 +329,13 @@
         "name": "feat/persist-key-lighting",
         "kind": "branch",
         "source": "fork:feat/persist-key-lighting",
-        "pin": "55dc118a2eb1ed147e995af9268dfae53f38e13f"
+        "pin": "823ef7117e9466cb887995f3e479b98c0eaf90f6"
       },
       {
         "name": "feat/lighting-table-capacity",
         "kind": "branch",
         "source": "fork:feat/lighting-table-capacity",
-        "pin": "28d610e25bf217933f77abaf9a9ba20ab8342ace"
+        "pin": "5d84976c11935c85db8c3fcb3856c702b43dd8ce"
       },
       {
         "name": "feat/keymap-row-storage",
@@ -346,14 +347,21 @@
         "name": "feat/persist-lighting-output",
         "kind": "branch",
         "source": "fork:feat/persist-lighting-output",
-        "pin": "9461ff8d68269e5215ea82920e746861c2af70e2"
+        "pin": "d08d80fbe4227ac1739adca690ef4fb85f16dbff"
       },
       {
-        "name": "fold/combo-layers",
+        "name": "pr-1487",
+        "kind": "pr",
+        "source": "upstream#1487",
+        "pin": "9c0cb48bc02d3e7688ae6d7c51f5cd33a11cc3bc",
+        "fixup": "91e744842b15cfa83497623f17a95cc9cd321975"
+      },
+      {
+        "name": "feat/hid-hires-scroll",
         "kind": "branch",
-        "source": "fork:fold/combo-layers",
-        "pin": "9f4d8c40af23b72621f02cf6430a19f48014eeb7",
-        "fixup": "d0ba91fbf850c7b231e8d3526965649868a58de9"
+        "source": "fork:feat/hid-hires-scroll",
+        "pin": "95fa23e40b9d481d562d42b92e97905e8f98be67",
+        "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
       }
     ],
     "results": [
@@ -366,14 +374,14 @@
       },
       {
         "name": "fold/split-reliability",
-        "oid": "cbc89e6f86eeac0f60a774434a271bc1bae9112b",
+        "oid": "78dfc67b909466381cfac0ae2f517db9f96ab55a",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
         "name": "pr-1031",
-        "oid": "06c9c8b737b279707c6f1d236768eac5838153af",
+        "oid": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
         "status": "merged",
         "conflicted": false,
         "resolutions": [],
@@ -381,7 +389,7 @@
       },
       {
         "name": "fold/connection-selection",
-        "oid": "6753c563d1e54da0d6abc0944eb74afbfea6e7cc",
+        "oid": "f0a989e66ffd16311be4e7023f3d2018abf5cb76",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -409,7 +417,7 @@
       },
       {
         "name": "feat/pointer-layer-scaling",
-        "oid": "c9fd2fd0935aed30d06e5a931b6268670e50a108",
+        "oid": "f03defe4288a6482eb74bf0b61e78b2810dc8c6b",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -444,7 +452,7 @@
       },
       {
         "name": "feat/morse-tap-unless-interrupted",
-        "oid": "5139dba360e9787512c084e6dede8aed51d8608f",
+        "oid": "8e1c1f9703e5add320d73a27ecc96fb9975ca6e8",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -453,14 +461,12 @@
       },
       {
         "name": "feat/morse-hold-trigger-positions",
-        "oid": "c75e6c06150c3c2aa7fbf41063704cf44a0e3756",
+        "oid": "37bff5bd0d964f80d49e372368b5ca100acade52",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "121a92fd1de068778b771212311942cd0665c205",
           "13c7818e7f40aa5dddb1a2aeb6af0ddae31e13b3",
           "1714de546896e4f02326bf367211bb1e0a2b5ff3",
-          "1e84fd5c4dd8a4aff9fc5bf37004cb6cc178914f",
           "2fa73a7e21eb988557bfc02ff5c62116affbfeed",
           "3f52228629b6938a12071de8cecb48baef7811f5",
           "449cdda205197ee874fdb1ad8b5a1e0b9a8fcfe9",
@@ -471,22 +477,21 @@
           "9761ba6e3c4713b2965af59782d342c06b7ca68d",
           "aad388f11f9ffbe2ced74c840844f6720fdc3326",
           "b18a6adbe1cb9924f988251769fb5160ecd83264",
-          "f646652829475ac4b68b8022c0b336f9320ff879",
-          "f93b000df07101eeb0ba41267269d131f9562e78"
+          "b6dbcb289d1bce278a58cbdd9ad21049d38e8cbe",
+          "ba4446318acbab7f77a028c04b792e20f6f0ff99",
+          "e44b0109d5831be3858cc13a3217139e1ad065b5",
+          "f646652829475ac4b68b8022c0b336f9320ff879"
         ]
       },
       {
         "name": "feat/morse-hold-trigger-on-release",
-        "oid": "175dea01829fcc8022ba871222a30bf349e3cdbf",
+        "oid": "009296a252374897392ef8ebe50e856e47b90ac1",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "16a5bc11050695d24583bde2f2df6f718ba82d88",
-          "6a3cebae588b31ff88a295a118c84969c5693e90",
           "923466ae2cbc477e65d2362fdd790ab146fb69c2",
-          "9d8fc76b977762dc5334289367875026faf74445",
-          "a5f4751f095eff23302524214e953e57fb6e3639",
-          "b5a57c365eb6baade0b4c2e618fd339dcac7be3e"
+          "9d8fc76b977762dc5334289367875026faf74445"
         ]
       },
       {
@@ -498,15 +503,15 @@
       },
       {
         "name": "fold/unicode-input",
-        "oid": "0b681463937ae49f612febb800f018eba2a6b2aa",
+        "oid": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "0232953a1f80e2b2c298ccb96d875d25d3692bcb",
           "0326d0cf1c50475cfaeb87f18de9c0a1472e147b",
           "6570e8805d2c1ac63b0f77502448529289f63b89",
+          "78cece4d3827a45eede8d36c595f5c492f166d7e",
           "7e5d24d0cfa5b64af1a58ba69c8df80fcce4795a",
-          "829982a0c33dc6e5fa9ea8d3920b1b03d13f09ea",
           "ae5c8660f3724fdcdb934b51664a298f6096428a",
           "c67ce61194ae696638a677c154a715eaabf09433",
           "c6ed6f1151b3bcd517cc40f4fa965bd2cce989e9",
@@ -515,116 +520,113 @@
       },
       {
         "name": "fold/cirque-pinnacle",
-        "oid": "80aab34ed3ae67d281c7c1e2102339c730422081",
+        "oid": "53b7a40131d42f83657d7c7de627559d68316843",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
         "name": "feat/pointing-drag-mode",
-        "oid": "554fbc13addd6375063b3a8dc18d5709430bc3ed",
+        "oid": "76722741181e798842fb862d276a8f8128660f61",
         "status": "merged",
-        "conflicted": true,
-        "resolutions": [
-          "009a7c8546ac20732d2a04c5622bc04311cca3d2"
-        ]
+        "conflicted": false,
+        "resolutions": []
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
-        "oid": "da009928ee13839e3e367ce98eb75ad6ed984fb0",
+        "oid": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "8f976b3cc382c5c1870db0c134206fa079851f6b",
-          "9f53a97f3f3e6bcc6c7946b3a3ece1e89d2aac62",
+          "91b49fc43fedc8728c6e3c347a8585b58e8bb211",
+          "9d227011263c6a05c0196efcd90eb46b2436f86c",
           "a2551d54c01d6566227a7810f9a75d455d755d9b",
           "a3a6b17d96a9cbf3867d64a622d5ae422ddeb12d",
           "affcf414ff083807dfc8acc212c988546531a26f",
           "b308b47927c846b001ea54bfc98c4244b6b6b08a",
           "e693e79cedf556fdbdddbb1233feb6b52a1f84c3",
-          "e7b182b9b171322a6522f2381546cb01a486520e",
           "fb5bd1b415c278b3c62cede91ffea2ec101e6056"
-        ],
-        "fixup": "018c1ffb9252d1f283c3a1fef237e95db1e61628"
+        ]
       },
       {
         "name": "fold/runtime-behavior-parity",
-        "oid": "8176d8ab9036b2debf02eb53451fcd7fbe89825e",
+        "oid": "be45435241ea4d5b7b22fff01f98ffa71b5f30b9",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "0cb303554daa2c69697caaa8ba21cd45cc188115",
+          "1afc6ebb69681dc2cd8c9dda441f5f57da391ddd",
+          "215abd9a8674851c93dee26e7c4585dbcb7573a8",
           "2c155a77447155688184bde3d1b06ad63992abe0",
           "2c161dc120656b701fe88e1e13b16f29f08d9349",
-          "324e6869a58307b020a7cbe380ca12dee8ccd6e7",
-          "6adf25dd26b9b8edd8dd6c89eb60078efb09ff48",
-          "7a5f134ce1ee482dbd532650a113462e9a1c8696",
+          "4cb086942708c2c4cca086518cd18497933a2f2c",
+          "4f5655008a29b832a4c8dc31635d1b85d34f2ffb",
+          "63e70c54d4111acb674a56a2f08a4df02f346674",
+          "82299a07e7f892790bb8ddd973072c9b317822db",
           "8759cc905c857014162ce2a28d5658fc2aee4f3a",
           "9195cdff3c990b925cbc8c28474ea61bfcef965a",
-          "9687f72e10580a8f5e58dba0c2e9e6348173f2cf",
           "98300ad22cc7af1fd6fec7e4a97214bb31919a61",
           "a5748d2e5572cc61e970ade3f23bb2d2977b5358",
-          "ad1e6c6dee8242c866714a85ecbf6c5c8948c15f",
-          "b94d466d5bee2bd9d88908d6d36a3502fdfd94b6",
+          "b450f5ceb402d73c22410de86b52d61bd7e10803",
+          "b520fda10df57d21a58d7b3c225493e9930f1dc6",
+          "bb9331d3a432d988c6c63d375970caa0028de8b4",
           "bc0387a0749c40bf051e8f07547300ac4228ec02",
-          "cb22dba63bc2b04c7f9ca6b6b611a7dfd5f7e9f7",
-          "d27dfe726a08cab5b327ed9a1ecf4ace45e7079a",
+          "bfcaf9b5b01453693abaceebf9e257d9ad67998d",
           "d673c01523d47bc81cee5a44ebb224338c904148",
-          "f40fdd5141a608bcdf2150dd9fe89a931511aa4e",
-          "f9d06efd84ce9ec0e1df391999315f2d98926212"
+          "e9337aee6585fb15ec95663050b639dab19234e7"
         ],
         "fixup": "f8165da81a5700047fa1f43c1ae0c5d8076e2df9"
       },
       {
         "name": "feat/maintenance-mode",
-        "oid": "09d0b2a545ca0c974888d522571fdd46aefa8373",
+        "oid": "faf7c795b5ecbc43ea0432efa85dc649e9468950",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "074248b9521886a27c5b176ad7f2259526e7ff6c",
-          "1a599574b81c83bcf61b3fb66be8fcdec41bd7ac",
+          "0b097dc409fd1abde1269edee6a0840e1339b7a4",
           "3a8b01da6778279a16d61d2a9dcc690d26082145",
           "598c425079cf97b3068798cd65f6f4f9b4f940f7",
           "5dfd5ffffc0564852816886e0b0c2ccbb5f20d3c",
           "5e026d4ac94c59bde04772fa9ee7998b91a10414",
           "65dd92e4766b3251088df6a9155be0f477d212ad",
           "6748491f5d9eecb1aaa9ecc9e98da9ccc00b229c",
-          "6c9f26f3ff9b8514922e5f7c73d2f7e54bd1ed71",
           "6d28f296a47d87af9e1916fb18adbc0a4eec2026",
           "8611aefee6faa28a60ec2b46d1436293a136fb8d",
           "96254faffd7e69dbb440035d8d6eafb30e39594f",
-          "96624384e89d49b8a0ec6d3f71a133c08e8cb618",
           "9c93d6831bb6ad6cb662f256135070b05fd482f1",
           "9d30beb2bdeb98d058a9e34b95a166ab0e957b7b",
+          "a5e591a1fdc534c6f95199d64c2ba2b4e773ef70",
           "c0001faf90e5276f20e4949a716f5f1979e96e82",
           "d686d7144b35d480305cc1e5eb3337290da50c91",
           "deb1fd53fc0898e4c3b16ce8f8b81f6ab3c4dde8",
-          "df77f70803d54ed03b665a6d1fc3d6bf2aeb895f"
+          "df77f70803d54ed03b665a6d1fc3d6bf2aeb895f",
+          "e92130d50bbbd2848e63f8affaa1c400613cd3d9"
         ],
-        "fixup": "d8f63bdf1055a866636a18af711628a0039fea0e"
+        "fixup": "804b6c82241711a7029eba038bb9ff1f258bd933"
       },
       {
         "name": "fix/battery-power-transitions",
-        "oid": "ec5a9e601bfc565568675c76f79a9748f6c20b1c",
+        "oid": "08e2883f189b8e9a7c82ff04a5b980be0bb11431",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
         "name": "feat/ble-name-template",
-        "oid": "b33f65cf0073e875966c7d386d313f877d7d67db",
+        "oid": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "12985f72e481abdfd74d9bcd9e1caff46b2c8ada",
           "1fdec1af03a5f6c4318a4ed93635864f17402938",
+          "3cb7708c63615945dfc7cdfc93e487692608b0f2",
+          "654fff3a751a2803eda393c2f87bade2f3f22772",
+          "6968d0daaf081a222ec4bdcc168df7897dbfa371",
           "72cee2aa48e4069319a51fae6859767b786c927c",
           "7d14732bac9818074f973e47b2279ff4fe6cf675",
-          "8209d8a8948810b8a3ecbe9f75fec28d4d00209e",
-          "c60f8d7bd3b8e3ec30333cecda983e5cc078b2d2",
-          "d727964388ecd77e205b67408cc819adf4101236"
+          "fd6cdc37bb126efa3ebe82685b76a378d9e17132"
         ],
-        "fixup": "1806a75e2e65fd41e11216f22a706ace13f61199"
+        "fixup": "dd923620405ee3fae0387e02815e3fec6a18a2f8"
       },
       {
         "name": "fix/ephemeral-split-layer-state",
@@ -647,7 +649,7 @@
       },
       {
         "name": "fold/opposite-hand-hold",
-        "oid": "12cc74eddb216dc20ad8168de3e910f34e145806",
+        "oid": "aa87c053677587164265fc3a6fdb45f85920f8cb",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -655,68 +657,68 @@
           "4111925807b05a0c1c7b352ddf32b31f3c81c494",
           "4d89d7d078f00885b8692630cd8839cc61f82a0c",
           "6dbea9a34f777171112d2e3adb56624be6814f4b",
+          "789eec58e81da2966cd3838b86e55a308611ab2a",
           "e45ae7dca5ca4aa95deef0168b332bce0cd30dde",
-          "ed45a6bcc2ce2d0d54c142610dd3f6973806e0e5",
-          "fd658d25644f77e1cd73180b08f36d6dc3d47c92"
+          "ed45a6bcc2ce2d0d54c142610dd3f6973806e0e5"
         ]
       },
       {
-        "name": "feat/position-combos",
-        "oid": "8246eb429d61dd0f96bfb1c74e6f6c01a0daffd8",
+        "name": "pr-1488",
+        "oid": "3e793d62fbbed71d4bc0cce16279430bef61135e",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "43f1a3822767a8fa9d002239959ed61804df44ac",
-          "5190b8fda0c404684e0a6a69766c686caab62f4f",
+          "4a9e837790a5c66b50cc3e79a61a187fdd8cc32a",
           "519872d22eb643ea43cbd97429d70b93dd8ddbd3",
+          "7bf05b9ce352c01d3e4b42d3b9ab362e3dd1dc1a",
           "a60c173cb2783f42932efd8e186b0423ffe9aa2e",
-          "b9f82fe807108d3361d1b0ec24ee2dcb44c6342c",
+          "aaa3929062374dab4c93326d32c3bb30795731fb",
           "bfb76c523e1ffd579a8e849369e5752d97ef40c0",
-          "c74045b342ab994864dab670453f4db2544bf3e1",
           "cd2af68afaca85c70431caaceb5f420e41452470",
-          "d7d2ded5d04a4b376f88c7e6764799188fd46d35"
+          "d7d2ded5d04a4b376f88c7e6764799188fd46d35",
+          "f33e6f76a61fab1e6aa740f499e37bb5f26e3c9e"
         ],
         "fixup": "b8e34725cc4d52d203cd786ac0ac227a82a54548"
       },
       {
         "name": "feat/nrf-half-duplex-split",
-        "oid": "58070245ab6562189f46f767aec93035aaf53b07",
+        "oid": "66670bf9489805589a7c08ade264b3e98ba2dfac",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "03d3cc945e7115cdf9179f3c44186a9075dfb411",
           "27b5dfe79000752981392ba5cd5e399342f4c944",
           "4d47c2515b33637bdc55b3b1e483d6df9dfa37ab",
           "7c0498923c6fd0ceadd9015cdad8b0888a36ef27",
-          "8e53fc76746599ab81c11815781ab6ecf12e0e83",
+          "9785f0b87b32b2ce6c04fda4d0d64043ecb7addc",
           "afa87a0efd3171cddc06968275b552bf211fd35c",
-          "b18654c55de9dd93067e7351216d6ad54c0b2590",
-          "d17203840f77423aac5ea4531f6546c13a49a6ac",
+          "be66c68fea8ae6f6d52941bb63084f8e4e81ced8",
           "d267e55fdab014134b67bb3fc9801119fadfc5dd",
           "d4e443eece99bb1583e7a553fe3c0517771059df",
           "e0dfa924679dffbc0b92a639280bb17ac8ce39e6",
           "e176d2ab336fe5b7a4559425c0402065fea3cf00",
-          "ed0b42dd422b962986c0e1abc219b64394c7bf4a"
+          "ed0b42dd422b962986c0e1abc219b64394c7bf4a",
+          "f36f25b38add34d8d3459a7a4a9636cec2d280ec",
+          "fde6bdf886f091487c23840f6f87d166d5280824"
         ],
-        "fixup": "924540bc5c9a6d7ac09c07517641fdf273a0c752"
+        "fixup": "ec20c73bb5f80eaaf4fe897e9f85120ab5529037"
       },
       {
         "name": "feat/device-data",
-        "oid": "4c81e834593fb8aded978946795292d39853e28c",
+        "oid": "b5a3bb47e57fc7c790dea2d1a0bb43c5e7352575",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
+          "1acdb66f48ce8c731d6a22386c49ef9c62becbc1",
           "2dcde52e8c257d513a30876f9d1881048ebd457c",
-          "39d025c2de1adb3fd7e16fa9887c704e76669521",
+          "37e1a56b08c4a4216c839c81eedfc427d46ce8f7",
           "51d63bd5386e54a737a9b6f86d33c8d4ac5da27b",
-          "6a15b19a2e8c70eac08af61d07a053b48b87f74c",
-          "92f15003b2995be5ead5c2d47235a1e0cfd6ad1a",
-          "9d1f4eb67c8add9676a9b10e0225fc29116400e8",
+          "8ca1e6b7ea5fa8d0aa0d02e5653c0637dcac3cb2",
           "ad2b65d3cf70dd7d5c419712dae7d74b1df3218f",
+          "adfd83b0780ec5827a2564a93d82dee6da73225c",
           "ba00deeb38b9473ab07de6f44fc5d23ec11e5312",
           "ccd661bd9c5ce2657cc0f6f053b87184ec9e43d3"
         ],
-        "fixup": "32700c9917b525973c75b650e86538fa2ae461e6"
+        "fixup": "23ca4257ff072786b9bf8e1d81bcbc1312201fdf"
       },
       {
         "name": "runtime-lighting-wake-layers",
@@ -727,20 +729,20 @@
       },
       {
         "name": "feat/persistent-layer-metadata",
-        "oid": "eebcb9211223447bb8e42e884c657744bb294a77",
+        "oid": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "3b4dba5ac303ebc73c6ae6507af0aed6616ced00",
+          "0c55428db4800a65282d49db8d5d6c64c6af324d",
+          "0f7db594ff6217e54a6a89d4b94eb3405da7cbeb",
+          "299ebea3cfd4457252338631fc10b13198bc9717",
           "3f13e976aeaf42269bbd07a05a5b8848d8580797",
-          "3f810370a99cd21e555f27727100fa8fc314f923",
           "57b5277a6a43ab695e6b1d9a9751eb7cedc5148c",
           "73083c44631e20fb8dcd886333e680645a8407f9",
           "7a3b981ea7b2612efa20c8c148b3fb8e20aac0be",
           "7d32c11c9ca76169cd737ac76a686db932fb2512",
-          "a998b77c91d8504ba4e860d163780718c8f49663",
-          "dee8a7c23ea94c4c8a9af6339d1e1f47c895701f",
-          "ee9cec5fbf104b8c642d989df491fd271f7abee2"
+          "a578e3f79a826ca5b8c83f0428b90c04ff913353",
+          "e39b099b947aa287a1e8f6b5d2f61ecb89a88afa"
         ],
         "fixup": "2d875a39f60861106aec26236dc441b30701f11a"
       },
@@ -763,33 +765,32 @@
       },
       {
         "name": "feat/lighting-layer-indicator-conditions",
-        "oid": "841c4bb8f5bd590ce56942b12186e2c7f4964c9b",
+        "oid": "1aaf5ecbf7c85914a871bf347a5dad13f4fe6396",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "36a68a2401a93087db8fe36b2dba19bc16104e3c",
-          "59bd81c7bda09ce6e340c957da42b0f9fc1c04a9",
           "7240a148c3c9654c54b87452f3800fbcfe4f5dfb",
-          "7c34c448a4751f4862fd9554d8e03c8620ab48c4",
+          "bad711bfe1d39727dbbec61ab043bf25e4590dde",
+          "c66eaa125acebc33df620cd03d38213f18c714a9",
           "db068ae580d27824de21ed3407bc9914833bfb50"
         ],
-        "fixup": "3b3f5d194d29550e50afd5072da12043df6c2dab"
+        "fixup": "442942504285e8c6a43e0a686e2417ac93320810"
       },
       {
         "name": "feat/ctrl-gui-swap",
-        "oid": "707a58692734cb5a14d9a6af94f1fd66d29ae04b",
+        "oid": "57ad473451cc586c58368e0cc88d82c8a721feea",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "0c8998a339e4a0736342bb082dab51d00abfae6b",
-          "5b7b563b63864b143ac4155b0de0aea57b7c96cb",
-          "cc391506d775f41b458ec9776ffc52656a98c043"
+          "2101ff72567a33193a3e61deb524ba5a667f6fa8",
+          "25de2118e62d97e9000605291a920ec202c38343"
         ],
         "fixup": "143454090103fb7e1d347d0c178dfeea6688c05f"
       },
       {
         "name": "feat/ble-advertising-backoff",
-        "oid": "aae5b5cf4707d8c8c88c80b26e4ae18f530e74cf",
+        "oid": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -806,10 +807,11 @@
       },
       {
         "name": "feat/lighting-rules",
-        "oid": "b7c9e4d43c34bc47e632a00b144fd1b5390dc787",
+        "oid": "a1f77b7b7cbeeeb983bd86958a8997929dc9579f",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
+          "05601d615b08561c7e471f210e3507d45931b1d4",
           "22d4df8d086133cf5c88e04c8c1d82a5b154b44c",
           "48706e1e2fd702c0179edd6a975eaba4d00b005b",
           "4c03a1550ac6c64869471c1d4254b07e22041f42",
@@ -817,20 +819,21 @@
           "a49de7cf4425d55d5aed3694fccf2caddf4b0043",
           "f914c47854eab041f2a46f6ea8ea897f0b3bfe51"
         ],
-        "fixup": "fbd00dbcc985fc7a5c1774eece12a9246d45ac20"
+        "fixup": "e0014734ae29f3f181d516b5553c94d1461685aa"
       },
       {
         "name": "feat/ble-profile-clear-api",
-        "oid": "2d7a646845559f7791959557ec2704e95dcf261f",
+        "oid": "9f5cf3a0fdf2c665bb40715f46242241d3459826",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "331a9057d4eec1d17be045b5bf46540e69a14d16",
+          "09dc066b5ded3fa7460d700dda35f25cdf59e8eb",
+          "15ed75e60a99a662d0bbc26e4104e748bd622cb0",
+          "4ea2e69aa50298e661c3f774658709586d754553",
           "4f308c8fdb0f5b4395842b32bcb5ae44edc9f47b",
-          "865588175a41b659862444b7ea142e4e3b335356",
-          "94bc04fa7dcb652aeda2c15262a0f1a7e8760e22",
-          "c036c22c09268d0555ea7d385d2cdfa8a55ee1ef",
-          "ef20aee0d9495eccae846a4144e88c69fdcc19cd"
+          "505dcca8287b6431a1f7f6553f520aa13b4bb6b5",
+          "c1e1449fda5430529609d87c5aad14533b604d4c",
+          "f32255e4878e5ca84120f50240f85088a7641a46"
         ]
       },
       {
@@ -845,19 +848,20 @@
       },
       {
         "name": "feat/auto-switch-transport",
-        "oid": "71280a93ed689e4afeae5cd369fa618631c5b017",
+        "oid": "9a86ff854b8f3cdae8ef4d0a5b88d3a139e48b1a",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "080c994a5d641b46f0f77b62ca6eb99ea372b68e",
-          "22fd62ac7c377fe0275afafc056e4a7a5e2d680c",
-          "3c42a1bae5fac556b9234c264ec396bf496fe5d2",
-          "437f6a752dae46f8e2d41f57c43bd87d64fbe4ae",
-          "5081f3f2be92f5adae3e44723adc34889fbb4bcc",
+          "50958649885380fc46ef48d6c94189d250601966",
+          "90e8f975999f21573a4fce0d7305018eb48364e4",
+          "baa8a3b61208ea5a34d5eb78db855c8db84a155e",
           "daf896619df0dbb418b94aa0b2aca0464ae2a5a5",
-          "eaffb6b03214d82d79cf075e943ef3acd5e2212a",
+          "e25fa783e1e249b820e266c4b303203eae4b3e55",
+          "ed9e677ce5f7e245d170992e416e3616cd5ca94c",
           "fe9b23f31df1e684ed78640be0d677a227452c79"
-        ]
+        ],
+        "fixup": "b9aa120c6c142d7a19be61a5bce13b0a48a43331"
       },
       {
         "name": "fix/battery-level-while-charging",
@@ -868,14 +872,14 @@
       },
       {
         "name": "feat/persist-key-lighting",
-        "oid": "55dc118a2eb1ed147e995af9268dfae53f38e13f",
+        "oid": "823ef7117e9466cb887995f3e479b98c0eaf90f6",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
         "name": "feat/lighting-table-capacity",
-        "oid": "28d610e25bf217933f77abaf9a9ba20ab8342ace",
+        "oid": "5d84976c11935c85db8c3fcb3856c702b43dd8ce",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -889,14 +893,14 @@
       },
       {
         "name": "feat/persist-lighting-output",
-        "oid": "9461ff8d68269e5215ea82920e746861c2af70e2",
+        "oid": "d08d80fbe4227ac1739adca690ef4fb85f16dbff",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
-        "name": "fold/combo-layers",
-        "oid": "9f4d8c40af23b72621f02cf6430a19f48014eeb7",
+        "name": "pr-1487",
+        "oid": "9c0cb48bc02d3e7688ae6d7c51f5cd33a11cc3bc",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -904,12 +908,21 @@
           "1ba53feb92e00736da2806feb7a669e33b30915a",
           "22f6a2a74345742aadb38ce70e51a6f0f0225351",
           "231694f0b7f3bb4cbdbe6721aed2e8878a5bd0c3",
-          "93fe6c2da72781ef3ff7707edec8a64666ea0be0",
+          "6af4bb4ad52deb52a883d90d83c93f35977a6771",
           "a69eb12d226d8f6ea0f3ca1b42aedbb87d6e1095",
-          "d0f6ae112fca9bbb4b94ff1dd5b7a2dbbf4384f2",
           "f6a2486696069a05bcc88d19227f258c50ac1d86"
         ],
-        "fixup": "d0ba91fbf850c7b231e8d3526965649868a58de9"
+        "fixup": "91e744842b15cfa83497623f17a95cc9cd321975"
+      },
+      {
+        "name": "feat/hid-hires-scroll",
+        "oid": "95fa23e40b9d481d562d42b92e97905e8f98be67",
+        "status": "merged",
+        "conflicted": true,
+        "resolutions": [
+          "fd4749c045a061361c767e9aeed0bf48bb69de2c"
+        ],
+        "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
       }
     ]
   }

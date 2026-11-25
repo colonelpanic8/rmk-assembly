@@ -1,8 +1,8 @@
 diff --git a/docs/docs/main/docs/configuration/appendix.md b/docs/docs/main/docs/configuration/appendix.md
-index be4e2ba18..23ad01953 100644
+index 2cb2c510e..793e97ae8 100644
 --- a/docs/docs/main/docs/configuration/appendix.md
 +++ b/docs/docs/main/docs/configuration/appendix.md
-@@ -583,14 +583,12 @@ vial_enabled = true
+@@ -584,14 +584,12 @@ vial_enabled = true
  # Rynk and Vial are mutually exclusive and must match Cargo features.
  rynk_enabled = false
  # The unlock keys are the combo of the row 0, col 0 key and
@@ -54,12 +54,12 @@ index 3b6300018..9fe800e3a 100644
  
  ## Common Setups
 diff --git a/docs/docs/main/docs/features/rynk.md b/docs/docs/main/docs/features/rynk.md
-index 862633753..7fbbdf9c0 100644
+index aa46bcc29..c6b142c61 100644
 --- a/docs/docs/main/docs/features/rynk.md
 +++ b/docs/docs/main/docs/features/rynk.md
-@@ -102,76 +102,39 @@ and
- 
- A ready-made desktop app is not available yet.
+@@ -134,77 +134,39 @@ If the host tool reaches the keyboard over the profile you disconnect or forget,
+ the tool loses its connection and may report that the request failed. The
+ change still happens.
  
 -## Locking dangerous operations
 +## Maintenance lock
@@ -80,8 +80,9 @@ index 862633753..7fbbdf9c0 100644
 -  on-the-fly configuration is friction-free.
 -- **Locked** — the dangerous ones: entering the bootloader, resetting stored
 -  settings and bonds, reading the live key matrix (a keylogger if left open),
--  and clearing a BLE bond. A host tool gets a "locked" error until you unlock.
--  Bootloader entry may be opted out separately for managed deployment setups.
+-  and disconnecting or forgetting a BLE profile. A host tool gets a "locked"
+-  error until you unlock. Bootloader entry may be opted out separately for
+-  managed deployment setups.
 -- **Config writes** — open by default, because on-the-fly configuration is the
 -  point. Set `write_requires_unlock = true` to move every write (keymap, macros,
 -  …) into the locked tier as well.
@@ -154,10 +155,10 @@ index 862633753..7fbbdf9c0 100644
  ## Advanced tuning
  
 diff --git a/rmk-config/src/lib.rs b/rmk-config/src/lib.rs
-index 1a4e0c9ff..ad98572cd 100644
+index 1b3cca907..685aa0c2a 100644
 --- a/rmk-config/src/lib.rs
 +++ b/rmk-config/src/lib.rs
-@@ -1577,8 +1577,7 @@ pub(crate) struct HostConfig {
+@@ -1592,8 +1592,7 @@ pub(crate) struct HostConfig {
      /// with `vial_enabled` (the underlying Cargo features conflict).
      #[serde_inline_default(false)]
      pub rynk_enabled: bool,
@@ -168,10 +169,10 @@ index 1a4e0c9ff..ad98572cd 100644
      /// Start (and stay) unlocked, bypassing the unlock-key combo (default:
      /// false). Renamed from `vial_insecure`; the old name still parses.
 diff --git a/rmk-macro/src/codegen/keyboard_config.rs b/rmk-macro/src/codegen/keyboard_config.rs
-index 1d54ddf07..1bbe627f3 100644
+index 4dbc50d10..aef2a314b 100644
 --- a/rmk-macro/src/codegen/keyboard_config.rs
 +++ b/rmk-macro/src/codegen/keyboard_config.rs
-@@ -79,14 +79,12 @@ pub(crate) fn expand_lock_config(host: &Host) -> proc_macro2::TokenStream {
+@@ -91,14 +91,12 @@ pub(crate) fn expand_lock_config(host: &Host) -> proc_macro2::TokenStream {
      let unlock_keys = unlock_keys_tokens(host);
      let insecure = host.insecure;
      let write_requires_unlock = host.write_requires_unlock;
@@ -187,10 +188,10 @@ index 1d54ddf07..1bbe627f3 100644
          };
      }
 diff --git a/rmk-macro/src/codegen/simulator.rs b/rmk-macro/src/codegen/simulator.rs
-index 6af002b60..01fbae455 100644
+index fcfda4228..3ffdd63c9 100644
 --- a/rmk-macro/src/codegen/simulator.rs
 +++ b/rmk-macro/src/codegen/simulator.rs
-@@ -321,7 +321,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
+@@ -325,7 +325,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
          quote! { (#row, #col) }
      });
      let (insecure, write_requires_unlock) = (host.insecure, host.write_requires_unlock);
@@ -198,7 +199,7 @@ index 6af002b60..01fbae455 100644
      let maintenance_mode_default = host.maintenance_mode_default;
      let blob = proc_macro2::Literal::byte_string(layout_blob);
      quote! {
-@@ -330,7 +329,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
+@@ -334,7 +333,6 @@ fn expand_rmk_config(host: &Host, layout_blob: &[u8]) -> TokenStream2 {
                  unlock_keys: &[#(#keys),*],
                  insecure: #insecure,
                  write_requires_unlock: #write_requires_unlock,
@@ -207,10 +208,10 @@ index 6af002b60..01fbae455 100644
              },
              layout_blob: #blob,
 diff --git a/rmk/CHANGELOG.md b/rmk/CHANGELOG.md
-index f25e5a8f7..3ac329ea6 100644
+index e16aaf327..f059dee16 100644
 --- a/rmk/CHANGELOG.md
 +++ b/rmk/CHANGELOG.md
-@@ -105,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
+@@ -122,7 +122,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  
  #### Experimental
  
@@ -243,14 +244,14 @@ index 94946ad15..50f5a4392 100644
          }
      }
 diff --git a/rmk/src/host/rynk/handlers/lighting.rs b/rmk/src/host/rynk/handlers/lighting.rs
-index d65962dd5..9a718cdf0 100644
+index ffb20d1ac..67ee88a8d 100644
 --- a/rmk/src/host/rynk/handlers/lighting.rs
 +++ b/rmk/src/host/rynk/handlers/lighting.rs
-@@ -1810,15 +1810,7 @@ mod tests {
+@@ -1810,20 +1810,9 @@ mod tests {
              .len();
          let req_len = RYNK_HEADER_SIZE + payload_len;
          let mut message = RynkMessage::from_decoded(&mut buffer[..], req_len);
--        // Same gate `run_session` builds, derived from the service under test so
+-        // Same gate `run` builds, derived from the service under test so
 -        // the lock tier is exercised exactly as it is in production.
 -        let locker = crate::host::lock::HostLock::new(
 -            service.lock_config.unlock_keys,
@@ -258,12 +259,17 @@ index d65962dd5..9a718cdf0 100644
 -            service.lock_config.insecure,
 -            crate::host::rynk::RYNK_UNLOCK_WINDOW,
 -        );
--        service.dispatch(&locker, session, &mut message).await.unwrap();
-+        service.dispatch(session, &mut message).await.unwrap();
-         // The reply is COBS-framed in place; deframe it back to [cmd, seq, payload].
-         let mut reply = message.frame().to_vec();
-         let framed_len = reply.len();
-@@ -1868,8 +1860,7 @@ mod tests {
+         let mut written = Box::new([0u8; rmk_types::constants::RYNK_BUFFER_SIZE]);
+         let mut tx = written.as_mut_slice();
+-        service
+-            .serve_request(&locker, session, &mut message, &mut tx)
+-            .await
+-            .unwrap();
++        service.serve_request(session, &mut message, &mut tx).await.unwrap();
+         let framed_len = rmk_types::constants::RYNK_BUFFER_SIZE - tx.len();
+         // The reply is COBS-framed; deframe it back to [cmd, seq, payload].
+         let mut reply = written[..framed_len].to_vec();
+@@ -1873,8 +1862,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -273,7 +279,7 @@ index d65962dd5..9a718cdf0 100644
              let unbound = RynkService::new(&keymap, &config);
              let unbound_session = session();
              let device_caps = call::<GetCapabilities>(&unbound, &unbound_session, &()).await.unwrap();
-@@ -1899,8 +1890,7 @@ mod tests {
+@@ -1904,8 +1892,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -283,7 +289,7 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              let service = RynkService::new(&keymap, &config).with_lighting(RynkLightingController::new(
                  &mailbox,
-@@ -1951,8 +1941,7 @@ mod tests {
+@@ -1956,8 +1943,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -293,7 +299,7 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              let service = RynkService::new(&keymap, &config).with_lighting(RynkLightingController::new(
                  &mailbox,
-@@ -2003,8 +1992,7 @@ mod tests {
+@@ -2008,8 +1994,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -303,7 +309,7 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              let service = RynkService::new(&keymap, &config).with_lighting(RynkLightingController::new(
                  &mailbox,
-@@ -2143,8 +2131,7 @@ mod tests {
+@@ -2148,8 +2133,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -313,7 +319,7 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              let service = RynkService::new(&keymap, &config).with_lighting(RynkLightingController::new(
                  &mailbox,
-@@ -2197,8 +2184,7 @@ mod tests {
+@@ -2202,8 +2186,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -323,7 +329,7 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              let service = RynkService::new(&keymap, &config).with_lighting(RynkLightingController::new(
                  &mailbox,
-@@ -2263,8 +2249,7 @@ mod tests {
+@@ -2268,8 +2251,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 1, 0> = KeymapData::new([[[KeyAction::No; 3]]]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -333,7 +339,7 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              // Lighting is bound, but the board wired no runtime scene table.
              let service = RynkService::new(&keymap, &config).with_lighting(RynkLightingController::new(
-@@ -2329,8 +2314,7 @@ mod tests {
+@@ -2334,8 +2316,7 @@ mod tests {
              let positional: PositionalConfig<1, 3> = PositionalConfig::default();
              let mut data: KeymapData<1, 3, 2, 0> = KeymapData::new([[[KeyAction::No; 3]]; 2]);
              let keymap = KeyMap::new(&mut data, &mut behavior, &positional).await;
@@ -343,12 +349,27 @@ index d65962dd5..9a718cdf0 100644
              let mailbox = RynkLightingMailbox::new();
              let controls = LightingControls {
                  output_toggle_user_action: Some(13),
+diff --git a/rmk/src/host/rynk/handlers/system.rs b/rmk/src/host/rynk/handlers/system.rs
+index afb740fac..c2d86e682 100644
+--- a/rmk/src/host/rynk/handlers/system.rs
++++ b/rmk/src/host/rynk/handlers/system.rs
+@@ -6,8 +6,8 @@ use rmk_types::protocol::rynk::command::{
+     PeripheralBootloaderJump, Reboot, StorageReset, UnlockPoll,
+ };
+ use rmk_types::protocol::rynk::{
+-    BuildInfo, DeviceCapabilities, DeviceInfo, LockStatus, MaintenanceMode, MAX_BULK_ITEMS, MAX_BULK_KEYS, ProtocolVersion,
+-    RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
++    BuildInfo, DeviceCapabilities, DeviceInfo, LockStatus, MAX_BULK_ITEMS, MAX_BULK_KEYS, MaintenanceMode,
++    ProtocolVersion, RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
+ };
+ 
+ use super::super::{RMK_VERSION, RynkService, truncated};
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index 4e3f8e3ee..d5a6ac966 100644
+index 62848f52e..d61a08522 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -250,6 +250,48 @@ impl<'a> RynkService<'a> {
-             Cmd::GetBleStatus | Cmd::SwitchBleProfile => Some(false),
+@@ -252,6 +252,48 @@ impl<'a> RynkService<'a> {
+             Cmd::SwitchBleProfile => Some(false),
              #[cfg(feature = "split")]
              Cmd::GetPeripheralStatus => Some(false),
 +            Cmd::SetMorseProfileEntry | Cmd::DeleteMorseProfile => Some(true),
@@ -396,45 +417,3 @@ index 4e3f8e3ee..d5a6ac966 100644
              _ => None,
          }
      }
-diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
---- a/rmk/src/host/rynk/mod.rs
-+++ b/rmk/src/host/rynk/mod.rs
-@@ -177,7 +177,11 @@
-     /// `every_endpoint_has_a_maintenance_policy` test keeps that set empty).
-     fn maintenance_policy(cmd: Cmd) -> Option<bool> {
-         match cmd {
--            Cmd::Reboot | Cmd::BootloaderJump | Cmd::PeripheralBootloaderJump | Cmd::StorageReset | Cmd::GetMatrixState => Some(true),
-+            Cmd::Reboot
-+            | Cmd::BootloaderJump
-+            | Cmd::PeripheralBootloaderJump
-+            | Cmd::StorageReset
-+            | Cmd::GetMatrixState => Some(true),
-             #[cfg(feature = "lighting")]
-             Cmd::GetLightingFrame => Some(true),
-             // Deleting a bond opens a re-pair hijack window; BLE-only command.
-diff --git a/rmk/src/host/rynk/handlers/system.rs b/rmk/src/host/rynk/handlers/system.rs
---- a/rmk/src/host/rynk/handlers/system.rs
-+++ b/rmk/src/host/rynk/handlers/system.rs
-@@ -6,8 +6,8 @@
-     PeripheralBootloaderJump, Reboot, StorageReset, UnlockPoll,
- };
- use rmk_types::protocol::rynk::{
--    BuildInfo, DeviceCapabilities, DeviceInfo, LockStatus, MaintenanceMode, MAX_BULK_ITEMS, MAX_BULK_KEYS, ProtocolVersion,
--    RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
-+    BuildInfo, DeviceCapabilities, DeviceInfo, LockStatus, MAX_BULK_ITEMS, MAX_BULK_KEYS, MaintenanceMode,
-+    ProtocolVersion, RYNK_MAX_PAYLOAD_SIZE, RynkError, StorageResetMode,
- };
- 
- use super::super::{RMK_VERSION, RynkService, truncated};
-diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
---- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
-+++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
-@@ -10,7 +10,7 @@
- Action::Key(Hid(A))                                     01 00 04
- Action::KeyWithModifier(A,LShift)                       03 04 02
- Action::KeyboardControl(Bootloader)                     11 00
--Action::KeyboardControl(MaintenanceModeToggle)          11 07
-+Action::KeyboardControl(MaintenanceModeToggle)          11 0a
- Action::LayerOff(3)                                     06 03
- Action::LayerOn(1)                                      04 01
- Action::LayerOnWithModifier(2,LCtrl)                    05 02 01

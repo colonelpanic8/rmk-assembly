@@ -1,0 +1,246 @@
+use std::collections::HashSet;
+
+use crate::{BehaviorConfig, LayoutTomlConfig, MorseProfile, MorsesConfig};
+
+fn expand_hold_trigger_regions(
+    layout: Option<&LayoutTomlConfig>,
+    positions: &mut Option<Vec<[u8; 2]>>,
+    region_names: Option<&[String]>,
+    context: &str,
+) -> Result<(), String> {
+    let Some(layout) = layout else {
+        if region_names.is_some_and(|names| !names.is_empty()) {
+            return Err(format!(
+                "keyboard.toml: {context}.hold_trigger_regions requires [layout]"
+            ));
+        }
+        return Ok(());
+    };
+    let valid_positions = crate::layout::logical_key_positions(layout)?;
+    let mut expanded = positions.take().unwrap_or_default();
+
+    if let Some(names) = region_names {
+        let regions = layout.regions.as_ref();
+        for name in names {
+            let region = regions.and_then(|regions| regions.get(name)).ok_or_else(|| {
+                format!("keyboard.toml: {context}.hold_trigger_regions references unknown layout region '{name}'")
+            })?;
+            expanded.extend(region);
+        }
+    }
+
+    let mut seen = HashSet::new();
+    expanded.retain(|position| seen.insert(*position));
+    if let Some(position) = expanded.iter().find(|position| !valid_positions.contains(*position)) {
+        return Err(format!(
+            "keyboard.toml: {context} references hold trigger position [{}, {}], which is not a key in layout.map",
+            position[0], position[1]
+        ));
+    }
+    *positions = (!expanded.is_empty()).then_some(expanded);
+    Ok(())
+}
+
+fn expand_morse_regions(layout: Option<&LayoutTomlConfig>, morse: &mut MorsesConfig) -> Result<(), String> {
+    expand_hold_trigger_regions(
+        layout,
+        &mut morse.hold_trigger_key_positions,
+        morse.hold_trigger_regions.as_deref(),
+        "behavior.morse",
+    )?;
+    if let Some(profiles) = &mut morse.profiles {
+        for (name, profile) in profiles {
+            expand_profile_regions(layout, name, profile)?;
+        }
+    }
+    Ok(())
+}
+
+fn expand_profile_regions(
+    layout: Option<&LayoutTomlConfig>,
+    name: &str,
+    profile: &mut MorseProfile,
+) -> Result<(), String> {
+    expand_hold_trigger_regions(
+        layout,
+        &mut profile.hold_trigger_key_positions,
+        profile.hold_trigger_regions.as_deref(),
+        &format!("behavior.morse.profiles.{name}"),
+    )
+}
+
+impl crate::KeyboardTomlConfig {
+    pub(crate) fn get_behavior_config(&self) -> Result<BehaviorConfig, String> {
+        let num_layers = self.num_layers();
+        match self.behavior.clone() {
+            Some(mut behavior) => {
+                if let Some(tri_layer) = &behavior.tri_layer {
+                    if tri_layer.upper >= num_layers {
+                        return Err("keyboard.toml: Tri layer upper is larger than [keymap].layers".to_string());
+                    } else if tri_layer.lower >= num_layers {
+                        return Err("keyboard.toml: Tri layer lower is larger than [keymap].layers".to_string());
+                    } else if tri_layer.adjust >= num_layers {
+                        return Err("keyboard.toml: Tri layer adjust is larger than [keymap].layers".to_string());
+                    }
+                }
+                if let Some(combo) = &behavior.combo {
+                    if combo.combos.len() > self.rmk.max_combos {
+                        return Err(
+                            "keyboard.toml: number of combos is greater than max_combos configured under [rmk] section"
+                                .to_string(),
+                        );
+                    }
+                    for (i, c) in combo.combos.iter().enumerate() {
+                        if c.actions.len() > self.rmk.max_combo_keys {
+                            return Err(format!(
+                                "keyboard.toml: number of keys in combo #{} is greater than max_combo_keys configured under [rmk] section",
+                                i
+                            ));
+                        }
+                        if let Some(layer) = c.layer
+                            && layer >= num_layers
+                        {
+                            return Err(format!(
+                                "keyboard.toml: layer in combo #{} is greater than [keymap].layers",
+                                i
+                            ));
+                        }
+                    }
+                }
+                if let Some(fork) = &behavior.fork {
+                    let count: usize = fork.forks.iter().map(|f| f.trigger.keys().len()).sum();
+                    if count > self.rmk.max_forks {
+                        return Err(
+                            "keyboard.toml: number of forks is greater than max_forks configured under [rmk] section"
+                                .to_string(),
+                        );
+                    }
+                    for (i, f) in fork.forks.iter().enumerate() {
+                        if f.trigger.keys().is_empty() {
+                            return Err(format!("keyboard.toml: trigger list in fork #{i} is empty"));
+                        }
+                        let Some(layers) = &f.layers else { continue };
+                        if layers.is_empty() {
+                            return Err(format!("keyboard.toml: layers list in fork #{i} is empty"));
+                        }
+                        if layers.iter().any(|&l| l >= num_layers.min(32)) {
+                            return Err(format!(
+                                "keyboard.toml: layer in fork #{i} must be below [keymap].layers and 32"
+                            ));
+                        }
+                    }
+                }
+                if let Some(entries) = &behavior.auto_mouse_layer {
+                    let max_auto_mouse_layers = self
+                        .rmk
+                        .max_auto_mouse_layers
+                        .unwrap_or(crate::resolved::behavior::DEFAULT_MAX_AUTO_MOUSE_LAYERS);
+                    if entries.len() > max_auto_mouse_layers {
+                        return Err(format!(
+                            "keyboard.toml: number of [[behavior.auto_mouse_layer]] entries ({}) exceeds max_auto_mouse_layers ({}) configured under [rmk] section",
+                            entries.len(),
+                            max_auto_mouse_layers
+                        ));
+                    }
+                    let mut seen_device_ids: Vec<Option<u8>> = Vec::new();
+                    for entry in entries {
+                        if entry.target_layer >= num_layers {
+                            return Err(format!(
+                                "keyboard.toml: [[behavior.auto_mouse_layer]].target_layer must be a valid layer index (< [keymap].layers = {}), got {}",
+                                num_layers, entry.target_layer
+                            ));
+                        }
+                        if entry.threshold == Some(0) {
+                            return Err(
+                                "keyboard.toml: [[behavior.auto_mouse_layer]].threshold must be at least 1".to_string(),
+                            );
+                        }
+                        if let Some(timeout) = &entry.timeout {
+                            let timeout_ms = timeout.0;
+                            if timeout_ms == 0 {
+                                return Err(
+                                    "keyboard.toml: [[behavior.auto_mouse_layer]].timeout must be at least 1ms"
+                                        .to_string(),
+                                );
+                            }
+                            if timeout_ms > u32::MAX as u64 {
+                                return Err(format!(
+                                    "keyboard.toml: [[behavior.auto_mouse_layer]].timeout must be <= {}ms (~49 days), got {}ms",
+                                    u32::MAX,
+                                    timeout_ms
+                                ));
+                            }
+                        }
+                        if (entry.deactivate_on_key == Some(true) || entry.reset_timeout_on_key == Some(true))
+                            && self.event.action.subs == 0
+                        {
+                            return Err(
+                                "keyboard.toml: [[behavior.auto_mouse_layer]].deactivate_on_key / reset_timeout_on_key require [event.action] subs to be at least 1".to_string(),
+                            );
+                        }
+                        if seen_device_ids.contains(&entry.device_id) {
+                            return Err(match entry.device_id {
+                                Some(id) => format!(
+                                    "keyboard.toml: duplicate [[behavior.auto_mouse_layer]] entries for device_id = {id}"
+                                ),
+                                None => "keyboard.toml: multiple [[behavior.auto_mouse_layer]] entries without device_id; only one fallback is allowed".to_string(),
+                            });
+                        }
+                        seen_device_ids.push(entry.device_id);
+                    }
+                }
+                if let Some(entries) = &behavior.mouse_layer_scale {
+                    let max_mouse_layer_scales = self
+                        .rmk
+                        .max_mouse_layer_scales
+                        .unwrap_or(crate::resolved::behavior::DEFAULT_MAX_MOUSE_LAYER_SCALES);
+                    if entries.len() > max_mouse_layer_scales {
+                        return Err(format!(
+                            "keyboard.toml: number of [[behavior.mouse_layer_scale]] entries ({}) exceeds max_mouse_layer_scales ({}) configured under [rmk] section",
+                            entries.len(),
+                            max_mouse_layer_scales
+                        ));
+                    }
+                    let mut seen_layers = Vec::new();
+                    for entry in entries {
+                        if entry.layer >= num_layers {
+                            return Err(format!(
+                                "keyboard.toml: [[behavior.mouse_layer_scale]].layer must be a valid layer index (< [keymap].layers = {}), got {}",
+                                num_layers, entry.layer
+                            ));
+                        }
+                        if seen_layers.contains(&entry.layer) {
+                            return Err(format!(
+                                "keyboard.toml: duplicate [[behavior.mouse_layer_scale]] entries for layer = {}",
+                                entry.layer
+                            ));
+                        }
+                        for (name, scale) in [("move", entry.r#move), ("scroll", entry.scroll)] {
+                            if scale.is_some_and(|[_, denominator]| denominator == 0) {
+                                return Err(format!(
+                                    "keyboard.toml: [[behavior.mouse_layer_scale]].{name} denominator must be at least 1"
+                                ));
+                            }
+                        }
+                        seen_layers.push(entry.layer);
+                    }
+                }
+                if let Some(morse) = &mut behavior.morse {
+                    expand_morse_regions(self.layout.as_ref(), morse)?;
+                }
+                if let Some(morse) = &behavior.morse
+                    && let Some(morses) = &morse.morses
+                    && morses.len() > self.rmk.max_morses
+                {
+                    return Err(
+                        "keyboard.toml: number of morses is greater than max_morses configured under [rmk] section"
+                            .to_string(),
+                    );
+                }
+                // Default macros are checked by the const assert the codegen emits.
+                Ok(behavior)
+            }
+            None => Ok(BehaviorConfig::default()),
+        }
+    }
+}

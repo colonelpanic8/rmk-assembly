@@ -1,5 +1,5 @@
 diff --git a/rmk-types/src/combo.rs b/rmk-types/src/combo.rs
-index f74e5843a..1a5260966 100644
+index 8768e8676..fa0988e5f 100644
 --- a/rmk-types/src/combo.rs
 +++ b/rmk-types/src/combo.rs
 @@ -60,13 +60,14 @@ pub struct PositionCombo {
@@ -74,17 +74,17 @@ index f7f2e6421..3a5f5799e 100644
      }
  
 diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
-index e28cff322..025313ecc 100644
+index 1a738099d..8987f4767 100644
 --- a/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
 +++ b/rmk-types/src/protocol/rynk/snapshots/wire_frames.snap
-@@ -33,7 +33,7 @@ GetCapabilities reply Ok(DeviceCapabilities{1..16})
+@@ -33,7 +33,7 @@ GetCapabilities reply Ok(DeviceCapabilities{1..17})
  GetCapabilities request ()                                                      02 02 02 01 00
  GetCombo reply Ok(Combo{[Single(A)],Morse(1),L2})                               04 01 03 01 04 01 02 01 05 04 05 01 04 00
  GetCombo request 3                                                              05 01 03 01 03 00
 -GetComboDefinition reply Ok(Positions{[(3,4),(5,6)],Morse(1),L2})               04 05 03 01 0b 01 02 03 04 05 06 05 01 01 02 00
 +GetComboDefinition reply Ok(Positions{[(3,4),(5,6)],Morse(1),L2})               04 05 03 01 0a 01 02 03 04 05 06 05 01 04 00
  GetComboDefinition request 3                                                    05 05 03 01 03 00
- GetConnectionStatus reply Ok(ConnectionStatus{Configured,{1,Adv,bonded},Ble})   04 02 07 01 03 02 01 03 01 01 00
+ GetConnectionStatus reply Ok(ConnectionStatus{Configured,[Conn,Adv],s=1,Ble})   04 02 07 01 05 02 02 01 01 04 01 01 01 00
  GetConnectionStatus request ()                                                  04 02 07 01 00
 @@ -111,9 +111,9 @@ SetBehaviorConfig request BehaviorConfig{50..120}
  SetBehaviorOptions reply Ok(())                                                 04 04 06 01 01 00
@@ -99,7 +99,7 @@ index e28cff322..025313ecc 100644
  SetDefaultLayer request 2                                                       05 04 01 01 02 00
  SetEncoderAction reply Ok(())                                                   04 06 01 01 01 00
 diff --git a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
-index ad2d3c26d..a89bb039c 100644
+index c6a5ba661..967ce44c7 100644
 --- a/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
 +++ b/rmk-types/src/protocol/rynk/snapshots/wire_values.snap
 @@ -41,8 +41,8 @@ BuildInfo{my-firmware..}                                  1f 6d 79 2d 66 69 72 6
@@ -110,7 +110,7 @@ index ad2d3c26d..a89bb039c 100644
 -Combo{[Single(A)],Morse(1),L2}                            01 02 01 00 04 05 01 01 02
 +ComboDefinition::Positions{[(3,4),(5,6)],Morse(1),L2}     01 02 03 04 05 06 05 01 04
 +Combo{[Single(A)],Morse(1),L2}                            01 02 01 00 04 05 01 04
- ConnectionStatus{Configured,{1,Adv,bonded},Ble}           02 01 00 01 01
+ ConnectionStatus{Configured,[Conn,Adv],s=1,Ble}           02 02 01 01 00 01 01 01
  ConnectionType::Ble                                       01
  ConnectionType::Usb                                       00
 @@ -114,8 +114,8 @@ RynkError::StorageFault                                   02
@@ -125,10 +125,10 @@ index ad2d3c26d..a89bb039c 100644
  SetForkRequest{2,fork}                                    02 02 01 00 04 00 05 02 01 02 01 00 00 00 02 01 ff ff ff ff 0f
  SetHoldTriggers{[d:1,2;3:4,5]}                            02 ff 01 02 03 04 05
 diff --git a/rmk-types/src/protocol/rynk/tests.rs b/rmk-types/src/protocol/rynk/tests.rs
-index 08ede5b20..0fc813af6 100644
+index 0e9192cf9..7c712a274 100644
 --- a/rmk-types/src/protocol/rynk/tests.rs
 +++ b/rmk-types/src/protocol/rynk/tests.rs
-@@ -381,7 +381,7 @@ fn exemplars() -> Exemplars {
+@@ -390,7 +390,7 @@ fn exemplars() -> Exemplars {
      let combo_definition = ComboDefinition::Positions(PositionCombo::new(
          [MatrixPosition { row: 3, col: 4 }, MatrixPosition { row: 5, col: 6 }],
          KeyAction::Morse(1),
@@ -138,10 +138,10 @@ index 08ede5b20..0fc813af6 100644
      let fork = Fork::new(
          KeyAction::Single(Action::Key(KeyCode::Hid(HidKeyCode::A))),
 diff --git a/rmk/src/host/context.rs b/rmk/src/host/context.rs
-index 0af1b42ad..1028decdf 100644
+index 8044a2a52..f8e6e9ab9 100644
 --- a/rmk/src/host/context.rs
 +++ b/rmk/src/host/context.rs
-@@ -262,7 +262,7 @@ impl<'a> KeyboardContext<'a> {
+@@ -261,7 +261,7 @@ impl<'a> KeyboardContext<'a> {
              return true;
          };
          let (rows, cols, layers) = self.keymap_dimensions();
@@ -151,7 +151,7 @@ index 0af1b42ad..1028decdf 100644
          }
          config.positions.iter().enumerate().all(|(idx, position)| {
 diff --git a/rmk/src/host/storage.rs b/rmk/src/host/storage.rs
-index 0aa77d067..e490223a1 100644
+index b50a5e8f8..0a5e7f253 100644
 --- a/rmk/src/host/storage.rs
 +++ b/rmk/src/host/storage.rs
 @@ -187,14 +187,14 @@ mod tests {
@@ -173,7 +173,7 @@ index 0aa77d067..e490223a1 100644
          );
  
 diff --git a/rmk/src/keyboard/combo.rs b/rmk/src/keyboard/combo.rs
-index ed22fcf92..2b1447913 100644
+index 461b9fc64..900506c15 100644
 --- a/rmk/src/keyboard/combo.rs
 +++ b/rmk/src/keyboard/combo.rs
 @@ -66,8 +66,8 @@ impl Combo {
@@ -188,7 +188,7 @@ index ed22fcf92..2b1447913 100644
  
      pub(crate) fn output(&self) -> KeyAction {
 diff --git a/rmk/src/storage/mod.rs b/rmk/src/storage/mod.rs
-index c0b44d6d1..d879ae362 100644
+index 90b868c45..cabd92468 100644
 --- a/rmk/src/storage/mod.rs
 +++ b/rmk/src/storage/mod.rs
 @@ -2789,7 +2789,7 @@ mod tests {

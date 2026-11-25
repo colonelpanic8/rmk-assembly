@@ -1,0 +1,12 @@
+diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
+--- a/rmk/src/host/rynk/mod.rs
++++ b/rmk/src/host/rynk/mod.rs
+@@ -339,7 +339,7 @@
+             | Cmd::GetLightingAdvancedRuntimeConditionalSceneStatus
+             | Cmd::GetLightingAdvancedRuntimeConditionalScenes => Some(false),
+             #[cfg(feature = "_ble")]
+-            Cmd::GetBleName => Some(false),
++            Cmd::GetBleName | Cmd::GetAutoSwitchTransport => Some(false),
+             Cmd::GetComboDefinition | Cmd::GetComboDefinitionBulk => Some(false),
+             _ => None,
+         }

@@ -78,7 +78,6 @@ branch = "fork:feat/pointing-drag-mode"
 
 [[entry]]
 branch = "fork:fold/pointing-runtime-config-pinned"
-fixup = "patches/pointing-runtime-config-coherence.patch"
 
 [[entry]]
 branch = "fork:fold/runtime-behavior-parity"
@@ -109,7 +108,8 @@ branch = "fork:feat/morse-unilateral-mod-chording"
 branch = "fork:fold/opposite-hand-hold"
 
 [[entry]]
-branch = "fork:feat/position-combos"
+pr = 1488
+summary = "ZMK-style position-based combos (positions = [[row, col], ...]) + Rynk combo-definition endpoints"
 fixup = "patches/position-combos-coherence.patch"
 
 [[entry]]
@@ -164,6 +164,7 @@ summary = "Tap-hold keys that configure no resolution mode default to Permissive
 [[entry]]
 branch = "fork:feat/auto-switch-transport"
 summary = "Persisted auto-switch policy: a USB plug or unplug retargets the preferred transport; Rynk 0x070D/0x070E"
+fixup = "patches/auto-switch-transport-coherence.patch"
 
 [[entry]]
 branch = "fork:fix/battery-level-while-charging"
@@ -184,10 +185,13 @@ branch = "fork:feat/persist-lighting-output"
 summary = "Output brightness, background and the effects' on-brightness persist across restarts (from moosylog/rynkbench docs/firmware/rmk-persist-lighting)"
 
 [[entry]]
-branch = "fork:fold/combo-layers"
+pr = 1487
 summary = "Combos valid on several layers: `layers = [..]` in keyboard.toml, `Combo` stores a layer bitmask"
-note = "Backport of upstream PR #1487 (fork:feat/combo-layers) onto base f7f088e, without its CHANGELOG hunk. Once the base reaches e4e112642, repoint this entry to pr = 1487: the backport's wire_values.snap hunk conflicts with that base."
 fixup = "patches/combo-layers-coherence.patch"
+
+[[entry]]
+branch = "fork:feat/hid-hires-scroll"
+fixup = "patches/hid-hires-scroll-coherence.patch"
 
 [[exclude]]
 pr = 999

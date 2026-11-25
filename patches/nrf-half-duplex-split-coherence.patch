@@ -1,22 +1,22 @@
 diff --git a/rmk/src/ble/mod.rs b/rmk/src/ble/mod.rs
-index 3fcb7838b..cd9e014a1 100644
+index f194e1f54..980db6b34 100644
 --- a/rmk/src/ble/mod.rs
 +++ b/rmk/src/ble/mod.rs
-@@ -310,6 +310,7 @@ impl<
-             run_ble_keyboard(
+@@ -373,6 +373,7 @@ impl<
                  &stack,
+                 self.address,
                  &self.device_config,
 +                self.ble_name,
                  &self.config,
                  #[cfg(feature = "host")]
                  self.host_service,
 diff --git a/rmk/src/host/rynk/mod.rs b/rmk/src/host/rynk/mod.rs
-index a1632476b..ef278d8b9 100644
+index 5fb9c2726..0aaa81f0d 100644
 --- a/rmk/src/host/rynk/mod.rs
 +++ b/rmk/src/host/rynk/mod.rs
-@@ -255,7 +255,9 @@ impl<'a> RynkService<'a> {
+@@ -259,7 +259,9 @@ impl<'a> RynkService<'a> {
              #[cfg(feature = "_ble")]
-             Cmd::GetBleStatus | Cmd::SwitchBleProfile => Some(false),
+             Cmd::SwitchBleProfile => Some(false),
              #[cfg(feature = "split")]
 -            Cmd::GetPeripheralStatus => Some(false),
 +            Cmd::GetPeripheralStatus | Cmd::GetSplitTransport => Some(false),
@@ -26,10 +26,10 @@ index a1632476b..ef278d8b9 100644
              Cmd::GetBuildInfo
              | Cmd::GetMorseHoldTriggerPositions
 diff --git a/rmk/src/split/peripheral.rs b/rmk/src/split/peripheral.rs
-index 577274a1c..b1b248454 100644
+index 5fc01e240..5ce67bb36 100644
 --- a/rmk/src/split/peripheral.rs
 +++ b/rmk/src/split/peripheral.rs
-@@ -241,6 +241,26 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
+@@ -239,6 +239,26 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
                  super::update_layer_state(state);
                  publish_event(LayerChangeEvent::new(state.effective));
              }
@@ -56,3 +56,21 @@ index 577274a1c..b1b248454 100644
              #[cfg(feature = "display")]
              SplitMessage::Wpm(wpm) => publish_event(WpmUpdateEvent::new(wpm)),
              #[cfg(feature = "display")]
+diff --git a/rmk-types/src/protocol/rynk/snapshots/split_ble_wire_frames.snap b/rmk-types/src/protocol/rynk/snapshots/split_ble_wire_frames.snap
+index d458823e8..4398c5823 100644
+--- a/rmk-types/src/protocol/rynk/snapshots/split_ble_wire_frames.snap
++++ b/rmk-types/src/protocol/rynk/snapshots/split_ble_wire_frames.snap
+@@ -4,8 +4,8 @@
+ #   UPDATE_SNAPSHOTS=1 cargo test -p rmk-types --features host --features "rynk _ble split" split_ble_wire_frames
+ # Format: <label>  <hex bytes>
+ 
+-GetSplitCentralLatency reply Ok(state)     04 0a 07 01 01 06 04 01 02 01 02 00
+-GetSplitCentralLatency request ()          04 0a 07 01 00
+-SetSplitCentralLatency reply Err(Invalid)  06 0b 07 01 01 05 00
+-SetSplitCentralLatency reply Ok(state)     04 0b 07 01 01 06 04 01 02 01 02 00
+-SetSplitCentralLatency request policy      04 0b 07 01 04 04 01 02 00
++GetSplitCentralLatency reply Ok(state)     04 0f 07 01 01 06 04 01 02 01 02 00
++GetSplitCentralLatency request ()          04 0f 07 01 00
++SetSplitCentralLatency reply Err(Invalid)  06 10 07 01 01 05 00
++SetSplitCentralLatency reply Ok(state)     04 10 07 01 01 06 04 01 02 01 02 00
++SetSplitCentralLatency request policy      04 10 07 01 04 04 01 02 00
