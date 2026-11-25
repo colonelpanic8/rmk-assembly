@@ -193,6 +193,10 @@ fixup = "patches/combo-layers-coherence.patch"
 branch = "fork:feat/hid-hires-scroll"
 fixup = "patches/hid-hires-scroll-coherence.patch"
 
+[[entry]]
+pr = 1490
+summary = "Nix dev shell flake lock bumped to Rust 1.100 so rmk-macro expansion snapshots pass locally"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

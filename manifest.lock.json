@@ -48,21 +48,22 @@
       "pr-1031": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
       "pr-1487": "9c0cb48bc02d3e7688ae6d7c51f5cd33a11cc3bc",
       "pr-1488": "3e793d62fbbed71d4bc0cce16279430bef61135e",
+      "pr-1490": "cbc18142fc7dc29d897aab41099f77b50bd762d8",
       "pr-984": "19000cd6d59a8a60d80058dd9d853c091d682c3f",
       "runtime-lighting-wake-layers": "7b868058a0f6b91a45e44d5f7420930bd64ff80e"
     }
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-25T09:18:18.794435251+00:00",
+    "generated": "2026-11-25T17:49:59.253906866+00:00",
     "base": "e4e11264216890f45fe4d4e1407c629ce0473894",
-    "commit": "cee603a73b553a0b31d04fe86de14a157886fbb8",
-    "pre_provenance_commit": "cee603a73b553a0b31d04fe86de14a157886fbb8",
-    "tree": "f2ecbd9fc7b6ee717a155c113b72410b420a2810",
-    "built_tree": "f2ecbd9fc7b6ee717a155c113b72410b420a2810",
-    "previous_tree": "18f6252d913dc9702dc25f385e435cc3a5552446",
+    "commit": "633d6261c08074f3c822c9c897c3fd3808d76d19",
+    "pre_provenance_commit": "633d6261c08074f3c822c9c897c3fd3808d76d19",
+    "tree": "d7940a52a86f85c8bc65169314d9bde24404320e",
+    "built_tree": "d7940a52a86f85c8bc65169314d9bde24404320e",
+    "previous_tree": "f2ecbd9fc7b6ee717a155c113b72410b420a2810",
     "tree_changed": true,
-    "conflicts": 26,
+    "conflicts": 0,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -362,6 +363,12 @@
         "source": "fork:feat/hid-hires-scroll",
         "pin": "95fa23e40b9d481d562d42b92e97905e8f98be67",
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
+      },
+      {
+        "name": "pr-1490",
+        "kind": "pr",
+        "source": "upstream#1490",
+        "pin": "cbc18142fc7dc29d897aab41099f77b50bd762d8"
       }
     ],
     "results": [
@@ -923,6 +930,13 @@
           "fd4749c045a061361c767e9aeed0bf48bb69de2c"
         ],
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
+      },
+      {
+        "name": "pr-1490",
+        "oid": "cbc18142fc7dc29d897aab41099f77b50bd762d8",
+        "status": "merged",
+        "conflicted": false,
+        "resolutions": []
       }
     ]
   }
