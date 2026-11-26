@@ -1,7 +1,7 @@
 {
   "version": 1,
   "pins": {
-    "base": "82a03caf77e307ab7c0e203e0173da875e5dd30c",
+    "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
     "entries": {
       "feat/auto-switch-transport": "9a86ff854b8f3cdae8ef4d0a5b88d3a139e48b1a",
       "feat/ble-advertising-backoff": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d",
@@ -54,13 +54,13 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-26T01:49:24.513719239+00:00",
-    "base": "82a03caf77e307ab7c0e203e0173da875e5dd30c",
-    "commit": "d173a6a1c555cbd5993479e9e5c8acfc3d6c5d6d",
-    "pre_provenance_commit": "d173a6a1c555cbd5993479e9e5c8acfc3d6c5d6d",
-    "tree": "2aff110d78fd636974a1a2a3e2ff1ec0ec6f2d71",
-    "built_tree": "2aff110d78fd636974a1a2a3e2ff1ec0ec6f2d71",
-    "previous_tree": "473199d4360c1868c40504e3bc4f6fa56b6476c1",
+    "generated": "2026-11-26T02:42:28.020679867+00:00",
+    "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
+    "commit": "9750405a3a805250c2034cdc16f6484bdba76f44",
+    "pre_provenance_commit": "9750405a3a805250c2034cdc16f6484bdba76f44",
+    "tree": "07fa06e5e5f612dd0dd56d5a55ead7f2ae12b4a4",
+    "built_tree": "07fa06e5e5f612dd0dd56d5a55ead7f2ae12b4a4",
+    "previous_tree": "2aff110d78fd636974a1a2a3e2ff1ec0ec6f2d71",
     "tree_changed": true,
     "conflicts": 26,
     "manifest_entries": [
