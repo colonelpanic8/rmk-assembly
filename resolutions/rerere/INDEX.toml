@@ -651,12 +651,6 @@ recorded = "2026-11-25T21:30:46.100913953+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
-hash = "299ebea3cfd4457252338631fc10b13198bc9717"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-11-25T08:51:03.335458220+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
 hash = "3f13e976aeaf42269bbd07a05a5b8848d8580797"
 paths = ["rmk-macro/src/codegen/orchestrator.rs"]
 recorded = "2026-10-10T02:22:16.039888028+00:00"
@@ -933,12 +927,6 @@ recorded = "2026-11-25T08:40:40.617130332+00:00"
 
 [[resolution]]
 entry = "fold/runtime-behavior-parity"
-hash = "63e70c54d4111acb674a56a2f08a4df02f346674"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-11-25T08:40:40.617130683+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
 hash = "6a2655102b0d6d5872d84d4e0cc07834966a0c5e"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-11-25T21:30:16.209308291+00:00"
@@ -1014,12 +1002,6 @@ entry = "fold/runtime-behavior-parity"
 hash = "d673c01523d47bc81cee5a44ebb224338c904148"
 paths = ["rmk/src/event/mod.rs"]
 recorded = "2026-08-07T07:53:05.299397865+00:00"
-
-[[resolution]]
-entry = "fold/runtime-behavior-parity"
-hash = "e9337aee6585fb15ec95663050b639dab19234e7"
-paths = ["rmk/src/host/context.rs"]
-recorded = "2026-11-25T08:40:40.617132296+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "pins": {
-    "base": "e4e11264216890f45fe4d4e1407c629ce0473894",
+    "base": "82a03caf77e307ab7c0e203e0173da875e5dd30c",
     "entries": {
       "feat/auto-switch-transport": "9a86ff854b8f3cdae8ef4d0a5b88d3a139e48b1a",
       "feat/ble-advertising-backoff": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d",
@@ -11,11 +11,11 @@
       "feat/consumer-keycodes": "d04e31e16e1b2daf801675fbd698b19533d0d89c",
       "feat/ctrl-gui-swap": "57ad473451cc586c58368e0cc88d82c8a721feea",
       "feat/device-data": "b5a3bb47e57fc7c790dea2d1a0bb43c5e7352575",
-      "feat/hid-hires-scroll": "95fa23e40b9d481d562d42b92e97905e8f98be67",
+      "feat/hid-hires-scroll": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
       "feat/keymap-row-storage": "bb9fc32b245d30e9aa8f902f25b8ed7305e9458c",
-      "feat/lighting-layer-indicator-conditions": "1aaf5ecbf7c85914a871bf347a5dad13f4fe6396",
-      "feat/lighting-rules": "a1f77b7b7cbeeeb983bd86958a8997929dc9579f",
-      "feat/lighting-table-capacity": "5d84976c11935c85db8c3fcb3856c702b43dd8ce",
+      "feat/lighting-layer-indicator-conditions": "0f7c9672a5c839474c674c482fa25df6d12664c9",
+      "feat/lighting-rules": "b236d4f96e9508def62c66734eb636c1d644ea48",
+      "feat/lighting-table-capacity": "74372658f0288d995e1d06eda24d8ddf27122a04",
       "feat/maintenance-mode": "faf7c795b5ecbc43ea0432efa85dc649e9468950",
       "feat/morse-default-permissive-hold": "261d0eb2f19a641991c9b383d2a98fb3d776b518",
       "feat/morse-hold-trigger-on-release": "009296a252374897392ef8ebe50e856e47b90ac1",
@@ -25,14 +25,14 @@
       "feat/morse-tap-unless-interrupted": "8e1c1f9703e5add320d73a27ecc96fb9975ca6e8",
       "feat/morse-unilateral-mod-chording": "87b74005308050a62e9de99a70a1fe59f8e389ef",
       "feat/nrf-half-duplex-split": "66670bf9489805589a7c08ade264b3e98ba2dfac",
-      "feat/persist-key-lighting": "823ef7117e9466cb887995f3e479b98c0eaf90f6",
-      "feat/persist-lighting-output": "d08d80fbe4227ac1739adca690ef4fb85f16dbff",
+      "feat/persist-key-lighting": "84248013dc09782a5434103cc8f793ac2c7268d7",
+      "feat/persist-lighting-output": "8c2de91e47197eaf598459ba9114be04ac1c2fc7",
       "feat/persistent-layer-metadata": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
       "feat/pointer-layer-scaling": "f03defe4288a6482eb74bf0b61e78b2810dc8c6b",
       "feat/pointing-drag-mode": "76722741181e798842fb862d276a8f8128660f61",
       "feat/single-pass-storage-read": "42e042ccea2db91da6cd1d8dce87448e65f74cb3",
       "fix/battery-level-while-charging": "f5edf32945c4d55c479cf427e10d6c991a95c3dd",
-      "fix/battery-power-transitions": "08e2883f189b8e9a7c82ff04a5b980be0bb11431",
+      "fix/battery-power-transitions": "be7000102bc7433aae93e918187ff26c173216c8",
       "fix/ephemeral-split-layer-state": "0d8b9d7240342087f23b4fed8a9ba9838bd58f2e",
       "fix/mpsl-interrupt-priorities": "084de8914ab17b00a1828c473f24491435529c20",
       "fix/pointing-mode-event-priority": "0ae6b56429d823200665b6ddb3bd9ea6edb4b90d",
@@ -45,23 +45,22 @@
       "fold/runtime-behavior-parity": "ed46d6874560405d3275ac2e632cc10605ba190c",
       "fold/split-reliability": "78dfc67b909466381cfac0ae2f517db9f96ab55a",
       "fold/unicode-input": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc",
-      "pr-1031": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
+      "pr-1031": "2eada14e70465a097f5dd0c8deac60496a3002e5",
       "pr-1487": "9c0cb48bc02d3e7688ae6d7c51f5cd33a11cc3bc",
       "pr-1488": "3e793d62fbbed71d4bc0cce16279430bef61135e",
-      "pr-1490": "cbc18142fc7dc29d897aab41099f77b50bd762d8",
       "pr-984": "19000cd6d59a8a60d80058dd9d853c091d682c3f",
       "runtime-lighting-wake-layers": "7b868058a0f6b91a45e44d5f7420930bd64ff80e"
     }
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-25T21:30:48.068341215+00:00",
-    "base": "e4e11264216890f45fe4d4e1407c629ce0473894",
-    "commit": "1385c132d5c3f8c1b69c64058695ccc3ab15d2c8",
-    "pre_provenance_commit": "1385c132d5c3f8c1b69c64058695ccc3ab15d2c8",
-    "tree": "473199d4360c1868c40504e3bc4f6fa56b6476c1",
-    "built_tree": "473199d4360c1868c40504e3bc4f6fa56b6476c1",
-    "previous_tree": "d7940a52a86f85c8bc65169314d9bde24404320e",
+    "generated": "2026-11-26T01:49:24.513719239+00:00",
+    "base": "82a03caf77e307ab7c0e203e0173da875e5dd30c",
+    "commit": "d173a6a1c555cbd5993479e9e5c8acfc3d6c5d6d",
+    "pre_provenance_commit": "d173a6a1c555cbd5993479e9e5c8acfc3d6c5d6d",
+    "tree": "2aff110d78fd636974a1a2a3e2ff1ec0ec6f2d71",
+    "built_tree": "2aff110d78fd636974a1a2a3e2ff1ec0ec6f2d71",
+    "previous_tree": "473199d4360c1868c40504e3bc4f6fa56b6476c1",
     "tree_changed": true,
     "conflicts": 26,
     "manifest_entries": [
@@ -81,7 +80,7 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
+        "pin": "2eada14e70465a097f5dd0c8deac60496a3002e5",
         "fixup": "97181240c08c1ef3ce89fbb8d0489000ba9028b8"
       },
       {
@@ -193,7 +192,7 @@
         "name": "fix/battery-power-transitions",
         "kind": "branch",
         "source": "fork:fix/battery-power-transitions",
-        "pin": "08e2883f189b8e9a7c82ff04a5b980be0bb11431"
+        "pin": "be7000102bc7433aae93e918187ff26c173216c8"
       },
       {
         "name": "feat/ble-name-template",
@@ -272,7 +271,7 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "1aaf5ecbf7c85914a871bf347a5dad13f4fe6396",
+        "pin": "0f7c9672a5c839474c674c482fa25df6d12664c9",
         "fixup": "442942504285e8c6a43e0a686e2417ac93320810"
       },
       {
@@ -298,7 +297,7 @@
         "name": "feat/lighting-rules",
         "kind": "branch",
         "source": "fork:feat/lighting-rules",
-        "pin": "a1f77b7b7cbeeeb983bd86958a8997929dc9579f",
+        "pin": "b236d4f96e9508def62c66734eb636c1d644ea48",
         "fixup": "e0014734ae29f3f181d516b5553c94d1461685aa"
       },
       {
@@ -330,13 +329,13 @@
         "name": "feat/persist-key-lighting",
         "kind": "branch",
         "source": "fork:feat/persist-key-lighting",
-        "pin": "823ef7117e9466cb887995f3e479b98c0eaf90f6"
+        "pin": "84248013dc09782a5434103cc8f793ac2c7268d7"
       },
       {
         "name": "feat/lighting-table-capacity",
         "kind": "branch",
         "source": "fork:feat/lighting-table-capacity",
-        "pin": "5d84976c11935c85db8c3fcb3856c702b43dd8ce"
+        "pin": "74372658f0288d995e1d06eda24d8ddf27122a04"
       },
       {
         "name": "feat/keymap-row-storage",
@@ -348,7 +347,7 @@
         "name": "feat/persist-lighting-output",
         "kind": "branch",
         "source": "fork:feat/persist-lighting-output",
-        "pin": "d08d80fbe4227ac1739adca690ef4fb85f16dbff"
+        "pin": "8c2de91e47197eaf598459ba9114be04ac1c2fc7"
       },
       {
         "name": "pr-1487",
@@ -361,14 +360,8 @@
         "name": "feat/hid-hires-scroll",
         "kind": "branch",
         "source": "fork:feat/hid-hires-scroll",
-        "pin": "95fa23e40b9d481d562d42b92e97905e8f98be67",
+        "pin": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
-      },
-      {
-        "name": "pr-1490",
-        "kind": "pr",
-        "source": "upstream#1490",
-        "pin": "cbc18142fc7dc29d897aab41099f77b50bd762d8"
       }
     ],
     "results": [
@@ -388,7 +381,7 @@
       },
       {
         "name": "pr-1031",
-        "oid": "f78b0c3e68d11bce1bc9647850f0fa3b8fa69e0b",
+        "oid": "2eada14e70465a097f5dd0c8deac60496a3002e5",
         "status": "merged",
         "conflicted": false,
         "resolutions": [],
@@ -614,7 +607,7 @@
       },
       {
         "name": "fix/battery-power-transitions",
-        "oid": "08e2883f189b8e9a7c82ff04a5b980be0bb11431",
+        "oid": "be7000102bc7433aae93e918187ff26c173216c8",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -772,7 +765,7 @@
       },
       {
         "name": "feat/lighting-layer-indicator-conditions",
-        "oid": "1aaf5ecbf7c85914a871bf347a5dad13f4fe6396",
+        "oid": "0f7c9672a5c839474c674c482fa25df6d12664c9",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -814,7 +807,7 @@
       },
       {
         "name": "feat/lighting-rules",
-        "oid": "a1f77b7b7cbeeeb983bd86958a8997929dc9579f",
+        "oid": "b236d4f96e9508def62c66734eb636c1d644ea48",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -879,14 +872,14 @@
       },
       {
         "name": "feat/persist-key-lighting",
-        "oid": "823ef7117e9466cb887995f3e479b98c0eaf90f6",
+        "oid": "84248013dc09782a5434103cc8f793ac2c7268d7",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
         "name": "feat/lighting-table-capacity",
-        "oid": "5d84976c11935c85db8c3fcb3856c702b43dd8ce",
+        "oid": "74372658f0288d995e1d06eda24d8ddf27122a04",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -900,7 +893,7 @@
       },
       {
         "name": "feat/persist-lighting-output",
-        "oid": "d08d80fbe4227ac1739adca690ef4fb85f16dbff",
+        "oid": "8c2de91e47197eaf598459ba9114be04ac1c2fc7",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -923,20 +916,13 @@
       },
       {
         "name": "feat/hid-hires-scroll",
-        "oid": "95fa23e40b9d481d562d42b92e97905e8f98be67",
+        "oid": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "fd4749c045a061361c767e9aeed0bf48bb69de2c"
         ],
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
-      },
-      {
-        "name": "pr-1490",
-        "oid": "cbc18142fc7dc29d897aab41099f77b50bd762d8",
-        "status": "merged",
-        "conflicted": false,
-        "resolutions": []
       }
     ]
   }
