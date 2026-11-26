@@ -734,10 +734,28 @@ paths = ["rmk/src/keymap.rs"]
 recorded = "2026-09-07T23:57:47.205538461+00:00"
 
 [[resolution]]
+entry = "fix/mouse-button-ownership"
+hash = "a8af7a712d92156fbf0825189151ae542d8ee9e6"
+paths = ["rmk/src/keyboard/mouse.rs"]
+recorded = "2026-11-26T05:17:01.225811623+00:00"
+
+[[resolution]]
 entry = "fix/pointing-mode-event-priority"
 hash = "13884220c00f10b6426837c719fa87747ab0b3c4"
 paths = ["rmk/src/input_device/pointing.rs"]
 recorded = "2026-09-08T03:57:15.890438390+00:00"
+
+[[resolution]]
+entry = "fix/rynk-driver-partial-frame"
+hash = "81278957290d0b574efaef2ab311651274638b69"
+paths = ["rynk/src/api.rs"]
+recorded = "2026-11-26T05:17:41.458697555+00:00"
+
+[[resolution]]
+entry = "fix/rynk-driver-partial-frame"
+hash = "fe11d065d3c7b55b282725368628c356b32f40ab"
+paths = ["rynk/rynk-usb/src/lib.rs"]
+recorded = "2026-11-26T05:17:41.458700190+00:00"
 
 [[resolution]]
 entry = "fix/rynk-flash-backpressure"
@@ -750,6 +768,12 @@ entry = "fix/rynk-flash-backpressure"
 hash = "c4b78c90ec18d804d760df40a6bce906010a6f3b"
 paths = ["rmk/src/host/context.rs"]
 recorded = "2026-10-10T02:28:38.462444267+00:00"
+
+[[resolution]]
+entry = "fix/storage-boot-read-error"
+hash = "1665e551cb6904791586548e33a5411d03f96a9d"
+paths = ["rmk/src/host/storage.rs"]
+recorded = "2026-11-26T05:16:50.823647872+00:00"
 
 [[resolution]]
 entry = "fold/combo-layers"

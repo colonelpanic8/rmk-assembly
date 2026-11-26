@@ -33,10 +33,18 @@
       "feat/single-pass-storage-read": "42e042ccea2db91da6cd1d8dce87448e65f74cb3",
       "fix/battery-level-while-charging": "f5edf32945c4d55c479cf427e10d6c991a95c3dd",
       "fix/battery-power-transitions": "be7000102bc7433aae93e918187ff26c173216c8",
+      "fix/encoder-named-layers": "a0f21134ffd979328befdf888b298dc091557ea1",
       "fix/ephemeral-split-layer-state": "0d8b9d7240342087f23b4fed8a9ba9838bd58f2e",
+      "fix/hc595-idle-spi": "1282875c050cecb86cf1fae23c556867edadec53",
+      "fix/matrix-scan-resume-order": "0f57ce66ad2e9a7f2e2cc50a9566955f757c78eb",
+      "fix/mouse-button-ownership": "82e65031f58526e28e8938e67641232745240f55",
       "fix/mpsl-interrupt-priorities": "084de8914ab17b00a1828c473f24491435529c20",
+      "fix/nrf-joystick-held-polling": "c1b29e236b1c38f027a1515cc19e30385fc2be92",
       "fix/pointing-mode-event-priority": "0ae6b56429d823200665b6ddb3bd9ea6edb4b90d",
+      "fix/rynk-driver-partial-frame": "31ec6fb7d86fd5eef938e529f66da70a1447f0a7",
       "fix/rynk-flash-backpressure": "8f22eaded91fefd38a7d39f936df3517567466de",
+      "fix/storage-boot-read-error": "a530d6642e95be9b1bfe6cabcb6794f5dae813a8",
+      "fix/w25q-addressing-and-cs": "3314f29de92a779d6aca9a9a322443f192fbfec5",
       "fold/cirque-pinnacle": "53b7a40131d42f83657d7c7de627559d68316843",
       "fold/connection-selection": "f0a989e66ffd16311be4e7023f3d2018abf5cb76",
       "fold/macro-hooks": "5c10b08da66e3486e22faefbeedad256e5207669",
@@ -54,15 +62,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-26T04:15:25.081710386+00:00",
+    "generated": "2026-11-26T05:23:11.350554419+00:00",
     "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
-    "commit": "9a27fb859d2b019d58110cde71223305766ea69d",
-    "pre_provenance_commit": "9a27fb859d2b019d58110cde71223305766ea69d",
-    "tree": "a2039a3f51bcec66df644ff87c2da431dfaf6414",
-    "built_tree": "a2039a3f51bcec66df644ff87c2da431dfaf6414",
-    "previous_tree": "419b338a903202d4e27da0d50608a629bf55ecee",
+    "commit": "482b6d9e6b2fb4500ab91806b57fb63258d60f48",
+    "pre_provenance_commit": "482b6d9e6b2fb4500ab91806b57fb63258d60f48",
+    "tree": "92b0659032a8b24302bb5213762f54952ace9380",
+    "built_tree": "92b0659032a8b24302bb5213762f54952ace9380",
+    "previous_tree": "d636c8140238f779889440c224d23aa28138ae75",
     "tree_changed": true,
-    "conflicts": 26,
+    "conflicts": 29,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -362,6 +370,55 @@
         "source": "fork:feat/hid-hires-scroll",
         "pin": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
+      },
+      {
+        "name": "fix/storage-boot-read-error",
+        "kind": "branch",
+        "source": "fork:fix/storage-boot-read-error",
+        "pin": "a530d6642e95be9b1bfe6cabcb6794f5dae813a8",
+        "fixup": "4875fba1d20c4c2c3b76e1c75cfca0d69a4b1e39"
+      },
+      {
+        "name": "fix/w25q-addressing-and-cs",
+        "kind": "branch",
+        "source": "fork:fix/w25q-addressing-and-cs",
+        "pin": "3314f29de92a779d6aca9a9a322443f192fbfec5"
+      },
+      {
+        "name": "fix/encoder-named-layers",
+        "kind": "branch",
+        "source": "fork:fix/encoder-named-layers",
+        "pin": "a0f21134ffd979328befdf888b298dc091557ea1"
+      },
+      {
+        "name": "fix/nrf-joystick-held-polling",
+        "kind": "branch",
+        "source": "fork:fix/nrf-joystick-held-polling",
+        "pin": "c1b29e236b1c38f027a1515cc19e30385fc2be92"
+      },
+      {
+        "name": "fix/hc595-idle-spi",
+        "kind": "branch",
+        "source": "fork:fix/hc595-idle-spi",
+        "pin": "1282875c050cecb86cf1fae23c556867edadec53"
+      },
+      {
+        "name": "fix/matrix-scan-resume-order",
+        "kind": "branch",
+        "source": "fork:fix/matrix-scan-resume-order",
+        "pin": "0f57ce66ad2e9a7f2e2cc50a9566955f757c78eb"
+      },
+      {
+        "name": "fix/mouse-button-ownership",
+        "kind": "branch",
+        "source": "fork:fix/mouse-button-ownership",
+        "pin": "82e65031f58526e28e8938e67641232745240f55"
+      },
+      {
+        "name": "fix/rynk-driver-partial-frame",
+        "kind": "branch",
+        "source": "fork:fix/rynk-driver-partial-frame",
+        "pin": "31ec6fb7d86fd5eef938e529f66da70a1447f0a7"
       }
     ],
     "results": [
@@ -923,6 +980,70 @@
           "fd4749c045a061361c767e9aeed0bf48bb69de2c"
         ],
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
+      },
+      {
+        "name": "fix/storage-boot-read-error",
+        "oid": "a530d6642e95be9b1bfe6cabcb6794f5dae813a8",
+        "status": "merged",
+        "conflicted": true,
+        "resolutions": [
+          "1665e551cb6904791586548e33a5411d03f96a9d"
+        ],
+        "fixup": "4875fba1d20c4c2c3b76e1c75cfca0d69a4b1e39"
+      },
+      {
+        "name": "fix/w25q-addressing-and-cs",
+        "oid": "3314f29de92a779d6aca9a9a322443f192fbfec5",
+        "status": "merged",
+        "conflicted": false,
+        "resolutions": []
+      },
+      {
+        "name": "fix/encoder-named-layers",
+        "oid": "a0f21134ffd979328befdf888b298dc091557ea1",
+        "status": "merged",
+        "conflicted": false,
+        "resolutions": []
+      },
+      {
+        "name": "fix/nrf-joystick-held-polling",
+        "oid": "c1b29e236b1c38f027a1515cc19e30385fc2be92",
+        "status": "merged",
+        "conflicted": false,
+        "resolutions": []
+      },
+      {
+        "name": "fix/hc595-idle-spi",
+        "oid": "1282875c050cecb86cf1fae23c556867edadec53",
+        "status": "merged",
+        "conflicted": false,
+        "resolutions": []
+      },
+      {
+        "name": "fix/matrix-scan-resume-order",
+        "oid": "0f57ce66ad2e9a7f2e2cc50a9566955f757c78eb",
+        "status": "merged",
+        "conflicted": false,
+        "resolutions": []
+      },
+      {
+        "name": "fix/mouse-button-ownership",
+        "oid": "82e65031f58526e28e8938e67641232745240f55",
+        "status": "merged",
+        "conflicted": true,
+        "resolutions": [
+          "a8af7a712d92156fbf0825189151ae542d8ee9e6"
+        ]
+      },
+      {
+        "name": "fix/rynk-driver-partial-frame",
+        "oid": "31ec6fb7d86fd5eef938e529f66da70a1447f0a7",
+        "status": "merged",
+        "conflicted": true,
+        "resolutions": [
+          "81278957290d0b574efaef2ab311651274638b69",
+          "fe11d065d3c7b55b282725368628c356b32f40ab"
+        ]
       }
     ]
   }

@@ -193,6 +193,31 @@ fixup = "patches/combo-layers-coherence.patch"
 branch = "fork:feat/hid-hires-scroll"
 fixup = "patches/hid-hires-scroll-coherence.patch"
 
+[[entry]]
+branch = "fork:fix/storage-boot-read-error"
+fixup = "patches/storage-boot-read-error-coherence.patch"
+
+[[entry]]
+branch = "fork:fix/w25q-addressing-and-cs"
+
+[[entry]]
+branch = "fork:fix/encoder-named-layers"
+
+[[entry]]
+branch = "fork:fix/nrf-joystick-held-polling"
+
+[[entry]]
+branch = "fork:fix/hc595-idle-spi"
+
+[[entry]]
+branch = "fork:fix/matrix-scan-resume-order"
+
+[[entry]]
+branch = "fork:fix/mouse-button-ownership"
+
+[[entry]]
+branch = "fork:fix/rynk-driver-partial-frame"
+
 [[exclude]]
 pr = 999
 reason = "held modifier combinations landed upstream in f91b22a0"

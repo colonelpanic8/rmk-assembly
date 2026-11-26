@@ -1,0 +1,261 @@
+use core::fmt::Write;
+
+use embassy_futures::yield_now;
+use embassy_time::Duration;
+use embedded_storage_async::nor_flash::NorFlash as AsyncNorFlash;
+use rmk_types::action::KeyAction;
+use rmk_types::constants::MACRO_CHUNK_SIZE;
+<<<<<<<
+use rmk_types::morse::{MorseProfile, MorseProfileName};
+=======
+use sequential_storage::Error as SSError;
+>>>>>>>
+
+use crate::keyboard::combo::Combo;
+use crate::storage::{Storage, StorageKey, StorageValue};
+
+impl<F: AsyncNorFlash> Storage<F> {
+    pub(crate) async fn read_layout<
+        const ROW: usize,
+        const COL: usize,
+        const NUM_LAYER: usize,
+        const NUM_ENCODER: usize,
+        const NUM_TOUCHPAD: usize,
+    >(
+        &mut self,
+        data: &mut crate::keymap::KeymapData<ROW, COL, NUM_LAYER, NUM_ENCODER, NUM_TOUCHPAD>,
+        behavior: &mut crate::config::BehaviorConfig,
+    ) -> Result<(), SSError<F::Error>> {
+        // Use fetch_all_items to speed up the keymap reading
+        let mut key_iterator = self.flash.fetch_all_items(&mut self.buffer).await?;
+
+<<<<<<<
+        // Read all keymap keys and encoder configs
+        while let Some((key, value)) = key_iterator.next::<StorageValue>(&mut self.buffer).await? {
+=======
+        // Which profile slots storage spoke for, so a slot whose profile was stored without a
+        // name gets a generated one below, while a stored empty name still means "vacant".
+        let mut stored_profile = [false; crate::MAX_MORSE_PROFILES];
+        let mut stored_name = [false; crate::MAX_MORSE_PROFILES];
+
+        let mut records_read = 0u32;
+        while let Some((key, value)) = key_iterator
+            .next::<StorageValue>(&mut self.buffer)
+            .await
+            .map_err(|e| print_storage_error::<F>(e))?
+        {
+>>>>>>>
+            match (key, value) {
+                (StorageKey::KeymapSegment { layer, row, col }, StorageValue::KeymapSegment(actions)) => {
+                    // A store written for another geometry keeps what still fits.
+                    if let Some(cells) = data
+                        .keymap
+                        .get_mut(layer as usize)
+                        .and_then(|layer| layer.get_mut(row as usize))
+                        .and_then(|row| row.get_mut(col as usize..))
+                    {
+                        for (cell, action) in cells.iter_mut().zip(actions) {
+                            *cell = action;
+                        }
+                    }
+                }
+                (StorageKey::Encoder { layer, idx }, StorageValue::EncoderAction(action)) => {
+                    let idx = idx as usize;
+                    let layer = layer as usize;
+                    if layer < NUM_LAYER && idx < NUM_ENCODER {
+                        data.encoder_map[layer][idx] = action;
+                    }
+                }
+                // Restore the default (base) layer set via a `PDF` key
+                (StorageKey::DefaultLayer, StorageValue::DefaultLayer(layer)) => behavior.default_layer = layer,
+                // Restore the VIA/Vial layout options selection
+                (StorageKey::LayoutOption, StorageValue::LayoutOption(option)) => data.layout_option = option,
+                (StorageKey::UnicodeMode, StorageValue::UnicodeMode(mode)) => behavior.unicode.mode = mode,
+                (StorageKey::MacroChunk(idx), StorageValue::MacroChunk(bytes)) => {
+                    if let Some(chunk) = data.macros.as_chunks_mut::<MACRO_CHUNK_SIZE>().0.get_mut(idx as usize) {
+                        *chunk = bytes;
+                        data.macros_stored = true;
+                    }
+                }
+                (StorageKey::BehaviorConfig, StorageValue::BehaviorConfig(c)) => {
+                    behavior.morse.prior_idle_time = Duration::from_millis(c.prior_idle_time as u64);
+                    behavior.morse.default_profile = c.morse_default_profile;
+                    behavior.combo.timeout = Duration::from_millis(c.combo_timeout as u64);
+                    behavior.one_shot.timeout = Duration::from_millis(c.one_shot_timeout as u64);
+                    behavior.tap.tap_interval = c.tap_interval;
+                    behavior.tap.tap_capslock_interval = c.tap_capslock_interval;
+                }
+                (StorageKey::AutoMouseLayerConfigs, StorageValue::AutoMouseLayerConfigs(configs)) => {
+                    behavior.runtime_auto_mouse_layer = Some(configs);
+                }
+                (StorageKey::BehaviorOptions, StorageValue::BehaviorOptions(options)) => {
+                    behavior.tri_layer = options.tri_layer;
+                    behavior.combo.prior_idle_time =
+                        options.combo_prior_idle_ms.map(|ms| Duration::from_millis(ms as u64));
+                    behavior.one_shot_modifiers.activate_on_keypress = options.oneshot_activate_on_keypress;
+                    behavior.one_shot_modifiers.quick_release = options.oneshot_quick_release;
+                    behavior.morse.enable_flow_tap = options.morse_enable_flow_tap;
+                }
+                (StorageKey::Combo(idx), StorageValue::Combo(config)) => {
+                    if let Some(slot) = behavior.combo.combos.get_mut(idx as usize) {
+                        *slot =
+                            (!config.actions.is_empty() || config.output != KeyAction::No).then(|| Combo::new(config));
+                    }
+                }
+                (StorageKey::Combo(idx), StorageValue::PositionCombo(config)) => {
+                    if let Some(slot) = behavior.combo.combos.get_mut(idx as usize) {
+                        *slot = (!config.positions.is_empty() || config.output != KeyAction::No)
+                            .then(|| Combo::new_positions(config));
+                    }
+                }
+                (StorageKey::Fork(idx), StorageValue::Fork(fork)) => {
+                    if let Some(slot) = behavior.fork.forks.get_mut(idx as usize) {
+                        *slot = fork;
+                    }
+                }
+                (StorageKey::Morse(idx), StorageValue::Morse(morse)) => {
+                    if let Some(slot) = behavior.morse.morses.get_mut(idx as usize) {
+                        *slot = morse;
+                    }
+                }
+                // Absent means no pointing policy at all, so only a stored one seeds the pads.
+                #[cfg(feature = "rynk")]
+                (StorageKey::PointingConfig, StorageValue::PointingConfig(config)) => {
+                    crate::input_device::pointing_config::init(Some(config)).await;
+                }
+                (StorageKey::MorseHoldTriggerPositions, StorageValue::MorseHoldTriggerPositions(positions)) => {
+                    behavior.morse.hold_trigger_positions = positions;
+                }
+                // The table is only as long as `keyboard.toml` made it, so a stored slot beyond
+                // its end grows it, the same growth the setter does at runtime.
+                (StorageKey::MorseProfile(idx), StorageValue::MorseProfile(profile)) => {
+                    let idx = idx as usize;
+                    let profiles = &mut behavior.morse.profiles;
+                    if idx < profiles.capacity() {
+                        if idx >= profiles.len() {
+                            profiles.resize(idx + 1, MorseProfile::default()).ok();
+                        }
+                        profiles[idx] = profile;
+                        stored_profile[idx] = true;
+                    }
+                }
+                (StorageKey::MorseProfileName(idx), StorageValue::MorseProfileName(name)) => {
+                    let idx = idx as usize;
+                    let morse = &mut behavior.morse;
+                    if idx < morse.profiles.capacity() {
+                        if idx >= morse.profiles.len() {
+                            morse.profiles.resize(idx + 1, MorseProfile::default()).ok();
+                        }
+                        if idx >= morse.profile_names.len() {
+                            morse.profile_names.resize(idx + 1, MorseProfileName::new()).ok();
+                        }
+                        morse.profile_names[idx] = name;
+                        stored_name[idx] = true;
+                    }
+                }
+                _ => {}
+            }
+
+            records_read += 1;
+            if records_read.is_multiple_of(32) {
+                // Memory-mapped flash can keep every read ready, so let other tasks run.
+                yield_now().await;
+            }
+        }
+
+        // A profile written before names existed occupies its slot under a generated name.
+        for idx in 0..crate::MAX_MORSE_PROFILES {
+            let names = &mut behavior.morse.profile_names;
+            if stored_profile[idx] && !stored_name[idx] && names.get(idx).is_none_or(|name| name.is_empty()) {
+                let mut name = MorseProfileName::new();
+                write!(name, "profile_{idx:03}").expect("generated profile name fits");
+                if idx >= names.len() {
+                    names.resize(idx + 1, MorseProfileName::new()).ok();
+                }
+                names[idx] = name;
+            }
+        }
+
+        Ok(())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use rmk_types::action::{Action, KeyAction};
+    use rmk_types::combo::{MatrixPosition, PositionCombo};
+    use rmk_types::keycode::{HidKeyCode, KeyCode};
+    use rmk_types::morse::{HOLD, Morse, MorseMode, MorsePattern, MorseProfile, TAP};
+    use sequential_storage::map::Value;
+
+    use super::*;
+
+    #[test]
+    fn storage_round_trips_legacy_and_position_combo_variants() {
+        let legacy = rmk_types::combo::Combo::new([KeyAction::No], KeyAction::No, 1 << 1);
+        let position = PositionCombo::new([MatrixPosition { row: 2, col: 3 }], KeyAction::No, 1 << 1);
+
+        let mut legacy_buffer = [0u8; 128];
+        let legacy_len = Value::serialize_into(&StorageValue::Combo(legacy.clone()), &mut legacy_buffer).unwrap();
+        assert_eq!(
+            &legacy_buffer[..legacy_len],
+            &[8, 0, 0, 2],
+            "the persisted legacy Combo discriminant and payload must remain unchanged"
+        );
+
+        for expected in [StorageValue::Combo(legacy), StorageValue::PositionCombo(position)] {
+            let mut buffer = [0u8; 128];
+            let len = Value::serialize_into(&expected, &mut buffer).unwrap();
+            let (actual, consumed) = StorageValue::deserialize_from(&buffer[..len]).unwrap();
+            assert_eq!(consumed, len);
+            match (expected, actual) {
+                (StorageValue::Combo(expected), StorageValue::Combo(actual)) => assert_eq!(actual, expected),
+                (StorageValue::PositionCombo(expected), StorageValue::PositionCombo(actual)) => {
+                    assert_eq!(actual, expected)
+                }
+                _ => panic!("combo storage variant changed during round trip"),
+            }
+        }
+    }
+
+    /// Every shape of `Morse` a host can write has to survive the round trip:
+    /// Vial's four fixed actions, a partly filled table, and raw morse patterns.
+    #[test]
+    fn morse_round_trips_through_a_storage_value() {
+        let key = |k| Action::Key(KeyCode::Hid(k));
+
+        let vial = Morse::new_from_vial(
+            key(HidKeyCode::A),
+            key(HidKeyCode::B),
+            key(HidKeyCode::C),
+            key(HidKeyCode::D),
+            MorseProfile::new(Some(true), Some(MorseMode::PermissiveHold), Some(190), Some(180)),
+        );
+
+        let mut partial = Morse::default();
+        _ = partial.put(TAP, key(HidKeyCode::A));
+        _ = partial.put(HOLD, key(HidKeyCode::B));
+
+        let mut patterns = Morse {
+            profile: MorseProfile::new(Some(false), Some(MorseMode::HoldOnOtherPress), Some(210), Some(220)),
+            actions: heapless::LinearMap::default(),
+        };
+        for (pattern, k) in [
+            (0b1_01, HidKeyCode::A),
+            (0b1_1000, HidKeyCode::B),
+            (0b1_1010, HidKeyCode::C),
+        ] {
+            patterns.actions.insert(MorsePattern::from_u16(pattern), key(k)).ok();
+        }
+
+        for morse in [vial, partial, patterns] {
+            let mut buffer = [0u8; 64];
+            let size = Value::serialize_into(&StorageValue::Morse(morse.clone()), &mut buffer).unwrap();
+            let StorageValue::Morse(decoded) = StorageValue::deserialize_from(&buffer[..size]).unwrap().0 else {
+                panic!("decoded as another variant");
+            };
+            assert_eq!(decoded.actions, morse.actions);
+            assert_eq!(decoded.profile, morse.profile);
+        }
+    }
+}
