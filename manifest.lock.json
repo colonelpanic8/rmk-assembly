@@ -17,7 +17,7 @@
       "feat/lighting-rules": "b236d4f96e9508def62c66734eb636c1d644ea48",
       "feat/lighting-table-capacity": "74372658f0288d995e1d06eda24d8ddf27122a04",
       "feat/maintenance-mode": "faf7c795b5ecbc43ea0432efa85dc649e9468950",
-      "feat/morse-default-permissive-hold": "261d0eb2f19a641991c9b383d2a98fb3d776b518",
+      "feat/morse-default-permissive-hold": "4990607165814b1fc6b7424b824eebc976eaff9a",
       "feat/morse-hold-trigger-on-release": "009296a252374897392ef8ebe50e856e47b90ac1",
       "feat/morse-hold-trigger-positions": "37bff5bd0d964f80d49e372368b5ca100acade52",
       "feat/morse-per-profile-prior-idle": "ddd6a20fbd854d1c5fb3e7493359c8fce555070a",
@@ -41,7 +41,7 @@
       "fold/connection-selection": "f0a989e66ffd16311be4e7023f3d2018abf5cb76",
       "fold/macro-hooks": "5c10b08da66e3486e22faefbeedad256e5207669",
       "fold/opposite-hand-hold": "aa87c053677587164265fc3a6fdb45f85920f8cb",
-      "fold/pointing-runtime-config-pinned": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd",
+      "fold/pointing-runtime-config-pinned": "92aa94551d881b25c4a9b03c7de66859ca61ca0a",
       "fold/runtime-behavior-parity": "ed46d6874560405d3275ac2e632cc10605ba190c",
       "fold/split-reliability": "78dfc67b909466381cfac0ae2f517db9f96ab55a",
       "fold/unicode-input": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc",
@@ -54,13 +54,13 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-26T03:06:27.258707608+00:00",
+    "generated": "2026-11-26T04:15:25.081710386+00:00",
     "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
-    "commit": "66c5a3a8dba4bd781897afafc13e5c8e59831270",
-    "pre_provenance_commit": "66c5a3a8dba4bd781897afafc13e5c8e59831270",
-    "tree": "419b338a903202d4e27da0d50608a629bf55ecee",
-    "built_tree": "419b338a903202d4e27da0d50608a629bf55ecee",
-    "previous_tree": "4a4c8876f25d4fa14f33c7eb22b23b0c12eefc09",
+    "commit": "9a27fb859d2b019d58110cde71223305766ea69d",
+    "pre_provenance_commit": "9a27fb859d2b019d58110cde71223305766ea69d",
+    "tree": "a2039a3f51bcec66df644ff87c2da431dfaf6414",
+    "built_tree": "a2039a3f51bcec66df644ff87c2da431dfaf6414",
+    "previous_tree": "419b338a903202d4e27da0d50608a629bf55ecee",
     "tree_changed": true,
     "conflicts": 26,
     "manifest_entries": [
@@ -172,7 +172,7 @@
         "name": "fold/pointing-runtime-config-pinned",
         "kind": "branch",
         "source": "fork:fold/pointing-runtime-config-pinned",
-        "pin": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd"
+        "pin": "92aa94551d881b25c4a9b03c7de66859ca61ca0a"
       },
       {
         "name": "fold/runtime-behavior-parity",
@@ -310,7 +310,7 @@
         "name": "feat/morse-default-permissive-hold",
         "kind": "branch",
         "source": "fork:feat/morse-default-permissive-hold",
-        "pin": "261d0eb2f19a641991c9b383d2a98fb3d776b518"
+        "pin": "4990607165814b1fc6b7424b824eebc976eaff9a"
       },
       {
         "name": "feat/auto-switch-transport",
@@ -534,12 +534,12 @@
       },
       {
         "name": "fold/pointing-runtime-config-pinned",
-        "oid": "7b2acd6b8a5dbfb03a9d245bf28dd5a03bcf5bfd",
+        "oid": "92aa94551d881b25c4a9b03c7de66859ca61ca0a",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
-          "8f976b3cc382c5c1870db0c134206fa079851f6b",
           "91b49fc43fedc8728c6e3c347a8585b58e8bb211",
+          "96ea039114147431c68af75d2b1dd47572a37cfd",
           "9d227011263c6a05c0196efcd90eb46b2436f86c",
           "a2551d54c01d6566227a7810f9a75d455d755d9b",
           "a3a6b17d96a9cbf3867d64a622d5ae422ddeb12d",
@@ -838,7 +838,7 @@
       },
       {
         "name": "feat/morse-default-permissive-hold",
-        "oid": "261d0eb2f19a641991c9b383d2a98fb3d776b518",
+        "oid": "4990607165814b1fc6b7424b824eebc976eaff9a",
         "status": "merged",
         "conflicted": true,
         "resolutions": [

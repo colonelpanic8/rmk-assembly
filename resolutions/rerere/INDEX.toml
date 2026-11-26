@@ -831,15 +831,15 @@ recorded = "2026-10-22T19:01:43.161669201+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
-hash = "8f976b3cc382c5c1870db0c134206fa079851f6b"
-paths = ["rmk/src/storage/mod.rs"]
-recorded = "2026-10-22T18:57:29.803801429+00:00"
-
-[[resolution]]
-entry = "fold/pointing-runtime-config-pinned"
 hash = "91b49fc43fedc8728c6e3c347a8585b58e8bb211"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
 recorded = "2026-11-25T08:37:40.928478944+00:00"
+
+[[resolution]]
+entry = "fold/pointing-runtime-config-pinned"
+hash = "96ea039114147431c68af75d2b1dd47572a37cfd"
+paths = ["rmk/src/storage/mod.rs"]
+recorded = "2026-11-26T04:15:20.655602566+00:00"
 
 [[resolution]]
 entry = "fold/pointing-runtime-config-pinned"
