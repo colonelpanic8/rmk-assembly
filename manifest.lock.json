@@ -54,15 +54,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-26T03:03:21.245294212+00:00",
+    "generated": "2026-11-26T03:06:27.258707608+00:00",
     "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
-    "commit": "29e2b1849ba605e54f5d01029803148e4d48878f",
-    "pre_provenance_commit": "29e2b1849ba605e54f5d01029803148e4d48878f",
-    "tree": "4a4c8876f25d4fa14f33c7eb22b23b0c12eefc09",
-    "built_tree": "4a4c8876f25d4fa14f33c7eb22b23b0c12eefc09",
-    "previous_tree": "07fa06e5e5f612dd0dd56d5a55ead7f2ae12b4a4",
+    "commit": "66c5a3a8dba4bd781897afafc13e5c8e59831270",
+    "pre_provenance_commit": "66c5a3a8dba4bd781897afafc13e5c8e59831270",
+    "tree": "419b338a903202d4e27da0d50608a629bf55ecee",
+    "built_tree": "419b338a903202d4e27da0d50608a629bf55ecee",
+    "previous_tree": "4a4c8876f25d4fa14f33c7eb22b23b0c12eefc09",
     "tree_changed": true,
-    "conflicts": 25,
+    "conflicts": 26,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -232,7 +232,7 @@
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
         "pin": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
-        "fixup": "f30199de10cec70636142b397def9f126b482a3d"
+        "fixup": "c2f1e6f973b394bd383a1f057e71db2a7a69ba3a"
       },
       {
         "name": "feat/device-data",
@@ -700,7 +700,7 @@
           "f36f25b38add34d8d3459a7a4a9636cec2d280ec",
           "fde6bdf886f091487c23840f6f87d166d5280824"
         ],
-        "fixup": "f30199de10cec70636142b397def9f126b482a3d"
+        "fixup": "c2f1e6f973b394bd383a1f057e71db2a7a69ba3a"
       },
       {
         "name": "feat/device-data",
@@ -917,8 +917,8 @@
       {
         "name": "feat/hid-hires-scroll",
         "oid": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
-        "status": "empty",
-        "conflicted": false,
+        "status": "merged",
+        "conflicted": true,
         "resolutions": [
           "fd4749c045a061361c767e9aeed0bf48bb69de2c"
         ],

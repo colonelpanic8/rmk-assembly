@@ -83,3 +83,22 @@ index d458823e8..4398c5823 100644
 +SetSplitCentralLatency reply Err(Invalid)  06 10 07 01 01 05 00
 +SetSplitCentralLatency reply Ok(state)     04 10 07 01 01 06 04 01 02 01 02 00
 +SetSplitCentralLatency request policy      04 10 07 01 04 04 01 02 00
+diff --git a/rmk/src/split/serial/mod.rs b/rmk/src/split/serial/mod.rs
+--- a/rmk/src/split/serial/mod.rs
++++ b/rmk/src/split/serial/mod.rs
+@@ -2013,12 +2013,14 @@
+                     assert_eq!(key, KeyboardEvent::key(0, 0, pressed));
+                 }
+                 let layer = session as u8;
++                let state = crate::split::SplitLayerState::new(layer, 0, 1 | (1 << layer));
++                crate::split::update_layer_state(state);
+                 publish_event(LayerChangeEvent::new(layer));
+                 settled("the layer reaches the peripheral", || {
+                     log.borrow()
+                         .received
+                         .iter()
+-                        .any(|m| matches!(m, SplitMessage::Layer(l) if *l == layer))
++                        .any(|m| matches!(m, SplitMessage::LayerState(actual) if *actual == state))
+                 })
+                 .await;
+             }
