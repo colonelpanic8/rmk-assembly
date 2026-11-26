@@ -1,21 +1,21 @@
 {
   "version": 1,
   "pins": {
-    "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
+    "base": "6e1e7d32ef615dfa913e6df9eca1e6cedcdc75b5",
     "entries": {
       "feat/auto-switch-transport": "9a86ff854b8f3cdae8ef4d0a5b88d3a139e48b1a",
       "feat/ble-advertising-backoff": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d",
-      "feat/ble-name-template": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
+      "feat/ble-name-template": "602072e9025cb5d18439c3a00008cfa7d0f3517c",
       "feat/ble-profile-clear-api": "9f5cf3a0fdf2c665bb40715f46242241d3459826",
       "feat/combo-hold-output": "d256bce44d0117aa8c462132ed59eece621ba1aa",
       "feat/consumer-keycodes": "d04e31e16e1b2daf801675fbd698b19533d0d89c",
       "feat/ctrl-gui-swap": "57ad473451cc586c58368e0cc88d82c8a721feea",
       "feat/device-data": "b5a3bb47e57fc7c790dea2d1a0bb43c5e7352575",
-      "feat/hid-hires-scroll": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
+      "feat/hid-hires-scroll": "5a90982f77aa024838e91264d1b17d5a4ca230af",
       "feat/keymap-row-storage": "bb9fc32b245d30e9aa8f902f25b8ed7305e9458c",
-      "feat/lighting-layer-indicator-conditions": "0f7c9672a5c839474c674c482fa25df6d12664c9",
-      "feat/lighting-rules": "b236d4f96e9508def62c66734eb636c1d644ea48",
-      "feat/lighting-table-capacity": "74372658f0288d995e1d06eda24d8ddf27122a04",
+      "feat/lighting-layer-indicator-conditions": "2688a54224cad23866bd285bc90e2c6ad352f1ba",
+      "feat/lighting-rules": "4d9d4c8e765e0ba4832d25c51d0f914c2b54185f",
+      "feat/lighting-table-capacity": "0ae6485389be67293c6468a27566def5d25a1191",
       "feat/maintenance-mode": "faf7c795b5ecbc43ea0432efa85dc649e9468950",
       "feat/morse-default-permissive-hold": "4990607165814b1fc6b7424b824eebc976eaff9a",
       "feat/morse-hold-trigger-on-release": "009296a252374897392ef8ebe50e856e47b90ac1",
@@ -24,10 +24,10 @@
       "feat/morse-retro-tap": "8dab9b5ee724701630c0259c034de108fe5136bc",
       "feat/morse-tap-unless-interrupted": "8e1c1f9703e5add320d73a27ecc96fb9975ca6e8",
       "feat/morse-unilateral-mod-chording": "87b74005308050a62e9de99a70a1fe59f8e389ef",
-      "feat/nrf-half-duplex-split": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
-      "feat/persist-key-lighting": "84248013dc09782a5434103cc8f793ac2c7268d7",
-      "feat/persist-lighting-output": "8c2de91e47197eaf598459ba9114be04ac1c2fc7",
-      "feat/persistent-layer-metadata": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
+      "feat/nrf-half-duplex-split": "62a9d65076a88017c40e13e5c40743e4322d4c71",
+      "feat/persist-key-lighting": "e90fe1812ae2f8b82432607928e23ac6eb4096a6",
+      "feat/persist-lighting-output": "2f6d2f82a0943dade41c1145c2a34ea4a8686d0f",
+      "feat/persistent-layer-metadata": "7c451bcc5ccc0eb866d9767d7a2dad78d157ee1e",
       "feat/pointer-layer-scaling": "f03defe4288a6482eb74bf0b61e78b2810dc8c6b",
       "feat/pointing-drag-mode": "76722741181e798842fb862d276a8f8128660f61",
       "feat/single-pass-storage-read": "42e042ccea2db91da6cd1d8dce87448e65f74cb3",
@@ -53,7 +53,7 @@
       "fold/runtime-behavior-parity": "ed46d6874560405d3275ac2e632cc10605ba190c",
       "fold/split-reliability": "78dfc67b909466381cfac0ae2f517db9f96ab55a",
       "fold/unicode-input": "29e1bfb43be65ebe266885b8b58cc8fbaf6805cc",
-      "pr-1031": "2eada14e70465a097f5dd0c8deac60496a3002e5",
+      "pr-1031": "2c1b3f2c1abf560bfe14e0c86ed2f809ee7c0d1e",
       "pr-1487": "9c0cb48bc02d3e7688ae6d7c51f5cd33a11cc3bc",
       "pr-1488": "3e793d62fbbed71d4bc0cce16279430bef61135e",
       "pr-984": "19000cd6d59a8a60d80058dd9d853c091d682c3f",
@@ -62,13 +62,13 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-26T05:23:11.350554419+00:00",
-    "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
-    "commit": "482b6d9e6b2fb4500ab91806b57fb63258d60f48",
-    "pre_provenance_commit": "482b6d9e6b2fb4500ab91806b57fb63258d60f48",
-    "tree": "92b0659032a8b24302bb5213762f54952ace9380",
-    "built_tree": "92b0659032a8b24302bb5213762f54952ace9380",
-    "previous_tree": "d636c8140238f779889440c224d23aa28138ae75",
+    "generated": "2026-11-26T23:26:53.182920148+00:00",
+    "base": "6e1e7d32ef615dfa913e6df9eca1e6cedcdc75b5",
+    "commit": "eb3138b457e0eae4feb0b58b9d0e0fce08eb337d",
+    "pre_provenance_commit": "eb3138b457e0eae4feb0b58b9d0e0fce08eb337d",
+    "tree": "9509e3b13999b15d018a21c5d68991e92b502a29",
+    "built_tree": "9509e3b13999b15d018a21c5d68991e92b502a29",
+    "previous_tree": "92b0659032a8b24302bb5213762f54952ace9380",
     "tree_changed": true,
     "conflicts": 29,
     "manifest_entries": [
@@ -88,7 +88,7 @@
         "name": "pr-1031",
         "kind": "pr",
         "source": "upstream#1031",
-        "pin": "2eada14e70465a097f5dd0c8deac60496a3002e5",
+        "pin": "2c1b3f2c1abf560bfe14e0c86ed2f809ee7c0d1e",
         "fixup": "97181240c08c1ef3ce89fbb8d0489000ba9028b8"
       },
       {
@@ -206,7 +206,7 @@
         "name": "feat/ble-name-template",
         "kind": "branch",
         "source": "fork:feat/ble-name-template",
-        "pin": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
+        "pin": "602072e9025cb5d18439c3a00008cfa7d0f3517c",
         "fixup": "dd923620405ee3fae0387e02815e3fec6a18a2f8"
       },
       {
@@ -239,8 +239,8 @@
         "name": "feat/nrf-half-duplex-split",
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
-        "pin": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
-        "fixup": "c2f1e6f973b394bd383a1f057e71db2a7a69ba3a"
+        "pin": "62a9d65076a88017c40e13e5c40743e4322d4c71",
+        "fixup": "957bc16c35335f97e7eb0d6bd61e0f78e2762f54"
       },
       {
         "name": "feat/device-data",
@@ -259,7 +259,7 @@
         "name": "feat/persistent-layer-metadata",
         "kind": "branch",
         "source": "fork:feat/persistent-layer-metadata",
-        "pin": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
+        "pin": "7c451bcc5ccc0eb866d9767d7a2dad78d157ee1e",
         "fixup": "2d875a39f60861106aec26236dc441b30701f11a"
       },
       {
@@ -279,7 +279,7 @@
         "name": "feat/lighting-layer-indicator-conditions",
         "kind": "branch",
         "source": "fork:feat/lighting-layer-indicator-conditions",
-        "pin": "0f7c9672a5c839474c674c482fa25df6d12664c9",
+        "pin": "2688a54224cad23866bd285bc90e2c6ad352f1ba",
         "fixup": "442942504285e8c6a43e0a686e2417ac93320810"
       },
       {
@@ -305,7 +305,7 @@
         "name": "feat/lighting-rules",
         "kind": "branch",
         "source": "fork:feat/lighting-rules",
-        "pin": "b236d4f96e9508def62c66734eb636c1d644ea48",
+        "pin": "4d9d4c8e765e0ba4832d25c51d0f914c2b54185f",
         "fixup": "e0014734ae29f3f181d516b5553c94d1461685aa"
       },
       {
@@ -337,13 +337,13 @@
         "name": "feat/persist-key-lighting",
         "kind": "branch",
         "source": "fork:feat/persist-key-lighting",
-        "pin": "84248013dc09782a5434103cc8f793ac2c7268d7"
+        "pin": "e90fe1812ae2f8b82432607928e23ac6eb4096a6"
       },
       {
         "name": "feat/lighting-table-capacity",
         "kind": "branch",
         "source": "fork:feat/lighting-table-capacity",
-        "pin": "74372658f0288d995e1d06eda24d8ddf27122a04"
+        "pin": "0ae6485389be67293c6468a27566def5d25a1191"
       },
       {
         "name": "feat/keymap-row-storage",
@@ -355,7 +355,7 @@
         "name": "feat/persist-lighting-output",
         "kind": "branch",
         "source": "fork:feat/persist-lighting-output",
-        "pin": "8c2de91e47197eaf598459ba9114be04ac1c2fc7"
+        "pin": "2f6d2f82a0943dade41c1145c2a34ea4a8686d0f"
       },
       {
         "name": "pr-1487",
@@ -368,7 +368,7 @@
         "name": "feat/hid-hires-scroll",
         "kind": "branch",
         "source": "fork:feat/hid-hires-scroll",
-        "pin": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
+        "pin": "5a90982f77aa024838e91264d1b17d5a4ca230af",
         "fixup": "4c37733cd81cb243f5456a49a3420144c60f7243"
       },
       {
@@ -438,7 +438,7 @@
       },
       {
         "name": "pr-1031",
-        "oid": "2eada14e70465a097f5dd0c8deac60496a3002e5",
+        "oid": "2c1b3f2c1abf560bfe14e0c86ed2f809ee7c0d1e",
         "status": "merged",
         "conflicted": false,
         "resolutions": [],
@@ -671,7 +671,7 @@
       },
       {
         "name": "feat/ble-name-template",
-        "oid": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
+        "oid": "602072e9025cb5d18439c3a00008cfa7d0f3517c",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -739,7 +739,7 @@
       },
       {
         "name": "feat/nrf-half-duplex-split",
-        "oid": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
+        "oid": "62a9d65076a88017c40e13e5c40743e4322d4c71",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -757,7 +757,7 @@
           "f36f25b38add34d8d3459a7a4a9636cec2d280ec",
           "fde6bdf886f091487c23840f6f87d166d5280824"
         ],
-        "fixup": "c2f1e6f973b394bd383a1f057e71db2a7a69ba3a"
+        "fixup": "957bc16c35335f97e7eb0d6bd61e0f78e2762f54"
       },
       {
         "name": "feat/device-data",
@@ -786,14 +786,13 @@
       },
       {
         "name": "feat/persistent-layer-metadata",
-        "oid": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
+        "oid": "7c451bcc5ccc0eb866d9767d7a2dad78d157ee1e",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "0c55428db4800a65282d49db8d5d6c64c6af324d",
           "0f7db594ff6217e54a6a89d4b94eb3405da7cbeb",
           "1ecee8ff3a0de29eb27db1f0aacf7f443fe1c883",
-          "3f13e976aeaf42269bbd07a05a5b8848d8580797",
           "57b5277a6a43ab695e6b1d9a9751eb7cedc5148c",
           "73083c44631e20fb8dcd886333e680645a8407f9",
           "7a3b981ea7b2612efa20c8c148b3fb8e20aac0be",
@@ -822,7 +821,7 @@
       },
       {
         "name": "feat/lighting-layer-indicator-conditions",
-        "oid": "0f7c9672a5c839474c674c482fa25df6d12664c9",
+        "oid": "2688a54224cad23866bd285bc90e2c6ad352f1ba",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -864,7 +863,7 @@
       },
       {
         "name": "feat/lighting-rules",
-        "oid": "b236d4f96e9508def62c66734eb636c1d644ea48",
+        "oid": "4d9d4c8e765e0ba4832d25c51d0f914c2b54185f",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
@@ -929,14 +928,14 @@
       },
       {
         "name": "feat/persist-key-lighting",
-        "oid": "84248013dc09782a5434103cc8f793ac2c7268d7",
+        "oid": "e90fe1812ae2f8b82432607928e23ac6eb4096a6",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
       },
       {
         "name": "feat/lighting-table-capacity",
-        "oid": "74372658f0288d995e1d06eda24d8ddf27122a04",
+        "oid": "0ae6485389be67293c6468a27566def5d25a1191",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -950,7 +949,7 @@
       },
       {
         "name": "feat/persist-lighting-output",
-        "oid": "8c2de91e47197eaf598459ba9114be04ac1c2fc7",
+        "oid": "2f6d2f82a0943dade41c1145c2a34ea4a8686d0f",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -973,7 +972,7 @@
       },
       {
         "name": "feat/hid-hires-scroll",
-        "oid": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
+        "oid": "5a90982f77aa024838e91264d1b17d5a4ca230af",
         "status": "merged",
         "conflicted": true,
         "resolutions": [

@@ -651,12 +651,6 @@ recorded = "2026-11-25T21:30:46.100913953+00:00"
 
 [[resolution]]
 entry = "feat/persistent-layer-metadata"
-hash = "3f13e976aeaf42269bbd07a05a5b8848d8580797"
-paths = ["rmk-macro/src/codegen/orchestrator.rs"]
-recorded = "2026-10-10T02:22:16.039888028+00:00"
-
-[[resolution]]
-entry = "feat/persistent-layer-metadata"
 hash = "57b5277a6a43ab695e6b1d9a9751eb7cedc5148c"
 paths = ["rmk-types/src/protocol/rynk/tests.rs"]
 recorded = "2026-10-10T02:22:16.039888819+00:00"
