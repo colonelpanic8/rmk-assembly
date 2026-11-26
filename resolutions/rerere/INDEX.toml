@@ -573,6 +573,12 @@ recorded = "2026-11-16T10:56:29.708225206+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
+hash = "7da8e3c9d4e1ff02e88931fee88ac79c8a67e710"
+paths = ["rmk/src/split/peripheral.rs"]
+recorded = "2026-11-26T03:03:02.339954543+00:00"
+
+[[resolution]]
+entry = "feat/nrf-half-duplex-split"
 hash = "9785f0b87b32b2ce6c04fda4d0d64043ecb7addc"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-11-25T08:48:29.004460548+00:00"
@@ -606,12 +612,6 @@ entry = "feat/nrf-half-duplex-split"
 hash = "e0dfa924679dffbc0b92a639280bb17ac8ce39e6"
 paths = ["rmk/src/split/mod.rs"]
 recorded = "2026-10-10T02:17:54.177217210+00:00"
-
-[[resolution]]
-entry = "feat/nrf-half-duplex-split"
-hash = "e176d2ab336fe5b7a4559425c0402065fea3cf00"
-paths = ["rmk/src/split/peripheral.rs"]
-recorded = "2026-11-16T10:56:29.708227981+00:00"
 
 [[resolution]]
 entry = "feat/nrf-half-duplex-split"
@@ -714,12 +714,6 @@ entry = "feat/position-combos"
 hash = "cd2af68afaca85c70431caaceb5f420e41452470"
 paths = ["docs/docs/main/docs/features/rynk.md"]
 recorded = "2026-08-09T22:57:55.078096812+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
-hash = "d7d2ded5d04a4b376f88c7e6764799188fd46d35"
-paths = ["rmk/tests/scenarios/combo.toml"]
-recorded = "2026-10-10T02:15:39.165256790+00:00"
 
 [[resolution]]
 entry = "fix/ephemeral-split-layer-state"
@@ -1074,6 +1068,12 @@ entry = "pr-1488"
 hash = "7bf05b9ce352c01d3e4b42d3b9ab362e3dd1dc1a"
 paths = ["docs/docs/main/docs/development/rynk_protocol.md"]
 recorded = "2026-11-25T08:46:27.494811813+00:00"
+
+[[resolution]]
+entry = "pr-1488"
+hash = "9c3c433e1dbdbf404b469165e5d62510a8416072"
+paths = ["rmk/tests/scenarios/combo.toml"]
+recorded = "2026-11-26T03:02:32.218497708+00:00"
 
 [[resolution]]
 entry = "pr-1488"

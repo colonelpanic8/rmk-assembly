@@ -14,7 +14,7 @@ use {
 };
 
 use super::SplitMessage;
-use super::driver::{SplitReader, SplitWriter};
+use super::driver::{SplitDriverError, SplitReader, SplitWriter};
 #[cfg(feature = "_ble")]
 use crate::ble::ExtAdvCmds;
 #[cfg(feature = "dfu_split")]
@@ -205,8 +205,6 @@ impl<S: SplitWriter + SplitReader> SplitPeripheral<S> {
             }
         }
 
-        // The loop only exits on disconnect.
-        app_link.send(false);
     }
 
     async fn handle_central_message(&mut self, split_message: SplitMessage) {

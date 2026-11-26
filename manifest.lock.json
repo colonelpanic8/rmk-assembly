@@ -7,7 +7,7 @@
       "feat/ble-advertising-backoff": "4e5758b362d9c479d69f506cb92cffa4ee4cd79d",
       "feat/ble-name-template": "bbea1b138dd3ea5bcca14d96f3d767d7244c2da6",
       "feat/ble-profile-clear-api": "9f5cf3a0fdf2c665bb40715f46242241d3459826",
-      "feat/combo-hold-output": "f7559a38f14dd1e6a7453dc54400003cc6b451b3",
+      "feat/combo-hold-output": "d256bce44d0117aa8c462132ed59eece621ba1aa",
       "feat/consumer-keycodes": "d04e31e16e1b2daf801675fbd698b19533d0d89c",
       "feat/ctrl-gui-swap": "57ad473451cc586c58368e0cc88d82c8a721feea",
       "feat/device-data": "b5a3bb47e57fc7c790dea2d1a0bb43c5e7352575",
@@ -24,7 +24,7 @@
       "feat/morse-retro-tap": "8dab9b5ee724701630c0259c034de108fe5136bc",
       "feat/morse-tap-unless-interrupted": "8e1c1f9703e5add320d73a27ecc96fb9975ca6e8",
       "feat/morse-unilateral-mod-chording": "87b74005308050a62e9de99a70a1fe59f8e389ef",
-      "feat/nrf-half-duplex-split": "66670bf9489805589a7c08ade264b3e98ba2dfac",
+      "feat/nrf-half-duplex-split": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
       "feat/persist-key-lighting": "84248013dc09782a5434103cc8f793ac2c7268d7",
       "feat/persist-lighting-output": "8c2de91e47197eaf598459ba9114be04ac1c2fc7",
       "feat/persistent-layer-metadata": "3754e9dd876f69b3a505817c43e5e83a329dbaa7",
@@ -54,15 +54,15 @@
   },
   "build": {
     "protocol": 1,
-    "generated": "2026-11-26T02:42:28.020679867+00:00",
+    "generated": "2026-11-26T03:03:21.245294212+00:00",
     "base": "76c9230cd72facd7f84c75d50fa3323915f15ffa",
-    "commit": "9750405a3a805250c2034cdc16f6484bdba76f44",
-    "pre_provenance_commit": "9750405a3a805250c2034cdc16f6484bdba76f44",
-    "tree": "07fa06e5e5f612dd0dd56d5a55ead7f2ae12b4a4",
-    "built_tree": "07fa06e5e5f612dd0dd56d5a55ead7f2ae12b4a4",
-    "previous_tree": "2aff110d78fd636974a1a2a3e2ff1ec0ec6f2d71",
+    "commit": "29e2b1849ba605e54f5d01029803148e4d48878f",
+    "pre_provenance_commit": "29e2b1849ba605e54f5d01029803148e4d48878f",
+    "tree": "4a4c8876f25d4fa14f33c7eb22b23b0c12eefc09",
+    "built_tree": "4a4c8876f25d4fa14f33c7eb22b23b0c12eefc09",
+    "previous_tree": "07fa06e5e5f612dd0dd56d5a55ead7f2ae12b4a4",
     "tree_changed": true,
-    "conflicts": 26,
+    "conflicts": 25,
     "manifest_entries": [
       {
         "name": "fold/macro-hooks",
@@ -112,7 +112,7 @@
         "name": "feat/combo-hold-output",
         "kind": "branch",
         "source": "fork:feat/combo-hold-output",
-        "pin": "f7559a38f14dd1e6a7453dc54400003cc6b451b3"
+        "pin": "d256bce44d0117aa8c462132ed59eece621ba1aa"
       },
       {
         "name": "feat/morse-retro-tap",
@@ -231,8 +231,8 @@
         "name": "feat/nrf-half-duplex-split",
         "kind": "branch",
         "source": "fork:feat/nrf-half-duplex-split",
-        "pin": "66670bf9489805589a7c08ade264b3e98ba2dfac",
-        "fixup": "ec20c73bb5f80eaaf4fe897e9f85120ab5529037"
+        "pin": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
+        "fixup": "f30199de10cec70636142b397def9f126b482a3d"
       },
       {
         "name": "feat/device-data",
@@ -424,7 +424,7 @@
       },
       {
         "name": "feat/combo-hold-output",
-        "oid": "f7559a38f14dd1e6a7453dc54400003cc6b451b3",
+        "oid": "d256bce44d0117aa8c462132ed59eece621ba1aa",
         "status": "merged",
         "conflicted": false,
         "resolutions": []
@@ -671,36 +671,36 @@
           "4a9e837790a5c66b50cc3e79a61a187fdd8cc32a",
           "519872d22eb643ea43cbd97429d70b93dd8ddbd3",
           "7bf05b9ce352c01d3e4b42d3b9ab362e3dd1dc1a",
+          "9c3c433e1dbdbf404b469165e5d62510a8416072",
           "a60c173cb2783f42932efd8e186b0423ffe9aa2e",
           "aaa3929062374dab4c93326d32c3bb30795731fb",
           "bfb76c523e1ffd579a8e849369e5752d97ef40c0",
           "cd2af68afaca85c70431caaceb5f420e41452470",
-          "d7d2ded5d04a4b376f88c7e6764799188fd46d35",
           "f33e6f76a61fab1e6aa740f499e37bb5f26e3c9e"
         ],
         "fixup": "b8e34725cc4d52d203cd786ac0ac227a82a54548"
       },
       {
         "name": "feat/nrf-half-duplex-split",
-        "oid": "66670bf9489805589a7c08ade264b3e98ba2dfac",
+        "oid": "868a10cfe35f485dcf894ecf1565d5916f833d4f",
         "status": "merged",
         "conflicted": true,
         "resolutions": [
           "27b5dfe79000752981392ba5cd5e399342f4c944",
           "4d47c2515b33637bdc55b3b1e483d6df9dfa37ab",
           "7c0498923c6fd0ceadd9015cdad8b0888a36ef27",
+          "7da8e3c9d4e1ff02e88931fee88ac79c8a67e710",
           "9785f0b87b32b2ce6c04fda4d0d64043ecb7addc",
           "afa87a0efd3171cddc06968275b552bf211fd35c",
           "be66c68fea8ae6f6d52941bb63084f8e4e81ced8",
           "d267e55fdab014134b67bb3fc9801119fadfc5dd",
           "d4e443eece99bb1583e7a553fe3c0517771059df",
           "e0dfa924679dffbc0b92a639280bb17ac8ce39e6",
-          "e176d2ab336fe5b7a4559425c0402065fea3cf00",
           "ed0b42dd422b962986c0e1abc219b64394c7bf4a",
           "f36f25b38add34d8d3459a7a4a9636cec2d280ec",
           "fde6bdf886f091487c23840f6f87d166d5280824"
         ],
-        "fixup": "ec20c73bb5f80eaaf4fe897e9f85120ab5529037"
+        "fixup": "f30199de10cec70636142b397def9f126b482a3d"
       },
       {
         "name": "feat/device-data",
@@ -917,8 +917,8 @@
       {
         "name": "feat/hid-hires-scroll",
         "oid": "7a6e473d03e208cdf2aa91deecd913fcbffd3994",
-        "status": "merged",
-        "conflicted": true,
+        "status": "empty",
+        "conflicted": false,
         "resolutions": [
           "fd4749c045a061361c767e9aeed0bf48bb69de2c"
         ],
