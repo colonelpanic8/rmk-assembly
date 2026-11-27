@@ -693,12 +693,6 @@ recorded = "2026-10-10T02:15:39.165252603+00:00"
 
 [[resolution]]
 entry = "feat/position-combos"
-hash = "a60c173cb2783f42932efd8e186b0423ffe9aa2e"
-paths = ["rmk-macro/src/codegen/behavior.rs"]
-recorded = "2026-08-09T22:57:55.078096040+00:00"
-
-[[resolution]]
-entry = "feat/position-combos"
 hash = "bfb76c523e1ffd579a8e849369e5752d97ef40c0"
 paths = ["rmk-types/src/protocol/rynk/command.rs"]
 recorded = "2026-10-10T02:15:39.165255878+00:00"
@@ -768,12 +762,6 @@ entry = "fix/storage-boot-read-error"
 hash = "1665e551cb6904791586548e33a5411d03f96a9d"
 paths = ["rmk/src/host/storage.rs"]
 recorded = "2026-11-26T05:16:50.823647872+00:00"
-
-[[resolution]]
-entry = "fold/combo-layers"
-hash = "07cbc201bd276e542fc6ac87c8c249638106ac36"
-paths = ["rmk-macro/src/codegen/behavior.rs"]
-recorded = "2026-11-25T07:23:14.426302889+00:00"
 
 [[resolution]]
 entry = "fold/combo-layers"
@@ -1029,6 +1017,12 @@ recorded = "2026-09-07T23:49:02.600106893+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
+hash = "0e25845e07c955f646106e166fa9c1f4131d5dbc"
+paths = ["rmk-macro/src/codegen/behavior.rs"]
+recorded = "2026-11-27T21:48:31.954226921+00:00"
+
+[[resolution]]
+entry = "fold/unicode-input"
 hash = "6570e8805d2c1ac63b0f77502448529289f63b89"
 paths = ["rmk/src/keymap.rs"]
 recorded = "2026-08-05T13:48:34.001728022+00:00"
@@ -1047,12 +1041,6 @@ recorded = "2026-08-05T15:54:07.074229745+00:00"
 
 [[resolution]]
 entry = "fold/unicode-input"
-hash = "ae5c8660f3724fdcdb934b51664a298f6096428a"
-paths = ["rmk-macro/src/codegen/behavior.rs"]
-recorded = "2026-08-05T15:54:07.074230677+00:00"
-
-[[resolution]]
-entry = "fold/unicode-input"
 hash = "c67ce61194ae696638a677c154a715eaabf09433"
 paths = ["rmk/src/config/mod.rs"]
 recorded = "2026-10-10T02:03:16.484247271+00:00"
@@ -1068,6 +1056,12 @@ entry = "fold/unicode-input"
 hash = "db21eb57e7e844882200e2168563e911bbdb532e"
 paths = ["rmk/src/keyboard.rs"]
 recorded = "2026-08-05T13:48:34.001728853+00:00"
+
+[[resolution]]
+entry = "pr-1487"
+hash = "04634aa04bf023bb5ceb00e68d3abca07652f0f8"
+paths = ["rmk-macro/src/codegen/behavior.rs"]
+recorded = "2026-11-27T21:49:18.312419259+00:00"
 
 [[resolution]]
 entry = "pr-1487"
@@ -1098,6 +1092,12 @@ entry = "pr-1488"
 hash = "aaa3929062374dab4c93326d32c3bb30795731fb"
 paths = ["rmk/src/storage/mod.rs"]
 recorded = "2026-11-25T08:46:27.494812154+00:00"
+
+[[resolution]]
+entry = "pr-1488"
+hash = "c04c6d4d95ce78ec74df3195e3642107aeb90391"
+paths = ["rmk-macro/src/codegen/behavior.rs"]
+recorded = "2026-11-27T21:48:58.290133962+00:00"
 
 [[resolution]]
 entry = "pr-1488"
